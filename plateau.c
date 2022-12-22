@@ -552,17 +552,56 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
         pt_sortir = tuile_en_plus;
     }
     else if(ligne==6){
+        //La colonne se déplace vers le HAUT. Pour plus de facilité, on commence par sortir la tuile du haut et on tire
+        //la colonne.
+        // on sort la tuile du haut.
+        copy_case(&labyrinthe[0][colonne], pt_sortir);
 
+        //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le haut).
+        for(i=0;i<=5;i++){
+            copy_case(&labyrinthe[i+1][colonne], &labyrinthe[i][colonne]);
+        }
 
+        //Maintenant on intègre la tuile en trop qui pousse la colonne.
+        copy_case(tuile_en_plus, &labyrinthe[6][colonne]);
+
+        ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+        pt_sortir = tuile_en_plus;
     }
     else{
         if(colonne == 0){
+            //La ligne se déplace vers la droite. Pour plus de facilité, on commence par sortir la tuile tout à droite
+            // et on tire la ligne.
+            // On sort la tuile de droite.
+            copy_case(&labyrinthe[ligne][6], pt_sortir);
 
+            //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la droite).
+            for(j=5;j>=0;j--){
+                copy_case(&labyrinthe[ligne][j], &labyrinthe[ligne][j+1]);
+            }
 
+            //Maintenant on intègre la tuile en trop qui pousse la colonne.
+            copy_case(tuile_en_plus, &labyrinthe[ligne][0]);
+
+            ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+            pt_sortir = tuile_en_plus;
         }
         else if(colonne == 6){
+            //La ligne se déplace vers la gauche. Pour plus de facilité, on commence par sortir la tuile tout à gauche
+            // et on tire la ligne.
+            // On sort la tuile de gauche.
+            copy_case(&labyrinthe[ligne][0], pt_sortir);
 
+            //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
+            for(j=0;j<=5;j++){
+                copy_case(&labyrinthe[ligne][j+1], &labyrinthe[ligne][j]);
+            }
 
+            //Maintenant on intègre la tuile en trop qui pousse la colonne.
+            copy_case(tuile_en_plus, &labyrinthe[ligne][6]);
+
+            ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+            pt_sortir = tuile_en_plus;
         }
     }
 }
