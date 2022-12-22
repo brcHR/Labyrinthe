@@ -549,7 +549,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
         copy_case(tuile_en_plus, &labyrinthe[0][colonne]);
 
         ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
-        pt_sortir = tuile_en_plus;
+        copy_case(pt_sortir,tuile_en_plus);
     }
     else if(ligne==6){
         //La colonne se déplace vers le HAUT. Pour plus de facilité, on commence par sortir la tuile du haut et on tire
@@ -566,7 +566,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
         copy_case(tuile_en_plus, &labyrinthe[6][colonne]);
 
         ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
-        pt_sortir = tuile_en_plus;
+        copy_case(pt_sortir,tuile_en_plus);
     }
     else{
         if(colonne == 0){
@@ -584,7 +584,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
             copy_case(tuile_en_plus, &labyrinthe[ligne][0]);
 
             ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
-            pt_sortir = tuile_en_plus;
+            copy_case(pt_sortir,tuile_en_plus);
         }
         else if(colonne == 6){
             //La ligne se déplace vers la gauche. Pour plus de facilité, on commence par sortir la tuile tout à gauche
@@ -601,7 +601,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
             copy_case(tuile_en_plus, &labyrinthe[ligne][6]);
 
             ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
-            pt_sortir = tuile_en_plus;
+            copy_case(pt_sortir,tuile_en_plus);
         }
     }
 }
