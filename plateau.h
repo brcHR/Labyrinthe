@@ -60,6 +60,15 @@ void del_1_occ(char *chaine, char lettre);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Procédure copiant une structure case dans une autre.
+void copy_case(t_case *source, t_case *destination);
+/*
+ * Paramètres : pointeur sur une case source && pointeur sur une case destination.
+ * Retourne : toutes les données de sources sont dans destination --> destination == source.
+ */
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 // La procédure suivante crée les tuiles avec leur chemin.
 void creation_type_case(t_case* tuile);
 /*
