@@ -414,14 +414,6 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                     //Modification de l'orientation.
                     tourner(pt_tuile, 90);
                 }
-
-
-
-
-
-
-
-
             }
 
             ///Maintenant, nous allons créer toutes les autres tuiles qui sont mobiles.
@@ -474,6 +466,26 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             }
         }
     }
+    ///Maintenant que tout le plateau a des tuiles, nous pouvons mainteant créer la tuile en plus.
+    pt_tuile->ligne = 7; //coordonnées impossibles
+    pt_tuile->colonne = 7;
+    pt_tuile->forme = all_types[0];
+    del_1_occ(all_types, pt_tuile->forme);
+    //Modification du tableau de la case.
+    creation_type_case(pt_tuile);
+    pt_tuile->fixe = 0;
+    if(tresors!=0){
+        pt_tuile->tresor = 1;
+        tresors -= 1;
+    }
+    else{
+        pt_tuile->tresor = 0;
+    }
+    pt_tuile->start_finish = 0;
+
+    //Modification de l'orientation.
+    //On la met à l'endroit car cette pièce va être tournée avant d'être jouée.
+    tourner(pt_tuile, 0);
 }
 
 
