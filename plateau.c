@@ -69,6 +69,26 @@ void del_1_occ(char *chaine, char lettre){
 
 
 /*
+ * Procédure permettant de copier une structure case dans une autre.
+ */
+
+void copy_case(t_case *source, t_case *destination){
+    int i,j;
+    destination->forme = source->forme;
+    destination->fixe = source->fixe;
+    destination->rotation = source->rotation;
+    destination->mini_case = source->mini_case;
+    destination->tresor = source->tresor;
+    destination->start_finish = source->start_finish;
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            destination->tableau[i][j] = source->tableau[i][j];
+        }
+    }
+}
+
+
+/*
  * Nous créons les chemins de base présents sur les tuiles.
  */
 
@@ -497,6 +517,18 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
 void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, int colonne){
     int i, j;
     t_case tuile_a_sortir;
+    t_case *pt_sortir = &tuile_a_sortir;
+
+    //On remplit de données inutiles car c'est juste une 'tuile' de transition.
+    pt_sortir->ligne = 7; //coordonnées impossibles
+    pt_sortir->colonne = 7;
+    pt_sortir->forme = 'W'; //Peu importe le type.
+    //Modification du tableau de la case.
+    creation_type_case(pt_sortir);
+    pt_sortir->fixe = 0;
+    pt_sortir->tresor = 0;
+    pt_sortir->start_finish = 0;
+    tourner(pt_sortir, 0);
 
     /* Pour déplacer les tuiles, il faut connaître le point d'entrée de la tuile en plus. Pour cela, on regarde où se
      * situe la tuile au début de la ligne ou colonne que l'on va pousser.
@@ -505,18 +537,19 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
     if(ligne==0){
         //La colonne se déplace vers le BAS. Pour plus de facilité, on commence par sortir la tuile du bas et on tire
         //la colonne.
-
         // on sort la tuile du bas
-        tuile_a_sortir = labyrinthe[6][colonne];
+        copy_case(&labyrinthe[6][colonne], pt_sortir);
 
-        //on itère sur les lignes pour décaler dans les cases déjà déplacées
-        for(i=6;i>0;i--){
-            labyrinthe[i][colonne];
+        //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le bas).
+        for(i=5;i>=0;i--){
+            copy_case(&labyrinthe[i][colonne], &labyrinthe[i+1][colonne]);
+        }
 
+        //Maintenant on intègre la tuile en trop qui pousse la colonne.
+        copy_case(tuile_en_plus, &labyrinthe[0][colonne]);
 
-        } //
-
-
+        ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+        pt_sortir = tuile_en_plus;
     }
     else if(ligne==6){
 
