@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
 #include <malloc.h>
 #include <string.h>
 #include "plateau.h"
@@ -224,10 +225,13 @@ void tourner(t_case* tuile, float orientation){
  */
 
 void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
-    int i,j;
+    int i,j, alea;
+    float rota;
     int tresors = 24;
-    char all_types[50]; //liste de tous les types. on va parcourir random. faire idem pr tresors.
+    char all_types[50]; //liste de tous les types.
     t_case *pt_tuile;
+
+    srand(time(NULL));
 
     //On met le bon nombre de chaque forme de case.
     for(i=0;i<50;i++){
@@ -350,6 +354,66 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 //Nous avons fini de placer toutes les tuiles fixes qui sont sur les bords du plateau. Nous allons
                 //maintenant placer les tuiles fixes au centre du plateau.
 
+                //Les quatre tuiles sont les mêmes à leur rotation près.
+                if(i==2 && j==2){
+                    pt_tuile->ligne = i;
+                    pt_tuile->colonne = j;
+                    pt_tuile->forme = 'T';
+                    del_1_occ(all_types, pt_tuile->forme);
+                    //Modification du tableau de la case.
+                    creation_type_case(pt_tuile);
+                    pt_tuile->fixe = 1;
+                    pt_tuile->tresor = 1;
+                    tresors -= 1;
+                    pt_tuile->start_finish = 0;
+                    //Modification de l'orientation.
+                    tourner(pt_tuile, 270);
+                }
+
+                else if(i==2 && j==4){
+                    pt_tuile->ligne = i;
+                    pt_tuile->colonne = j;
+                    pt_tuile->forme = 'T';
+                    del_1_occ(all_types, pt_tuile->forme);
+                    //Modification du tableau de la case.
+                    creation_type_case(pt_tuile);
+                    pt_tuile->fixe = 1;
+                    pt_tuile->tresor = 1;
+                    tresors -= 1;
+                    pt_tuile->start_finish = 0;
+                    //Modification de l'orientation.
+                    tourner(pt_tuile, 0);
+                }
+
+                else if(i==4 && j==2){
+                    pt_tuile->ligne = i;
+                    pt_tuile->colonne = j;
+                    pt_tuile->forme = 'T';
+                    del_1_occ(all_types, pt_tuile->forme);
+                    //Modification du tableau de la case.
+                    creation_type_case(pt_tuile);
+                    pt_tuile->fixe = 1;
+                    pt_tuile->tresor = 1;
+                    tresors -= 1;
+                    pt_tuile->start_finish = 0;
+                    //Modification de l'orientation.
+                    tourner(pt_tuile, 180);
+                }
+
+                else if(i==4 && j==4){
+                    pt_tuile->ligne = i;
+                    pt_tuile->colonne = j;
+                    pt_tuile->forme = 'T';
+                    del_1_occ(all_types, pt_tuile->forme);
+                    //Modification du tableau de la case.
+                    creation_type_case(pt_tuile);
+                    pt_tuile->fixe = 1;
+                    pt_tuile->tresor = 1;
+                    tresors -= 1;
+                    pt_tuile->start_finish = 0;
+                    //Modification de l'orientation.
+                    tourner(pt_tuile, 90);
+                }
 
 
 
@@ -358,6 +422,55 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
 
 
 
+            }
+
+            ///Maintenant, nous allons créer toutes les autres tuiles qui sont mobiles.
+            //Nous allons affecter toutes les caractéristiques de façon aléatoire.
+            pt_tuile->ligne = i;
+            pt_tuile->colonne = j;
+
+            alea = rand()%(strlen(all_types) +1); //On choisit un type au hasard. Ici, alea est l'indice du type à
+            //affecter.
+            pt_tuile->forme = all_types[alea];
+            del_1_occ(all_types, pt_tuile->forme);
+
+            //Modification du tableau de la case.
+            creation_type_case(pt_tuile);
+            pt_tuile->fixe = 0;
+
+            //On détermine si elle a un trésor ou non.
+            if(pt_tuile->forme == 'I'){
+                pt_tuile->tresor = 0;
+            }
+            else if(pt_tuile->forme == 'T'){
+                pt_tuile->tresor = 1;
+                tresors -= 1;
+            }
+            else{
+                if(tresors!=0){
+                    pt_tuile->tresor = 1;
+                    tresors -= 1;
+                }
+                else{
+                    pt_tuile->tresor = 0;
+                }
+            }
+
+            pt_tuile->start_finish = 0;
+
+            //Modification de l'orientation.
+            alea = rand()%(3 +1);
+            if(alea == 0){
+                tourner(pt_tuile, 0);
+            }
+            else if(alea == 1){
+                tourner(pt_tuile, 90);
+            }
+            else if(alea == 2){
+                tourner(pt_tuile, 180);
+            }
+            else{
+                tourner(pt_tuile, 270);
             }
         }
     }
