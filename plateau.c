@@ -389,7 +389,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
             labyrinthe[i][colonne];
 
 
-        }
+        } //
 
 
     }
