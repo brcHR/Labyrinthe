@@ -97,32 +97,33 @@ void creation_type_case(t_case* tuile){
     // on fait la forme de base : une tuile avec comme chemin une croix
     for(i=0;i<3;i++){
         for(j=0;j<3;j++){
-            if(i && j != 1){
-                tuile->tableau[i][j] = 1; // coins
+            if(i != 1 && j != 1){
+                tuile->tableau[i][j] = '1'; // coins
             }
             else{
-                tuile->tableau[i][j] = 0;
+                tuile->tableau[i][j] = '0';
             }
         }
+        printf("\n");
     }
 
     // On crée ensuite les formes, en enregistrant la position pour pouvoir la modifier.
     if(tuile->forme == 'T'){
-        tuile->tableau[0][1] = 1;
+        tuile->tableau[0][1] = '1';
         tuile->mini_case.ligne1 = 0;
         tuile->mini_case.colonne1 = 1;
     }
     if(tuile->forme == 'L'){
-        tuile->tableau[1][0] = 1;
-        tuile->tableau[2][1] = 1;
+        tuile->tableau[1][0] = '1';
+        tuile->tableau[2][1] = '1';
         tuile->mini_case.ligne1 = 1;
         tuile->mini_case.colonne1 = 0;
         tuile->mini_case.ligne2 = 2;
         tuile->mini_case.colonne2 = 1;
     }
     if(tuile->forme == 'I'){
-        tuile->tableau[1][0] = 1;
-        tuile->tableau[1][2] = 1;
+        tuile->tableau[1][0] = '1';
+        tuile->tableau[1][2] = '1';
         tuile->mini_case.ligne1 = 1;
         tuile->mini_case.colonne1 = 0;
         tuile->mini_case.ligne2 = 1;
