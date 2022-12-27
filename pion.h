@@ -21,6 +21,8 @@ typedef struct tresor{
 typedef struct pion{
     t_case *position_pion; // Pointeur vers la case où le pion se trouve
     int num_pion;
+    char nom[15];
+    char couleur;
     int arrivee; // Variable booléenne indiquant si le pion a atteint sa destination
     int deja_deplace; // Variable booléenne indiquant si le pion a déjà été déplacé dans le tour en cours
     t_tresor tresor;
