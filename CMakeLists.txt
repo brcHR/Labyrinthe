@@ -3,4 +3,4 @@ project(LABYRINTHE C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(LABYRINTHE main.c plateau.c plateau.h)
+add_executable(LABYRINTHE main.c plateau.c plateau.h pion.h pion.c)
