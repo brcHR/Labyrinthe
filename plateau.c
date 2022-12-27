@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
-#include <malloc.h>
 #include <string.h>
 #include "plateau.h"
 
@@ -274,10 +273,12 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             //On crée un pointeur sur la tuile à modifier.
             pt_tuile = &labyrinthe[i][j];
 
+            //Toutes les tuiles auront des coordonnées donc on met ces deux lignes pour toutes les tuiles.
+            pt_tuile->ligne = i;
+            pt_tuile->colonne = j;
+
             ///Plaçons les tuiles de départ et d'arrivée.
             if( (i == 0 || i == 6) && (j == 0 || j == 6) ){
-                pt_tuile->ligne = i;
-                pt_tuile->colonne = j;
                 pt_tuile->forme = 'L';
                 del_1_occ(all_types, pt_tuile->forme);
                 //Modification du tableau de la case.
@@ -304,70 +305,34 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             else if(j%2==0){
                 //Maintenant, on s'occupe des tuiles sur les bords du plateau.
 
+                //Ce sont toutes les mêmes pièces à l'exception de leur orientation.
+                pt_tuile->forme = 'T';
+                del_1_occ(all_types, pt_tuile->forme);
+                //Modification du tableau de la case.
+                creation_type_case(pt_tuile);
+                pt_tuile->fixe = 1;
+                pt_tuile->tresor = 1;
+                tresors -= 1;
+                pt_tuile->start_finish = 0;
+
+                //Modification de l'orientation.
                 //Si la tuile est sur le bord droit du plateau.
                 if( (i==2 || i==4) && j==0 ){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 270);
                 }
-
                 //Si la tuile est sur le bord gauche du plateau.
                 else if( (i==2 || i==4) && j==6 ){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 90);
                 }
-
                 //Nous avons fini de placer les tuiles fixes sur les bords à droite et à gauche. Maintenant,
                 //plaçons les tuiles fixes sur les bords haut et bas.
 
                 //Si la tuile est sur le bord du haut du plateau.
                 else if( i==0 && (j==2 || j==4) ){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 0);
                 }
-
                 //Si la tuile est sur le bord du bas du plateau.
                 else if( i==6 && (j==2 || j==4) ){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 180);
                 }
 
@@ -376,117 +341,71 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
 
                 //Les quatre tuiles sont les mêmes à leur rotation près.
                 if(i==2 && j==2){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 270);
                 }
-
                 else if(i==2 && j==4){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 0);
                 }
-
                 else if(i==4 && j==2){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 180);
                 }
-
                 else if(i==4 && j==4){
-                    pt_tuile->ligne = i;
-                    pt_tuile->colonne = j;
-                    pt_tuile->forme = 'T';
-                    del_1_occ(all_types, pt_tuile->forme);
-                    //Modification du tableau de la case.
-                    creation_type_case(pt_tuile);
-                    pt_tuile->fixe = 1;
-                    pt_tuile->tresor = 1;
-                    tresors -= 1;
-                    pt_tuile->start_finish = 0;
-                    //Modification de l'orientation.
                     tourner(pt_tuile, 90);
                 }
             }
 
             ///Maintenant, nous allons créer toutes les autres tuiles qui sont mobiles.
-            //Nous allons affecter toutes les caractéristiques de façon aléatoire.
-            pt_tuile->ligne = i;
-            pt_tuile->colonne = j;
-
-            alea = rand()%(strlen(all_types) +1); //On choisit un type au hasard. Ici, alea est l'indice du type à
-            //affecter.
-            pt_tuile->forme = all_types[alea];
-            del_1_occ(all_types, pt_tuile->forme);
-
-            //Modification du tableau de la case.
-            creation_type_case(pt_tuile);
-            pt_tuile->fixe = 0;
-
-            //On détermine si elle a un trésor ou non.
-            if(pt_tuile->forme == 'I'){
-                pt_tuile->tresor = 0;
-            }
-            else if(pt_tuile->forme == 'T'){
-                pt_tuile->tresor = 1;
-                tresors -= 1;
-            }
             else{
-                if(tresors!=0){
+                //Nous allons affecter toutes les caractéristiques de façon aléatoire.
+
+                alea = rand()%(strlen(all_types) +1); //On choisit un type au hasard. Ici, alea est l'indice du type à
+                //affecter.
+                pt_tuile->forme = all_types[alea];
+                del_1_occ(all_types, pt_tuile->forme);
+
+                //Modification du tableau de la case.
+                creation_type_case(pt_tuile);
+                pt_tuile->fixe = 0;
+
+                //On détermine si elle a un trésor ou non.
+                if(pt_tuile->forme == 'I'){ //Chemin en forme de I.
+                    pt_tuile->tresor = 0;
+                }
+                else if(pt_tuile->forme == 'T'){ //Chemin en forme de T.
                     pt_tuile->tresor = 1;
                     tresors -= 1;
                 }
+                else{ //Chemin en forme de L.
+                    if(tresors!=0){
+                        pt_tuile->tresor = 1;
+                        tresors -= 1;
+                    }
+                    else{
+                        pt_tuile->tresor = 0;
+                    }
+                }
+
+                pt_tuile->start_finish = 0;
+
+                //Modification de l'orientation.
+                alea = rand()%(3 +1);
+                if(alea == 0){
+                    tourner(pt_tuile, 0);
+                }
+                else if(alea == 1){
+                    tourner(pt_tuile, 90);
+                }
+                else if(alea == 2){
+                    tourner(pt_tuile, 180);
+                }
                 else{
-                    pt_tuile->tresor = 0;
+                    tourner(pt_tuile, 270);
                 }
             }
 
-            pt_tuile->start_finish = 0;
-
-            //Modification de l'orientation.
-            alea = rand()%(3 +1);
-            if(alea == 0){
-                tourner(pt_tuile, 0);
-            }
-            else if(alea == 1){
-                tourner(pt_tuile, 90);
-            }
-            else if(alea == 2){
-                tourner(pt_tuile, 180);
-            }
-            else{
-                tourner(pt_tuile, 270);
-            }
         }
     }
-    ///Maintenant que tout le plateau a des tuiles, nous pouvons mainteant créer la tuile en plus.
+    ///Maintenant que tout le plateau a des tuiles, nous pouvons maintenant créer la tuile en plus.
     pt_tuile->ligne = 7; //coordonnées impossibles
     pt_tuile->colonne = 7;
     pt_tuile->forme = all_types[0];
@@ -504,7 +423,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     pt_tuile->start_finish = 0;
 
     //Modification de l'orientation.
-    //On la met à l'endroit car cette pièce va être tournée avant d'être jouée.
+    //On la met à l'endroit car cette pièce va être tournée avant d'être jouée, donc l'orientation importe peu.
     tourner(pt_tuile, 0);
 }
 
