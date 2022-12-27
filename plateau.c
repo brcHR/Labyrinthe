@@ -36,10 +36,10 @@ void rad_deg(float *nb){
     if( *nb == 0 ){
         *nb = 0;
     }
-    else if( *nb == M_PI/2 ){
+    else if( *nb>1 && *nb<2){ //Intervalle dans lequel se situe PI/2.
         *nb = 90;
     }
-    else if( *nb == M_PI ){
+    else if( *nb>3 && *nb<4 ){
         *nb = 180;
     }
     else{
