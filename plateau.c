@@ -138,7 +138,6 @@ void creation_type_case(t_case* tuile){
 
 void tourner(t_case* tuile, float orientation){
     //Création de toutes les variables que l'on va utiliser.
-    int ligneI_l1, colonneI_c1, ligneI_l2, colonneI_c2;
     t_coord coord_interm, coord_I_1, coord_I_2;
     float rota_ini, rota_new, angleT, angleL_l2, angleL_c2, rota_new_save;
     float *p_r_ini, *p_or, *p_new;
@@ -219,17 +218,17 @@ void tourner(t_case* tuile, float orientation){
         if( rota_new == 90 || rota_new == 270 ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
             if(tuile->mini_case.colonne1 == 0){
                 //on sauvegarde les valeurs.
-                ligneI_l1 = tuile->mini_case.ligne1;
-                colonneI_c1 = tuile->mini_case.colonne1;
-                ligneI_l2 = tuile->mini_case.ligne2;
-                colonneI_c2 = tuile->mini_case.colonne2;
+                coord_I_1.ligne = tuile->mini_case.ligne1;
+                coord_I_1.colonne = tuile->mini_case.colonne1;
+                coord_I_2.ligne = tuile->mini_case.ligne2;
+                coord_I_2.colonne = tuile->mini_case.colonne2;
 
                 //on commence par remplir les minis cases avec les murs.
                 tuile->tableau[0][1] = 1;
                 tuile->tableau[2][1] = 1;
                 //Puis on enlève les murs qui doivent disparaître.
-                tuile->tableau[ligneI_l1][colonneI_c1] = 0;
-                tuile->tableau[ligneI_l2][colonneI_c2] = 0;
+                tuile->tableau[coord_I_1.ligne][coord_I_1.colonne] = 0;
+                tuile->tableau[coord_I_2.ligne][coord_I_2.colonne] = 0;
 
                 //On affecte les nouvelles coordonnées.
                 tuile->mini_case.ligne1 = 0;
@@ -248,7 +247,6 @@ void tourner(t_case* tuile, float orientation){
 
 void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     int i,j, alea;
-    float rota;
     int tresors = 24;
     char all_types[50]; //liste de tous les types.
     t_case *pt_tuile;

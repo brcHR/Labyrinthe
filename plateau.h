@@ -17,7 +17,7 @@ typedef struct sauvegarde_coordonees_mini_case_a_deplacer{
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// structure contenant toutes les informations sur une case
+//structure contenant toutes les informations sur une case
 typedef struct Case{
     int ligne;
     int colonne;
