@@ -50,7 +50,7 @@ typedef struct coordonnees_pour_faciliter_les_appels{
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ces deux fonctions servent au changement de l'orientation des pièces du labyrinthe
+//Ces deux fonctions servent au changement de l'orientation des pièces du labyrinthe
 void deg_rad(float *nb); //convertit les degrés en radians
 void rad_deg(float *nb); //convertit les radians en degrés
 /*

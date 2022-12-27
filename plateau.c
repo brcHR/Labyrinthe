@@ -133,7 +133,7 @@ void creation_type_case(t_case* tuile){
 
 
 /*
- * Procédure modifiant l'orientation des cases
+ * Procédure modifiant l'orientation des cases.
  */
 
 void tourner(t_case* tuile, float orientation){
