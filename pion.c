@@ -8,7 +8,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "plateau.h"
-#include "pions.h"
+#include "pion.h"
 
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
