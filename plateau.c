@@ -137,7 +137,9 @@ void creation_type_case(t_case* tuile){
  */
 
 void tourner(t_case* tuile, float orientation){
-    int ligne, colonne, ligneI_l1, colonneI_c1, ligneI_l2, colonneI_c2;
+    //Création de toutes les variables que l'on va utiliser.
+    int ligneI_l1, colonneI_c1, ligneI_l2, colonneI_c2;
+    t_coord coord_interm, coord_I_1, coord_I_2;
     float rota_ini, rota_new, angleT, angleL_l2, angleL_c2, rota_new_save;
     float *p_r_ini, *p_or, *p_new;
 
@@ -172,16 +174,16 @@ void tourner(t_case* tuile, float orientation){
 
     if(tuile->forme == 'T'){
         angleT = rota_new_save + (M_PI/2); //on manipule des radians avec les sinus
-        colonne = 1 + sinf(rota_new_save);
-        ligne = 1 + (sinf(angleT));
+        coord_interm.colonne = 1 + sinf(rota_new_save);
+        coord_interm.ligne = 1 + (sinf(angleT));
 
         //Maintenant, on modifie le tableau de la case.
-        tuile->tableau[ligne][colonne] = 1; //on met le mur.
+        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = 1; //on met le mur.
         tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = 0; //On enlève le mur sur l'ancien passage.
 
         //On change la valeur de la ligne et de la colonne dans la structure de sauvegarde.
-        tuile->mini_case.ligne1 = ligne;
-        tuile->mini_case.ligne1 = colonne;
+        tuile->mini_case.ligne1 = coord_interm.ligne;
+        tuile->mini_case.ligne1 = coord_interm.colonne;
     }
 
     /*Forme de L.
@@ -195,19 +197,19 @@ void tourner(t_case* tuile, float orientation){
         angleL_c2 = rota_new_save + (M_PI/2);
         angleL_l2 = rota_new_save + M_PI;
 
-        ligne = 1 + sinf(angleL_l2);
-        colonne = 1 + sinf(angleL_c2);
+        coord_interm.ligne = 1 + sinf(angleL_l2);
+        coord_interm.colonne = 1 + sinf(angleL_c2);
 
         //Maintenant, on modifie le tableau de la case.
-        tuile->tableau[ligne][colonne] = 1;
+        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = 1;
         tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = 0;
 
         //Comme les deux cases se suivent en tournant, il suffit juste de mettre un zéro sur l'ancienne localisation de
         //la case du bas et de donner l'ancienne valeur de la case du haut à celle du bas.
         tuile->mini_case.ligne1 = tuile->mini_case.ligne2;
         tuile->mini_case.colonne1 = tuile->mini_case.colonne2;
-        tuile->mini_case.ligne2 = ligne;
-        tuile->mini_case.colonne2 = colonne;
+        tuile->mini_case.ligne2 = coord_interm.ligne;
+        tuile->mini_case.colonne2 = coord_interm.colonne;
     }
 
     /* Forme de I.
@@ -514,7 +516,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
  * une colonne.
  */
 
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, int colonne){
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord){
     int i, j;
     t_case tuile_a_sortir;
     t_case *pt_sortir = &tuile_a_sortir;
@@ -534,71 +536,71 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, 
      * situe la tuile au début de la ligne ou colonne que l'on va pousser.
      * De plus, la position de la tuile est importante car ça détermine le mouvement de la ligne ou colonne.*/
 
-    if(ligne==0){
+    if(coord->ligne==0){
         //La colonne se déplace vers le BAS. Pour plus de facilité, on commence par sortir la tuile du bas et on tire
         //la colonne.
         // on sort la tuile du bas
-        copy_case(&labyrinthe[6][colonne], pt_sortir);
+        copy_case(&labyrinthe[6][coord->colonne], pt_sortir);
 
         //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le bas).
         for(i=5;i>=0;i--){
-            copy_case(&labyrinthe[i][colonne], &labyrinthe[i+1][colonne]);
+            copy_case(&labyrinthe[i][coord->colonne], &labyrinthe[i+1][coord->colonne]);
         }
 
         //Maintenant on intègre la tuile en trop qui pousse la colonne.
-        copy_case(tuile_en_plus, &labyrinthe[0][colonne]);
+        copy_case(tuile_en_plus, &labyrinthe[0][coord->colonne]);
 
         ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
         copy_case(pt_sortir,tuile_en_plus);
     }
-    else if(ligne==6){
+    else if(coord->ligne==6){
         //La colonne se déplace vers le HAUT. Pour plus de facilité, on commence par sortir la tuile du haut et on tire
         //la colonne.
         // on sort la tuile du haut.
-        copy_case(&labyrinthe[0][colonne], pt_sortir);
+        copy_case(&labyrinthe[0][coord->colonne], pt_sortir);
 
         //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le haut).
         for(i=0;i<=5;i++){
-            copy_case(&labyrinthe[i+1][colonne], &labyrinthe[i][colonne]);
+            copy_case(&labyrinthe[i+1][coord->colonne], &labyrinthe[i][coord->colonne]);
         }
 
         //Maintenant on intègre la tuile en trop qui pousse la colonne.
-        copy_case(tuile_en_plus, &labyrinthe[6][colonne]);
+        copy_case(tuile_en_plus, &labyrinthe[6][coord->colonne]);
 
         ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
         copy_case(pt_sortir,tuile_en_plus);
     }
     else{
-        if(colonne == 0){
+        if(coord->colonne == 0){
             //La ligne se déplace vers la droite. Pour plus de facilité, on commence par sortir la tuile tout à droite
             // et on tire la ligne.
             // On sort la tuile de droite.
-            copy_case(&labyrinthe[ligne][6], pt_sortir);
+            copy_case(&labyrinthe[coord->ligne][6], pt_sortir);
 
             //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la droite).
             for(j=5;j>=0;j--){
-                copy_case(&labyrinthe[ligne][j], &labyrinthe[ligne][j+1]);
+                copy_case(&labyrinthe[coord->ligne][j], &labyrinthe[coord->ligne][j+1]);
             }
 
             //Maintenant on intègre la tuile en trop qui pousse la colonne.
-            copy_case(tuile_en_plus, &labyrinthe[ligne][0]);
+            copy_case(tuile_en_plus, &labyrinthe[coord->ligne][0]);
 
             ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
             copy_case(pt_sortir,tuile_en_plus);
         }
-        else if(colonne == 6){
+        else if(coord->colonne == 6){
             //La ligne se déplace vers la gauche. Pour plus de facilité, on commence par sortir la tuile tout à gauche
             // et on tire la ligne.
             // On sort la tuile de gauche.
-            copy_case(&labyrinthe[ligne][0], pt_sortir);
+            copy_case(&labyrinthe[coord->ligne][0], pt_sortir);
 
             //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
             for(j=0;j<=5;j++){
-                copy_case(&labyrinthe[ligne][j+1], &labyrinthe[ligne][j]);
+                copy_case(&labyrinthe[coord->ligne][j+1], &labyrinthe[coord->ligne][j]);
             }
 
             //Maintenant on intègre la tuile en trop qui pousse la colonne.
-            copy_case(tuile_en_plus, &labyrinthe[ligne][6]);
+            copy_case(tuile_en_plus, &labyrinthe[coord->ligne][6]);
 
             ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
             copy_case(pt_sortir,tuile_en_plus);

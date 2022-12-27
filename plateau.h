@@ -41,6 +41,15 @@ typedef struct joueur{
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d'appels
+ *contenant des coordonnées.*/
+typedef struct coordonnees_pour_faciliter_les_appels{
+    int ligne;
+    int colonne;
+}t_coord;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //ces deux fonctions servent au changement de l'orientation des pièces du labyrinthe
 void deg_rad(float *nb); //convertit les degrés en radians
 void rad_deg(float *nb); //convertit les radians en degrés
@@ -98,7 +107,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Cette procédure permet de déplacer une colonne ou une ligne.
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, int ligne, int colonne);
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord);
 /*
  * Paramètres : le tableau du plateau && pointeur sur la tuile en plus du labyrinthe && les coordonnées de la tuile en
  * bout de ligne ou de colonne qui va se faire "pousser".
