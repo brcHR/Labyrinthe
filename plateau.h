@@ -34,19 +34,9 @@ typedef struct Case{
     char tableau[3][3];
     save_coord_mini_case mini_case;
     int tresor;
+    int num_tresor;
     int start_finish;
 }t_case;
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * @brief structure contenant toutes les informations sur un joueur.
- */
-typedef struct joueur{
-    char nom[15];
-    char couleur;
-    t_case *position; // pointe sur la case où se situe le joueur
-}t_joueur;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

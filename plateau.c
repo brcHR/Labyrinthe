@@ -312,6 +312,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 creation_type_case(pt_tuile);
                 pt_tuile->fixe = 1;
                 pt_tuile->tresor = 1;
+                pt_tuile->num_tresor = tresors; //On met le numéro du trésor car ils sont tous uniques.
                 tresors -= 1;
                 pt_tuile->start_finish = 0;
 
@@ -373,11 +374,13 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 }
                 else if(pt_tuile->forme == 'T'){ //Chemin en forme de T.
                     pt_tuile->tresor = 1;
+                    pt_tuile->num_tresor = tresors;
                     tresors -= 1;
                 }
                 else{ //Chemin en forme de L.
                     if(tresors!=0){
                         pt_tuile->tresor = 1;
+                        pt_tuile->num_tresor = tresors;
                         tresors -= 1;
                     }
                     else{
@@ -415,6 +418,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     pt_tuile->fixe = 0;
     if(tresors!=0){
         pt_tuile->tresor = 1;
+        pt_tuile->num_tresor = tresors;
         tresors -= 1;
     }
     else{
