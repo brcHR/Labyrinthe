@@ -11,8 +11,8 @@
 
 // Structure contenant les différents trésors du jeu
 typedef struct tresor{
-    char t_1, t_2, t_3, t_4, t_5, t_6, t_7, t_8, t_9, t_10, t_11, t_12, t_13, t_14, t_15, t_16, t_17, t_18, t_19, t_20, t_21, t_22, t_23_, t_24;
-    int nb_tresors;
+    int num_tresor; // numéro trésor allant de 0 à 23
+    // int nb_tresors; //24 trésors Sert à rien comme je déduis pas le nb de trésors du plateau après avoir récup ??
 }t_tresor;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,13 +20,13 @@ typedef struct tresor{
 // Structure contenant les informations sur un pion
 typedef struct pion{
     t_case *position_pion; // Pointeur vers la case où le pion se trouve
-    int num_pion;
-    char nom[15];
-    char couleur;
+    int num_pion; // Numéro du pion
+    char nom[15]; // Nom du pion
+    char couleur; // Couleur du pion
     int arrivee; // Variable booléenne indiquant si le pion a atteint sa destination
     int deja_deplace; // Variable booléenne indiquant si le pion a déjà été déplacé dans le tour en cours
-    t_tresor tresor;
-    int nb_tresor_pion;
+    t_tresor tresor; // Structure trésor
+    int nb_tresor_pion; // Nombre de trésors du pion
 }t_pion;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

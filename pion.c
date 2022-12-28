@@ -8,11 +8,11 @@
 #include <string.h>
 #include <stdbool.h>
 #include "plateau.h"
-#include "pions.h"
+#include "pion.h"
 
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
-int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){ // Parametre a modif je pense
     // On récupère les coordonnées de départ du pion
     int ligne_depart = pion->position_pion->ligne;
     int colonne_depart = pion->position_pion->colonne;
@@ -22,23 +22,53 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
         return false;
     }
     // On vérifie si le pion reste sur place
-    if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee){
-        pion->deja_deplace == true;
+    else if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee){
         return true;
     }
     // Si on sort du plateau de jeu, le déplacement n'est pas validé
-    if(ligne_arrivee < 0 || ligne_arrivee > 6 || colonne_arrivee < 0 || colonne_arrivee > 6){
+    else if(ligne_arrivee < 0 || ligne_arrivee > 6 || colonne_arrivee < 0 || colonne_arrivee > 6){
         return false;
     }
-    return 0;
+    // Vérifions si le déplacement passe par un mur
+    else{
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                t_case tuile;
+                t_case *pt_tuile = &tuile;
 
+                pt_tuile->ligne = i;
+                pt_tuile->colonne = j;
+
+                // Le pion veut traverser un mur
+                pion->position_pion->tableau[i][j] = 0;   // ça le fait ???
+                tuile.tableau[i][j] = 0; // ça il manque le lien avec position pion !!!
+
+            }
+        }
+        return false;
+    }
 }
+//les return pas sûr de moi mais dans la théorie on est bon
 
 
 
 // Procédure qui permet de déplacer le pion
 
-/* Fonction qui permettant de récupérer le trésor présent sur la case et qui renvoie le nombre de trésors du pion
- * (le nombre de trésors restant diminue) */
+/* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
+ * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
+
+int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je rompich mais truc à changer
+// Si la tuile contient un trésor
+    if(tuile->nb_tresors == 1){
+// On récupère le trésor
+        pion->tresor[tuile->tresor].nb_tresors++;
+        pion->nb_tresor_pion++;
+        tuile->nb_tresors--;
+    }
+// On renvoie le nombre de trésors possédés par le pion
+    return pion->nb_tresor_pion;
+}
+
+
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
