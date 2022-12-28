@@ -55,10 +55,10 @@ typedef struct coordonnees_pour_faciliter_les_appels{
  * @brief Cette fonction sert au changement de l'orientation des pièces du labyrinthe. Elle convertit les degrés en
  * radians.
  *
- * @param nb pointeur sur un nombre flottant.
- * @return un angle en radians.
+ * @param deg nombre flottant correspondant à l'angle en degrés
+ * @return angle convertit en radians.
  */
-void deg_rad(float *nb);
+float deg_rad(float deg);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,10 +66,10 @@ void deg_rad(float *nb);
  * @brief Cette fonction sert au changement de l'orientation des pièces du labyrinthe. Elle convertit les radians en
  * degrés.
  *
- * @param nb pointeur sur un nombre flottant.
- * @return un angle en degrés.
+ * @param rad nombre flottant, correspondant à l'angle en radians à convertir
+ * @return un float correspondant à l'angle en degrés.
  */
-void rad_deg(float *nb);
+float rad_deg(float rad);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
