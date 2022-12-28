@@ -12,6 +12,7 @@
 // Structure contenant les différents trésors du jeu
 typedef struct tresor{
     int num_tresor; // numéro trésor allant de 0 à 23
+    int un_tresor; // Valeur booléenne indiquant s'il y a un tresor sur la tuile
     // int nb_tresors; //24 trésors Sert à rien comme je déduis pas le nb de trésors du plateau après avoir récup ??
 }t_tresor;
 

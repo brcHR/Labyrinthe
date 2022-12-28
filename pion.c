@@ -57,9 +57,9 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
  * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
 
-int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je rompich mais truc à changer
+int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais rompich mais truc à changer
 // Si la tuile contient un trésor
-    if(tuile->nb_tresors == 1){
+    if(tuile->num_tresor == 1){
 // On récupère le trésor
         pion->tresor[tuile->tresor].nb_tresors++;
         pion->nb_tresor_pion++;
@@ -68,7 +68,20 @@ int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je rompic
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
 }
-
+// VOIR AVEC BRIBRI POUR METTRE STRUCT TRESOR DANS SA STRUCT CASE ( JE MODIFIE COMME JE PENSE QUE CA MARCHE
 
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
+void renvoyer_pion_debut_ligne(t_pion *pion, t_case* labyrinthe[7][7]) {
+    // On récupère les coordonnées du pion
+    int ligne = pion->position_pion->ligne;
+    int colonne = pion->position_pion->colonne;
+
+    // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
+    if (ligne < 0 || ligne > 6 || colonne < 0 || colonne > 6) {
+        // Si c'est le cas, on renvoie le pion au début de la ligne
+        pion->position_pion = labyrinthe[0][pion->position_pion->colonne];
+        pion->position_pion->colonne = pion->position_pion->colonne;
+    }
+}
+// PARAMETRE EN POINTEUR ? SINON JE METS "&" LIGNE 83
