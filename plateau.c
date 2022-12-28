@@ -12,19 +12,24 @@
  * Fonction convertissant des degrés en radians
  */
 
-void deg_rad(float *nb){
-    if( *nb == 0 ){
-        *nb = 0;
+float deg_rad(float deg){
+    float rad;
+    if( deg >= 360 ){ //Si on dépasse 360, alors on enlève 360 pour obtenir une rotation correcte.
+        deg = deg - 360;
     }
-    else if( *nb == 90 ){
-        *nb = M_PI/2;
+    if( deg == 0 ){
+        rad = 0;
     }
-    else if( *nb == 180 ){
-        *nb = M_PI;
+    else if( deg == 90 ){
+        rad = M_PI/2;
+    }
+    else if( deg == 180 ){
+        rad = M_PI;
     }
     else{
-        *nb = (3*M_PI)/2;
+        rad = (3*M_PI)/2;
     }
+    return rad;
 }
 
 
@@ -32,19 +37,26 @@ void deg_rad(float *nb){
  * Fonction convertissant des radians en degrés
  */
 
-void rad_deg(float *nb){
-    if( *nb == 0 ){
-        *nb = 0;
+float rad_deg(float rad){
+    float deg;
+    if( rad < 1 ){
+        deg = 0;
     }
-    else if( *nb>1 && *nb<2){ //Intervalle dans lequel se situe PI/2.
-        *nb = 90;
+    else if( rad>1 && rad<2){ //Intervalle dans lequel se situe PI/2.
+        deg = 90;
     }
-    else if( *nb>3 && *nb<4 ){
-        *nb = 180;
+    else if( rad>3 && rad<4 ){
+        deg = 180;
     }
-    else{
-        *nb = 270;
+    else if(rad>4 && rad<5){
+        deg = 270;
     }
+    else if(rad >= 2*M_PI ){ //Si on dépasse 2PI, alors on enlève 2PI pour obtenir une rotation correcte.
+            rad = rad - 2*M_PI;
+            deg = rad_deg(rad);
+    }
+
+    return deg;
 }
 
 
@@ -139,9 +151,10 @@ void creation_type_case(t_case* tuile){
 void tourner(t_case* tuile, float orientation){
     //Création de toutes les variables que l'on va utiliser.
     t_coord coord_interm, coord_I_1, coord_I_2;
-    float rota_ini, rota_new, angleT, angleL_l2, angleL_c2, rota_new_save;
+    float rota_ini, rota_new, angleT, angleL_l1, angleL_c1, angleL_l2, angleL_c2, rota_new_save;
     float *p_r_ini, *p_or, *p_new;
-
+    float rota_deg;
+    int i,j;
     rota_ini = tuile->rotation;
 
     //on crée des pointeurs pour modifier leur valeur dans des procédures
@@ -150,19 +163,16 @@ void tourner(t_case* tuile, float orientation){
     p_new = &rota_new;
 
     //on convertit en radians la rotation que la case a actuellement
-    deg_rad(p_r_ini);
+    *p_r_ini = deg_rad(*p_r_ini);
     //on convertit en radian la rotation que le joueur veut lui appliquer
-    deg_rad(p_or);
+    *p_or = deg_rad(*p_or);
 
     //Nous pouvons maintenant faire des modifications dans les métadonnées de la tuile.
     //Dans un premier temps, on veut la nouvelle valeur de la rotation.
     rota_new = (*p_r_ini) + (*p_or); // on additionne la rotation de base avec celle que l'on veut appliquer
-    if( rota_new >= 360 ){ //Si on dépasse 360, alors on enlève 360 pour obtenir une rotation correcte.
-        rota_new = rota_new - 360;
-    }
-    rota_new_save = *p_new; //on sauvegarde la rotation en radians pour faire tourner les pièces.
-    rad_deg(p_new);//on remet en degrés
-    tuile->rotation = rota_new; //on met à jour la rotation de la pièce par rapport à sa position de base
+    rota_deg = rad_deg(rota_new);
+    rota_new_save = deg_rad(rota_deg); //on sauvegarde la rotation en radians pour faire tourner les pièces.
+    tuile->rotation = rota_deg; //on met à jour la rotation de la pièce par rapport à sa position de base
 
     //Modifions le tableau de la tuile avec la nouvelle rotation.
     /* Forme de T.
@@ -172,17 +182,21 @@ void tourner(t_case* tuile, float orientation){
      * Pour comprendre l'utilisation des sinus, il faut faire des graphiques*/
 
     if(tuile->forme == 'T'){
-        angleT = rota_new_save + (M_PI/2); //on manipule des radians avec les sinus
-        coord_interm.colonne = 1 + sinf(rota_new_save);
-        coord_interm.ligne = 1 + (sinf(angleT));
+        angleT = rota_new_save - (M_PI/2); //on manipule des radians avec les sinus
+        coord_interm.ligne = 1 + (int)sinf(angleT);
+        coord_interm.colonne = 1 + (int)sinf(rota_new_save);
+
 
         //Maintenant, on modifie le tableau de la case.
-        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = 1; //on met le mur.
-        tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = 0; //On enlève le mur sur l'ancien passage.
+        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = '1'; //on met le mur.
+        //On enlève le mur sur l'ancien passage, sauf si c'est le point d'ou l'on vient
+        if(coord_interm.ligne != tuile->mini_case.ligne1 || coord_interm.colonne != tuile->mini_case.colonne1){
+            tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = '0';
+        }
 
         //On change la valeur de la ligne et de la colonne dans la structure de sauvegarde.
         tuile->mini_case.ligne1 = coord_interm.ligne;
-        tuile->mini_case.ligne1 = coord_interm.colonne;
+        tuile->mini_case.colonne1 = coord_interm.colonne;
     }
 
     /*Forme de L.
@@ -193,22 +207,59 @@ void tourner(t_case* tuile, float orientation){
 
     else if(tuile->forme == 'L'){
         // faire le graphique pour comprendre
-        angleL_c2 = rota_new_save + (M_PI/2);
-        angleL_l2 = rota_new_save + M_PI;
+        // Première case ( locomotive ).
+        angleL_l1 = rota_new_save + M_PI;
+        angleL_c1 = rota_new_save - (M_PI/2);
 
-        coord_interm.ligne = 1 + sinf(angleL_l2);
-        coord_interm.colonne = 1 + sinf(angleL_c2);
+        coord_interm.ligne = 1 + (int)sinf(angleL_l1);
+        coord_interm.colonne = 1 + (int)sinf(angleL_c1);
 
         //Maintenant, on modifie le tableau de la case.
-        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = 1;
-        tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = 0;
+        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = '1';
+        // si on ne va pas sur la case d'ou l'on vient, ni sur la case d'ou vient le second mur
+        // alors on met notre case d'origine à 0
+        if(
+                (   coord_interm.ligne != tuile->mini_case.ligne1 ||
+                    coord_interm.colonne != tuile->mini_case.colonne1
+                ) &&
+                (   coord_interm.ligne != tuile->mini_case.ligne2 ||
+                    coord_interm.colonne != tuile->mini_case.colonne2
+                )
+           )
+        {
+            tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = '0';
+        }
 
-        //Comme les deux cases se suivent en tournant, il suffit juste de mettre un zéro sur l'ancienne localisation de
-        //la case du bas et de donner l'ancienne valeur de la case du haut à celle du bas.
-        tuile->mini_case.ligne1 = tuile->mini_case.ligne2;
-        tuile->mini_case.colonne1 = tuile->mini_case.colonne2;
-        tuile->mini_case.ligne2 = coord_interm.ligne;
-        tuile->mini_case.colonne2 = coord_interm.colonne;
+
+        // Deuxième case ( wagon ).
+        angleL_l2 = rota_new_save + (M_PI/2);
+        angleL_c2 = rota_new_save + M_PI;
+
+        coord_interm.ligne = 1 + (int)sinf(angleL_l2);
+        coord_interm.colonne = 1 + (int)sinf(angleL_c2);
+
+        //Maintenant, on modifie le tableau de la case.
+        tuile->tableau[coord_interm.ligne][coord_interm.colonne] = '1';
+        // si on ne va pas sur la case d'ou l'on vient, ni sur la case d'ou vient le premier mur
+        // alors on met notre case d'origine à 0.
+        if(
+                (   coord_interm.ligne != tuile->mini_case.ligne1 ||
+                    coord_interm.colonne != tuile->mini_case.colonne1
+                ) &&
+                (   coord_interm.ligne != tuile->mini_case.ligne2 ||
+                    coord_interm.colonne != tuile->mini_case.colonne2
+                )
+                )
+        {
+            tuile->tableau[tuile->mini_case.ligne2][tuile->mini_case.colonne2] = '0';
+        }
+
+
+        //On modifie les savegardes.
+        tuile->mini_case.ligne2 = tuile->mini_case.ligne1;
+        tuile->mini_case.colonne2 = tuile->mini_case.colonne1;
+        tuile->mini_case.ligne1 = coord_interm.ligne;
+        tuile->mini_case.colonne1 = coord_interm.colonne;
     }
 
     /* Forme de I.
@@ -224,11 +275,11 @@ void tourner(t_case* tuile, float orientation){
                 coord_I_2.colonne = tuile->mini_case.colonne2;
 
                 //on commence par remplir les minis cases avec les murs.
-                tuile->tableau[0][1] = 1;
-                tuile->tableau[2][1] = 1;
+                tuile->tableau[0][1] = '1';
+                tuile->tableau[2][1] = '1';
                 //Puis on enlève les murs qui doivent disparaître.
-                tuile->tableau[coord_I_1.ligne][coord_I_1.colonne] = 0;
-                tuile->tableau[coord_I_2.ligne][coord_I_2.colonne] = 0;
+                tuile->tableau[coord_I_1.ligne][coord_I_1.colonne] = '0';
+                tuile->tableau[coord_I_2.ligne][coord_I_2.colonne] = '0';
 
                 //On affecte les nouvelles coordonnées.
                 tuile->mini_case.ligne1 = 0;
