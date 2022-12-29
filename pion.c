@@ -9,7 +9,7 @@
 #include <stdbool.h>
 #include "plateau.h"
 #include "pion.h"
-
+js
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
 int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
