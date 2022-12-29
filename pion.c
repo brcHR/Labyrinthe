@@ -12,17 +12,14 @@
 
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
-int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){ // Parametre a modif je pense
+int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+
     // On récupère les coordonnées de départ du pion
     int ligne_depart = pion->position_pion->ligne;
     int colonne_depart = pion->position_pion->colonne;
 
-    // On vérifie si le pion a déjà été déplacé dans le tour en cours
-    if(pion->deja_deplace == true){
-        return false;
-    }
     // On vérifie si le pion reste sur place
-    else if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee){
+    if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee){
         return true;
     }
     // Si on sort du plateau de jeu, le déplacement n'est pas validé
@@ -30,22 +27,19 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
         return false;
     }
     // Vérifions si le déplacement passe par un mur
-    else{
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
-                t_case tuile;
-                t_case *pt_tuile = &tuile;
+    /*for(int i=0; i<3; i++){
+        for(int j=0;j<3;j++){
+            t_case tuile;
+            t_case *pt_tuile = &tuile;
 
-                pt_tuile->ligne = i;
-                pt_tuile->colonne = j;
+            pt_tuile->ligne = i;
+            pt_tuile->colonne = j;
 
-                // Le pion veut traverser un mur
-                pion->position_pion->tableau[i][j] = 0;   // ça le fait ???
-                tuile.tableau[i][j] = 0; // ça il manque le lien avec position pion !!!
-
+            // Le pion veut traverser un mur
+            if(pion->position_pion->tableau[i][j] == 1){
             }
         }
-        return false;
+        return false;*/
     }
 }
 //les return pas sûr de moi, mais dans la théorie on est bon sauf pour le "déjà déplacé"
@@ -61,7 +55,6 @@ void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, 
         pion->position_pion->colonne = colonne_arrivee;
     }
 }
-// C'EST TOUT ?? PARRAIT TROP SIMPLE
 
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
  * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
@@ -71,7 +64,7 @@ int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais r
     if(tuile.un_tresor == 1){
 // Alors on récupère le trésor
         pion->nb_tresor_pion++;
-        tuile->un_tresor = 0;
+        tuile->un_tresor = 24;
     }
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
