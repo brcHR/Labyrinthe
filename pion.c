@@ -48,22 +48,30 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
         return false;
     }
 }
-//les return pas sûr de moi mais dans la théorie on est bon
+//les return pas sûr de moi, mais dans la théorie on est bon sauf pour le "déjà déplacé"
 
 
 
 // Procédure qui permet de déplacer le pion
+void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+    // On vérifie si le mouvement est valide avec la fonction "deplacement_valide".
+    if (deplacement_valide(labyrinthe, pion, ligne_arrivee, colonne_arrivee)){
+        // Met à jour les coordonnées du pion
+        pion->position_pion->ligne = ligne_arrivee;
+        pion->position_pion->colonne = colonne_arrivee;
+    }
+}
+// C'EST TOUT ?? PARRAIT TROP SIMPLE
 
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
  * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
 
 int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais rompich mais truc à changer
 // Si la tuile contient un trésor
-    if(tuile->num_tresor == 1){
-// On récupère le trésor
-        pion->tresor[tuile->tresor].nb_tresors++;
+    if(tuile.un_tresor == 1){
+// Alors on récupère le trésor
         pion->nb_tresor_pion++;
-        tuile->nb_tresors--;
+        tuile->un_tresor = 0;
     }
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
@@ -72,7 +80,7 @@ int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais r
 
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
-void renvoyer_pion_debut_ligne(t_pion *pion, t_case* labyrinthe[7][7]) {
+void renvoyer_pion_debut_ligne(t_case* labyrinthe[7][7],t_pion *pion){
     // On récupère les coordonnées du pion
     int ligne = pion->position_pion->ligne;
     int colonne = pion->position_pion->colonne;
@@ -80,8 +88,8 @@ void renvoyer_pion_debut_ligne(t_pion *pion, t_case* labyrinthe[7][7]) {
     // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
     if (ligne < 0 || ligne > 6 || colonne < 0 || colonne > 6) {
         // Si c'est le cas, on renvoie le pion au début de la ligne
-        pion->position_pion = labyrinthe[0][pion->position_pion->colonne];
-        pion->position_pion->colonne = pion->position_pion->colonne;
+        pion->position_pion->ligne = pion->position_pion->ligne;
+        pion->position_pion = labyrinthe[pion->position_pion->colonne][0]; // PARAMETRE EN POINTEUR ? SINON JE METS "&"
+        pion->position_pion->colonne = 0; // OU CA ?
     }
 }
-// PARAMETRE EN POINTEUR ? SINON JE METS "&" LIGNE 83
