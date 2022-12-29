@@ -89,7 +89,8 @@ void copy_case(t_case *source, t_case *destination){
     destination->fixe = source->fixe;
     destination->rotation = source->rotation;
     destination->mini_case = source->mini_case;
-    destination->tresor = source->tresor;
+    destination->tresor.num_tresor = source->tresor.num_tresor;
+    destination->tresor.un_tresor = source->tresor.un_tresor;
     destination->start_finish = source->start_finish;
     for(i=0;i<3;i++){
         for(j=0;j<3;j++){
@@ -336,7 +337,8 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 //Modification du tableau de la case.
                 creation_type_case(pt_tuile);
                 pt_tuile->fixe = 1;
-                pt_tuile->tresor = 0;
+                pt_tuile->tresor.un_tresor = 0;
+                pt_tuile->tresor.num_tresor = 24; // Pas de trésors.
                 pt_tuile->start_finish = 1;
                 //Modifions l'orientation de ces quatre pièces.
                 if( i==0 && j==0 ){
@@ -363,8 +365,8 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 //Modification du tableau de la case.
                 creation_type_case(pt_tuile);
                 pt_tuile->fixe = 1;
-                pt_tuile->tresor = 1;
-                pt_tuile->num_tresor = tresors; //On met le numéro du trésor car ils sont tous uniques.
+                pt_tuile->tresor.un_tresor = 1;
+                pt_tuile->tresor.num_tresor = tresors; //On met le numéro du trésor car ils sont tous uniques.
                 tresors -= 1;
                 pt_tuile->start_finish = 0;
 
@@ -422,21 +424,23 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
 
                 //On détermine si elle a un trésor ou non.
                 if(pt_tuile->forme == 'I'){ //Chemin en forme de I.
-                    pt_tuile->tresor = 0;
+                    pt_tuile->tresor.un_tresor = 0;
+                    pt_tuile->tresor.num_tresor = 24;
                 }
                 else if(pt_tuile->forme == 'T'){ //Chemin en forme de T.
-                    pt_tuile->tresor = 1;
-                    pt_tuile->num_tresor = tresors;
+                    pt_tuile->tresor.un_tresor = 1;
+                    pt_tuile->tresor.num_tresor = tresors;
                     tresors -= 1;
                 }
                 else{ //Chemin en forme de L.
                     if(tresors!=0){
-                        pt_tuile->tresor = 1;
-                        pt_tuile->num_tresor = tresors;
+                        pt_tuile->tresor.un_tresor = 1;
+                        pt_tuile->tresor.num_tresor = tresors;
                         tresors -= 1;
                     }
                     else{
-                        pt_tuile->tresor = 0;
+                        pt_tuile->tresor.un_tresor = 0;
+                        pt_tuile->tresor.num_tresor = 24;
                     }
                 }
 
@@ -469,12 +473,13 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     creation_type_case(pt_tuile);
     pt_tuile->fixe = 0;
     if(tresors!=0){
-        pt_tuile->tresor = 1;
-        pt_tuile->num_tresor = tresors;
+        pt_tuile->tresor.un_tresor = 1;
+        pt_tuile->tresor.num_tresor = tresors;
         tresors -= 1;
     }
     else{
-        pt_tuile->tresor = 0;
+        pt_tuile->tresor.un_tresor = 0;
+        pt_tuile->tresor.num_tresor = 24;
     }
     pt_tuile->start_finish = 0;
 
@@ -501,7 +506,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
     //Modification du tableau de la case.
     creation_type_case(pt_sortir);
     pt_sortir->fixe = 0;
-    pt_sortir->tresor = 0;
+    pt_sortir->tresor.un_tresor = 0;
+    pt_sortir->tresor.num_tresor = 24;
     pt_sortir->start_finish = 0;
     tourner(pt_sortir, 0);
 

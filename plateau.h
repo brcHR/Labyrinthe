@@ -45,8 +45,7 @@ typedef struct Case{
     float rotation;
     char tableau[3][3];
     save_coord_mini_case mini_case;
-    int tresor;
-    int num_tresor;
+    t_tresor tresor;
     int start_finish;
 }t_case;
 
