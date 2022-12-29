@@ -20,6 +20,18 @@ typedef struct sauvegarde_coordonees_mini_case_a_deplacer{
     int colonne2;
 }save_coord_mini_case;
 
+
+/**
+ * @brief Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ainsi que
+ * que leur présence sur une tuile.
+ */
+
+typedef struct tresor{
+    int num_tresor; // numéro trésor allant de 0 à 23
+    int un_tresor; // Valeur booléenne indiquant s'il y a un tresor sur la tuile
+}t_tresor;
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
