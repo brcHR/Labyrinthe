@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "plateau.h"
+#include "pion.h"
 
 int main()
 {
