@@ -92,6 +92,8 @@ void copy_case(t_case *source, t_case *destination){
     destination->tresor.num_tresor = source->tresor.num_tresor;
     destination->tresor.un_tresor = source->tresor.un_tresor;
     destination->start_finish = source->start_finish;
+    destination->sortie_du_plateau.ligne = source->sortie_du_plateau.ligne;
+    destination->sortie_du_plateau.colonne = source->sortie_du_plateau.colonne;
     for(i=0;i<3;i++){
         for(j=0;j<3;j++){
             destination->tableau[i][j] = source->tableau[i][j];
@@ -126,7 +128,7 @@ void creation_type_case(t_case* tuile){
         tuile->mini_case.ligne1 = 0;
         tuile->mini_case.colonne1 = 1;
     }
-    if(tuile->forme == 'L'){
+    else if(tuile->forme == 'L'){
         tuile->tableau[1][0] = '1';
         tuile->tableau[2][1] = '1';
         tuile->mini_case.ligne1 = 1;
@@ -134,7 +136,7 @@ void creation_type_case(t_case* tuile){
         tuile->mini_case.ligne2 = 2;
         tuile->mini_case.colonne2 = 1;
     }
-    if(tuile->forme == 'I'){
+    else if(tuile->forme == 'I'){
         tuile->tableau[1][0] = '1';
         tuile->tableau[1][2] = '1';
         tuile->mini_case.ligne1 = 1;
@@ -267,8 +269,8 @@ void tourner(t_case* tuile, float orientation){
      * Les explications sont les mêmes que pour les deux autres formes.*/
 
     else if(tuile->forme == 'I'){
-        if( rota_new == 90 || rota_new == 270 ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
-            if(tuile->mini_case.colonne1 == 0){
+        if( rota_deg == 90 || rota_deg == 270 ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
+            if(tuile->mini_case.colonne1 == 0){ //Si le I est à l'endroit.
                 //on sauvegarde les valeurs.
                 coord_I_1.ligne = tuile->mini_case.ligne1;
                 coord_I_1.colonne = tuile->mini_case.colonne1;
@@ -288,6 +290,29 @@ void tourner(t_case* tuile, float orientation){
                 tuile->mini_case.ligne2 = 2;
                 tuile->mini_case.colonne2 = 1;
             }
+            else{
+                //on sauvegarde les valeurs.
+                coord_I_1.ligne = tuile->mini_case.ligne1;
+                coord_I_1.colonne = tuile->mini_case.colonne1;
+                coord_I_2.ligne = tuile->mini_case.ligne2;
+                coord_I_2.colonne = tuile->mini_case.colonne2;
+
+                //on commence par remplir les minis cases avec les murs.
+                tuile->tableau[1][0] = '1';
+                tuile->tableau[1][2] = '1';
+                //Puis on enlève les murs qui doivent disparaître.
+                tuile->tableau[coord_I_1.ligne][coord_I_1.colonne] = '0';
+                tuile->tableau[coord_I_2.ligne][coord_I_2.colonne] = '0';
+
+                //On affecte les nouvelles coordonnées.
+                tuile->mini_case.ligne1 = 1;
+                tuile->mini_case.colonne1 = 0;
+                tuile->mini_case.ligne2 = 1;
+                tuile->mini_case.colonne2 = 2;
+            }
+        }
+        else{
+            creation_type_case(tuile);
         }
     }
 }
@@ -329,6 +354,9 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             //Toutes les tuiles auront des coordonnées donc on met ces deux lignes pour toutes les tuiles.
             pt_tuile->ligne = i;
             pt_tuile->colonne = j;
+            //Les coordonnées de sortie nous importent peu maintenant mais on les remplit quand même.
+            pt_tuile->sortie_du_plateau.ligne = i;
+            pt_tuile->sortie_du_plateau.colonne = j;
 
             ///Plaçons les tuiles de départ et d'arrivée.
             if( (i == 0 || i == 6) && (j == 0 || j == 6) ){
@@ -467,6 +495,8 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     ///Maintenant que tout le plateau a des tuiles, nous pouvons maintenant créer la tuile en plus.
     pt_tuile->ligne = 7; //coordonnées impossibles
     pt_tuile->colonne = 7;
+    pt_tuile->sortie_du_plateau.ligne = 7;
+    pt_tuile->sortie_du_plateau.colonne = 7;
     pt_tuile->forme = all_types[0];
     del_1_occ(all_types, pt_tuile->forme);
     //Modification du tableau de la case.
@@ -520,6 +550,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
         //la colonne.
         // on sort la tuile du bas
         copy_case(&labyrinthe[6][coord->colonne], pt_sortir);
+        pt_sortir->sortie_du_plateau.ligne = 7; //On met une ligne impossible...
+        pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
         //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le bas).
         for(i=5;i>=0;i--){
@@ -537,6 +569,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
         //la colonne.
         // on sort la tuile du haut.
         copy_case(&labyrinthe[0][coord->colonne], pt_sortir);
+        pt_sortir->sortie_du_plateau.ligne = -1; //On met une ligne impossible...
+        pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
         //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le haut).
         for(i=0;i<=5;i++){
@@ -555,6 +589,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
             // et on tire la ligne.
             // On sort la tuile de droite.
             copy_case(&labyrinthe[coord->ligne][6], pt_sortir);
+            pt_sortir->sortie_du_plateau.ligne = coord->ligne; //On garde la colonne d'où elle sort...
+            pt_sortir->sortie_du_plateau.colonne = 7;//...mais on met une ligne impossible.
 
             //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la droite).
             for(j=5;j>=0;j--){
@@ -572,6 +608,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
             // et on tire la ligne.
             // On sort la tuile de gauche.
             copy_case(&labyrinthe[coord->ligne][0], pt_sortir);
+            pt_sortir->sortie_du_plateau.ligne = coord->ligne; //On garde la colonne d'où elle sort...
+            pt_sortir->sortie_du_plateau.colonne = -1;//...mais on met une ligne impossible.
 
             //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
             for(j=0;j<=5;j++){
