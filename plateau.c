@@ -160,19 +160,14 @@ void tourner(t_case* tuile, float orientation){
     int i,j;
     rota_ini = tuile->rotation;
 
-    //on crée des pointeurs pour modifier leur valeur dans des procédures
-    p_r_ini = &rota_ini;
-    p_or = &orientation;
-    p_new = &rota_new;
-
     //on convertit en radians la rotation que la case a actuellement
-    *p_r_ini = deg_rad(*p_r_ini);
+    rota_ini = deg_rad(rota_ini);
     //on convertit en radian la rotation que le joueur veut lui appliquer
-    *p_or = deg_rad(*p_or);
+    orientation = deg_rad(orientation);
 
     //Nous pouvons maintenant faire des modifications dans les métadonnées de la tuile.
     //Dans un premier temps, on veut la nouvelle valeur de la rotation.
-    rota_new = (*p_r_ini) + (*p_or); // on additionne la rotation de base avec celle que l'on veut appliquer
+    rota_new = (rota_ini) + (orientation); // on additionne la rotation de base avec celle que l'on veut appliquer
     rota_deg = rad_deg(rota_new);
     rota_new_save = deg_rad(rota_deg); //on sauvegarde la rotation en radians pour faire tourner les pièces.
     tuile->rotation = rota_deg; //on met à jour la rotation de la pièce par rapport à sa position de base
@@ -268,9 +263,10 @@ void tourner(t_case* tuile, float orientation){
     /* Forme de I.
      * Les explications sont les mêmes que pour les deux autres formes.*/
 
-    else if(tuile->forme == 'I'){
-        if( rota_deg == 90 || rota_deg == 270 ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
+    else if(tuile->forme == 'I'){//&& ((int)tuile->rotation%180 == 0)
+        if( (rota_deg == 90 || rota_deg == 270)  ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
             if(tuile->mini_case.colonne1 == 0){ //Si le I est à l'endroit.
+                printf("\trota_deg 90||270, mini_case.colone1=0");
                 //on sauvegarde les valeurs.
                 coord_I_1.ligne = tuile->mini_case.ligne1;
                 coord_I_1.colonne = tuile->mini_case.colonne1;
@@ -291,6 +287,7 @@ void tourner(t_case* tuile, float orientation){
                 tuile->mini_case.colonne2 = 1;
             }
             else{
+                printf("\trota_deg 90||270, mini_case.colone1=1");
                 //on sauvegarde les valeurs.
                 coord_I_1.ligne = tuile->mini_case.ligne1;
                 coord_I_1.colonne = tuile->mini_case.colonne1;
@@ -312,6 +309,7 @@ void tourner(t_case* tuile, float orientation){
             }
         }
         else{
+            printf("\trota_deg 0||180,");
             creation_type_case(tuile);
         }
     }
