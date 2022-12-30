@@ -8,6 +8,7 @@
 #ifndef LABYRINTHE_PLATEAU_H
 #define LABYRINTHE_PLATEAU_H
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * @brief cette structure permet de modifier le tableau d'une case en sauvegardant l'emplacement de la case à faire tourner
@@ -20,6 +21,7 @@ typedef struct sauvegarde_coordonees_mini_case_a_deplacer{
     int colonne2;
 }save_coord_mini_case;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * @brief Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ainsi que
@@ -31,6 +33,16 @@ typedef struct tresor{
     int un_tresor; // Valeur booléenne indiquant s'il y a un tresor sur la tuile
 }t_tresor;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d'appels
+ * contenant des coordonnées.
+ */
+typedef struct coordonnees_pour_faciliter_les_appels{
+    int ligne;
+    int colonne;
+}t_coord;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,19 +58,9 @@ typedef struct Case{
     char tableau[3][3];
     save_coord_mini_case mini_case;
     t_tresor tresor;
+    t_coord sortie_du_plateau;
     int start_finish;
 }t_case;
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * @brief Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d'appels
- * contenant des coordonnées.
- */
-typedef struct coordonnees_pour_faciliter_les_appels{
-    int ligne;
-    int colonne;
-}t_coord;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
