@@ -9,7 +9,7 @@
 #include <stdbool.h>
 #include "plateau.h"
 #include "pion.h"
-js
+
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
 int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
@@ -39,8 +39,8 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
             if(pion->position_pion->tableau[i][j] == 1){
             }
         }
-        return false;*/
-    }
+        return false;
+    }*/
 }
 //les return pas sûr de moi, mais dans la théorie on est bon sauf pour le "déjà déplacé"
 
@@ -61,10 +61,10 @@ void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, 
 
 int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais rompich mais truc à changer
 // Si la tuile contient un trésor
-    if(tuile.un_tresor == 1){
+    if(tuile->tresor.un_tresor == 1){
 // Alors on récupère le trésor
         pion->nb_tresor_pion++;
-        tuile->un_tresor = 24;
+        tuile->tresor.num_tresor = 24;
     }
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
