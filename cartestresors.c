@@ -2,16 +2,11 @@
 // Created by Maxime Vennin on 27/12/2022.
 //
 #include "cartestresors.h"
-#include <stdio.h>
-
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
 
 typedef struct { //structure temporaire pour test
     char signe;
     int decouvert; // 1 s'il a été découvert,0 sinon
-}t_tresor;
+}t_tresor_sur_carte;
 
 typedef struct {
     //t_case *position_pion; // Pointeur vers la case où le pion se trouve
@@ -20,9 +15,33 @@ typedef struct {
     char couleur;
     int arrivee; // Variable booléenne indiquant si le pion a atteint sa destination
     int deja_deplace; // Variable booléenne indiquant si le pion a déjà été déplacé dans le tour en cours
-    t_tresor tresors[12];// tableau stockant tous les tresors du joueur, les cases en trop sont des '0' et on en met 12 car on a au max 12 tresors par joueur
+    t_tresor_sur_carte tresors[12];// tableau stockant tous les tresors du joueur, les cases en trop sont des '0' et on en met 12 car on a au max 12 tresors par joueur
     int num_tresor_pion;//numéro du trésor en cours de recherche
 }t_pion;
+
+void AffichageTresor(t_pion *Pion){
+    int cartesatrouver=0;//compte le nombre de cartes restantes à trouver
+    for (int i = 0; i < 12; ++i) {
+        if (Pion->tresors[i].signe !='0'&& Pion->tresors[i].decouvert==0){
+            ++cartesatrouver;
+        }
+        printf("\n");
+    }
+    printf("cartes a trouver : %d",cartesatrouver);
+    for (int i = 0; i < 12; ++i) {
+        if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
+            printf("le tresor a trouver est %c\n",Pion->tresors[i].signe);
+            break;
+        }
+    }
+    printf("les tresors deja trouves sont : ");
+    for (int i = 0; i < 12; ++i) {
+        if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==1){
+            printf("%c, ",Pion->tresors[i].signe);
+        }
+        printf("\n");
+    }
+}
 
 int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration){ //En para : le signe du pion dont on vérifie que le signe est diff des autres puis les autres pions.
     int reccurence=0;
@@ -99,9 +118,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pi
     }
 }
 
-
-
-///// Dans le futur main
+///////à mettre dans le futur main
 
 int main(){
     int nbjoueurs;
@@ -117,11 +134,18 @@ int main(){
     for (int i = 0; i < 12; ++i) {
         pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
     }
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
+    }
+
 
     DistributionCartes(&nbjoueurs,&pion1,&pion2,&pion3,&pion4);
     for (int i = 0; i < 12; ++i) {
         printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
     }
 
+    AffichageTresor(&pion1);
+
     return 0;
+}
 }
