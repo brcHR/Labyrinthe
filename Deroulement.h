@@ -13,7 +13,7 @@
  * @param num_rangee numéro de rangée saisi (voir page 13 du sujet)
  * @param coord_pousser coordonnées de la première case de la table de jeu qui va être poussée
  */
-void conversion_num_rangee_coordonnees (int *num_rangee, t_coord *coord_pousser);
+void conversion_num_rangee_coordonnees (const int *num_rangee, t_coord *coord_pousser);
 
 
 /**
@@ -21,7 +21,10 @@ void conversion_num_rangee_coordonnees (int *num_rangee, t_coord *coord_pousser)
  *
  * @param nbjoueurs le nombre de joueurs
  * @param pion... chacun des 4 pions
+ * @param labyrinthe plateau du labyrinthe
+ * @param tuile_en_plus tuile supplémentaire en dehors du plateau
+ *
  */
-void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4);
+void deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4, t_case labyrinthe[7][7], t_case *tuile_en_plus);
 
 #endif //LABYRINTHE_DEROULEMENT_H

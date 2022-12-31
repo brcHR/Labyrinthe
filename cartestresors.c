@@ -18,10 +18,10 @@ void AffichageTresor(t_pion *Pion){
         }
         printf("\n");
     }
-    printf("cartes a trouver : %d",cartesatrouver);
+    printf("cartes a trouver : %d\n",cartesatrouver);
     for (int i = 0; i < 12; ++i) {
         if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
-            printf("le tresor a trouver est %c\n",Pion->tresors[i].signe);
+            printf("le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
             break;
         }
     }

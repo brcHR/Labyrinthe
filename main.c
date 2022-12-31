@@ -10,6 +10,7 @@ int main(int argc, char **argv)
     /*
      * Mettez les fonctions que vous voulez tester ici. Ne vous occupez pas des if.
      */
+    testDeroulement();
 
 
     //Ne vous occupez pas de ca.
@@ -24,6 +25,5 @@ int main(int argc, char **argv)
             testg();
         }
     }
-
     return 0;
 }

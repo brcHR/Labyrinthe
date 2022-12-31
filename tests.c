@@ -5,9 +5,10 @@
 #include <math.h>
 #include <time.h>
 #include <string.h>
-#include <malloc.h>
 #include "plateau.h"
 #include "pion.h"
+#include "cartestresors.h"
+#include "Deroulement.h"
 
 void tests(){
     printf("TESTS\n");
@@ -134,5 +135,55 @@ void testg(){
 
 void testd(){
 
+
+}
+
+void testDistrib(){
+    int nbjoueurs;
+
+    do {
+        printf("saisissez le nombre de joueurs (entre 2 et 4)\n");
+        fflush(stdin);
+        scanf("%d",&nbjoueurs);
+    } while (nbjoueurs<2 || nbjoueurs>4);
+
+    t_pion pion1, pion2, pion3, pion4;
+
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
+    }
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
+    }
+
+
+    DistributionCartes(&nbjoueurs,&pion1,&pion2,&pion3,&pion4);
+    for (int i = 0; i < 12; ++i) {
+        printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
+    }
+
+    AffichageTresor(&pion1);
+
+}
+
+void testDeroulement(){
+    int nbjoueurs;
+    t_case labyrinthe[7][7], tuile_en_plus;
+
+    do {
+        printf("saisissez le nombre de joueurs (entre 2 et 4)\n");
+        fflush(stdin);
+        scanf("%d",&nbjoueurs);
+    } while (nbjoueurs<2 || nbjoueurs>4);
+
+    t_pion pion1, pion2, pion3, pion4;
+
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
+    }
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
+    }
+    deroulementTour(&nbjoueurs, &pion1,&pion2,&pion3,&pion4,labyrinthe,&tuile_en_plus);
 
 }

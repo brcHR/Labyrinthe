@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "Deroulement.h"
 
-void conversion_num_rangee_coordonnees (int *num_rangee, t_coord *coord_pousser){//converti le numéro de rangée en des coordonnées
+void conversion_num_rangee_coordonnees (const int *num_rangee, t_coord *coord_pousser){//converti le numéro de rangée en des coordonnées
     switch (*num_rangee) {
         case 1:// flèche en haut à gauche (rangée de flèches du haut)
             coord_pousser->ligne=0;
@@ -59,9 +59,8 @@ void conversion_num_rangee_coordonnees (int *num_rangee, t_coord *coord_pousser)
 }
 
 
-void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4){
-    t_case labyrinthe[7][7], tuile_en_plus;
-    generation_plateau_debut(labyrinthe,&tuile_en_plus);
+void deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4, t_case labyrinthe[7][7], t_case *tuile_en_plus){
+    generation_plateau_debut(labyrinthe, tuile_en_plus);
 
     int joueur_en_cours=1;//1 à 4 , c'est le num du joueur entrain de jouer
     int num_rangee;
@@ -69,14 +68,14 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
 
     int ligne_arrivee, colonne_arrivee;
 
-    switch (nbjoueurs) {
+    switch (*nbjoueurs) {
         case 2:
             do {//saisie de la rangée à déplacer par le joueur 1
                 printf("Joueur %d, saisissez le numéro de la rangée que vous voulez faire glisser\n",joueur_en_cours);//voir page 13 du sujet
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {//déplacement du pion 1
                 do {
@@ -101,7 +100,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {
@@ -123,7 +122,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {//déplacement du pion 1
                 do {
@@ -148,7 +147,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {
@@ -174,7 +173,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {
@@ -197,7 +196,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {//déplacement du pion 1
                 do {
@@ -222,7 +221,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {
@@ -248,7 +247,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {
@@ -274,7 +273,7 @@ void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3,
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
             conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
-            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+            deplacer_tuiles(labyrinthe,tuile_en_plus,&coord_pousser);
 
             do {
                 do {

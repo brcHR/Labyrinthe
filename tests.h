@@ -7,4 +7,6 @@
 void tests();
 void testg();
 void testd();
+void testDistrib();
+void testDeroulement();
 #endif //LABYRINTHE_TESTS_H
