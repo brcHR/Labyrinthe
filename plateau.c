@@ -491,29 +491,29 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
         }
     }
     ///Maintenant que tout le plateau a des tuiles, nous pouvons maintenant créer la tuile en plus.
-    pt_tuile->ligne = 7; //coordonnées impossibles
-    pt_tuile->colonne = 7;
-    pt_tuile->sortie_du_plateau.ligne = 7;
-    pt_tuile->sortie_du_plateau.colonne = 7;
-    pt_tuile->forme = all_types[0];
-    del_1_occ(all_types, pt_tuile->forme);
+    tuile_add->ligne = 7; //coordonnées impossibles
+    tuile_add->colonne = 7;
+    tuile_add->sortie_du_plateau.ligne = 7;
+    tuile_add->sortie_du_plateau.colonne = 7;
+    tuile_add->forme = all_types[0];
+    del_1_occ(all_types, tuile_add->forme);
     //Modification du tableau de la case.
-    creation_type_case(pt_tuile);
-    pt_tuile->fixe = 0;
+    creation_type_case(tuile_add);
+    tuile_add->fixe = 0;
     if(tresors!=0){
-        pt_tuile->tresor.un_tresor = 1;
-        pt_tuile->tresor.num_tresor = tresors;
+        tuile_add->tresor.un_tresor = 1;
+        tuile_add->tresor.num_tresor = tresors;
         tresors -= 1;
     }
     else{
-        pt_tuile->tresor.un_tresor = 0;
-        pt_tuile->tresor.num_tresor = 24;
+        tuile_add->tresor.un_tresor = 0;
+        tuile_add->tresor.num_tresor = 24;
     }
-    pt_tuile->start_finish = 0;
+    tuile_add->start_finish = 0;
 
     //Modification de l'orientation.
     //On la met à l'endroit car cette pièce va être tournée avant d'être jouée, donc l'orientation importe peu.
-    tourner(pt_tuile, 0);
+    tourner(tuile_add, 0);
 }
 
 
