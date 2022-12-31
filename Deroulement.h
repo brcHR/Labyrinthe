@@ -5,7 +5,6 @@
 #ifndef LABYRINTHE_DEROULEMENT_H
 #define LABYRINTHE_DEROULEMENT_H
 
-#include "plateau.h"
 #include "pion.h"
 
 #endif //LABYRINTHE_DEROULEMENT_H

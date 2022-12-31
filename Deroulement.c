@@ -5,27 +5,53 @@
 #include <stdio.h>
 #include "Deroulement.h"
 
-void deroulementTour(int nbjoueurs){
-    t_case labyrinthe[7][7], tuile_add;
-    generation_plateau_debut(labyrinthe,&tuile_add);
+void conversion_num_rangee_coordonnees (int *num_rangee, t_coord *coord_pousser){
+    switch (*num_rangee) {
+        case 1:// flèche en haut à gauche (rangée de flèches du haut)
+            coord_pousser->ligne=0;
+            coord_pousser->colonne=1;
+            break;
+        case 2:
+
+            break;
+    }
+}
+
+
+void deroulementTour(int nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4){
+    t_case labyrinthe[7][7], tuile_en_plus;
+    generation_plateau_debut(labyrinthe,&tuile_en_plus);
 
     int joueur_en_cours=1;//1 à 4 , c'est le num du joueur entrain de jouer
     int num_rangee;
     t_coord coord_pousser;//coordonnées de la case à pousser
 
+    int ligne_arrivee, colonne_arrivee;
 
     switch (nbjoueurs) {
         case 2:
-            do {
-                printf("Joueur %d, saisissez le numéro de la rangée que vous voulez faire glisser\n");//voir page 13 du sujet
+            do {//saisie de la rangée à déplacer par le joueur 1
+                printf("Joueur %d, saisissez le numéro de la rangée que vous voulez faire glisser\n",joueur_en_cours);//voir page 13 du sujet
                 scanf("%d",&num_rangee);
             } while (num_rangee<1||num_rangee>12);
-            switch (num_rangee) {
-                case 1:// flèche en haut à gauche (rangée de flèches du haut)
-                    coord_pousser.ligne=0;
-                    coord_pousser.colonne=1;
-                    break;
-            }
+            conversion_num_rangee_coordonnees(&num_rangee,&coord_pousser);
+            deplacer_tuiles(labyrinthe,&tuile_en_plus,&coord_pousser);
+
+            do {//déplacement du pion 1
+                do {
+                    printf("Joueur %d, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6)\n",joueur_en_cours);
+                    scanf("%d",&ligne_arrivee);
+                } while (ligne_arrivee<0 || ligne_arrivee>6);
+                do {
+                    printf("Joueur %d, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6)\n",joueur_en_cours);
+                    scanf("%d",&colonne_arrivee);
+                } while (colonne_arrivee<0 || colonne_arrivee>6);
+                if(deplacement_valide(labyrinthe,pion1,colonne_arrivee,ligne_arrivee)==0){
+                    printf("deplacement impossible, veuillez ressayer\n");
+                }
+            } while (deplacement_valide(labyrinthe,pion1,colonne_arrivee,ligne_arrivee)==0);
+            deplacer_pion(labyrinthe,pion1,colonne_arrivee,ligne_arrivee);
+
     }
 
 
