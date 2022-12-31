@@ -5,6 +5,7 @@
 #include <math.h>
 #include <time.h>
 #include <string.h>
+#include <malloc.h>
 #include "plateau.h"
 #include "pion.h"
 
@@ -18,7 +19,7 @@ void tests(){
     t_case *pt_tuile = &Case;
     pt_tuile->ligne = 1;
     pt_tuile->colonne = 1;
-    pt_tuile->forme = 'I';
+    pt_tuile->forme = 'L';
     creation_type_case(pt_tuile);
     pt_tuile->fixe = 1;
     pt_tuile->tresor.un_tresor = 0;
@@ -30,6 +31,18 @@ void tests(){
 
     for(i=0;i<360;i=i+90){
         for(j=0;j<360;j=j+90){
+            t_case Case;
+            t_case *pt_tuile = &Case;
+            pt_tuile->ligne = 1;
+            pt_tuile->colonne = 1;
+            pt_tuile->forme = 'L';
+            creation_type_case(pt_tuile);
+            pt_tuile->fixe = 1;
+            pt_tuile->tresor.un_tresor = 0;
+            pt_tuile->tresor.num_tresor = 24;
+            pt_tuile->start_finish = 1;
+            pt_tuile->sortie_du_plateau.ligne = 1;
+            pt_tuile->sortie_du_plateau.colonne = 1;
             pt_tuile->rotation = (float)i;
             J = (float)j;
             printf("Orientation ini :%f", pt_tuile->rotation);
@@ -43,7 +56,6 @@ void tests(){
                 printf("\n");
             }
             printf("\n");
-
         }
     }
 

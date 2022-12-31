@@ -153,7 +153,7 @@ void creation_type_case(t_case* tuile){
 
 void tourner(t_case* tuile, float orientation){
     //Création de toutes les variables que l'on va utiliser.
-    t_coord coord_interm, coord_I_1, coord_I_2;
+    t_coord coord_interm, coord_premiermur, coord_I_1, coord_I_2;
     float rota_ini, rota_new, angleT, angleL_l1, angleL_c1, angleL_l2, angleL_c2, rota_new_save;
     float *p_r_ini, *p_or, *p_new;
     float rota_deg;
@@ -214,20 +214,17 @@ void tourner(t_case* tuile, float orientation){
 
         //Maintenant, on modifie le tableau de la case.
         tuile->tableau[coord_interm.ligne][coord_interm.colonne] = '1';
-        // si on ne va pas sur la case d'ou l'on vient, ni sur la case d'ou vient le second mur
+        // si on ne va pas sur la case d'ou l'on vient
         // alors on met notre case d'origine à 0
         if(
                 (   coord_interm.ligne != tuile->mini_case.ligne1 ||
                     coord_interm.colonne != tuile->mini_case.colonne1
-                ) &&
-                (   coord_interm.ligne != tuile->mini_case.ligne2 ||
-                    coord_interm.colonne != tuile->mini_case.colonne2
                 )
            )
         {
             tuile->tableau[tuile->mini_case.ligne1][tuile->mini_case.colonne1] = '0';
         }
-
+        coord_premiermur = coord_interm;
 
         // Deuxième case ( wagon ).
         angleL_l2 = rota_new_save + (M_PI/2);
@@ -238,16 +235,19 @@ void tourner(t_case* tuile, float orientation){
 
         //Maintenant, on modifie le tableau de la case.
         tuile->tableau[coord_interm.ligne][coord_interm.colonne] = '1';
-        // si on ne va pas sur la case d'ou l'on vient, ni sur la case d'ou vient le premier mur
+        // si on ne va pas sur la case d'ou l'on vient
+        // et que le premier mur ne vient pas sur notre case d'origine
         // alors on met notre case d'origine à 0.
         if(
-                (   coord_interm.ligne != tuile->mini_case.ligne1 ||
-                    coord_interm.colonne != tuile->mini_case.colonne1
-                ) &&
-                (   coord_interm.ligne != tuile->mini_case.ligne2 ||
-                    coord_interm.colonne != tuile->mini_case.colonne2
-                )
-                )
+             (
+                coord_interm.ligne != tuile->mini_case.ligne2 ||
+                coord_interm.colonne != tuile->mini_case.colonne2
+             ) &&
+             (
+                coord_premiermur.ligne != tuile->mini_case.ligne2 ||
+                coord_premiermur.colonne != tuile->mini_case.colonne2
+             )
+           )
         {
             tuile->tableau[tuile->mini_case.ligne2][tuile->mini_case.colonne2] = '0';
         }
