@@ -5,5 +5,6 @@
 #ifndef LABYRINTHE_TESTS_H
 #define LABYRINTHE_TESTS_H
 void tests();
-
+void testg();
+void testd();
 #endif //LABYRINTHE_TESTS_H
