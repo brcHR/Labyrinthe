@@ -2,6 +2,8 @@
 // Created by Maxime Vennin on 27/12/2022.
 //
 #include "cartestresors.h"
+#include "pion.h"
+#include "plateau.h"
 
 #include <stdio.h>
 #include <time.h>
@@ -109,7 +111,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pi
 
 ///////à mettre dans le futur main ou dans le test
 
-int main(){
+/*int main(){
     int nbjoueurs;
 
     do {
@@ -137,4 +139,4 @@ int main(){
 
     return 0;
 }
-
+*/

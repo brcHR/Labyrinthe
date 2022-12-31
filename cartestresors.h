@@ -2,16 +2,13 @@
 // Created by Maxime Vennin on 27/12/2022.
 //
 
-#ifndef LABYRINTHE_TRESORS_H
-#define LABYRINTHE_TRESORS_H
+#ifndef LABYRINTHE_CARTESTRESORS_H
+#define LABYRINTHE_CARTESTRESORS_H
 
 #include "pion.h"
-#include "cartestresors.h"
+#include "plateau.h"
 
-typedef struct { //structure temporaire pour test
-    char signe;
-    int decouvert; // 1 s'il a été découvert,0 sinon
-}t_tresor_sur_carte;
+
 
 
 /**
@@ -45,4 +42,4 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4);
 
 
-#endif //LABYRINTHE_TRESORS_H
+#endif //LABYRINTHE_CARTESTRESORS_H

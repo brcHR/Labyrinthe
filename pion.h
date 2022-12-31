@@ -11,7 +11,13 @@
 #define LABYRINTHE_PIONS_H
 
 #include "plateau.h"
-#include "cartestresors.h"
+
+
+
+typedef struct { //structure temporaire pour test
+    char signe;
+    int decouvert; // 1 s'il a été découvert,0 sinon
+}t_tresor_sur_carte;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
