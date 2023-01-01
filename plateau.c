@@ -119,7 +119,6 @@ void creation_type_case(t_case* tuile){
                 tuile->tableau[i][j] = '0';
             }
         }
-        printf("\n");
     }
 
     // On crée ensuite les formes, en enregistrant la position pour pouvoir la modifier.
@@ -266,7 +265,6 @@ void tourner(t_case* tuile, float orientation){
     else if(tuile->forme == 'I'){//&& ((int)tuile->rotation%180 == 0)
         if( (rota_deg == 90 || rota_deg == 270)  ){ //Le chemin change d'orientation que si on applique 90 ou 270 degrés.
             if(tuile->mini_case.colonne1 == 0){ //Si le I est à l'endroit.
-                printf("\trota_deg 90||270, mini_case.colone1=0");
                 //on sauvegarde les valeurs.
                 coord_I_1.ligne = tuile->mini_case.ligne1;
                 coord_I_1.colonne = tuile->mini_case.colonne1;
@@ -287,7 +285,6 @@ void tourner(t_case* tuile, float orientation){
                 tuile->mini_case.colonne2 = 1;
             }
             else{
-                printf("\trota_deg 90||270, mini_case.colone1=1");
                 //on sauvegarde les valeurs.
                 coord_I_1.ligne = tuile->mini_case.ligne1;
                 coord_I_1.colonne = tuile->mini_case.colonne1;
@@ -309,7 +306,6 @@ void tourner(t_case* tuile, float orientation){
             }
         }
         else{
-            printf("\trota_deg 0||180,");
             creation_type_case(tuile);
         }
     }
@@ -322,9 +318,15 @@ void tourner(t_case* tuile, float orientation){
 
 void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     int i,j, alea;
-    int tresors = 24;
-    char all_types[50]; //liste de tous les types.
+    int tresors_tuile_fixe = 12; // 12 tresors sur tuiles fixes vont de 1 a 12
+    int tresors_tuile_T = 18; // 6 tresors sur tuiles mobiles vont de 13 à 18
+    int tresors_tuile_L = 24; // 6 tresors sur tuiles mobiles vont de 19 à 24
+    char all_types[51]; //liste de tous les types.
     t_case *pt_tuile;
+    // pour random sur les tresors a positionner sur les cases L
+    int L_avec_tresors[16];
+    int nb_tresors_mis;
+    int num, num_L;
 
     srand(time(NULL));
 
@@ -333,13 +335,34 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
         if(i<18){
             all_types[i] = 'T';
         }
-        else if(i<38){
+        else if(i<39){
             all_types[i] = 'L';
         }
         else{
             all_types[i] = 'I';
         }
     }
+    // on transforme le tableau en chaine de caractere pour la suite
+    all_types[50] = '\0';
+
+
+    // on tire au hasard les 6 tuiles L sur les 16 sur lesquelles mettre des trésors
+    // on veut 6 nombres entre 1 et 16
+    // on initialise le tableau a zero
+    for(i=0;i<16;i++){
+        L_avec_tresors[i] = 0;
+    }
+    nb_tresors_mis = 0;
+    while(nb_tresors_mis < 6){
+        // MIN + rand()(MAX-MIN+1)
+        num = rand()%(16); // nombre entre 0 et 15
+        if(L_avec_tresors[num] == 0){
+            L_avec_tresors[num] = 1;
+            nb_tresors_mis +=1;
+        }
+    }
+    // on positionne le numero de L posé à Zero
+    num_L = 0;
 
     /*Dans un premier temps, on place les tuiles fixes (qui ont des chemins particuliers et des orientations
      *particulières). Ensuite, on placera les autres en leur donnant une forme et une orientation de manière aléatoire.*/
@@ -356,7 +379,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             pt_tuile->sortie_du_plateau.ligne = i;
             pt_tuile->sortie_du_plateau.colonne = j;
 
-            ///Plaçons les tuiles de départ et d'arrivée.
+            ///Plaçons les tuiles de départ et d'arrivée, a chaque angle du plateau
             if( (i == 0 || i == 6) && (j == 0 || j == 6) ){
                 pt_tuile->forme = 'L';
                 del_1_occ(all_types, pt_tuile->forme);
@@ -364,8 +387,9 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 creation_type_case(pt_tuile);
                 pt_tuile->fixe = 1;
                 pt_tuile->tresor.un_tresor = 0;
-                pt_tuile->tresor.num_tresor = 24; // Pas de trésors.
+                pt_tuile->tresor.num_tresor = 25; // Pas de trésors.
                 pt_tuile->start_finish = 1;
+                pt_tuile->rotation =0;
                 //Modifions l'orientation de ces quatre pièces.
                 if( i==0 && j==0 ){
                     tourner(pt_tuile, 90);
@@ -381,8 +405,8 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 }
             }
 
-            ///Ici, on s'occupe de toutes les autres tuiles FIXES.
-            else if(j%2==0){
+            ///Ici, on s'occupe de toutes les autres tuiles FIXES - toutes les deux lignes et deux colonnes
+            else if(j%2==0 && i%2==0){
                 //Maintenant, on s'occupe des tuiles sur les bords du plateau.
 
                 //Ce sont toutes les mêmes pièces à l'exception de leur orientation.
@@ -392,9 +416,10 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 creation_type_case(pt_tuile);
                 pt_tuile->fixe = 1;
                 pt_tuile->tresor.un_tresor = 1;
-                pt_tuile->tresor.num_tresor = tresors; //On met le numéro du trésor car ils sont tous uniques.
-                tresors -= 1;
+                pt_tuile->tresor.num_tresor = tresors_tuile_fixe; //On met le numéro du trésor car ils sont tous uniques.
+                tresors_tuile_fixe -= 1;
                 pt_tuile->start_finish = 0;
+                pt_tuile->rotation =0;
 
                 //Modification de l'orientation.
                 //Si la tuile est sur le bord droit du plateau.
@@ -439,8 +464,9 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
             else{
                 //Nous allons affecter toutes les caractéristiques de façon aléatoire.
 
-                alea = rand()%(strlen(all_types) +1); //On choisit un type au hasard. Ici, alea est l'indice du type à
-                //affecter.
+                //On choisit un type au hasard.
+                // Ici, alea est l'indice du type à affecter.
+                alea = rand()%(strlen(all_types));
                 pt_tuile->forme = all_types[alea];
                 del_1_occ(all_types, pt_tuile->forme);
 
@@ -451,28 +477,36 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 //On détermine si elle a un trésor ou non.
                 if(pt_tuile->forme == 'I'){ //Chemin en forme de I.
                     pt_tuile->tresor.un_tresor = 0;
-                    pt_tuile->tresor.num_tresor = 24;
+                    pt_tuile->tresor.num_tresor = 25;
                 }
                 else if(pt_tuile->forme == 'T'){ //Chemin en forme de T.
-                    pt_tuile->tresor.un_tresor = 1;
-                    pt_tuile->tresor.num_tresor = tresors;
-                    tresors -= 1;
-                }
-                else{ //Chemin en forme de L.
-                    if(tresors!=0){
+                    if(tresors_tuile_T > 12) {
                         pt_tuile->tresor.un_tresor = 1;
-                        pt_tuile->tresor.num_tresor = tresors;
-                        tresors -= 1;
+                        pt_tuile->tresor.num_tresor = tresors_tuile_T;
+                        tresors_tuile_T -= 1;
                     }
                     else{
                         pt_tuile->tresor.un_tresor = 0;
-                        pt_tuile->tresor.num_tresor = 24;
+                        pt_tuile->tresor.num_tresor = 25;
+                    }
+                }
+                else{ //Chemin en forme de L.
+                    num_L += 1;
+                    if(tresors_tuile_L > 18 && L_avec_tresors[num_L] == 1) {
+                        pt_tuile->tresor.un_tresor = 1;
+                        pt_tuile->tresor.num_tresor = tresors_tuile_L;
+                        tresors_tuile_L -= 1;
+                    }
+                    else{
+                        pt_tuile->tresor.un_tresor = 0;
+                        pt_tuile->tresor.num_tresor = 25;
                     }
                 }
 
                 pt_tuile->start_finish = 0;
 
                 //Modification de l'orientation.
+                pt_tuile->rotation =0;
                 alea = rand()%(3 +1);
                 if(alea == 0){
                     tourner(pt_tuile, 0);
@@ -500,19 +534,23 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     //Modification du tableau de la case.
     creation_type_case(tuile_add);
     tuile_add->fixe = 0;
-    if(tresors!=0){
+    if(tuile_add->forme == 'L' && tresors_tuile_L > 18){
         tuile_add->tresor.un_tresor = 1;
-        tuile_add->tresor.num_tresor = tresors;
-        tresors -= 1;
-    }
-    else{
+        tuile_add->tresor.num_tresor = tresors_tuile_L;
+        tresors_tuile_L -= 1;
+    }else if(tuile_add->forme == 'T'){
+        tuile_add->tresor.un_tresor = 1;
+        tuile_add->tresor.num_tresor = tresors_tuile_T;
+        tresors_tuile_T -= 1;
+    }else{
         tuile_add->tresor.un_tresor = 0;
-        tuile_add->tresor.num_tresor = 24;
+        tuile_add->tresor.num_tresor = 25;
     }
     tuile_add->start_finish = 0;
 
     //Modification de l'orientation.
     //On la met à l'endroit car cette pièce va être tournée avant d'être jouée, donc l'orientation importe peu.
+    tuile_add->rotation =0;
     tourner(tuile_add, 0);
 }
 
@@ -535,7 +573,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
     creation_type_case(pt_sortir);
     pt_sortir->fixe = 0;
     pt_sortir->tresor.un_tresor = 0;
-    pt_sortir->tresor.num_tresor = 24;
+    pt_sortir->tresor.num_tresor = 25;
     pt_sortir->start_finish = 0;
     tourner(pt_sortir, 0);
 

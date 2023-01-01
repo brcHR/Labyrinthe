@@ -77,15 +77,19 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
+    printf("\n");
 
     printf("FORME\n");
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
-            printf("%d\t",Labyrinthe[i][j].forme);
+            printf("%c\t",Labyrinthe[i][j].forme);
         }
         printf("\n");
     }
+    printf("%c",tuile_en_plus.forme);
+    printf("\n");
 
     printf("FIXE\n");
 
@@ -95,6 +99,8 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%d",tuile_en_plus.fixe);
+    printf("\n");
 
     printf("ROTATION\n");
 
@@ -104,6 +110,8 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%f",tuile_en_plus.rotation);
+    printf("\n");
 
     printf("TRESOR: UN NUM\n");
 
@@ -113,6 +121,8 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%d %d",tuile_en_plus.tresor.un_tresor,tuile_en_plus.tresor.num_tresor);
+    printf("\n");
 
     printf("SORTIE PLATEAU COORD\n");
 
@@ -122,6 +132,8 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%d %d",tuile_en_plus.sortie_du_plateau.ligne,tuile_en_plus.sortie_du_plateau.colonne);
+    printf("\n");
 
     printf("START FINISH\n");
 
@@ -131,6 +143,12 @@ void testg(){
         }
         printf("\n");
     }
+    printf("%d",tuile_en_plus.start_finish);
+    printf("\n");
+
+
+    printf("FIN TEST GENERATION PLATEAU\n\n");
+
 }
 
 void testd(){
