@@ -152,8 +152,62 @@ void testg(){
 }
 
 void testd(){
+    int i,j;
+    t_case Labyrinthe[7][7], tuile_en_plus;
+    t_case *pt_tuile_add = &tuile_en_plus;
+    t_coord coord;
+    t_coord *pt_coord = &coord;
 
+    pt_coord->ligne =1;
+    pt_coord->colonne =0;
 
+    generation_plateau_debut(Labyrinthe,pt_tuile_add);
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            printf("%d %d\t",Labyrinthe[i][j].ligne,Labyrinthe[i][j].colonne);
+        }
+        printf("\n");
+    }
+    printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
+    printf("\n\n");
+
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            printf("%d %d\t",Labyrinthe[i][j].ligne,Labyrinthe[i][j].colonne);
+        }
+        printf("\n");
+    }
+    printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
+    printf("\n\n");
+
+    pt_coord->ligne = 5;
+    pt_coord->colonne = 6;
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            printf("%d %d\t",Labyrinthe[i][j].ligne,Labyrinthe[i][j].colonne);
+        }
+        printf("\n");
+    }
+    printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
+    printf("\n\n");
+
+    pt_coord->ligne = 5;
+    pt_coord->colonne = 0;
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            printf("%d %d\t",Labyrinthe[i][j].ligne,Labyrinthe[i][j].colonne);
+        }
+        printf("\n");
+    }
+    printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
+    printf("\n");
 }
 
 void testDistrib(){
