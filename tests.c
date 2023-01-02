@@ -259,3 +259,7 @@ void testDeroulement(){
     deroulementTour(&nbjoueurs, &pion1,&pion2,&pion3,&pion4,labyrinthe,&tuile_en_plus);
 
 }
+
+void testMenu(){
+    Menu();
+}

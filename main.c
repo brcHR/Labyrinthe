@@ -10,8 +10,8 @@ int main(int argc, char **argv)
     /*
      * Mettez les fonctions que vous voulez tester ici. Ne vous occupez pas des if.
      */
-    testDeroulement();
-
+    //testDeroulement();
+    testMenu();
 
     //Ne vous occupez pas de ca.
     if(argc > 1){

@@ -24,7 +24,13 @@ void conversion_num_rangee_coordonnees (const int *num_rangee, t_coord *coord_po
  * @param labyrinthe plateau du labyrinthe
  * @param tuile_en_plus tuile supplémentaire en dehors du plateau
  *
+ * @return 1 si un joueur a gagné, 2 si un joueur veut retourner au menu ou 0 sinon.
  */
-void deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4, t_case labyrinthe[7][7], t_case *tuile_en_plus);
+int deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4, t_case labyrinthe[7][7], t_case *tuile_en_plus);
+
+/**
+ * @brief Cette fonction execute le menu et initialise le plateau de jeu.
+ */
+void Menu();
 
 #endif //LABYRINTHE_DEROULEMENT_H

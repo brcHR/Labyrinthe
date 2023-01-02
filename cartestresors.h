@@ -12,7 +12,11 @@
 
 
 /**
- * @brief Cette fonction est un affichage temporaire des infos sur le prochain trésor à chercher, le nombre de trésors à chercher et les cartes trouvées
+ * @brief Cette fonction est un affichage temporaire des infos sur le prochain :
+ * trésor à chercher
+ * le nombre de trésors à chercher
+ * les cartes trouvées
+ * Elle peut-être intéressante si on a besoin de ces informations
  */
 void AffichageTresor(t_pion *Pion);//clairement pas sûr
 

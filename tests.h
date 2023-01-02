@@ -9,4 +9,5 @@ void testg();
 void testd();
 void testDistrib();
 void testDeroulement();
+void testMenu();
 #endif //LABYRINTHE_TESTS_H
