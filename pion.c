@@ -39,8 +39,8 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
             if(pion->position_pion->tableau[i][j] == 1){
             }
         }
-        return false;
-    }*/
+        return false;*/
+    }
 }
 //les return pas sûr de moi, mais dans la théorie on est bon sauf pour le "déjà déplacé"
 
@@ -64,12 +64,13 @@ int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais r
     if(tuile->tresor.un_tresor == 1){
 // Alors on récupère le trésor
         pion->nb_tresor_pion++;
-        tuile->tresor.num_tresor = 24;
+        // On ajoute le numéro du trésor récupéré dans le tableau tresors de la structure t_pion
+        pion->tresors[pion->nb_tresor_pion - 1].tresor.num_tresor = tuile->tresor.num_tresor;
+        tuile->tresor.un_tresor = 0;
     }
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
 }
-// VOIR AVEC BRIBRI POUR METTRE STRUCT TRESOR DANS SA STRUCT CASE ( JE MODIFIE COMME JE PENSE QUE CA MARCHE
 
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
