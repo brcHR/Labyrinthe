@@ -17,6 +17,7 @@
 typedef struct { //structure temporaire pour test
     char signe;
     int decouvert; // 1 s'il a été découvert,0 sinon
+    t_tresor tresor;
 }t_tresor_sur_carte;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,8 +32,6 @@ typedef struct pion{
     char nom[15]; // Nom du pion
     char couleur; // Couleur du pion
     int arrivee; // Variable booléenne indiquant si le pion a atteint sa destination
-    int deja_deplace; // Variable booléenne indiquant si le pion a déjà été déplacé dans le tour en cours
-    t_tresor tresor; // Structure trésor
     t_tresor_sur_carte tresors[12];// tableau stockant tous les tresors du joueur, les cases en trop sont des '0' et on en met 12 car on a au max 12 tresors par joueur
     int nb_tresor_pion; // Nombre de trésors du pion
 }t_pion;
