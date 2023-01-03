@@ -12,37 +12,132 @@
 
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
-int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee) {
+    int ligne_plateau,colonne_plateau;
+
 
     // On récupère les coordonnées de départ du pion
     int ligne_depart = pion->position_pion->ligne;
     int colonne_depart = pion->position_pion->colonne;
 
     // On vérifie si le pion reste sur place
-    if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee){
-        return true;
+    if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee) {
+        return true; //Déplacement valide même si le pion bouge pas.
     }
-    // Si on sort du plateau de jeu, le déplacement n'est pas validé
-    else if(ligne_arrivee < 0 || ligne_arrivee > 6 || colonne_arrivee < 0 || colonne_arrivee > 6){
+        // Si on sort du plateau de jeu, le déplacement n'est pas validé
+    else if (ligne_arrivee < 0 || ligne_arrivee > 6 || colonne_arrivee < 0 || colonne_arrivee > 6) {
         return false;
     }
-    // Vérifions si le déplacement passe par un mur
-    /*for(int i=0; i<3; i++){
-        for(int j=0;j<3;j++){
-            t_case tuile;
-            t_case *pt_tuile = &tuile;
 
-            pt_tuile->ligne = i;
-            pt_tuile->colonne = j;
+        //Le pion se déplace sur une case qui existe dans le labyrinthe.
+    else {
+        //Maintenant, nous devons vérifier que le pion se déplace uniquement sur une ligne ou sur une colonne.
+        /* Un pion ne peut pas, lors d'un déplacement horizontal, changer de ligne.
+         * Un pion ne peut pas, lors d'un déplacement vertical, changer de colonne.
+         * Afin de se déplacer sur tout le plateau, on demandera au joueur de se déplacer tant qu'il veut.*/
+        if ((ligne_depart != ligne_arrivee) || (colonne_depart != colonne_arrivee)) {
+            return false;
+        }
+        else { //Le déplacement est "légal".
+            //Si on rencontre un mur lors du déplacement, on arrête de bouger le pion et on dit au joueur qu'on a pas
+            // pu aller jusqu'au bout.
 
-            // Le pion veut traverser un mur
-            if(pion->position_pion->tableau[i][j] == 1){
+            /*
+             * DEPLACEMENT SUR UNE LIGNE
+             */
+
+            if(ligne_depart == ligne_arrivee){
+                //On cherche si on déplace le pion vers la gauche ou vers la droite
+                /*
+                 * ----VERS LA DROITE----
+                 */
+                if(colonne_depart<colonne_arrivee){
+                    //On boucle sur les colonnes pour se déplacer.
+                    for( colonne_plateau=colonne_depart ; colonne_plateau<colonne_arrivee ; colonne_plateau++ ){
+                        //Comme on se déplace vers la DROITE, on regarde s'il y a un mur sur le coté droit de la tuile.
+                        //et on regarde sur le coté gauche de la tuile juste à côté.
+                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][2] == 0
+                            && labyrinthe[ligne_arrivee][colonne_plateau+1].tableau[1][0] == 0){
+
+                            pion->position_pion = &labyrinthe[ligne_arrivee][colonne_plateau+1];
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    return true; //Le pion est arrivé à destination.
+                }
+                /*
+                 * ----VERS LA GAUCHE----
+                 */
+                else{
+                    //On boucle sur les colonnes pour se déplacer.
+                    for( colonne_plateau=colonne_depart ; colonne_plateau>colonne_arrivee ; colonne_plateau-- ){
+                        //Comme on se déplace vers la GAUCHE, on regarde s'il y a un mur sur le coté gauche de la tuile.
+                        //et on regarde sur le coté droit de la tuile juste à côté.
+                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][0] == 0
+                           && labyrinthe[ligne_arrivee][colonne_plateau-1].tableau[1][2] == 0){
+
+                            //On déplace le pion sur cette case.
+                            pion->position_pion = &labyrinthe[ligne_arrivee][colonne_plateau-1];
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    return true; //Le pion est arrivé à destination.
+                }
+            }
+
+            /*
+             * DEPLACEMENT SUR UNE COLONNE
+             */
+
+            else{
+                //On cherche si on se déplace vers le haut ou vers le bas.
+                /*
+                 * ----VERS LE BAS----
+                 */
+                if(ligne_depart<ligne_arrivee){
+                    //On boucle sur les lignes.
+                    for( ligne_plateau=ligne_depart ; ligne_plateau<ligne_arrivee ; ligne_plateau++ ){
+                        //Comme on va vers le BAS, on regarde si y'a un mur en bas de la case
+                        //et au dessus de la case en juste en dessous.
+                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[2][1] == 0
+                            && labyrinthe[ligne_plateau+1][colonne_arrivee].tableau[0][1] == 0){
+
+                            pion->position_pion = &labyrinthe[ligne_plateau+1][colonne_arrivee];
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                /*
+                 * ----VERS LE HAUT----
+                 */
+                else{
+                    //On boucle sur les lignes.
+                    for( ligne_plateau=ligne_depart ; ligne_plateau>ligne_arrivee ; ligne_plateau-- ){
+                        //Comme on va vers le HAUT, on regarde si y'a un mur en haut de la case
+                        //et en dessous de la case en juste au dessus.
+                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[0][1] == 0
+                           && labyrinthe[ligne_plateau-1][colonne_arrivee].tableau[2][1] == 0){
+
+                            pion->position_pion = &labyrinthe[ligne_plateau-1][colonne_arrivee];
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    return true;
+                }
             }
         }
-        return false;*/
     }
 }
-//les return pas sûr de moi, mais dans la théorie on est bon sauf pour le "déjà déplacé"
+
 
 
 
