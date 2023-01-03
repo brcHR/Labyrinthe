@@ -157,16 +157,18 @@ void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, 
 int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais rompich mais truc à changer
 // Si la tuile contient un trésor
     if(tuile->tresor.un_tresor == 1){
-// Alors on récupère le trésor
-        pion->nb_tresor_pion++;
-        // On ajoute le numéro du trésor récupéré dans le tableau tresors de la structure t_pion
-        pion->tresors[pion->nb_tresor_pion - 1].tresor.num_tresor = tuile->tresor.num_tresor;
-        tuile->tresor.un_tresor = 0;
+        // Si le trésor récupéré est le bon trésor
     }
+        if (tuile->tresor.num_tresor == pion->num_tresor_recherche) {
+            // Alors on récupère le trésor
+            pion->nb_tresor_pion += 1;
+            tuile->tresor.un_tresor = 0;
+            // On ajoute le numéro du trésor récupéré dans le tableau tresors de la structure t_pion
+            pion->tresors[pion->nb_tresor_pion - 1].tresor.num_tresor = tuile->tresor.num_tresor;
+        }
 // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
 }
-
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
 void renvoyer_pion_debut_ligne(t_case* labyrinthe[7][7],t_pion *pion){
@@ -178,7 +180,6 @@ void renvoyer_pion_debut_ligne(t_case* labyrinthe[7][7],t_pion *pion){
     if (ligne < 0 || ligne > 6 || colonne < 0 || colonne > 6) {
         // Si c'est le cas, on renvoie le pion au début de la ligne
         pion->position_pion->ligne = pion->position_pion->ligne;
-        pion->position_pion = labyrinthe[pion->position_pion->colonne][0]; // PARAMETRE EN POINTEUR ? SINON JE METS "&"
-        pion->position_pion->colonne = 0; // OU CA ?
+        pion->position_pion = labyrinthe[pion->position_pion->colonne][0];
     }
 }
