@@ -272,7 +272,6 @@ void deplacement_valide_test(){
     t_case Case;
     t_case *pt_tuile = &Case;
 
-    labyrinthe[0][0].tableau[1][2] = '0';
     joueur.position_pion = &labyrinthe[0][0];
 
     for(i=0;i<7;i++){
@@ -287,8 +286,80 @@ void deplacement_valide_test(){
         printf("\n");
     }
     printf("\n");
+
+    //deplacement à droite
+    //Pas de murs dans les deux cases.
+    labyrinthe[0][0].tableau[1][2] = '0';
+    labyrinthe[0][1].tableau[1][0] = '0';
     ligne = 0;
     colonne = 1;
+
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    printf("\n");
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] != joueur.position_pion){
+                printf("0\t");
+            }
+            else{
+                printf("1\t");
+            }
+        }
+        printf("\n");
+    }
+
+    //murs dans les deux cases.
+    labyrinthe[0][0].tableau[1][2] = '0';
+    labyrinthe[0][1].tableau[1][0] = '0';
+    labyrinthe[0][1].tableau[1][2] = '0';
+    labyrinthe[0][2].tableau[1][0] = '0';
+    labyrinthe[0][2].tableau[1][2] = '0';
+    labyrinthe[0][3].tableau[1][0] = '0';
+    labyrinthe[0][3].tableau[1][0] = '0';
+
+    ligne = 0;
+    colonne = 3;
+
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    printf("\n");
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] != joueur.position_pion){
+                printf("0\t");
+            }
+            else{
+                printf("1\t");
+            }
+        }
+        printf("\n");
+    }
+
+    labyrinthe[0][3].tableau[2][1] = '0';
+    labyrinthe[1][3].tableau[0][1] = '0';
+
+
+    ligne = 1;
+    colonne = 3;
+
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    printf("\n");
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] != joueur.position_pion){
+                printf("0\t");
+            }
+            else{
+                printf("1\t");
+            }
+        }
+        printf("\n");
+    }
+
+    labyrinthe[0][3].tableau[2][1] = '0';
+    labyrinthe[1][3].tableau[0][1] = '1';
+
+    ligne = 0;
+    colonne = 3;
 
     deplacer_pion(labyrinthe,&joueur,colonne,ligne);
     printf("\n");

@@ -64,8 +64,8 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
                     for( colonne_plateau=colonne_depart ; colonne_plateau<colonne_arrivee ; colonne_plateau++ ){
                         //Comme on se déplace vers la DROITE, on regarde s'il y a un mur sur le coté droit de la tuile.
                         //et on regarde sur le coté gauche de la tuile juste à côté.
-                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][2] == 1
-                            || labyrinthe[ligne_arrivee][colonne_plateau+1].tableau[1][0] == 1){
+                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][2] == '1'
+                            || labyrinthe[ligne_arrivee][colonne_plateau+1].tableau[1][0] == '1'){
 
                             return false;
                         }
@@ -80,8 +80,8 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
                     for( colonne_plateau=colonne_depart ; colonne_plateau>colonne_arrivee ; colonne_plateau-- ){
                         //Comme on se déplace vers la GAUCHE, on regarde s'il y a un mur sur le coté gauche de la tuile.
                         //et on regarde sur le coté droit de la tuile juste à côté.
-                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][0] == 1
-                           || labyrinthe[ligne_arrivee][colonne_plateau-1].tableau[1][2] == 1){
+                        if(labyrinthe[ligne_arrivee][colonne_plateau].tableau[1][0] == '1'
+                           || labyrinthe[ligne_arrivee][colonne_plateau-1].tableau[1][2] == '1'){
 
                             return false;
                         }
@@ -104,8 +104,8 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
                     for( ligne_plateau=ligne_depart ; ligne_plateau<ligne_arrivee ; ligne_plateau++ ){
                         //Comme on va vers le BAS, on regarde si y'a un mur en bas de la case
                         //et au dessus de la case en juste en dessous.
-                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[2][1] == 1
-                            || labyrinthe[ligne_plateau+1][colonne_arrivee].tableau[0][1] == 1){
+                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[2][1] == '1'
+                            || labyrinthe[ligne_plateau+1][colonne_arrivee].tableau[0][1] == '1'){
 
                             return false;
                         }
@@ -120,8 +120,8 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
                     for( ligne_plateau=ligne_depart ; ligne_plateau>ligne_arrivee ; ligne_plateau-- ){
                         //Comme on va vers le HAUT, on regarde si y'a un mur en haut de la case
                         //et en dessous de la case en juste au dessus.
-                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[0][1] == 1
-                           || labyrinthe[ligne_plateau-1][colonne_arrivee].tableau[2][1] == 1){
+                        if(labyrinthe[ligne_plateau][colonne_arrivee].tableau[0][1] == '1'
+                           || labyrinthe[ligne_plateau-1][colonne_arrivee].tableau[2][1] == '1'){
 
                             return false;
                         }
