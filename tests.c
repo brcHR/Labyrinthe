@@ -263,3 +263,52 @@ void testDeroulement(){
 void testMenu(){
     Menu();
 }
+
+
+void deplacement_valide(){
+    int i,j,z,w,ligne,colonne;
+    t_pion joueur;
+    t_case labyrinthe[7][7], tuile_en_plus;
+    t_case Case;
+    t_case *pt_tuile = &Case;
+
+    labyrinthe[0][0].ligne = 1;
+    pt_tuile->colonne = 1;
+    pt_tuile->forme = 'I';
+    creation_type_case(pt_tuile);
+
+
+
+    joueur.position_pion = &labyrinthe[0][0];
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] != joueur.position_pion){
+                printf("0\t");
+            }
+            else{
+                printf("1\t");
+            }
+        }
+        printf("\n");
+    }
+    ligne = 0;
+    colonne = 1;
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] != joueur.position_pion){
+                printf("0\t");
+            }
+            else{
+                printf("1\t");
+            }
+        }
+        printf("\n");
+    }
+}
+
+void testrecup_tresor(){
+
+}
