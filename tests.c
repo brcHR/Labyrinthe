@@ -20,7 +20,7 @@ void tests(){
     t_case *pt_tuile = &Case;
     pt_tuile->ligne = 1;
     pt_tuile->colonne = 1;
-    pt_tuile->forme = 'I';
+    pt_tuile->forme = 'T';
     creation_type_case(pt_tuile);
     pt_tuile->fixe = 1;
     pt_tuile->tresor.un_tresor = 0;
