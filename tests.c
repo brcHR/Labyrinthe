@@ -289,10 +289,9 @@ void deplacement_valide_test(){
     printf("\n");
     ligne = 0;
     colonne = 1;
-    if (deplacement_valide(labyrinthe,&joueur,colonne,ligne)==1){
-        deplacer_pion(labyrinthe,&joueur,colonne,ligne);
-    }else printf("non vlaide\n");
 
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
             if(&labyrinthe[i][j] != joueur.position_pion){

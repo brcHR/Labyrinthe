@@ -13,12 +13,20 @@
 // Fonction qui me permet de savoir si le déplacement du pion est possible
 
 int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee) {
-    int ligne_plateau,colonne_plateau;
+    int ligne_depart,colonne_depart,ligne_plateau,colonne_plateau;
+    int i,j;
 
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            if(&labyrinthe[i][j] == pion->position_pion){
+                // On récupère les coordonnées de départ du pion
+                ligne_depart = i;
+                colonne_depart = j;
+                break;
+            }
+        }
+    }
 
-    // On récupère les coordonnées de départ du pion
-    int ligne_depart = pion->position_pion->ligne;
-    int colonne_depart = pion->position_pion->colonne;
 
     // On vérifie si le pion reste sur place
     if (ligne_depart == ligne_arrivee && colonne_depart == colonne_arrivee) {
@@ -35,7 +43,7 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
         /* Un pion ne peut pas, lors d'un déplacement horizontal, changer de ligne.
          * Un pion ne peut pas, lors d'un déplacement vertical, changer de colonne.
          * Afin de se déplacer sur tout le plateau, on demandera au joueur de se déplacer tant qu'il veut.*/
-        if ((ligne_depart != ligne_arrivee) || (colonne_depart != colonne_arrivee)) {
+        if ((ligne_depart != ligne_arrivee) && (colonne_depart != colonne_arrivee)) {
             return false;
         }
         else { //Le déplacement est "légal".
@@ -131,9 +139,12 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
 // Procédure qui permet de déplacer le pion
 void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
     // On vérifie si le mouvement est valide avec la fonction "deplacement_valide".
-    if (deplacement_valide(labyrinthe, pion, ligne_arrivee, colonne_arrivee) == true){
+    if (deplacement_valide(labyrinthe, pion, colonne_arrivee, ligne_arrivee) == true){
         // Met à jour les coordonnées du pion
         pion->position_pion = &labyrinthe[ligne_arrivee][colonne_arrivee];
+    }
+    else{
+        printf("Déplacement impossible");
     }
     //TODO faire en sorte de dire que le déplacement n'a pas fonctionné.
 }
