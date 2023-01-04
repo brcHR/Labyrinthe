@@ -11,4 +11,5 @@ void deplacement_valide_test();
 void testDistrib();
 void testDeroulement();
 void testMenu();
+void test_affichage();
 #endif //LABYRINTHE_TESTS_H

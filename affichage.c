@@ -150,28 +150,28 @@ void afficheCaseL(int lig, int col, int angle, int numTresor, int presTresor){
         if (angle == 0) {
             printf("%c%c%c   %c%c%c", 219, 219, 219, 219, 219, 219);
             cooCurseur((3 * lig)+2, (9 * col)+1);
-            printf("%c%c%c %c", 219, 219, 219, numTresor+65);
+            printf("%c%c%c", 219, 219, 219);
             cooCurseur((3 * lig)+3, (9 * col)+1);
             printf("%c%c%c%c%c%c%c%c%c", 219, 219, 219, 219, 219, 219, 219, 219, 219);
         }
         else if (angle == 90) {
             printf("%c%c%c%c%c%c%c%c%c", 219, 219, 219, 219, 219, 219, 219, 219, 219);
             cooCurseur((3 * lig)+2, (9 * col)+1);
-            printf("%c%c%c %c", 219, 219, 219, numTresor+65);
+            printf("%c%c%c", 219, 219, 219);
             cooCurseur((3 * lig)+3, (9 * col)+1);
             printf("%c%c%c   %c%c%c", 219, 219, 219, 219, 219, 219);
         }
         else if (angle == 180) {
             printf("%c%c%c%c%c%c%c%c%c", 219, 219, 219, 219, 219, 219, 219, 219, 219);
             cooCurseur((3 * lig)+2, (9 * col)+1);
-            printf("    %c %c%c%c", numTresor+65, 219, 219, 219);
+            printf("      %c%c%c", 219, 219, 219);
             cooCurseur((3 * lig)+3, (9 * col)+1);
             printf("%c%c%c   %c%c%c", 219, 219, 219, 219, 219, 219);
         }
         else if (angle == 270) {
             printf("%c%c%c   %c%c%c", 219, 219, 219, 219, 219, 219);
             cooCurseur((3 * lig)+2, (9 * col)+1);
-            printf("    %c %c%c%c", numTresor+65, 219, 219, 219);
+            printf("      %c%c%c", 219, 219, 219);
             cooCurseur((3 * lig)+3, (9 * col)+1);
             printf("%c%c%c%c%c%c%c%c%c", 219, 219, 219, 219, 219, 219, 219, 219, 219);
         }
