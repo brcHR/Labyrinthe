@@ -45,5 +45,22 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
  */
 void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4);
 
+/**
+ * @brief Cette fonction sert à convertir le caractère d'une struct t_tresor_sur_carte en nb pour pouvoir le comparer
+ *
+ * @param tresorCarte un trésor carte qu'on veut convertir
+ *
+ * @return la valeur du trésor pour pouvoir le comparer
+ */
+int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte);
+
+/**
+ * @brief Cette fonction sert à convertir le nb d'une struct t_tresor en carac pour pouvoir l'afficher dans le Labyrinthe
+ *
+ * @param tresorenNB un trésor qu'on veut convertir en caractère
+ *
+ * @return le caractère du trésor pour pouvoir l'afficher
+ */
+char convertisseur_tresor_NbVersCarac(t_tresor *tresorenNB);
 
 #endif //LABYRINTHE_CARTESTRESORS_H

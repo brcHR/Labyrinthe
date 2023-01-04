@@ -109,6 +109,18 @@ void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pi
     }
 }
 
+int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte){
+    int tresorConverti;
+    tresorConverti=(int) tresorCarte->signe-65;
+    return tresorConverti;
+}
+
+char convertisseur_tresor_NbVersCarac(t_tresor *tresorenNB){
+    char tresorConverti;
+    tresorConverti= (char) tresorenNB->num_tresor+65;
+    return tresorConverti;
+}
+
 ///////à mettre dans le futur main ou dans le test
 
 /*int main(){
