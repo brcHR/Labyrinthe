@@ -265,20 +265,14 @@ void testMenu(){
 }
 
 
-void deplacement_valide(){
+void deplacement_valide_test(){
     int i,j,z,w,ligne,colonne;
     t_pion joueur;
     t_case labyrinthe[7][7], tuile_en_plus;
     t_case Case;
     t_case *pt_tuile = &Case;
 
-    labyrinthe[0][0].ligne = 1;
-    pt_tuile->colonne = 1;
-    pt_tuile->forme = 'I';
-    creation_type_case(pt_tuile);
-
-
-
+    labyrinthe[0][0].tableau[1][2] = '0';
     joueur.position_pion = &labyrinthe[0][0];
 
     for(i=0;i<7;i++){
@@ -292,9 +286,12 @@ void deplacement_valide(){
         }
         printf("\n");
     }
+    printf("\n");
     ligne = 0;
     colonne = 1;
-    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    if (deplacement_valide(labyrinthe,&joueur,colonne,ligne)==1){
+        deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    }else printf("non vlaide\n");
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){

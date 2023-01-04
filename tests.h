@@ -7,6 +7,7 @@
 void tests();
 void testg();
 void testd();
+void deplacement_valide_test();
 void testDistrib();
 void testDeroulement();
 void testMenu();
