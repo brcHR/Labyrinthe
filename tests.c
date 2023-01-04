@@ -9,6 +9,7 @@
 #include "pion.h"
 #include "cartestresors.h"
 #include "Deroulement.h"
+#include "affichage.h"
 
 void tests(){
     printf("TESTS\n");
@@ -378,4 +379,11 @@ void deplacement_valide_test(){
 
 void testrecup_tresor(){
 
+}
+
+void test_affichage(){
+    t_case plateauTest[7][7];
+    t_case caseEnTropTest;
+    generation_plateau_debut(plateauTest, &caseEnTropTest);
+    afficheLabyrinthe(plateauTest);
 }

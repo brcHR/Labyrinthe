@@ -12,8 +12,8 @@ int main(int argc, char **argv)
      */
     //testDeroulement();
     //testMenu();
-
-    deplacement_valide_test();
+    test_affichage();
+    //deplacement_valide_test();
     //Ne vous occupez pas de ca.
     if(argc > 1){
         if(strcmp(argv[1],"-test") == 0){
