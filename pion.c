@@ -142,11 +142,11 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
     if (deplacement_valide(labyrinthe, pion, colonne_arrivee, ligne_arrivee) == true){
         // Met à jour les coordonnées du pion
         pion->position_pion = &labyrinthe[ligne_arrivee][colonne_arrivee];
+
+        if(pion->arrivee == 1){
+
+        }
     }
-    else{
-        printf("Déplacement impossible");
-    }
-    //TODO faire en sorte de dire que le déplacement n'a pas fonctionné.
 }
 
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
