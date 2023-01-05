@@ -16,22 +16,27 @@ void AffichageTresor(t_pion *Pion){
         if (Pion->tresors[i].signe !='0'&& Pion->tresors[i].decouvert==0){
             ++cartesatrouver;
         }
-        printf("\n");
     }
-    printf("cartes a trouver : %d\n",cartesatrouver);
-    for (int i = 0; i < 12; ++i) {
-        if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
-            printf("le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
-            break;
+    if (cartesatrouver==0){// si le joueur n'a pas tous les tresors
+        printf("cartes a trouver : %d\n",cartesatrouver);
+        for (int i = 0; i < 12; ++i) {
+            if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
+                printf("le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
+                break;
+            }
+        }
+        printf("Les tresors deja trouves sont : ");
+        for (int i = 0; i < 12; ++i) {
+            if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==1){
+                printf("%c, ",Pion->tresors[i].signe);
+            }
+            printf("\n");
         }
     }
-    printf("les tresors deja trouves sont : ");
-    for (int i = 0; i < 12; ++i) {
-        if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==1){
-            printf("%c, ",Pion->tresors[i].signe);
-        }
-        printf("\n");
+    else {
+        printf("Vous avez tous les trésors, retournez à votre case départ pour gagner\n");
     }
+
 }
 
 int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration){ //En para : le signe du pion dont on vérifie que le signe est diff des autres puis les autres pions.

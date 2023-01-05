@@ -59,9 +59,22 @@ void conversion_num_rangee_coordonnees(const int *num_rangee,
     }
 }
 
+int test_tresor(t_pion *Pion){
+    int cartesatrouver=0;//compte le nombre de cartes restantes à trouver
+    for (int i = 0; i < 12; ++i) {
+        if (Pion->tresors[i].signe !='0'&& Pion->tresors[i].decouvert==0){
+            ++cartesatrouver;
+        }
+    }
+    if (cartesatrouver==0) return 0; // si le joueur n'a pas tous les tresors
+    else {
+        printf("Vous avez tous les trésors, retournez à votre case départ pour gagner\n");
+        return 1;
+    }
+}
 
-int deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4,
-                    t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]) {
+
+int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]) {
 
     generation_plateau_debut(labyrinthe, tuile_en_plus);
 
@@ -71,7 +84,7 @@ int deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *
     int ligne_arrivee, colonne_arrivee, var_boucle = 0;
 
 
-    for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; joueur_en_cours++) {
+    for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
     /*
      * ----DEPLACEMENT DE LA RANGEE----
@@ -127,7 +140,7 @@ int deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *
         if (deplacement_valide(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee) == 0) {
             printf("deplacement impossible, veuillez ressayer\n");
             var_boucle = 0;
-        }
+        } else var_boucle=1;
     } while (var_boucle == 0);
 
     /*
@@ -140,18 +153,43 @@ int deroulementTour(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *
      * ----DETECTION D'UNE VICTOIRE----
      */
 
-    if (
-            pions[0].arrivee == 1
-            || pion2->arrivee == 1
-            || pion3->arrivee == 1
-            || pion4->arrivee == 1
-        )
-    {
-
-        return 1;
-    } else return 0;
+    int gagne=0;
+    for (int i = 0; i < 4; ++i) {
+        if (pions[i].coord_depart_arrivee.ligne == pions[i].position_pion->ligne || pions[i].coord_depart_arrivee.colonne== pions[i].position_pion->colonne && test_tresor(&pions[i])==1) ++gagne;
+    }
+    if(gagne==0){
+        return 0;
+    } else return 1;
 }
 
+void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){
+    int numJoueur,saisie;
+    for (int i = 0; i <*nbjoueurs ; ++i) {
+        numJoueur=i+1; //attribution du nom
+        printf("Joueur %d, saisissez votre nom : ",numJoueur);
+        fflush(stdin);
+        scanf("%s",pions[i].nom);
+        printf("\n");
+
+        do {//attribution de la couleur
+            printf("couleurs disponibles :\n"
+                   "1 demander Aurel\n"
+                   "Saisissez la couleur de votre pion : ");
+            scanf("%d",saisie);
+            printf("\n");
+        } while (saisie<0 ||saisie>5); //TODO : demander à Aurel couleurs et max de couleurs
+
+    }
+    //initialisation des positions initiales des joueurs
+    pions[1].coord_depart_arrivee.ligne=0;
+    pions[1].coord_depart_arrivee.colonne=0;
+    pions[2].coord_depart_arrivee.ligne=0;
+    pions[2].coord_depart_arrivee.colonne=7;
+    pions[3].coord_depart_arrivee.ligne=7;
+    pions[3].coord_depart_arrivee.colonne=7;
+    pions[4].coord_depart_arrivee.ligne=7;
+    pions[4].coord_depart_arrivee.colonne=0;
+}
 
 void Menu() {
     int choix, choix2, gagne = 0, tour = 0,i,j;
@@ -159,7 +197,6 @@ void Menu() {
     ///// copie de l'initialisation de test
     int nbjoueurs;
     t_case labyrinthe[7][7], tuile_en_plus;
-    t_pion pion1, pion2, pion3, pion4;
     t_pion pions[4];
     /////
 
@@ -185,6 +222,8 @@ void Menu() {
                     printf("\n");
                 } while (nbjoueurs < 2 || nbjoueurs > 4);
 
+                attribution_caracteristiques_joueurs(&nbjoueurs,pions); 
+
                 //initialisation de la partie distribution des cartes
                 for(i=0;i<nbjoueurs;i++){
                     for(j=0;j<12;j++){
@@ -195,7 +234,7 @@ void Menu() {
 
                 do {
                     printf("Saisissez 20 pour revenir au menu à tout moment.\n");//à chaque saisie de déroulement, le joueurs dois pouvoir revenir au menu
-                    gagne = deroulementTour(&nbjoueurs, &pion1, &pion2, &pion3, &pion4, labyrinthe, &tuile_en_plus);
+                    gagne = deroulementTour(&nbjoueurs, labyrinthe, &tuile_en_plus,pions);
                     // fonction affichage d'Aurel
                     ++tour;
                 } while (gagne == 0);
@@ -211,8 +250,9 @@ void Menu() {
                            "Chaque joueur commence par regarder le prochain trésor à chercher\n"
                            "Le dernier joueur à avoir participé à une chasse aux trésors entame la partie.\n"
                            "Le tour d’un joueur se décompose en deux étapes :\n"
-                           "1. Modifier les couloirs \n"
-                           "2. Déplacer son pion \n"
+                           "1. Modifier les couloirs en saisissant un chiffre de 1 à 12 qui correspond aux rangées montrées par les flèches. \n"
+                           "La première flèche est tout à gauche de la première ligne, les suivantes sont dans le sens horaire.\n"
+                           "2. Déplacer son pion en saisissant les coordonnées de la case de destination.\n"
                            "Quand vient son tour, le joueur doit essayer d’atteindre la case sur laquelle figure le trésor à chercher.\n"
                            "Pour cela, il modifie toujours d’abord le labyrinthe en insérant la plaque Couloir, puis déplace son pion.\n"
                            "\n"
