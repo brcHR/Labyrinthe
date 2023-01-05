@@ -154,17 +154,19 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
 
 int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor){ // Je vais rompich mais truc à changer
 // Si la tuile contient un trésor
-    if(tuile->tresor.un_tresor == 1){
-    }
-    // Si le trésor récupéré est le bon trésor
+    if(tuile->tresor.un_tresor == 1) {
+
+        // Si le trésor récupéré est le bon trésor
         if (tuile->tresor.num_tresor == pion->num_tresor_recherche) {
             // Alors on récupère le trésor
             pion->nb_tresor_pion += 1;
             tuile->tresor.un_tresor = 0;
+            tuile->tresor.num_tresor = 25;
             // On ajoute le numéro du trésor récupéré dans le tableau tresors de la structure t_pion
             pion->tresors[pion->nb_tresor_pion - 1].tresor.num_tresor = tuile->tresor.num_tresor;
         }
-// On renvoie le nombre de trésors possédés par le pion
+    }
+    // On renvoie le nombre de trésors possédés par le pion
     return pion->nb_tresor_pion;
 }
 
