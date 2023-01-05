@@ -29,8 +29,26 @@ void conversion_num_rangee_coordonnees (const int *num_rangee, t_coord *coord_po
 int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]);
 
 /**
+ * @brief Cette fonction vérifie si tous les trésors ont été trouvés
+ *
+ * @param pions chacun des 4 pions
+ *
+ * @return 1 si le joueur a trouvé un trésor
+ */
+int test_tresor(t_pion *Pion);
+
+/**
  * @brief Cette fonction execute le menu et initialise le plateau de jeu.
  */
 void Menu();
+
+/**
+ * @brief Cette fonction initialise le nom, la couleur et la position initiale des joueurs
+ *
+ * @param nbjoueurs nombre de joueurs
+ * @param pions tableau des pions
+ *
+ */
+void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]);
 
 #endif //LABYRINTHE_DEROULEMENT_H

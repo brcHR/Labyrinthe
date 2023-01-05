@@ -222,7 +222,7 @@ void Menu() {
                     printf("\n");
                 } while (nbjoueurs < 2 || nbjoueurs > 4);
 
-                attribution_caracteristiques_joueurs(&nbjoueurs,pions); 
+                attribution_caracteristiques_joueurs(&nbjoueurs,pions);
 
                 //initialisation de la partie distribution des cartes
                 for(i=0;i<nbjoueurs;i++){
