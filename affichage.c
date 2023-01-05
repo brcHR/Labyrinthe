@@ -249,13 +249,14 @@ void afficheCaseEnPlus(t_case caseEnPlus){
     }
 }
 
-//TODO couleur j1 = rouge   j2 = jaune  j3 = vert   j4 = bleu
+//couleur j1 = rouge   j2 = jaune  j3 = vert   j4 = bleu
 //affichage des pions
 // ascii 3, 4, 5, 6         3 : ♥    4 : ♦    5 : ♣    6 : ♠    rouge jaune vert bleu
 // 2:vert   9:bleu  12:rouge    14:jaune    15 blanc    0:noir
+
+// affiche les pions
 void affichePions(t_pion pion[4]){
-    int lig,
-        col;
+    int lig, col;
 
     for (int i = 0; i < 4; i++){
         lig = pion[i].lig;
@@ -280,7 +281,7 @@ void affichePions(t_pion pion[4]){
     //test :
     //cooCurseur((3 * lig)+7, (9 * col)+1+col);
     /*
-     * pour le centre des cases : cooCurseur((3 * lig)+8, (9 * col)+5+col);     !!!
+     * pour le centre des cases : cooCurseur((3 * lig)+8, (9 * col)+7+col);     !!!
     cooCurseur(8, 5);
     couleurCurseur(12, 0);
     printf("%c", 3);
@@ -297,6 +298,11 @@ void testPions(t_pion pions[4]){
     }
 }
 
-void testPions2(t_pion pions [4]){
-    //pion;
+// tout l'affichage principal du jeu
+void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4]){
+    system("cls");
+    afficheLabyrinthe(plateau);
+    afficheCaseEnPlus(caseEnPlus);
+    affichePions(pions);
+    cooCurseur(30, 0);
 }
