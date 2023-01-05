@@ -258,9 +258,9 @@ void affichePions(t_pion pion[4]){
         col;
 
     for (int i = 0; i < 4; i++){
-        lig = pion[i].position_pion->ligne;
-        col = pion[i].position_pion->colonne;
-        cooCurseur((3 * lig)+8, (9 * col)+5+col);
+        lig = pion[i].lig;
+        col = pion[i].col;
+        cooCurseur((3 * lig)+8, (9 * col)+7+col);
         if (pion[i].num_pion == 0){
             couleurCurseur(12, 0);
         }
@@ -292,7 +292,11 @@ void affichePions(t_pion pion[4]){
 void testPions(t_pion pions[4]){
     for (int i = 0; i < 4; i++){
         pions[i].num_pion = i;
-        pions[i].position_pion->ligne = (3 * i)+8;
-        pions[i].position_pion->colonne = (9 * i)+5+i;
+        pions[i].lig = i;
+        pions[i].col = i;
     }
+}
+
+void testPions2(t_pion pions [4]){
+    //pion;
 }

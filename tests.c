@@ -386,11 +386,11 @@ void test_affichage(){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
     t_pion pions[4];
-    //testPions(pions);
+    testPions(pions);
     generation_plateau_debut(plateauTest, &caseEnTropTest);
     system("cls");
     afficheLabyrinthe(plateauTest);
     afficheCaseEnPlus(caseEnTropTest);
-    //affichePions(pions);
+    affichePions(pions);
     cooCurseur(30, 0);
 }
