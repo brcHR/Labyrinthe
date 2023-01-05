@@ -57,58 +57,58 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
     return reccurence;
 }
 
-void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4){
+void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){
     srand(time(NULL));
     switch (*nbjoueurs) {
         case 2:// 2 joueurs avec chacun 12 cartes trésor
             for (int i = 0; i < 12; ++i) {
                 do {
-                    pion1->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion1,pion2,pion3,pion4,&i)>0);
+                    pions[0].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[0],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 12; ++i) {
                 do {
-                    pion2->tresors[i].signe = 65+rand()%24;
-                } while (verifunique(pion2,pion1,pion3,pion4,&i)>0);
+                    pions[1].tresors[i].signe = 65+rand()%24;
+                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             break;
         case 3:// 3 joueurs avec chacun 8 cartes trésor
             for (int i = 0; i < 8; ++i) {
                 do {
-                    pion1->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion1,pion2,pion3,pion4,&i)>0);
+                    pions[0].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[0],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 8; ++i) {
                 do {
-                    pion2->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion2,pion1,pion3,pion4,&i)>0);
+                    pions[1].tresors[i].signe = 65+rand()%24;
+                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 8; ++i) {
                 do {
-                    pion3->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion3,pion2,pion1,pion4,&i)>0);
+                    pions[2].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[2],&pions[1],&pions[0],&pions[3],&i)>0);
             }
             break;
         case 4:// 4 joueurs avec chacun 6 cartes trésor
             for (int i = 0; i < 6; ++i) {
                 do {
-                    pion1->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion1,pion2,pion3,pion4,&i)>0);
+                    pions[0].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[0],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 6; ++i) {
                 do {
-                    pion2->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion2,pion1,pion3,pion4,&i)>0);
+                    pions[1].tresors[i].signe = 65+rand()%24;
+                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 6; ++i) {
                 do {
-                    pion3->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion3,pion2,pion1,pion4,&i)>0);
+                    pions[2].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[2],&pions[1],&pions[0],&pions[3],&i)>0);
             }
             for (int i = 0; i < 6; ++i) {
                 do {
-                    pion4->tresors[i].signe= 65+rand()%24;
-                } while (verifunique(pion4,pion2,pion3,pion1,&i)>0);
+                    pions[3].tresors[i].signe= 65+rand()%24;
+                } while (verifunique(&pions[3],&pions[1],&pions[0],&pions[2],&i)>0);
             }
             break;
     }

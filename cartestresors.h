@@ -37,13 +37,10 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
  * @brief Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu'il n'y ait que 24 cartes uniques de distribuées
  *
  * @param nbjoueurs le nombre de joueurs
- * @param pion1 un des 4 pions
- * @param pion2 un des 4 pions
- * @param pion3 un des 4 pions
- * @param pion4 un des 4 pions
+ * @param pions les 4pions
  *
  */
-void DistributionCartes(const int *nbjoueurs, t_pion *pion1, t_pion *pion2, t_pion *pion3, t_pion *pion4);
+void DistributionCartes(const int *nbjoueurs, t_pion pions[4]);
 
 /**
  * @brief Cette fonction sert à convertir le caractère d'une struct t_tresor_sur_carte en nb pour pouvoir le comparer
