@@ -211,7 +211,7 @@ void testd(){
     printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
     printf("\n");
 }
-
+/*
 void testDistrib(){
     int nbjoueurs;
 
@@ -264,7 +264,7 @@ void testDeroulement(){
 
 void testMenu(){
     Menu();
-}
+}*/
 
 
 void deplacement_valide_test(){

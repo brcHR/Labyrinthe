@@ -175,7 +175,7 @@ void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){
             printf("couleurs disponibles :\n"
                    "1 demander Aurel\n"
                    "Saisissez la couleur de votre pion : ");
-            scanf("%d",saisie);
+            scanf("%d",&saisie);//TODO mettre couleur en int
             printf("\n");
         } while (saisie<0 ||saisie>5); //TODO : demander à Aurel couleurs et max de couleurs
 
