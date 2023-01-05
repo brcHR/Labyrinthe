@@ -23,19 +23,29 @@ void cooCurseur(int lig, int col);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
- * @brief cette procedure permet d'afficher les fleche autour du plateau    !!!!!pas fini
+ * @brief cette procedure permet d'afficher les fleche autour du plateau
  */
 
 void afficheFleche();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
- * @brief cette procedure permet d'afficher les pions sur le plateau        !!!!!pas fini
+ * @brief cette procedure permet d'afficher les pions sur le plateau        //TODO la fonction
  */
 
-void affichePions();
+void affichePions(/*int lig, int col*/);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
+ * @brief cette procedure pour changer la couleur du texte sur l'invite de commande
+ */
+
+void couleurCurseur(int texte,int fond);
+
+void afficheCaseEnPlus(t_case caseEnPlus);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 #endif //LABYRINTHE_AFFICHAGE_H

@@ -5,7 +5,7 @@
 #include "plateau.h"
 #include <windows.h>
 #include <stdio.h>
-
+#include "pion.h"
 
 
 //procedure pour placer le curseur a des coord données
@@ -14,6 +14,12 @@ void cooCurseur(int lig, int col){
     mycoord.X = col;
     mycoord.Y = lig;
     SetConsoleCursorPosition( GetStdHandle( STD_OUTPUT_HANDLE ), mycoord );
+}
+
+//procedure pour changer la couleur du texte sur cmd
+void couleurCurseur(int texte,int fond){
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,fond*16+texte);
 }
 
 // affichage des case I en fonction de leur coord et de leur angle et tresor
@@ -225,11 +231,39 @@ void afficheLabyrinthe(t_case plateau[7][7]){
 
         }
     }
+    afficheFleche();
+}
+
+void afficheCaseEnPlus(t_case caseEnPlus){
+    cooCurseur(15,85);
+    printf("Case supplementaire :");
+    if (caseEnPlus.forme == 'I'){
+        afficheCaseI(3, 9, caseEnPlus.rotation, caseEnPlus.tresor.num_tresor , caseEnPlus.tresor.un_tresor);
+    }
+    else if(caseEnPlus.forme == 'T'){
+        afficheCaseT(3, 9, caseEnPlus.rotation, caseEnPlus.tresor.num_tresor , caseEnPlus.tresor.un_tresor);
+    }
+    else if(caseEnPlus.forme == 'L'){
+        afficheCaseL(3, 9, caseEnPlus.rotation, caseEnPlus.tresor.num_tresor , caseEnPlus.tresor.un_tresor);
+    }
 }
 
 
 //affichage des pions
 // ascii 3, 4, 5, 6
-void affichePions(){
+// 2:vert   9:bleu  12:rouge    14:jaune    15 blanc    0:noir
+void affichePions(t_pion pion[4]){
+    //pion->position_pion->ligne
+    //test :
+    //cooCurseur((3 * lig)+7, (9 * col)+1+col);
+    /*
+     * pour le centre des cases : cooCurseur((3 * lig)+8, (9 * col)+5+col);     !!!
+    cooCurseur(8, 5);
+    couleurCurseur(12, 0);
+    printf("%c", 3);
+    couleurCurseur(15,0);
+    */
+
+
 
 }

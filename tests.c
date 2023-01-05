@@ -388,5 +388,7 @@ void test_affichage(){
     generation_plateau_debut(plateauTest, &caseEnTropTest);
     system("cls");
     afficheLabyrinthe(plateauTest);
-    afficheFleche();
+    afficheCaseEnPlus(caseEnTropTest);
+    affichePions();
+    cooCurseur(30, 0);
 }
