@@ -10,6 +10,7 @@
 #include "cartestresors.h"
 #include "Deroulement.h"
 #include "affichage.h"
+#include <windows.h>
 
 void tests(){
     printf("TESTS\n");
@@ -385,5 +386,7 @@ void test_affichage(){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
     generation_plateau_debut(plateauTest, &caseEnTropTest);
+    system("cls");
     afficheLabyrinthe(plateauTest);
+    afficheFleche();
 }
