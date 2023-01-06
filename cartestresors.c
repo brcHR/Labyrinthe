@@ -9,6 +9,7 @@
 #include <time.h>
 #include <stdlib.h>
 
+//TODO: faire une correspondance entre les numeros des tresors et leur symboles dans l'affichage
 
 void AffichageTresor(t_pion *Pion){
     int cartesatrouver=0;//compte le nombre de cartes restantes à trouver
