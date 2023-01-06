@@ -281,10 +281,11 @@ void affichePions(t_pion pion[4]){
     pions[3].coord_depart_arrivee.colonne=0;
     */
     for (int i = 0; i < 4; i++){
-        //lig = pion[i].lig;
-        //col = pion[i].col;
-        lig = pion[i].position_pion->ligne;
-        col = pion[i].position_pion->colonne;
+        lig = pion[i].lig;
+        col = pion[i].col;
+        //lig = pion[i].position_pion->ligne;
+        //col = pion[i].position_pion->colonne;
+        //lig = &pion[i].position_pion
         cooCurseur((3 * lig)+8, (9 * col)+7+col);
         if (pion[i].num_pion == 0){
             couleurCurseur(12, 0);
