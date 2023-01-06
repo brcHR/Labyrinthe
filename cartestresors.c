@@ -21,7 +21,7 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
             cartesatrouver += 1;
         }
     }
-    if (cartesatrouver==0){// si le joueur n'a pas tous les tresors on affiche les infos
+    if (cartesatrouver!=0){// si le joueur n'a pas tous les tresors on affiche les infos
         printf("cartes a trouver : %d\n",cartesatrouver);
         for (int i = 0; i < 12; ++i) {//affiche le prochain tresor à chercher
             if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
@@ -82,6 +82,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les
             alea = rand() % (strlen(tresors));
             pions[i].tresors[j].signe = tresors[alea];
             del_1_occ(tresors,pions[i].tresors[j].signe);
+            printf("%c\n",pions[i].tresors[j].signe);
         }
     }
 }
