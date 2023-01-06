@@ -58,6 +58,7 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 }
 
 void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){
+    //TODO: peut etre faire du random avec dell_1_occ. Sinon rien compris aux fonctions. Rendre ce code lisible.
     srand(time(NULL));
     switch (*nbjoueurs) {
         case 2:// 2 joueurs avec chacun 12 cartes trésor
