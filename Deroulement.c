@@ -91,7 +91,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
         system("cls");
         affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
-        printf("%s c'est a vous !",pions[joueur_en_cours].nom);
+        printf("%s c'est a vous !\n",pions[joueur_en_cours].nom);
         AffichageTresor(&pions[joueur_en_cours]);
 
         //Rotation de la tuile en plus
