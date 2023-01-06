@@ -16,7 +16,7 @@
  * -trésor à chercher
  * -le nombre de trésors à chercher
  * -les cartes trouvées
- * Elle peut-être intéressante si on a besoin de ces informations
+ * Elle enregistre également l'int du symbole des trésors dans la structure pion
  * @param Pion pointeur sur un pion
  */
 void AffichageTresor(t_pion *Pion);//clairement pas sûr
