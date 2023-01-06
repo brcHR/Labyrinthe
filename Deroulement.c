@@ -3,8 +3,10 @@
 //
 
 #include <stdio.h>
+#include <windows.h>
 #include "Deroulement.h"
 #include "affichage.h"
+#include "cartestresors.h"
 
 void conversion_num_rangee_coordonnees(const int *num_rangee,
                                        t_coord *coord_pousser) {//converti le numéro de rangée en des coordonnées pour pouvoir l'exploiter
@@ -87,7 +89,10 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
     for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
+        system("cls");
         affichageComplet(labyrinthe,*tuile_en_plus,pions);
+        AffichageTresor(&pions[joueur_en_cours]);
+
         //Rotation de la tuile en plus
         do {
             printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite: ",pions[joueur_en_cours].nom);
