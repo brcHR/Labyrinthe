@@ -240,7 +240,7 @@ void Menu() {
     t_case labyrinthe[7][7], tuile_en_plus;
     t_pion pions[4];
     /////
-
+    system("cls");      //efface la console
     do {
         do {
             printf("Menu : \n"

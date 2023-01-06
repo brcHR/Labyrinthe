@@ -18,6 +18,7 @@
  * @param plateau plateau de jeu
  * @param caseEnPlus tuile en plus
  * @param pions tableau contenant tous les joueurs
+ * @param nbJoueur nombre de joueur
  * @return Un affichage du futur.
  */
 void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], int nbJoueur);
