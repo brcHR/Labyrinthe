@@ -11,32 +11,36 @@
 
 //TODO: faire une correspondance entre les numeros des tresors et leur symboles dans l'affichage
 
-void AffichageTresor(t_pion *Pion){
+void AffichageTresor(t_pion *Pion){ // affichage d'informations
+    char tresorcherche;
+
     int cartesatrouver=0;//compte le nombre de cartes restantes à trouver
     for (int i = 0; i < 12; ++i) {
         if (Pion->tresors[i].signe !='0'&& Pion->tresors[i].decouvert==0){
             ++cartesatrouver;
         }
     }
-    if (cartesatrouver==0){// si le joueur n'a pas tous les tresors
+    if (cartesatrouver==0){// si le joueur n'a pas tous les tresors on affiche les infos
         printf("cartes a trouver : %d\n",cartesatrouver);
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 12; ++i) {//affiche le prochain tresor à chercher
             if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
                 printf("le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
+                Pion->num_tresor_recherche= convertisseur_tresor_CaracVersNb(&Pion->tresors[i]);// enregistre le tresor à chercher dans la struct
                 break;
             }
         }
         printf("Les tresors deja trouves sont : ");
-        for (int i = 0; i < 12; ++i) {
+        for (int i = 0; i < 12; ++i) {// affiche les tresors deja trouves
             if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==1){
                 printf("%c, ",Pion->tresors[i].signe);
             }
             printf("\n");
         }
     }
-    else {
+    else {//si le pion a tous les trésors afficher retour à case départ pour gagner
         printf("Vous avez tous les trésors, retournez à votre case départ pour gagner\n");
     }
+
 
 }
 
@@ -58,7 +62,7 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
     return reccurence;
 }
 
-void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){
+void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les tresors de struct pion
     //TODO: peut etre faire du random avec dell_1_occ. Sinon rien compris aux fonctions. Rendre ce code lisible.
     srand(time(NULL));
     switch (*nbjoueurs) {

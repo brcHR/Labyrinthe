@@ -79,12 +79,11 @@ void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, 
  *
  * @param pion pointeur sur un pion du jeu arrivant sur une case comprenant un trésor.
  * @param tuile tuile pointeur sur une tuile du labyrinthe.
- * @param tresor
  *
  * @return Le nombre de trésor possédé par le pion.
  */
 
-int recuperer_tresor(t_pion *pion, t_case *tuile, t_tresor tresor);
+int recuperer_tresor(t_pion *pion, t_case *tuile);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

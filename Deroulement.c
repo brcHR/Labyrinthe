@@ -79,19 +79,34 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     generation_plateau_debut(labyrinthe, tuile_en_plus);
 
     int joueur_en_cours = 0;//1 à 4 , c'est le num du joueur entrain de jouer mais on part à 0 pour faciliter les boucles.
-    int num_rangee;
+    int num_rangee, rotation;
     t_coord coord_pousser;//coordonnées de la case à pousser
     int ligne_arrivee, colonne_arrivee, var_boucle = 0;
 
 
     for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
+
+        //Rotation de la tuile en plus
+        do {
+            do {
+                printf("%s saisissez 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite.\n"
+                       "Puis saisissez 0 pour confirmer : ",pions[joueur_en_cours].nom);
+                scanf("%d",&rotation);
+                printf("\n");
+                if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
+            }while(rotation != 90 && rotation != 180 && rotation != 270);
+            tourner(tuile_en_plus,rotation);// tourner la tuile
+        } while (rotation!=0);
+
+
+
     /*
      * ----DEPLACEMENT DE LA RANGEE----
      */
 
     do {
-        printf("Joueur %d, saisissez le numéro de la rangée que vous voulez faire glisser : ", joueur_en_cours);
+        printf("Joueur %d, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", joueur_en_cours);
         scanf("%d", &num_rangee);
         printf("\n");
 
@@ -149,6 +164,10 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
     }
 
+    //Récupération d'un tresor
+    recuperer_tresor(&pions[joueur_en_cours],&labyrinthe[pions[joueur_en_cours].position_pion->ligne][pions[joueur_en_cours].position_pion->colonne]);
+
+
     /*
      * ----DETECTION D'UNE VICTOIRE----
      */
@@ -162,7 +181,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     } else return 1;
 }
 
-void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){
+void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){ //initialise le nom, la couleur et la position ini des pions
     int numJoueur,saisie;
     for (int i = 0; i <*nbjoueurs ; ++i) {
         numJoueur=i+1; //attribution du nom

@@ -12,7 +12,7 @@
 
 
 /**
- * @brief Cette fonction est un affichage temporaire des infos sur le prochain :
+ * @brief Cette fonction est un affichage des infos sur :
  * -trésor à chercher
  * -le nombre de trésors à chercher
  * -les cartes trouvées
@@ -23,7 +23,7 @@ void AffichageTresor(t_pion *Pion);//clairement pas sûr
 
 
 /**
- * @brief Cette fonction sert à savoir si on a déjà utilisé un signe dans un autre pion
+ * @brief Cette fonction sert à savoir si on a déjà utilisé un signe(caractère qui représente un trésor) dans un autre pion
  *
  * @param pionVerif le pion dont on vérifie le signe
  * @param pionun un des 4 pions (on inclue simplement les 4 pions sans importance d'ordre)
@@ -36,6 +36,7 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 
 /**
  * @brief Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu'il n'y ait que 24 cartes uniques de distribuées
+ * elle initialise les trésors à trouver dans les struct pions.
  *
  * @param nbjoueurs le nombre de joueurs
  * @param pions les 4pions
