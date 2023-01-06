@@ -228,7 +228,7 @@ void afficheFleche(){
     printf("%c7", 24);
 }
 
-//affichage du tableau en entier
+//affichage du tableau en entier + appelle afficheFleche
 void afficheLabyrinthe(t_case plateau[7][7]){
     for (int i = 0; i < 7; i ++){
         for (int j = 0; j < 7; j++){
@@ -247,6 +247,7 @@ void afficheLabyrinthe(t_case plateau[7][7]){
     afficheFleche();
 }
 
+// affichage de la case en plus
 void afficheCaseEnPlus(t_case caseEnPlus){
     cooCurseur(15,85);
     printf("Case supplementaire :");
@@ -269,7 +270,16 @@ void afficheCaseEnPlus(t_case caseEnPlus){
 // affiche les pions
 void affichePions(t_pion pion[4]){
     int lig, col;
-
+    /*
+    pions[0].coord_depart_arrivee.ligne=0;
+    pions[0].coord_depart_arrivee.colonne=0;
+    pions[1].coord_depart_arrivee.ligne=0;
+    pions[1].coord_depart_arrivee.colonne=7;
+    pions[2].coord_depart_arrivee.ligne=7;
+    pions[2].coord_depart_arrivee.colonne=7;
+    pions[3].coord_depart_arrivee.ligne=7;
+    pions[3].coord_depart_arrivee.colonne=0;
+    */
     for (int i = 0; i < 4; i++){
         lig = pion[i].lig;
         col = pion[i].col;
@@ -301,13 +311,21 @@ void affichePions(t_pion pion[4]){
     */
 }
 
-
+//test
 void testPions(t_pion pions[4]){
     for (int i = 0; i < 4; i++){
         pions[i].num_pion = i;
-        pions[i].lig = i;
-        pions[i].col = i;
+        //pions[i].lig = i;
+        //pions[i].col = i;
     }
+    pions[0].lig=0;
+    pions[0].col=0;
+    pions[1].lig=0;
+    pions[1].col=6;
+    pions[2].lig=6;
+    pions[2].col=6;
+    pions[3].lig=6;
+    pions[3].col=0;
 }
 
 // tout l'affichage principal du jeu
