@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 //TODO: faire une correspondance entre les numeros des tresors et leur symboles dans l'affichage
 
@@ -47,11 +48,9 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
 int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration){ //En para : le symbole du pion dont on vérifie que le symbole est diff des autres puis les autres pions.
     int reccurence=0;
     for (int i = 0; i < 12; ++i) {//vérifie dans les tableaux de tous les autres pions
-        for (int j = 0; j < 12; ++j) {
             if (pionVerif->tresors[*iteration].signe == pionun->tresors[i].signe || pionVerif->tresors[*iteration].signe == piondeux->tresors[i].signe || pionVerif->tresors[*iteration].signe == piontrois->tresors[i].signe){
                 ++reccurence;
             }
-        }
 
     }
     for (int i = 0; i < *iteration; ++i) {//vérifie dans le pion à vérifier si on a pas déjà le même signe de trésor
@@ -62,8 +61,37 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
     return reccurence;
 }
 
-void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les tresors de struct pion
+void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les tresors de struct pion
+    char tresors[25] = "ABCDEFGHIJKLMNOPQRSTUVWX";
+    int alea, i, cartes, j;
     srand(time(NULL));
+
+    printf("%s",tresors);
+
+    if (*nbjoueurs == 2) {
+        cartes = 12;
+    } else if (*nbjoueurs == 3) {
+        cartes = 8;
+    } else if (*nbjoueurs == 4) {
+        cartes = 6;
+    }
+
+
+    for (i = 0; i < *nbjoueurs; i++) {
+        for (j = 0; j < cartes; j++) {
+            alea = rand() % (strlen(tresors));
+            pions[i].tresors[j].signe = tresors[alea];
+            del_1_occ(tresors,pions[i].tresors[j].signe);
+        }
+    }
+}
+
+
+
+
+
+/*
+
     switch (*nbjoueurs) {
         case 2:// 2 joueurs avec chacun 12 cartes trésor
             for (int i = 0; i < 12; ++i) {
@@ -74,7 +102,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les 
             for (int i = 0; i < 12; ++i) {
                 do {
                     pions[1].tresors[i].signe = 65+rand()%24;
-                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
+                } while (verifunique(&pions[1],&pions[0],&pions[2],&pions[3],&i)>0);
             }
             break;
         case 3:// 3 joueurs avec chacun 8 cartes trésor
@@ -86,7 +114,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les 
             for (int i = 0; i < 8; ++i) {
                 do {
                     pions[1].tresors[i].signe = 65+rand()%24;
-                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
+                } while (verifunique(&pions[1],&pions[0],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 8; ++i) {
                 do {
@@ -103,7 +131,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les 
             for (int i = 0; i < 6; ++i) {
                 do {
                     pions[1].tresors[i].signe = 65+rand()%24;
-                } while (verifunique(&pions[1],&pions[1],&pions[2],&pions[3],&i)>0);
+                } while (verifunique(&pions[1],&pions[0],&pions[2],&pions[3],&i)>0);
             }
             for (int i = 0; i < 6; ++i) {
                 do {
@@ -118,7 +146,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les 
             break;
     }
 }
-
+*/
 int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte){
     int tresorConverti;
     tresorConverti=(int) tresorCarte->signe-65;

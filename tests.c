@@ -211,9 +211,10 @@ void testd(){
     printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
     printf("\n");
 }
-/*
+
 void testDistrib(){
-    int nbjoueurs;
+    int nbjoueurs,i,j;
+    t_pion pions[4];
 
     do {
         printf("saisissez le nombre de joueurs (entre 2 et 4)\n");
@@ -223,23 +224,23 @@ void testDistrib(){
 
     t_pion pion1, pion2, pion3, pion4;
 
-    for (int i = 0; i < 12; ++i) {
-        pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
-    }
-    for (int i = 0; i < 12; ++i) {
-        pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
+    for(i=0;i<nbjoueurs;i++){
+        for(j=0;j<12;j++){
+            pions[i].tresors[j].signe = '0';
+            pions[i].tresors[j].decouvert = 0;
+        }
     }
 
 
-    DistributionCartes(&nbjoueurs,&pion1,&pion2,&pion3,&pion4);
-    for (int i = 0; i < 12; ++i) {
+    DistributionCartes(&nbjoueurs,pions);
+    for ( i = 0; i < 12; ++i) {
         printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
     }
 
     AffichageTresor(&pion1);
 
 }
-
+/*
 void testDeroulement(){
     int nbjoueurs;
     t_case labyrinthe[7][7], tuile_en_plus;
