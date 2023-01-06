@@ -87,11 +87,10 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
     for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
-
+        affichageComplet(labyrinthe,*tuile_en_plus,pions);
         //Rotation de la tuile en plus
         do {
-            printf("%s saisissez 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite.\n"
-                       "Puis saisissez 0 pour confirmer : ",pions[joueur_en_cours].nom);
+            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite: ",pions[joueur_en_cours].nom);
             scanf("%d",&rotation);
             printf("\n");
             if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
@@ -103,7 +102,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     /*
      * ----DEPLACEMENT DE LA RANGEE----
      */
-
+    affichageComplet(labyrinthe,*tuile_en_plus,pions);
     do {
         printf("%s, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", pions[joueur_en_cours].nom);
         scanf("%d", &num_rangee);
@@ -117,6 +116,8 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
     //On déplace les tuiles.
     deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
+
+    affichageComplet(labyrinthe,*tuile_en_plus,pions);
 
     /*
      * ----DEPLACEMENT DU PION----
@@ -157,10 +158,13 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
         } else var_boucle=1;
     } while (var_boucle == 0);
 
+
     /*
      * ----DEPLACEMENT DU PION----
      */
     deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
+    affichageComplet(labyrinthe,*tuile_en_plus,pions);
+
     }
 
     //Récupération d'un tresor
