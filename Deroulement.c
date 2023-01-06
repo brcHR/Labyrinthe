@@ -90,7 +90,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
         system("cls");
-        affichageComplet(labyrinthe,*tuile_en_plus,pions);
+        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
         AffichageTresor(&pions[joueur_en_cours]);
 
         //Rotation de la tuile en plus
@@ -107,7 +107,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     /*
      * ----DEPLACEMENT DE LA RANGEE----
      */
-    affichageComplet(labyrinthe,*tuile_en_plus,pions);
+    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
     do {
         printf("%s, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", pions[joueur_en_cours].nom);
         scanf("%d", &num_rangee);
@@ -122,7 +122,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     //On déplace les tuiles.
     deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
 
-    affichageComplet(labyrinthe,*tuile_en_plus,pions);
+    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
 
     /*
      * ----DEPLACEMENT DU PION----
@@ -168,7 +168,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      * ----DEPLACEMENT DU PION----
      */
     deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
-    affichageComplet(labyrinthe,*tuile_en_plus,pions);
+    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
 
     }
 
