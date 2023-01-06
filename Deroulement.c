@@ -7,7 +7,7 @@
 #include "affichage.h"
 
 void conversion_num_rangee_coordonnees(const int *num_rangee,
-                                       t_coord *coord_pousser) {//converti le numéro de rangée en des coordonnées
+                                       t_coord *coord_pousser) {//converti le numéro de rangée en des coordonnées pour pouvoir l'exploiter
     switch (*num_rangee) {
         case 1:// flèche en haut à gauche (rangée de flèches du haut)
             coord_pousser->ligne = 0;
@@ -90,15 +90,13 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
         //Rotation de la tuile en plus
         do {
-            do {
-                printf("%s saisissez 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite.\n"
+            printf("%s saisissez 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite.\n"
                        "Puis saisissez 0 pour confirmer : ",pions[joueur_en_cours].nom);
-                scanf("%d",&rotation);
-                printf("\n");
-                if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
-            }while(rotation != 90 && rotation != 180 && rotation != 270);
-            tourner(tuile_en_plus,rotation);// tourner la tuile
-        } while (rotation!=0);
+            scanf("%d",&rotation);
+            printf("\n");
+            if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
+        }while(rotation!=0 && rotation != 90 && rotation != 180 && rotation != 270);
+        tourner(tuile_en_plus,rotation);// tourner la tuile
 
 
 
@@ -218,8 +216,8 @@ void Menu() {
         do {
             printf("Menu : \n"
                    "1) Nouvelle partie\n"
-                   "2) Afficher les règles\n"
-                   "3) Afficher les crédits\n"
+                   "2) Afficher les regles\n"
+                   "3) Afficher les credits\n"
                    "4) Quitter\n"
                    "Saisissez un chiffre pour naviguer dans le menu : ");
             scanf("%d", &choix);
@@ -247,7 +245,7 @@ void Menu() {
                 }
 
                 do {
-                    printf("Saisissez 20 pour revenir au menu à tout moment.\n");//à chaque saisie de déroulement, le joueurs dois pouvoir revenir au menu
+                    printf("Saisissez 20 pour revenir au menu a tout moment.\n");//à chaque saisie de déroulement, le joueurs dois pouvoir revenir au menu
                     gagne = deroulementTour(&nbjoueurs, labyrinthe, &tuile_en_plus,pions);
                     // fonction affichage d'Aurel
                     ++tour;
@@ -256,8 +254,8 @@ void Menu() {
             case 2:
                 do {
                     printf("But du jeu :\n"
-                           "Vous pénétrez dans un labyrinthe enchanté à la recherche de fabuleux trésors.\n"
-                           "Chacun d’entre vous essaye de créer des chemins pour atteindre le trésor qu’il convoite en faisant coulisser astucieusement les couloirs.\n"
+                           "Vous penetrez dans un labyrinthe enchante a la recherche de fabuleux tresors.\n"
+                           "Chacun d’entre vous essaye de creeer des chemins pour atteindre le trésor qu’il convoite en faisant coulisser astucieusement les couloirs.\n"
                            "Le joueur qui aura trouvé tous ses trésors et rejoint sa case départ le premier sera déclaré vainqueur.\n"
                            "\n"
                            "Déroulement de la partie :\n"

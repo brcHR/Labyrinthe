@@ -44,7 +44,7 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
 
 }
 
-int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration){ //En para : le signe du pion dont on vérifie que le signe est diff des autres puis les autres pions.
+int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration){ //En para : le symbole du pion dont on vérifie que le symbole est diff des autres puis les autres pions.
     int reccurence=0;
     for (int i = 0; i < 12; ++i) {//vérifie dans les tableaux de tous les autres pions
         for (int j = 0; j < 12; ++j) {
@@ -63,7 +63,6 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 }
 
 void DistributionCartes(const int *nbjoueurs, t_pion pions[4]){ //distribue les tresors de struct pion
-    //TODO: peut etre faire du random avec dell_1_occ. Sinon rien compris aux fonctions. Rendre ce code lisible.
     srand(time(NULL));
     switch (*nbjoueurs) {
         case 2:// 2 joueurs avec chacun 12 cartes trésor
