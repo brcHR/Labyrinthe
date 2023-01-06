@@ -232,6 +232,9 @@ void afficheFleche(){
 void afficheLabyrinthe(t_case plateau[7][7]){
     for (int i = 0; i < 7; i ++){
         for (int j = 0; j < 7; j++){
+            if ((i == 0 || i == 2 || i == 4 || i == 6) && (j == 0 || j == 2 || j == 4 || j == 6)){
+                couleurCurseur(8, 0);
+            }
             if (plateau[i][j].forme == 'I'){
                 afficheCaseI(i, j, plateau[i][j].rotation, plateau[i][j].tresor.num_tresor , plateau[i][j].tresor.un_tresor);
             }
@@ -241,7 +244,7 @@ void afficheLabyrinthe(t_case plateau[7][7]){
             else if(plateau[i][j].forme == 'L'){
                 afficheCaseL(i, j, plateau[i][j].rotation, plateau[i][j].tresor.num_tresor , plateau[i][j].tresor.un_tresor);
             }
-
+            couleurCurseur(15, 0);
         }
     }
     afficheFleche();
