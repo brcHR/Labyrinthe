@@ -22,10 +22,10 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
         }
     }
     if (cartesatrouver!=0){// si le joueur n'a pas tous les tresors on affiche les infos
-        printf("cartes a trouver : %d\n",cartesatrouver);
+        printf("Cartes a trouver : %d\n",cartesatrouver);
         for (int i = 0; i < 12; ++i) {//affiche le prochain tresor à chercher
             if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==0){
-                printf("le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
+                printf("Le prochain tresor a trouver est : %c\n",Pion->tresors[i].signe);
                 Pion->num_tresor_recherche= convertisseur_tresor_CaracVersNb(&Pion->tresors[i]);// enregistre le tresor à chercher dans la struct
                 break;
             }
@@ -39,7 +39,7 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
         }
     }
     else {//si le pion a tous les trésors afficher retour à case départ pour gagner
-        printf("Vous avez tous les trésors, retournez à votre case départ pour gagner\n");
+        printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
     }
 
 

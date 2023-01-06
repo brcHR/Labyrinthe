@@ -91,6 +91,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
         system("cls");
         affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+        printf("%s c'est a vous !",pions[joueur_en_cours].nom);
         AffichageTresor(&pions[joueur_en_cours]);
 
         //Rotation de la tuile en plus
@@ -108,6 +109,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      * ----DEPLACEMENT DE LA RANGEE----
      */
     affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+    AffichageTresor(&pions[joueur_en_cours]);
     do {
         printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ", pions[joueur_en_cours].nom);
         scanf("%d", &num_rangee);
@@ -135,6 +137,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
 
     affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+    AffichageTresor(&pions[joueur_en_cours]);
 
     /*
      * ----DEPLACEMENT DU PION----
@@ -181,6 +184,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      */
     deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
     affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+    AffichageTresor(&pions[joueur_en_cours]);
 
     }
 
@@ -296,11 +300,13 @@ void Menu() {
             case 2:
                 do {
                     printf("But du jeu :\n"
+                           "\n"
                            "Vous penetrez dans un labyrinthe enchante a la recherche de fabuleux tresors.\n"
                            "Chacun d’entre vous essaye de creeer des chemins pour atteindre le trésor qu’il convoite en faisant coulisser astucieusement les couloirs.\n"
                            "Le joueur qui aura trouve tous ses tresors et rejoint sa case depart le premier sera declare vainqueur.\n"
                            "\n"
                            "Deroulement de la partie :\n"
+                           "\n"
                            "Chaque joueur commence par regarder le prochain tresor a chercher\n"
                            "Le dernier joueur a avoir participe a une chasse aux tresors entame la partie.\n"
                            "Le tour d’un joueur se decompose en deux etapes :\n"
