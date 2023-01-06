@@ -194,19 +194,31 @@ void afficheFleche(){
     cooCurseur(6, 57);
     printf("%c3", 25);
     //fleche de gauche
-    cooCurseur(11, 0);
-    printf("12%c", 62);
-    cooCurseur(17, 0);
-    printf("11%c", 62);
-    cooCurseur(23, 0);
-    printf("10%c", 62);
+    cooCurseur(10, 0);
+    printf("  %c\n12%c\n  %c", 62, 62, 62);
+    cooCurseur(16, 0);
+    printf("  %c\n11%c\n  %c", 62, 62, 62);
+    cooCurseur(22, 0);
+    printf("  %c\n10%c\n  %c", 62, 62, 62);
     //fleche de droite
+    cooCurseur(10, 73);
+    printf("%c", 60);
     cooCurseur(11, 73);
     printf("%c4", 60);
+    cooCurseur(12, 73);
+    printf("%c", 60);
+    cooCurseur(16, 73);
+    printf("%c", 60);
     cooCurseur(17, 73);
     printf("%c5", 60);
+    cooCurseur(18, 73);
+    printf("%c", 60);
+    cooCurseur(22, 73);
+    printf("%c", 60);
     cooCurseur(23, 73);
     printf("%c6", 60);
+    cooCurseur(24, 73);
+    printf("%c", 60);
     //fleche du bas
     cooCurseur(28, 17);
     printf("%c9", 24);
