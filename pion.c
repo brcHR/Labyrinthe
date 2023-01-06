@@ -22,6 +22,8 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
                 // On récupère les coordonnées de départ du pion
                 ligne_depart = i;
                 colonne_depart = j;
+                pion->lig = i;
+                pion->col = j;
                 break;
             }
         }

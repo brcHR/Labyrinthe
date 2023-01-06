@@ -196,13 +196,22 @@ void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]){
     }
     //initialisation des positions initiales des joueurs
     pions[0].coord_depart_arrivee.ligne=0;
+    pions[0].lig=0;
     pions[0].coord_depart_arrivee.colonne=0;
+    pions[0].col=0;
     pions[1].coord_depart_arrivee.ligne=0;
+    pions[1].lig=0;
     pions[1].coord_depart_arrivee.colonne=6;
+    pions[1].col=6;
     pions[2].coord_depart_arrivee.ligne=6;
+    pions[2].lig=6;
     pions[2].coord_depart_arrivee.colonne=6;
+    pions[2].col=6;
     pions[3].coord_depart_arrivee.ligne=6;
+    pions[3].lig=6;
     pions[3].coord_depart_arrivee.colonne=0;
+    pions[3].col=0;
+
 
     //Attribution des trésors à trouver par joueurs:
 }
