@@ -268,7 +268,7 @@ void afficheCaseEnPlus(t_case caseEnPlus){
 // 2:vert   9:bleu  12:rouge    14:jaune    15 blanc    0:noir
 
 // affiche les pions
-void affichePions(t_pion pion[4]){
+void affichePions(t_pion pion[4], int nbJoueur){
     int lig, col;
     /*
     pions[0].coord_depart_arrivee.ligne=0;
@@ -280,7 +280,7 @@ void affichePions(t_pion pion[4]){
     pions[3].coord_depart_arrivee.ligne=7;
     pions[3].coord_depart_arrivee.colonne=0;
     */
-    for (int i = 0; i < 4; i++){
+    for (int i = 0; i < nbJoueur; i++){
         lig = pion[i].lig;
         col = pion[i].col;
         //lig = pion[i].position_pion->ligne;

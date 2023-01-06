@@ -52,7 +52,7 @@ void afficheFleche();
  * @brief cette procedure permet d'afficher les pions sur le plateau
  * @param pion tableau contenant tous les joueurs ( t_pion )
  */
-void affichePions(t_pion pion[4]);
+void affichePions(t_pion pion[4], int nbJoueur);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
