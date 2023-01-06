@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include "Deroulement.h"
+#include "affichage.h"
 
 void conversion_num_rangee_coordonnees(const int *num_rangee,
                                        t_coord *coord_pousser) {//converti le numéro de rangée en des coordonnées
