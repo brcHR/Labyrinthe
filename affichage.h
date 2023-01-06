@@ -20,7 +20,7 @@
  * @param pions tableau contenant tous les joueurs
  * @return Un affichage du futur.
  */
-void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4]);
+void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], int nbJoueur);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -332,10 +332,10 @@ void testPions(t_pion pions[4]){
 }
 
 // tout l'affichage principal du jeu
-void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4]){
+void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], int nbJoueur){
     system("cls");
     afficheLabyrinthe(plateau);
     afficheCaseEnPlus(caseEnPlus);
-    affichePions(pions);
+    affichePions(pions, nbJoueur);
     cooCurseur(30, 0);
 }
