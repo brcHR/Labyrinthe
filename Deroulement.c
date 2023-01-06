@@ -78,7 +78,7 @@ int test_tresor(t_pion *Pion){
 
 
 int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]) {
-
+    int i,j;
     generation_plateau_debut(labyrinthe, tuile_en_plus);
 
     int joueur_en_cours = 0;//1 à 4 , c'est le num du joueur entrain de jouer mais on part à 0 pour faciliter les boucles.
@@ -120,6 +120,18 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
     conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
     //On déplace les tuiles.
+    //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
+    for(i=0;i<*nbjoueurs;i++){
+        if(
+                (pions[i].lig == coord_pousser.ligne && (pions[i].col == coord_pousser.colonne-6 || pions[i].col == coord_pousser.colonne+6))
+                ||
+                (pions[i].col == coord_pousser.colonne && (pions[i].lig == coord_pousser.ligne-6 || pions[i].lig == coord_pousser.ligne+6))
+        ){
+            renvoyer_pion_debut_ligne(labyrinthe,&pions[i]);
+        }
+    }
+
+
     deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
 
     affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);

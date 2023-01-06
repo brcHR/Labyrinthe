@@ -35,8 +35,8 @@ typedef struct pion{
     t_tresor_sur_carte tresors[12];// tableau stockant tous les tresors du joueur, les cases en trop sont des '0' et on en met 12 car on a au max 12 tresors par joueur
     int num_tresor_recherche;
     int nb_tresor_pion; // Nombre de trésors du pion
-    int lig;        //  !!!pour test l'affichage
-    int col;        //  !!!pour test l'affichage
+    int lig;
+    int col;
 }t_pion;
 
 
@@ -95,6 +95,6 @@ int recuperer_tresor(t_pion *pion, t_case *tuile);
  * @return La nouvelle position du pion en début de ligne.
  */
 
-void renvoyer_pion_debut_ligne(t_case* labyrinthe[7][7],t_pion *pion);
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion);
 
 #endif //LABYRINTHE_PIONS_H

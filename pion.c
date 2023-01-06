@@ -173,15 +173,16 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
 }
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
-void renvoyer_pion_debut_ligne(t_case* labyrinthe[7][7],t_pion *pion){
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion){
     // On récupère les coordonnées du pion
-    int ligne = pion->position_pion->ligne;
-    int colonne = pion->position_pion->colonne;
+
+    int ligne = pion->lig;
+    int colonne = pion->col;
 
     // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
     if (ligne < 0 || ligne > 6 || colonne < 0 || colonne > 6) {
         // Si c'est le cas, on renvoie le pion au début de la ligne
         pion->position_pion->ligne = pion->position_pion->ligne;
-        pion->position_pion = labyrinthe[pion->position_pion->colonne][0];
+        pion->position_pion = &labyrinthe[pion->position_pion->colonne][0];
     }
 }
