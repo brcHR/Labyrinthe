@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "plateau.h"
+#include "Deroulement.h"
 #include "tests.h"
 
 int main(int argc, char **argv)
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
      */
     //testDeroulement();
     //testMenu();
-    test_affichage();
+    //test_affichage();
     //deplacement_valide_test();
     //Ne vous occupez pas de ca.
     if(argc > 1){
@@ -24,6 +25,9 @@ int main(int argc, char **argv)
         }
         else if(strcmp(argv[1],"-testg") == 0){
             testg();
+        }
+        else if(strcmp(argv[1],"-jeu") == 0){
+            Menu();
         }
     }
     return 0;
