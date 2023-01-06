@@ -273,48 +273,43 @@ void afficheCaseEnPlus(t_case caseEnPlus){
 // affiche les pions
 void affichePions(t_pion pion[4], int nbJoueur){
     int lig, col;
-    /*
-    pions[0].coord_depart_arrivee.ligne=0;
-    pions[0].coord_depart_arrivee.colonne=0;
-    pions[1].coord_depart_arrivee.ligne=0;
-    pions[1].coord_depart_arrivee.colonne=7;
-    pions[2].coord_depart_arrivee.ligne=7;
-    pions[2].coord_depart_arrivee.colonne=7;
-    pions[3].coord_depart_arrivee.ligne=7;
-    pions[3].coord_depart_arrivee.colonne=0;
-    */
-    for (int i = 0; i < nbJoueur; i++){
-        lig = pion[i].lig;
-        col = pion[i].col;
-        //lig = pion[i].position_pion->ligne;
-        //col = pion[i].position_pion->colonne;
-        //lig = &pion[i].position_pion
-        cooCurseur((3 * lig)+8, (9 * col)+7+col);
-        if (pion[i].num_pion == 0){
-            couleurCurseur(12, 0);
+    //test pour voir si il y a plusieur pions sur la meme case
+    if ((pion[0].lig == pion[1].lig && pion[0].col == pion[1].col) || (pion[0].lig == pion[2].lig && pion[0].col == pion[2].col) || (pion[0].lig == pion[3].lig && pion[0].col == pion[3].col) || (pion[1].lig == pion[2].lig && pion[1].col == pion[2].col) || (pion[1].lig == pion[3].lig && pion[1].col == pion[3].col) || (pion[2].lig == pion[3].lig && pion[2].col == pion[3].col)){
+        for (int i = 0; i < nbJoueur; i++) {
+            lig = pion[i].lig;
+            col = pion[i].col;
+            cooCurseur((3 * lig) + 8, (9 * col) + 6 + col + i);
+            if (pion[i].num_pion == 0) {
+                couleurCurseur(12, 0);
+            } else if (pion[i].num_pion == 1) {
+                couleurCurseur(14, 0);
+            } else if (pion[i].num_pion == 2) {
+                couleurCurseur(2, 0);
+            } else if (pion[i].num_pion == 3) {
+                couleurCurseur(9, 0);
+            }
+            printf("%c", pion[i].num_pion + 3);
+            couleurCurseur(15, 0);
         }
-        else if (pion[i].num_pion == 1){
-            couleurCurseur(14, 0);
-        }
-        else if (pion[i].num_pion == 2){
-            couleurCurseur(2, 0);
-        }
-        else if (pion[i].num_pion == 3){
-            couleurCurseur(9, 0);
-        }
-        printf("%c", pion[i].num_pion+3);
-        couleurCurseur(15, 0);
     }
-    //pion->position_pion->ligne
-    //test :
-    //cooCurseur((3 * lig)+7, (9 * col)+1+col);
-    /*
-     * pour le centre des cases : cooCurseur((3 * lig)+8, (9 * col)+7+col);     !!!
-    cooCurseur(8, 5);
-    couleurCurseur(12, 0);
-    printf("%c", 3);
-    couleurCurseur(15,0);
-    */
+    else {
+        for (int i = 0; i < nbJoueur; i++) {
+            lig = pion[i].lig;
+            col = pion[i].col;
+            cooCurseur((3 * lig) + 8, (9 * col) + 7 + col);
+            if (pion[i].num_pion == 0) {
+                couleurCurseur(12, 0);
+            } else if (pion[i].num_pion == 1) {
+                couleurCurseur(14, 0);
+            } else if (pion[i].num_pion == 2) {
+                couleurCurseur(2, 0);
+            } else if (pion[i].num_pion == 3) {
+                couleurCurseur(9, 0);
+            }
+            printf("%c", pion[i].num_pion + 3);
+            couleurCurseur(15, 0);
+        }
+    }
 }
 
 //test
@@ -324,6 +319,7 @@ void testPions(t_pion pions[4]){
         //pions[i].lig = i;
         //pions[i].col = i;
     }
+    /*
     pions[0].lig=0;
     pions[0].col=0;
     pions[1].lig=0;
@@ -331,6 +327,15 @@ void testPions(t_pion pions[4]){
     pions[2].lig=6;
     pions[2].col=6;
     pions[3].lig=6;
+    pions[3].col=0;
+     */
+    pions[0].lig=0;
+    pions[0].col=0;
+    pions[1].lig=0;
+    pions[1].col=0;
+    pions[2].lig=0;
+    pions[2].col=0;
+    pions[3].lig=0;
     pions[3].col=0;
 }
 

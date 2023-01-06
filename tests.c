@@ -386,7 +386,7 @@ void testrecup_tresor(){
 void test_affichage(){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
-    int nbjoueurs = 4;
+    int nbjoueurs = 3;
     t_pion pions[4];
     testPions(pions);
     generation_plateau_debut(plateauTest, &caseEnTropTest);
