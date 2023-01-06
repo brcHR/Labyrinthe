@@ -71,7 +71,7 @@ int test_tresor(t_pion *Pion){
     }
     if (cartesatrouver==0) return 0; // si le joueur n'a pas tous les tresors
     else {
-        printf("Vous avez tous les trésors, retournez à votre case départ pour gagner\n");
+        printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
         return 1;
     }
 }
@@ -95,7 +95,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
         //Rotation de la tuile en plus
         do {
-            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile à insérer vers la droite: ",pions[joueur_en_cours].nom);
+            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",pions[joueur_en_cours].nom);
             scanf("%d",&rotation);
             printf("\n");
             if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
@@ -109,7 +109,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      */
     affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
     do {
-        printf("%s, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", pions[joueur_en_cours].nom);
+        printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ", pions[joueur_en_cours].nom);
         scanf("%d", &num_rangee);
         printf("\n");
 
@@ -286,17 +286,17 @@ void Menu() {
                     printf("But du jeu :\n"
                            "Vous penetrez dans un labyrinthe enchante a la recherche de fabuleux tresors.\n"
                            "Chacun d’entre vous essaye de creeer des chemins pour atteindre le trésor qu’il convoite en faisant coulisser astucieusement les couloirs.\n"
-                           "Le joueur qui aura trouvé tous ses trésors et rejoint sa case départ le premier sera déclaré vainqueur.\n"
+                           "Le joueur qui aura trouve tous ses tresors et rejoint sa case depart le premier sera declare vainqueur.\n"
                            "\n"
-                           "Déroulement de la partie :\n"
-                           "Chaque joueur commence par regarder le prochain trésor à chercher\n"
-                           "Le dernier joueur à avoir participé à une chasse aux trésors entame la partie.\n"
-                           "Le tour d’un joueur se décompose en deux étapes :\n"
-                           "1. Modifier les couloirs en saisissant un chiffre de 1 à 12 qui correspond aux rangées montrées par les flèches. \n"
-                           "La première flèche est tout à gauche de la première ligne, les suivantes sont dans le sens horaire.\n"
-                           "2. Déplacer son pion en saisissant les coordonnées de la case de destination.\n"
-                           "Quand vient son tour, le joueur doit essayer d’atteindre la case sur laquelle figure le trésor à chercher.\n"
-                           "Pour cela, il modifie toujours d’abord le labyrinthe en insérant la plaque Couloir, puis déplace son pion.\n"
+                           "Deroulement de la partie :\n"
+                           "Chaque joueur commence par regarder le prochain tresor a chercher\n"
+                           "Le dernier joueur a avoir participe a une chasse aux tresors entame la partie.\n"
+                           "Le tour d’un joueur se decompose en deux etapes :\n"
+                           "1. Modifier les couloirs en saisissant un chiffre de 1 à 12 qui correspond aux rangees montrees par les fleches. \n"
+                           "La première fleche est tout a gauche de la premiere ligne, les suivantes sont dans le sens horaire.\n"
+                           "2. Deplacer son pion en saisissant les coordonnees de la case de destination.\n"
+                           "Quand vient son tour, le joueur doit essayer d’atteindre la case sur laquelle figure le tresor a chercher.\n"
+                           "Pour cela, il modifie toujours d’abord le labyrinthe en inserant la plaque Couloir, puis deplace son pion.\n"
                            "\n"
                            "Source : Ravensburger.fr\n"
                            "\n"
@@ -310,7 +310,7 @@ void Menu() {
                 do {
                     printf("Credits :\n"
                            "Projet ECE Labyrinthe Ing 1 2022-2023\n"
-                           "Réalisé par Hirou Briac, Francisco Baptiste, Craplet Aurélien et Vennin Maxime\n"
+                           "Réalise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
                     scanf("%d", &choix2);
