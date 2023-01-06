@@ -17,7 +17,7 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
     int cartesatrouver=0;//compte le nombre de cartes restantes à trouver
     for (int i = 0; i < 12; ++i) {
         if (Pion->tresors[i].signe !='0'&& Pion->tresors[i].decouvert==0){
-            ++cartesatrouver;
+            cartesatrouver += 1;
         }
     }
     if (cartesatrouver==0){// si le joueur n'a pas tous les tresors on affiche les infos

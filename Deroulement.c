@@ -272,6 +272,7 @@ void Menu() {
                         pions[i].tresors[j].decouvert = 0;
                     }
                 }
+                DistributionCartes(&nbjoueurs,pions);
 
                 do {
                     printf("Saisissez 20 pour revenir au menu a tout moment.\n");//à chaque saisie de déroulement, le joueurs dois pouvoir revenir au menu
