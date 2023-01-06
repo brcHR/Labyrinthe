@@ -184,10 +184,10 @@ void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){
     pions[0].coord_depart_arrivee.ligne=0;
     pions[0].coord_depart_arrivee.colonne=0;
     pions[1].coord_depart_arrivee.ligne=0;
-    pions[1].coord_depart_arrivee.colonne=7;
-    pions[2].coord_depart_arrivee.ligne=7;
-    pions[2].coord_depart_arrivee.colonne=7;
-    pions[3].coord_depart_arrivee.ligne=7;
+    pions[1].coord_depart_arrivee.colonne=6;
+    pions[2].coord_depart_arrivee.ligne=6;
+    pions[2].coord_depart_arrivee.colonne=6;
+    pions[3].coord_depart_arrivee.ligne=6;
     pions[3].coord_depart_arrivee.colonne=0;
 
     //Attribution des trésors à trouver par joueurs:
