@@ -15,7 +15,7 @@ int main(int argc, char **argv)
     //testMenu();
     //Menu();
     //testDistrib();
-    test_affichage();
+    //test_affichage();
     //deplacement_valide_test();
     //Ne vous occupez pas de ca.
     if(argc > 1){
