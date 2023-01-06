@@ -49,6 +49,6 @@ void Menu();
  * @param pions tableau des pions
  *
  */
-void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]);
+void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4], t_case labyrinthe[7][7]);
 
 #endif //LABYRINTHE_DEROULEMENT_H

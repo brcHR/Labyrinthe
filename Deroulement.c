@@ -184,9 +184,9 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     } else return 1;
 }
 
-void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]){ //initialise le nom et la position ini des pions
-    int numJoueur,saisie;
-    for (int i = 0; i <*nbjoueurs ; ++i) {
+void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4], t_case labyrinthe[7][7]){ //initialise le nom et la position ini des pions
+    int numJoueur,saisie,i;
+    for (i = 0; i <*nbjoueurs ; ++i) {
         numJoueur=i+1; //attribution du nom
         printf("Joueur %d, saisissez votre nom : ",numJoueur);
         fflush(stdin);
@@ -194,23 +194,34 @@ void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]){
         printf("\n");
 
     }
+
+    for(i=0;i<4;i++){
+        pions[i].num_pion = i;
+    }
     //initialisation des positions initiales des joueurs
     pions[0].coord_depart_arrivee.ligne=0;
     pions[0].lig=0;
     pions[0].coord_depart_arrivee.colonne=0;
     pions[0].col=0;
+    pions[0].position_pion = &labyrinthe[0][0];
+
     pions[1].coord_depart_arrivee.ligne=0;
     pions[1].lig=0;
     pions[1].coord_depart_arrivee.colonne=6;
     pions[1].col=6;
+    pions[1].position_pion = &labyrinthe[0][6];
+
     pions[2].coord_depart_arrivee.ligne=6;
     pions[2].lig=6;
     pions[2].coord_depart_arrivee.colonne=6;
     pions[2].col=6;
+    pions[2].position_pion = &labyrinthe[6][6];
+
     pions[3].coord_depart_arrivee.ligne=6;
     pions[3].lig=6;
     pions[3].coord_depart_arrivee.colonne=0;
     pions[3].col=0;
+    pions[3].position_pion = &labyrinthe[6][0];
 
 
     //Attribution des trésors à trouver par joueurs:
@@ -247,7 +258,7 @@ void Menu() {
                     printf("\n");
                 } while (nbjoueurs < 2 || nbjoueurs > 4);
 
-                attribution_caracteristiques_joueurs(&nbjoueurs,pions);
+                attribution_caracteristiques_joueurs(&nbjoueurs,pions,labyrinthe);
 
                 //initialisation de la partie distribution des cartes
                 for(i=0;i<nbjoueurs;i++){
