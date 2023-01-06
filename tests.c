@@ -222,7 +222,6 @@ void testDistrib(){
         scanf("%d",&nbjoueurs);
     } while (nbjoueurs<2 || nbjoueurs>4);
 
-    t_pion pion1, pion2, pion3, pion4;
 
     for(i=0;i<nbjoueurs;i++){
         for(j=0;j<12;j++){
@@ -233,11 +232,14 @@ void testDistrib(){
 
 
     DistributionCartes(&nbjoueurs,pions);
-    for ( i = 0; i < 12; ++i) {
-        printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
+    for(i=0;i<nbjoueurs;i++){
+        for(j=0;j<12;j++){
+            printf("%c\t",pions[i].tresors[j].signe );
+        }
+        printf("\n");
     }
 
-    AffichageTresor(&pion1);
+    AffichageTresor(&pions[0]);
 
 }
 /*
