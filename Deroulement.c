@@ -106,7 +106,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      */
 
     do {
-        printf("Joueur %d, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", joueur_en_cours);
+        printf("%s, saisissez le numéro de la flèche sur laquelle vous voulez insérer la tuile en plus : ", pions[joueur_en_cours].nom);
         scanf("%d", &num_rangee);
         printf("\n");
 
@@ -128,8 +128,8 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
          * CHOIX DE LA LIGNE.
          */
         do {
-            printf("Joueur %d, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                   joueur_en_cours);
+            printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                   pions[joueur_en_cours].nom);
             scanf("%d", &ligne_arrivee);
             printf("\n");
 
@@ -141,8 +141,8 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
          * CHOIX DE LA COLONNE
          */
         do {
-            printf("Joueur %d, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                   joueur_en_cours);
+            printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                   pions[joueur_en_cours].nom);
             scanf("%d", &colonne_arrivee);
             printf("\n");
 
@@ -181,7 +181,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     } else return 1;
 }
 
-void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){ //initialise le nom, la couleur et la position ini des pions
+void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]){ //initialise le nom et la position ini des pions
     int numJoueur,saisie;
     for (int i = 0; i <*nbjoueurs ; ++i) {
         numJoueur=i+1; //attribution du nom
@@ -189,14 +189,6 @@ void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]){ //ini
         fflush(stdin);
         scanf("%s",pions[i].nom);
         printf("\n");
-
-        do {//attribution de la couleur
-            printf("couleurs disponibles :\n"
-                   "1 demander Aurel\n"
-                   "Saisissez la couleur de votre pion : ");
-            scanf("%d",&saisie);//TODO mettre couleur en int
-            printf("\n");
-        } while (saisie<0 ||saisie>5); //TODO : demander à Aurel couleurs et max de couleurs
 
     }
     //initialisation des positions initiales des joueurs

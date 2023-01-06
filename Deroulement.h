@@ -43,12 +43,12 @@ int test_tresor(t_pion *Pion);
 void Menu();
 
 /**
- * @brief Cette fonction initialise le nom, la couleur et la position initiale des joueurs
+ * @brief Cette fonction initialise le nom et la position initiale des joueurs
  *
  * @param nbjoueurs nombre de joueurs
  * @param pions tableau des pions
  *
  */
-void attribution_caracteristiques_joueurs(int *nbjoueurs,t_pion pions[4]);
+void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4]);
 
 #endif //LABYRINTHE_DEROULEMENT_H
