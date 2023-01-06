@@ -1,6 +1,9 @@
-//
-// Created by Aurélien on 04/01/2023.
-//
+/**
+ * @file affichage.h
+ * @date 04 janvier 2023
+ * @brief Affichage du jeu
+ * @author Aurélien
+*/
 
 #ifndef LABYRINTHE_AFFICHAGE_H
 #define LABYRINTHE_AFFICHAGE_H
@@ -9,50 +12,73 @@
 #include "pion.h"
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
- * @brief cette procedure affiche le labyrinthe, les fleches et les pions
- */
 
+/**
+ * @brief cette procedure affiche le labyrinthe, les fleches et les pions
+ * @param plateau plateau de jeu
+ * @param caseEnPlus tuile en plus
+ * @param pions tableau contenant tous les joueurs
+ * @return Un affichage du futur.
+ */
 void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4]);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
- * @brief cette procedure permet d'afficher les cases du labyrinthe
- */
 
+/**
+ * @brief cette procedure permet d'afficher les cases du labyrinthe
+ * @param plateau plateau de jeu
+ */
 void afficheLabyrinthe(t_case plateau[7][7]);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
- * @brief cette procedure permet de placer le curseur a des coordonnées données
- */
 
+/**
+ * @brief cette procedure permet de placer le curseur a des coordonnées données
+ * @param lig ligne
+ * @param col col
+ */
 void cooCurseur(int lig, int col);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
+
+/**
  * @brief cette procedure permet d'afficher les fleche autour du plateau
  */
-
 void afficheFleche();
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
- * @brief cette procedure permet d'afficher les pions sur le plateau        //TODO la fonction
- */
 
+/**
+ * @brief cette procedure permet d'afficher les pions sur le plateau
+ * @param pion tableau contenant tous les joueurs ( t_pion )
+ */
 void affichePions(t_pion pion[4]);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
- * @brief cette procedure pour changer la couleur du texte sur l'invite de commande
- */
 
+/**
+ * @brief cette procedure pour changer la couleur du texte sur l'invite de commande
+ * @param texte
+ * @param fond
+ */
 void couleurCurseur(int texte,int fond);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief cette procedure affiche la case en plus
+ * @param caseEnPlus case en plus du plateau
+ */
 void afficheCaseEnPlus(t_case caseEnPlus);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief cette procedure teste
+ * @param pions tableau contenant tous les joueurs.
+ */
 void testPions(t_pion pions[4]);
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
