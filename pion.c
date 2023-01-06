@@ -144,10 +144,11 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
     if (deplacement_valide(labyrinthe, pion, colonne_arrivee, ligne_arrivee) == true){
         // Met à jour les coordonnées du pion
         pion->position_pion = &labyrinthe[ligne_arrivee][colonne_arrivee];
+        pion->lig = ligne_arrivee;
+        pion->col = colonne_arrivee;
+//        if(pion->arrivee == 1){
 
-        if(pion->arrivee == 1){
-
-        }
+ //       }
     }
 }
 

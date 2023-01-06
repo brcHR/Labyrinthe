@@ -185,14 +185,18 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 }
 
 void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4], t_case labyrinthe[7][7]){ //initialise le nom et la position ini des pions
-    int numJoueur,saisie;
-    for (int i = 0; i <*nbjoueurs ; ++i) {
+    int numJoueur,saisie,i;
+    for (i = 0; i <*nbjoueurs ; ++i) {
         numJoueur=i+1; //attribution du nom
         printf("Joueur %d, saisissez votre nom : ",numJoueur);
         fflush(stdin);
         scanf("%s",pions[i].nom);
         printf("\n");
 
+    }
+
+    for(i=0;i<4;i++){
+        pions[i].num_pion = i;
     }
     //initialisation des positions initiales des joueurs
     pions[0].coord_depart_arrivee.ligne=0;
@@ -254,7 +258,7 @@ void Menu() {
                     printf("\n");
                 } while (nbjoueurs < 2 || nbjoueurs > 4);
 
-                attribution_caracteristiques_joueurs(&nbjoueurs,pions);
+                attribution_caracteristiques_joueurs(&nbjoueurs,pions,labyrinthe);
 
                 //initialisation de la partie distribution des cartes
                 for(i=0;i<nbjoueurs;i++){
