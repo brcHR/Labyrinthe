@@ -78,6 +78,7 @@ int test_tresor(t_pion *Pion){
 
 
 int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]) {
+    char fin_tour;
     int i,j;
     generation_plateau_debut(labyrinthe, tuile_en_plus);
 
@@ -144,48 +145,56 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
      */
 
     do {
-        /*
-         * CHOIX DE LA LIGNE.
-         */
+
         do {
-            printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                   pions[joueur_en_cours].nom);
-            scanf("%d", &ligne_arrivee);
-            printf("\n");
+            /*
+             * CHOIX DE LA LIGNE.
+             */
+            do {
+                printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                       pions[joueur_en_cours].nom);
+                scanf("%d", &ligne_arrivee);
+                printf("\n");
 
-            if (ligne_arrivee == 20) {
-                return 2;
-            }
-        } while (ligne_arrivee < 0 || ligne_arrivee > 6);
+                if (ligne_arrivee == 20) {
+                    return 2;
+                }
+            } while (ligne_arrivee < 0 || ligne_arrivee > 6);
+            /*
+             * CHOIX DE LA COLONNE
+             */
+            do {
+                printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                       pions[joueur_en_cours].nom);
+                scanf("%d", &colonne_arrivee);
+                printf("\n");
+
+                if (colonne_arrivee == 20) {
+                    return 2;
+                }
+            } while (colonne_arrivee < 0 || colonne_arrivee > 6);
+
+            //Vérification de la légalité du déplacement.
+            if (deplacement_valide(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee) == 0) {
+                printf("deplacement impossible, veuillez ressayer\n");
+                var_boucle = 0;
+            } else var_boucle = 1;
+        } while (var_boucle == 0);
+
+
+
         /*
-         * CHOIX DE LA COLONNE
+         * ----DEPLACEMENT DU PION----
          */
-        do {
-            printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                   pions[joueur_en_cours].nom);
-            scanf("%d", &colonne_arrivee);
-            printf("\n");
+        deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
+        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
+        AffichageTresor(&pions[joueur_en_cours]);
 
-            if (colonne_arrivee == 20) {
-                return 2;
-            }
-        } while (colonne_arrivee < 0 || colonne_arrivee > 6);
+        do{
+            printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");scanf("%c",&fin_tour);
+        }while(fin_tour!='o' && fin_tour!='n');
 
-        //Vérification de la légalité du déplacement.
-        if (deplacement_valide(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee) == 0) {
-            printf("deplacement impossible, veuillez ressayer\n");
-            var_boucle = 0;
-        } else var_boucle=1;
-    } while (var_boucle == 0);
-
-
-    /*
-     * ----DEPLACEMENT DU PION----
-     */
-    deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
-    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
-    AffichageTresor(&pions[joueur_en_cours]);
-
+    }while(fin_tour!='o');
     }
 
     //Récupération d'un tresor
