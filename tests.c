@@ -159,6 +159,7 @@ void testd(){
     t_case *pt_tuile_add = &tuile_en_plus;
     t_coord coord;
     t_coord *pt_coord = &coord;
+    t_pion pions[4];
 
     pt_coord->ligne =1;
     pt_coord->colonne =0;
@@ -174,7 +175,7 @@ void testd(){
     printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
     printf("\n\n");
 
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -187,7 +188,7 @@ void testd(){
 
     pt_coord->ligne = 5;
     pt_coord->colonne = 6;
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -200,7 +201,7 @@ void testd(){
 
     pt_coord->ligne = 5;
     pt_coord->colonne = 0;
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){

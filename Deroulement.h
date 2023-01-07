@@ -18,9 +18,11 @@
  * @param labyrinthe tableau 7x7 composé de structures t_case.
  * @param tuile_en_plus pointeur sur la tuile en trop du labyrinthe.
  * @param coord pointeur sur les coordonnées de la tuile en bout de ligne ou de colonne qui va se faire "pousser".
+ * @param pions tableau des joueurs.
+ * @param nbjoueurs nombre je joueurs dans la partie.
  * @return la colonne ou la ligne a bien coulissé. Nous avons donc la tuile en plus qui a changé.
  */
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4]);
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

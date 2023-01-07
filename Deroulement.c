@@ -13,8 +13,8 @@
  * une colonne.
  */
 
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord_case_pousse, t_pion pions[4]){
-    int i, j, test;
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs){
+    int i, j, test, pion_la;
     t_case tuile_a_sortir;
     t_case *pt_sortir = &tuile_a_sortir;
 
@@ -41,23 +41,23 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
     if(
         //L'ancien déplacement était horizontal.
             (
-                    coord_case_pousse->ligne == tuile_en_plus->sortie_du_plateau.ligne // Même ligne.
+                    coord->ligne == tuile_en_plus->sortie_du_plateau.ligne // Même ligne.
                     &&
                     (
-                            coord_case_pousse->colonne == tuile_en_plus->sortie_du_plateau.colonne + 1 // Si sortie plateau colonne = -1
+                            coord->colonne == tuile_en_plus->sortie_du_plateau.colonne + 1 // Si sortie plateau colonne = -1
                             ||
-                            coord_case_pousse->colonne == tuile_en_plus->sortie_du_plateau.colonne - 1 // Si sortie plateau colonne = 7
+                            coord->colonne == tuile_en_plus->sortie_du_plateau.colonne - 1 // Si sortie plateau colonne = 7
                     )
             )
             ||
             //L'ancien déplacement était vertical.
             (
-                    coord_case_pousse->colonne == tuile_en_plus->sortie_du_plateau.colonne //Même colonne.
+                    coord->colonne == tuile_en_plus->sortie_du_plateau.colonne //Même colonne.
                     &&
                     (
-                            coord_case_pousse->ligne == tuile_en_plus->sortie_du_plateau.ligne + 1 // Si sortie plateau ligne = -1
+                            coord->ligne == tuile_en_plus->sortie_du_plateau.ligne + 1 // Si sortie plateau ligne = -1
                             ||
-                            coord_case_pousse->ligne == tuile_en_plus->sortie_du_plateau.ligne - 1 // Si sortie plateau ligne = 7
+                            coord->ligne == tuile_en_plus->sortie_du_plateau.ligne - 1 // Si sortie plateau ligne = 7
 
                     )
             )
@@ -76,10 +76,10 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
         /*
          * DEPLACEMENT VERTICAL
          */
-        if(coord_case_pousse->ligne==0 ) {
+        if(coord->ligne == 0 ) {
 
             //On vérifie que la colonne à faire bouger n'est pas une colonne fixe.
-            if (labyrinthe[coord_case_pousse->ligne][coord_case_pousse->colonne].fixe != 1) {
+            if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                 /*
                  * VERS LE BAS
@@ -88,17 +88,30 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                 //La colonne se déplace vers le BAS. Pour plus de facilité, on commence par sortir la tuile du bas et on tire
                 //la colonne.
                 // on sort la tuile du bas
-                copy_case(&labyrinthe[6][coord_case_pousse->colonne], pt_sortir);
+                copy_case(&labyrinthe[6][coord->colonne], pt_sortir);
                 pt_sortir->sortie_du_plateau.ligne = 7; //On met une ligne impossible...
-                pt_sortir->sortie_du_plateau.colonne = coord_case_pousse->colonne;//...mais on garde la colonne d'où elle sort.
+                pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
                 //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le bas).
                 for (i = 5; i >= 0; i--) {
-                    copy_case(&labyrinthe[i][coord_case_pousse->colonne], &labyrinthe[i + 1][coord_case_pousse->colonne]);
+
+                    //On copie la case.
+                    copy_case(&labyrinthe[i][coord->colonne], &labyrinthe[i + 1][coord->colonne]);
+
+                    //On vérifie pour tous les pions si il sont sur la case qui a été bougée.
+                    for(pion_la=0;pion_la<nbjoueurs;pion_la++){
+                        if(pions[pion_la].position_pion == &labyrinthe[i][coord->colonne]){
+
+                            //S'il y a un pion, alors on le fait pointer sur sa nouvelle case.
+                            pions[pion_la].position_pion = &labyrinthe[i + 1][coord->colonne];
+                            pions[pion_la].lig = i+1;
+                            pions[pion_la].col = coord->colonne;
+                        }
+                    }
                 }
 
                 //Maintenant on intègre la tuile en trop qui pousse la colonne.
-                copy_case(tuile_en_plus, &labyrinthe[0][coord_case_pousse->colonne]);
+                copy_case(tuile_en_plus, &labyrinthe[0][coord->colonne]);
 
                 ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
                 copy_case(pt_sortir, tuile_en_plus);
@@ -107,10 +120,10 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                 printf("La colonne est fixe\n");
             }
         }
-        else if(coord_case_pousse->ligne==6) {
+        else if(coord->ligne == 6) {
 
             //On vérifie que la colonne à faire bouger n'est pas une colonne fixe.
-            if (labyrinthe[coord_case_pousse->ligne][coord_case_pousse->colonne].fixe != 1) {
+            if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                 /*
                  * VERS LE HAUT
@@ -119,17 +132,28 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                 //La colonne se déplace vers le HAUT. Pour plus de facilité, on commence par sortir la tuile du haut et on tire
                 //la colonne.
                 // on sort la tuile du haut.
-                copy_case(&labyrinthe[0][coord_case_pousse->colonne], pt_sortir);
+                copy_case(&labyrinthe[0][coord->colonne], pt_sortir);
                 pt_sortir->sortie_du_plateau.ligne = -1; //On met une ligne impossible...
-                pt_sortir->sortie_du_plateau.colonne = coord_case_pousse->colonne;//...mais on garde la colonne d'où elle sort.
+                pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
                 //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le haut).
                 for (i = 0; i <= 5; i++) {
-                    copy_case(&labyrinthe[i + 1][coord_case_pousse->colonne], &labyrinthe[i][coord_case_pousse->colonne]);
+                    copy_case(&labyrinthe[i + 1][coord->colonne], &labyrinthe[i][coord->colonne]);
+
+                    //On vérifie pour tous les pions si il sont sur la case qui a été bougée.
+                    for(pion_la=0;pion_la<nbjoueurs;pion_la++){
+                        if(pions[pion_la].position_pion == &labyrinthe[i+1][coord->colonne]){
+
+                            //S'il y a un pion, alors on le fait pointer sur sa nouvelle case.
+                            pions[pion_la].position_pion = &labyrinthe[i][coord->colonne];
+                            pions[pion_la].lig = i;
+                            pions[pion_la].col = coord->colonne;
+                        }
+                    }
                 }
 
                 //Maintenant on intègre la tuile en trop qui pousse la colonne.
-                copy_case(tuile_en_plus, &labyrinthe[6][coord_case_pousse->colonne]);
+                copy_case(tuile_en_plus, &labyrinthe[6][coord->colonne]);
 
                 ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
                 copy_case(pt_sortir, tuile_en_plus);
@@ -144,10 +168,10 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
              */
 
         else{
-            if(coord_case_pousse->colonne == 0) {
+            if(coord->colonne == 0) {
 
                 //On vérifie que la ligne à faire bouger n'est pas une colonne fixe.
-                if (labyrinthe[coord_case_pousse->ligne][coord_case_pousse->colonne].fixe != 1) {
+                if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                     /*
                      * VERS LA DROITE
@@ -156,17 +180,28 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     //La ligne se déplace vers la droite. Pour plus de facilité, on commence par sortir la tuile tout à droite
                     // et on tire la ligne.
                     // On sort la tuile de droite.
-                    copy_case(&labyrinthe[coord_case_pousse->ligne][6], pt_sortir);
-                    pt_sortir->sortie_du_plateau.ligne = coord_case_pousse->ligne; //On garde la colonne d'où elle sort...
+                    copy_case(&labyrinthe[coord->ligne][6], pt_sortir);
+                    pt_sortir->sortie_du_plateau.ligne = coord->ligne; //On garde la colonne d'où elle sort...
                     pt_sortir->sortie_du_plateau.colonne = 7;//...mais on met une ligne impossible.
 
                     //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la droite).
                     for (j = 5; j >= 0; j--) {
-                        copy_case(&labyrinthe[coord_case_pousse->ligne][j], &labyrinthe[coord_case_pousse->ligne][j + 1]);
+                        copy_case(&labyrinthe[coord->ligne][j], &labyrinthe[coord->ligne][j + 1]);
+
+                        //On vérifie pour tous les pions si il sont sur la case qui a été bougée.
+                        for(pion_la=0;pion_la<nbjoueurs;pion_la++){
+                            if(pions[pion_la].position_pion == &labyrinthe[coord->ligne][j]){
+
+                                //S'il y a un pion, alors on le fait pointer sur sa nouvelle case.
+                                pions[pion_la].position_pion = &labyrinthe[coord->ligne][j + 1];
+                                pions[pion_la].lig = coord->ligne;
+                                pions[pion_la].col = j+1;
+                            }
+                        }
                     }
 
                     //Maintenant on intègre la tuile en trop qui pousse la colonne.
-                    copy_case(tuile_en_plus, &labyrinthe[coord_case_pousse->ligne][0]);
+                    copy_case(tuile_en_plus, &labyrinthe[coord->ligne][0]);
 
                     ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
                     copy_case(pt_sortir, tuile_en_plus);
@@ -175,10 +210,10 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     printf("La ligne est fixe\n");
                 }
             }
-            else if(coord_case_pousse->colonne == 6){
+            else if(coord->colonne == 6){
 
                 //On vérifie que la ligne à faire bouger n'est pas une colonne fixe.
-                if (labyrinthe[coord_case_pousse->ligne][coord_case_pousse->colonne].fixe != 1) {
+                if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                     /*
                      * VERS LA GAUCHE
@@ -187,18 +222,29 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     //La ligne se déplace vers la gauche. Pour plus de facilité, on commence par sortir la tuile tout à gauche
                     // et on tire la ligne.
                     // On sort la tuile de gauche.
-                    copy_case(&labyrinthe[coord_case_pousse->ligne][0], pt_sortir);
-                    pt_sortir->sortie_du_plateau.ligne = coord_case_pousse->ligne; //On garde la colonne d'où elle sort...
+                    copy_case(&labyrinthe[coord->ligne][0], pt_sortir);
+                    pt_sortir->sortie_du_plateau.ligne = coord->ligne; //On garde la colonne d'où elle sort...
                     pt_sortir->sortie_du_plateau.colonne = -1;//...mais on met une ligne impossible.
 
                     //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
                     for (j = 0; j <= 5; j++) {
-                        copy_case(&labyrinthe[coord_case_pousse->ligne][j + 1],
-                                  &labyrinthe[coord_case_pousse->ligne][j]);
+                        copy_case(&labyrinthe[coord->ligne][j + 1],
+                                  &labyrinthe[coord->ligne][j]);
+
+                        //On vérifie pour tous les pions si il sont sur la case qui a été bougée.
+                        for(pion_la=0;pion_la<nbjoueurs;pion_la++){
+                            if(pions[pion_la].position_pion == &labyrinthe[coord->ligne][j + 1]){
+
+                                //S'il y a un pion, alors on le fait pointer sur sa nouvelle case.
+                                pions[pion_la].position_pion = &labyrinthe[coord->ligne][j];
+                                pions[pion_la].lig = coord->ligne;
+                                pions[pion_la].col = j;
+                            }
+                        }
                     }
 
                     //Maintenant on intègre la tuile en trop qui pousse la colonne.
-                    copy_case(tuile_en_plus, &labyrinthe[coord_case_pousse->ligne][6]);
+                    copy_case(tuile_en_plus, &labyrinthe[coord->ligne][6]);
 
                     ///ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
                     copy_case(pt_sortir, tuile_en_plus);
@@ -329,7 +375,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
         conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
         //On déplace les tuiles.
-        deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
+        deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser, &pions[4],*nbjoueurs);
         //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
         for (i = 0; i < *nbjoueurs; i++) {
             if (
