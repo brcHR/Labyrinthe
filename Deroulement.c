@@ -81,7 +81,6 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     int i, j;
     int gagne; //Variable pour détecter une victoire.
 
-    generation_plateau_debut(labyrinthe, tuile_en_plus);
 
     int joueur_en_cours = 0;//1 à 4 , c'est le num du joueur entrain de jouer mais on part à 0 pour faciliter les boucles.
     int num_rangee, rotation;
@@ -142,7 +141,6 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
 
         affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
-        printf("DEBUG: on teste les coordonnées %d,%d\n", coord_pousser.ligne, coord_pousser.colonne);
         AffichageTresor(&pions[joueur_en_cours]);
 
         /*
@@ -297,6 +295,9 @@ void Menu() {
             printf("\n");
         } while (choix < 1 || choix > 4);
 
+        //On génère le plateau du Labyrinthe.
+        generation_plateau_debut(labyrinthe, &tuile_en_plus);
+
         switch (choix) {
             case 1: //Nouvelle partie.
                 //On choisit le nombre de joueurs.
@@ -326,7 +327,9 @@ void Menu() {
                     ++tour;
                 } while (gagne == 0);
                 // ici l'un des joueurs a gagné
-                printf("!!!!  Bravo %s, vous avez gagne !!!!\n\n", pions[gagne-1].nom);
+                if(gagne != 20){
+                    printf("!!!!  Bravo %s, vous avez gagne !!!!\n\n", pions[gagne-1].nom);
+                }
                 break;
             case 2:
                 do {
