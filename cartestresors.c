@@ -40,7 +40,6 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
     }
     else {//si le pion a tous les trésors afficher retour à case départ pour gagner
         printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
-        printf("le joueur %s a %d tresors, il lui en reste %d à trouver\n", Pion->nom, Pion->nb_tresor_pion,cartesatrouver);
     }
 
 
@@ -148,7 +147,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les
 */
 int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte){
     int tresorConverti;
-    tresorConverti=(int) tresorCarte->signe-64;
+    tresorConverti=(int) tresorCarte->signe-65;
     return tresorConverti;
 }
 
