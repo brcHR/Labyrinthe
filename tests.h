@@ -1,6 +1,9 @@
-//
-// Created by briac on 29/12/2022.
-//
+/**
+ * @file tests.h
+ * @date 29 decembre 2022
+ * @brief Tests des fonctions compliquées et fondatrices
+ * @author Briac
+*/
 
 #ifndef LABYRINTHE_TESTS_H
 #define LABYRINTHE_TESTS_H

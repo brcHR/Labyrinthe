@@ -1,6 +1,9 @@
-//
-// Created by Maxime Vennin on 30/12/2022.
-//
+/**
+ * @file Deroulement.h
+ * @date 30 decembre 2022
+ * @brief Tout ce qui est relatif au deroulement d'une partie
+ * @author Maxime
+*/
 
 #ifndef LABYRINTHE_DEROULEMENT_H
 #define LABYRINTHE_DEROULEMENT_H

@@ -1,6 +1,12 @@
 //
 // Created by Maxime Vennin on 27/12/2022.
 //
+/**
+ * @file cartestresors.h
+ * @date 27 decembre 2022
+ * @brief Tout ce qui est relatif aux trésors
+ * @author Maxime
+*/
 
 #ifndef LABYRINTHE_CARTESTRESORS_H
 #define LABYRINTHE_CARTESTRESORS_H
