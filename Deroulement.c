@@ -154,7 +154,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                  * CHOIX DE LA LIGNE.
                  */
                 do {
-                    printf("%s, vous etes sur la ligne %d et la colonne %d\n",
+                    printf("---- %s, vous etes sur la ligne %d et la colonne %d ----\n\n",
                            pions[joueur_en_cours].nom, pions[joueur_en_cours].lig, pions[joueur_en_cours].col);
                     printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 a 6) : ",
                            pions[joueur_en_cours].nom);
@@ -200,10 +200,14 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
             do {
                 fflush(stdin);
-                printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");
+                printf("Avez fini votre tour ? 'o' pour oui et 'n' pour non: ");
                 scanf("%c", &fin_tour);
-            } while (fin_tour != 'o' && fin_tour != 'n');
 
+                if(fin_tour == 20){
+                    return 2;
+                }
+            } while (fin_tour != 'o' && fin_tour != 'n');
+            printf("\n");
         } while (fin_tour != 'o');
 
 
