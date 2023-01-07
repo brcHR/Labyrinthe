@@ -153,7 +153,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                 do {
                     printf("%s, vous etes sur la ligne %d et la colonne %d\n",
                            pions[joueur_en_cours].nom, pions[joueur_en_cours].lig, pions[joueur_en_cours].col);
-                    printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                    printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 a 6) : ",
                            pions[joueur_en_cours].nom);
                     scanf("%d", &ligne_arrivee);
                     printf("\n");
@@ -166,7 +166,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                  * CHOIX DE LA COLONNE
                  */
                 do {
-                    printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                    printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 a 6) : ",
                            pions[joueur_en_cours].nom);
                     scanf("%d", &colonne_arrivee);
                     printf("\n");
@@ -332,7 +332,7 @@ void Menu() {
                            "Chaque joueur commence par regarder le prochain tresor a chercher\n"
                            "Le dernier joueur a avoir participe a une chasse aux tresors entame la partie.\n"
                            "Le tour d’un joueur se decompose en deux etapes :\n"
-                           "1. Modifier les couloirs en saisissant un chiffre de 1 à 12 qui correspond aux rangees montrees par les fleches. \n"
+                           "1. Modifier les couloirs en saisissant un chiffre de 1 a 12 qui correspond aux rangees montrees par les fleches. \n"
                            "La première fleche est tout a gauche de la premiere ligne, les suivantes sont dans le sens horaire.\n"
                            "2. Deplacer son pion en saisissant les coordonnees de la case de destination.\n"
                            "Quand vient son tour, le joueur doit essayer d’atteindre la case sur laquelle figure le tresor a chercher.\n"
