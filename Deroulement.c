@@ -329,7 +329,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                    pions[joueur_en_cours].nom);
             scanf("%d", &rotation);
             printf("\n");
-            if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
+            if (rotation == 20) return 5;//retour au menu à n'importe quel moment.
         } while (rotation != 0 && rotation != 90 && rotation != 180 && rotation != 270);
         tourner(tuile_en_plus, rotation);// tourner la tuile
 
@@ -347,7 +347,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
             printf("\n");
 
             if (num_rangee == 20) { //retour au menu à n'importe quel moment.
-                return 2;
+                return 5;
             }
         } while (num_rangee < 1 || num_rangee > 12); //Vérification que la rangée existe.
 
@@ -390,7 +390,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                     printf("\n");
 
                     if (ligne_arrivee == 20) {
-                        return 2;
+                        return 5;
                     }
                 } while (ligne_arrivee < 0 || ligne_arrivee > 6);
                 /*
@@ -403,7 +403,7 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                     printf("\n");
 
                     if (colonne_arrivee == 20) {
-                        return 2;
+                        return 5;
                     }
                 } while (colonne_arrivee < 0 || colonne_arrivee > 6);
 
@@ -432,15 +432,11 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
                 scanf("%c", &fin_tour);
 
                 if(fin_tour == 20){
-                    return 2;
+                    return 5;
                 }
             } while (fin_tour != 'o' && fin_tour != 'n');
             printf("\n");
         } while (fin_tour != 'o');
-
-
-
-
 
 
 
@@ -559,7 +555,7 @@ void Menu() {
                     ++tour;
                 } while (gagne == 0);
                 // ici l'un des joueurs a gagné
-                if(gagne != 20){
+                if(gagne != 5){
                     printf("!!!!  Bravo %s, vous avez gagne !!!!\n\n", pions[gagne-1].nom);
                 }
                 break;
