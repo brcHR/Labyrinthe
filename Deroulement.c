@@ -69,9 +69,8 @@ int test_tresor(t_pion *Pion){
             ++cartesatrouver;
         }
     }
-    if (cartesatrouver==0) return 0; // si le joueur n'a pas tous les tresors
+    if (cartesatrouver!=0) return 0; // si le joueur n'a pas tous les tresors
     else {
-        printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
         return 1;
     }
 }
@@ -106,99 +105,103 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
 
 
-    /*
-     * ----DEPLACEMENT DE LA RANGEE----
-     */
-    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
-    AffichageTresor(&pions[joueur_en_cours]);
-    do {
-        printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ", pions[joueur_en_cours].nom);
-        scanf("%d", &num_rangee);
-        printf("\n");
-
-        if (num_rangee == 20) { //retour au menu à n'importe quel moment.
-            return 2;
-        }
-    } while (num_rangee < 1 || num_rangee > 12); //Vérification que la rangée existe.
-
-    conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
-    //On déplace les tuiles.
-    //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
-    for(i=0;i<*nbjoueurs;i++){
-        if(
-                (pions[i].lig == coord_pousser.ligne && (pions[i].col == coord_pousser.colonne-6 || pions[i].col == coord_pousser.colonne+6))
-                ||
-                (pions[i].col == coord_pousser.colonne && (pions[i].lig == coord_pousser.ligne-6 || pions[i].lig == coord_pousser.ligne+6))
-        ){
-            renvoyer_pion_debut_ligne(labyrinthe,&pions[i]);
-        }
-    }
-
-
-    deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
-
-    affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
-    AffichageTresor(&pions[joueur_en_cours]);
-
-    /*
-     * ----DEPLACEMENT DU PION----
-     */
-
-    do {
-
+        /*
+         * ----DEPLACEMENT DE LA RANGEE----
+         */
+        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+        AffichageTresor(&pions[joueur_en_cours]);
         do {
-            /*
-             * CHOIX DE LA LIGNE.
-             */
-            do {
-                printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                       pions[joueur_en_cours].nom);
-                scanf("%d", &ligne_arrivee);
-                printf("\n");
+            printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ", pions[joueur_en_cours].nom);
+            scanf("%d", &num_rangee);
+            printf("\n");
 
-                if (ligne_arrivee == 20) {
-                    return 2;
-                }
-            } while (ligne_arrivee < 0 || ligne_arrivee > 6);
-            /*
-             * CHOIX DE LA COLONNE
-             */
-            do {
-                printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
-                       pions[joueur_en_cours].nom);
-                scanf("%d", &colonne_arrivee);
-                printf("\n");
+            if (num_rangee == 20) { //retour au menu à n'importe quel moment.
+                return 2;
+            }
+        } while (num_rangee < 1 || num_rangee > 12); //Vérification que la rangée existe.
 
-                if (colonne_arrivee == 20) {
-                    return 2;
-                }
-            } while (colonne_arrivee < 0 || colonne_arrivee > 6);
-
-            //Vérification de la légalité du déplacement.
-            if (deplacement_valide(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee) == 0) {
-                printf("deplacement impossible, veuillez ressayer\n");
-                var_boucle = 0;
-            } else var_boucle = 1;
-        } while (var_boucle == 0);
+        conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
+        //On déplace les tuiles.
+        deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
+        //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
+        for(i=0;i<*nbjoueurs;i++){
+            if(
+                    (pions[i].lig == coord_pousser.ligne && (pions[i].col == (coord_pousser.colonne - 6) || pions[i].col == (coord_pousser.colonne + 6)))
+                    ||
+                    (pions[i].col == coord_pousser.colonne && (pions[i].lig == (coord_pousser.ligne - 6) || pions[i].lig == (coord_pousser.ligne + 6)))
+            ){
+                renvoyer_pion_debut_ligne(labyrinthe,&pions[i]);
+            }
+        }
 
 
+
+        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+        printf("DEBUG: on teste les coordonnées %d,%d\n", coord_pousser.ligne, coord_pousser.colonne);
+        AffichageTresor(&pions[joueur_en_cours]);
 
         /*
          * ----DEPLACEMENT DU PION----
          */
-        deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
-        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
-        AffichageTresor(&pions[joueur_en_cours]);
 
-        do{
-            printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");scanf("%c",&fin_tour);
-        }while(fin_tour!='o' && fin_tour!='n');
+        do {
 
-    }while(fin_tour!='o');
+            do {
+                /*
+                 * CHOIX DE LA LIGNE.
+                 */
+                do {
+                    printf("%s, vous etes sur la ligne %d et la colonne %d\n",
+                           pions[joueur_en_cours].nom, pions[joueur_en_cours].lig, pions[joueur_en_cours].col);
+                    printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                           pions[joueur_en_cours].nom);
+                    scanf("%d", &ligne_arrivee);
+                    printf("\n");
+
+                    if (ligne_arrivee == 20) {
+                        return 2;
+                    }
+                } while (ligne_arrivee < 0 || ligne_arrivee > 6);
+                /*
+                 * CHOIX DE LA COLONNE
+                 */
+                do {
+                    printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 à 6) : ",
+                           pions[joueur_en_cours].nom);
+                    scanf("%d", &colonne_arrivee);
+                    printf("\n");
+
+                    if (colonne_arrivee == 20) {
+                        return 2;
+                    }
+                } while (colonne_arrivee < 0 || colonne_arrivee > 6);
+
+                //Vérification de la légalité du déplacement.
+                if (deplacement_valide(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee) == 0) {
+                    printf("deplacement impossible, veuillez ressayer\n");
+                    var_boucle = 0;
+                } else var_boucle = 1;
+            } while (var_boucle == 0);
+
+
+
+            /*
+             * ----DEPLACEMENT DU PION----
+             */
+            deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
+            affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
+            //Récupération d'un tresor
+            recuperer_tresor(&pions[joueur_en_cours],&labyrinthe[pions[joueur_en_cours].lig][pions[joueur_en_cours].col]);
+            AffichageTresor(&pions[joueur_en_cours]);
+
+            do{
+                fflush(stdin);
+                printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");scanf("%c",&fin_tour);
+            }while(fin_tour!='o' && fin_tour!='n');
+
+        }while(fin_tour!='o');
     }
 
-    //Récupération d'un tresor
-    recuperer_tresor(&pions[joueur_en_cours],&labyrinthe[pions[joueur_en_cours].position_pion->ligne][pions[joueur_en_cours].position_pion->colonne]);
 
 
     /*
@@ -207,7 +210,15 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
 
     int gagne=0;
     for (int i = 0; i < 4; ++i) {
-        if (pions[i].coord_depart_arrivee.ligne == pions[i].position_pion->ligne || pions[i].coord_depart_arrivee.colonne== pions[i].position_pion->colonne && test_tresor(&pions[i])==1) ++gagne;
+        if (
+                pions[i].coord_depart_arrivee.ligne == pions[i].lig
+                &&
+                pions[i].coord_depart_arrivee.colonne== pions[i].col
+                &&
+                test_tresor(&pions[i])==1
+            ){
+            ++gagne;
+        }
     }
     if(gagne==0){
         return 0;
@@ -292,6 +303,7 @@ void Menu() {
 
                 //initialisation de la partie distribution des cartes
                 for(i=0;i<nbjoueurs;i++){
+                    pions[i].indice_tresor_recherche = 0;
                     for(j=0;j<12;j++){
                         pions[i].tresors[j].signe = '0';
                         pions[i].tresors[j].decouvert = 0;
@@ -304,6 +316,7 @@ void Menu() {
                     gagne = deroulementTour(&nbjoueurs, labyrinthe, &tuile_en_plus,pions);
                     // fonction affichage d'Aurel
                     ++tour;
+                    printf("GAGNE=%d",gagne);
                 } while (gagne == 0);
                 break;
             case 2:
@@ -337,7 +350,7 @@ void Menu() {
                 do {
                     printf("Credits :\n"
                            "Projet ECE Labyrinthe Ing 1 2022-2023\n"
-                           "Réalise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
+                           "Realise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
                     scanf("%d", &choix2);
