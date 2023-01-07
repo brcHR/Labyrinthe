@@ -42,6 +42,7 @@ int test_tresor(t_pion *Pion);
 
 /**
  * @brief Cette fonction execute le menu et initialise le plateau de jeu.
+ * Le menu permet de lancer une nouvelle partie, d'affichr les règles du jeu, les crédits et de sortir du programme.
  */
 void Menu();
 
