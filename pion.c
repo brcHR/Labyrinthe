@@ -165,7 +165,9 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
             pion->nb_tresor_pion += 1;
             tuile->tresor.un_tresor = 0;
             tuile->tresor.num_tresor = 25;
-            pion->tresors[pion->num_tresor_recherche].decouvert=1;// on enregistre qu'il est découvert
+            printf("On a trouvé %d\n", pion->num_tresor_recherche);
+            pion->tresors[pion->indice_tresor_recherche].decouvert=1;// on enregistre qu'il est découvert
+            pion->indice_tresor_recherche++;
         }
     }
     // On renvoie le nombre de trésors possédés par le pion
@@ -176,13 +178,20 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
 void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion){
     // On récupère les coordonnées du pion
 
-    int ligne = pion->lig;
-    int colonne = pion->col;
+    int ligne = pion->position_pion->sortie_du_plateau.ligne;
+    int colonne = pion->position_pion->sortie_du_plateau.colonne;
 
     // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
-    if (ligne < 0 || ligne > 6 || colonne < 0 || colonne > 6) {
-        // Si c'est le cas, on renvoie le pion au début de la ligne
-        pion->position_pion->ligne = pion->position_pion->ligne;
-        pion->position_pion = &labyrinthe[pion->position_pion->colonne][0];
+    if(ligne > 6) {
+        pion->position_pion = &labyrinthe[0][colonne];
+    }
+    else if(ligne<0){
+        pion->position_pion = &labyrinthe[6][colonne];
+    }
+    else if(colonne<0){
+        pion->position_pion = &labyrinthe[ligne][6];
+    }
+    else if(colonne>6){
+        pion->position_pion = &labyrinthe[ligne][0];
     }
 }
