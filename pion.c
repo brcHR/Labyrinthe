@@ -3,6 +3,7 @@
 //
 
 #include <stdbool.h>
+#include <stdio.h>
 #include "plateau.h"
 #include "pion.h"
 
@@ -142,9 +143,6 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
         pion->position_pion = &labyrinthe[ligne_arrivee][colonne_arrivee];
         pion->lig = ligne_arrivee;
         pion->col = colonne_arrivee;
-//        if(pion->arrivee == 1){
-
- //       }
     }
 }
 
