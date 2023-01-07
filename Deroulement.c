@@ -78,7 +78,9 @@ int test_tresor(t_pion *Pion){
 
 int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4]) {
     char fin_tour;
-    int i,j;
+    int i, j;
+    int gagne; //Variable pour détecter une victoire.
+
     generation_plateau_debut(labyrinthe, tuile_en_plus);
 
     int joueur_en_cours = 0;//1 à 4 , c'est le num du joueur entrain de jouer mais on part à 0 pour faciliter les boucles.
@@ -90,28 +92,30 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
     for (joueur_en_cours = 0; joueur_en_cours < *nbjoueurs; ++joueur_en_cours) {
 
         system("cls");
-        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
-        printf("%s c'est a vous !\n",pions[joueur_en_cours].nom);
+        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
+        printf("%s c'est a vous !\n", pions[joueur_en_cours].nom);
         AffichageTresor(&pions[joueur_en_cours]);
 
         //Rotation de la tuile en plus
         do {
-            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",pions[joueur_en_cours].nom);
-            scanf("%d",&rotation);
+            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",
+                   pions[joueur_en_cours].nom);
+            scanf("%d", &rotation);
             printf("\n");
             if (rotation == 20) return 2;//retour au menu à n'importe quel moment.
-        }while(rotation!=0 && rotation != 90 && rotation != 180 && rotation != 270);
-        tourner(tuile_en_plus,rotation);// tourner la tuile
+        } while (rotation != 0 && rotation != 90 && rotation != 180 && rotation != 270);
+        tourner(tuile_en_plus, rotation);// tourner la tuile
 
 
 
         /*
          * ----DEPLACEMENT DE LA RANGEE----
          */
-        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
         AffichageTresor(&pions[joueur_en_cours]);
         do {
-            printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ", pions[joueur_en_cours].nom);
+            printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ",
+                   pions[joueur_en_cours].nom);
             scanf("%d", &num_rangee);
             printf("\n");
 
@@ -124,19 +128,20 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
         //On déplace les tuiles.
         deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser);
         //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
-        for(i=0;i<*nbjoueurs;i++){
-            if(
-                    (pions[i].lig == coord_pousser.ligne && (pions[i].col == (coord_pousser.colonne - 6) || pions[i].col == (coord_pousser.colonne + 6)))
+        for (i = 0; i < *nbjoueurs; i++) {
+            if (
+                    (pions[i].lig == coord_pousser.ligne &&
+                     (pions[i].col == (coord_pousser.colonne - 6) || pions[i].col == (coord_pousser.colonne + 6)))
                     ||
-                    (pions[i].col == coord_pousser.colonne && (pions[i].lig == (coord_pousser.ligne - 6) || pions[i].lig == (coord_pousser.ligne + 6)))
-            ){
-                renvoyer_pion_debut_ligne(labyrinthe,&pions[i]);
+                    (pions[i].col == coord_pousser.colonne &&
+                     (pions[i].lig == (coord_pousser.ligne - 6) || pions[i].lig == (coord_pousser.ligne + 6)))
+                    ) {
+                renvoyer_pion_debut_ligne(labyrinthe, &pions[i]);
             }
         }
 
 
-
-        affichageComplet(labyrinthe,*tuile_en_plus,pions,*nbjoueurs);
+        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
         printf("DEBUG: on teste les coordonnées %d,%d\n", coord_pousser.ligne, coord_pousser.colonne);
         AffichageTresor(&pions[joueur_en_cours]);
 
@@ -191,38 +196,41 @@ int deroulementTour(const int *nbjoueurs,t_case labyrinthe[7][7], t_case *tuile_
             deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee);
             affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
             //Récupération d'un tresor
-            recuperer_tresor(&pions[joueur_en_cours],&labyrinthe[pions[joueur_en_cours].lig][pions[joueur_en_cours].col]);
+            recuperer_tresor(&pions[joueur_en_cours],
+                             &labyrinthe[pions[joueur_en_cours].lig][pions[joueur_en_cours].col]);
             AffichageTresor(&pions[joueur_en_cours]);
 
-            do{
+            do {
                 fflush(stdin);
-                printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");scanf("%c",&fin_tour);
-            }while(fin_tour!='o' && fin_tour!='n');
+                printf("Avez fini votrez tour ? 'o' pour oui et 'n' pour non: ");
+                scanf("%c", &fin_tour);
+            } while (fin_tour != 'o' && fin_tour != 'n');
 
-        }while(fin_tour!='o');
-    }
+        } while (fin_tour != 'o');
 
 
 
-    /*
-     * ----DETECTION D'UNE VICTOIRE----
-     */
 
-    int gagne=0;
-    for (int i = 0; i < 4; ++i) {
+
+
+
+        /*
+         * ----DETECTION D'UNE VICTOIRE----
+         */
+
+        gagne = 0;
         if (
-                pions[i].coord_depart_arrivee.ligne == pions[i].lig
+                pions[joueur_en_cours].coord_depart_arrivee.ligne == pions[joueur_en_cours].lig
                 &&
-                pions[i].coord_depart_arrivee.colonne== pions[i].col
+                pions[joueur_en_cours].coord_depart_arrivee.colonne == pions[joueur_en_cours].col
                 &&
-                test_tresor(&pions[i])==1
-            ){
-            ++gagne;
+                test_tresor(&pions[joueur_en_cours]) == 1
+                ) {
+            gagne = joueur_en_cours + 1;
+            return gagne;
         }
     }
-    if(gagne==0){
-        return 0;
-    } else return 1;
+    return 0;
 }
 
 void attribution_caracteristiques_joueurs(const int *nbjoueurs,t_pion pions[4], t_case labyrinthe[7][7]){ //initialise le nom et la position ini des pions
@@ -316,8 +324,9 @@ void Menu() {
                     gagne = deroulementTour(&nbjoueurs, labyrinthe, &tuile_en_plus,pions);
                     // fonction affichage d'Aurel
                     ++tour;
-                    printf("GAGNE=%d",gagne);
                 } while (gagne == 0);
+                // ici l'un des joueurs a gagné
+                printf("!!!!  Bravo %s, vous avez gagne !!!!\n\n", pions[gagne-1].nom);
                 break;
             case 2:
                 do {
