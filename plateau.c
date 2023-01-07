@@ -319,7 +319,7 @@ void tourner(t_case* tuile, float orientation){
  * Nous créons le plateau de jeu
  */
 
-void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
+void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add, FILE * fichierlog){
     int i,j, alea;
     int tresors_tuile_fixe = 11; // 12 tresors sur tuiles fixes vont de 0 a 11
     int tresors_tuile_T = 17; // 6 tresors sur tuiles mobiles vont de 12 à 17
@@ -333,6 +333,8 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
 
     srand(time(NULL));
 
+    fprintf(fichierlog, "generation_plateau_debut()\n");
+    fflush(fichierlog);
     //On met le bon nombre de chaque forme de case.
     for(i=0;i<50;i++){
         if(i<18){

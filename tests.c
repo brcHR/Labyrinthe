@@ -12,7 +12,7 @@
 #include "Deroulement.h"
 #include "affichage.h"
 
-void tests(){
+void tests(FILE *fichierlog){
     printf("TESTS\n");
     char liste[] = "AAAABBBBDDDJKSJLJQPPPPQSOJDEENCA";
     int c;
@@ -64,12 +64,12 @@ void tests(){
 
 }
 
-void testg(){
+void testg(FILE *fichierlog){
     printf("TEST GENERATION PLATEAU\n\n");
     int i,j;
     t_case Labyrinthe[7][7], tuile_en_plus;
     t_case *pt_tuile_add = &tuile_en_plus;
-    generation_plateau_debut(Labyrinthe,pt_tuile_add);
+    generation_plateau_debut(Labyrinthe,pt_tuile_add,fichierlog);
 
     printf("COORDONEES\n");
 
@@ -153,7 +153,7 @@ void testg(){
 
 }
 
-void testd(){
+void testd(FILE *fichierlog){
     int i,j;
     t_case Labyrinthe[7][7], tuile_en_plus;
     t_case *pt_tuile_add = &tuile_en_plus;
@@ -164,7 +164,7 @@ void testd(){
     pt_coord->ligne =1;
     pt_coord->colonne =0;
 
-    generation_plateau_debut(Labyrinthe,pt_tuile_add);
+    generation_plateau_debut(Labyrinthe,pt_tuile_add,fichierlog);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -175,7 +175,7 @@ void testd(){
     printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
     printf("\n\n");
 
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4, fichierlog);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -188,7 +188,7 @@ void testd(){
 
     pt_coord->ligne = 5;
     pt_coord->colonne = 6;
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4,fichierlog);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -201,7 +201,7 @@ void testd(){
 
     pt_coord->ligne = 5;
     pt_coord->colonne = 0;
-    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4);
+    deplacer_tuiles(Labyrinthe,pt_tuile_add,pt_coord,&pions[4],4,fichierlog);
 
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -243,7 +243,7 @@ void testDistrib(){
 
 }
 
-void testDeroulement(){
+void testDeroulement(FILE *fichierlog){
     int nbjoueurs;
     t_case labyrinthe[7][7], tuile_en_plus;
 
@@ -263,16 +263,16 @@ void testDeroulement(){
     for (int i = 0; i < 12; ++i) {
         pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
     }
-    deroulementTour(&nbjoueurs,labyrinthe,&tuile_en_plus,&pions[4]);
+    deroulementTour(&nbjoueurs,labyrinthe,&tuile_en_plus,&pions[4],fichierlog);
 
 }
 
-void testMenu(){
-    Menu();
+void testMenu(FILE *fichierlog){
+    Menu(fichierlog);
 }
 
 
-void deplacement_valide_test(){
+void deplacement_valide_test(FILE *fichierlog){
     int i,j,z,w,ligne,colonne;
     t_pion joueur;
     t_case labyrinthe[7][7], tuile_en_plus;
@@ -301,7 +301,7 @@ void deplacement_valide_test(){
     ligne = 0;
     colonne = 1;
 
-    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne, fichierlog);
     printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -327,7 +327,7 @@ void deplacement_valide_test(){
     ligne = 0;
     colonne = 3;
 
-    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne, fichierlog);
     printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -348,7 +348,7 @@ void deplacement_valide_test(){
     ligne = 1;
     colonne = 3;
 
-    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne,fichierlog);
     printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -368,7 +368,7 @@ void deplacement_valide_test(){
     ligne = 0;
     colonne = 3;
 
-    deplacer_pion(labyrinthe,&joueur,colonne,ligne);
+    deplacer_pion(labyrinthe,&joueur,colonne,ligne,fichierlog);
     printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -383,7 +383,7 @@ void deplacement_valide_test(){
     }
 }
 
-void testrecup_tresor(){
+void testrecup_tresor(FILE *fichierlog){
     int i,j;
     t_case Labyrinthe[7][7], tuile_en_plus;
     t_case *pt_tuile_add = &tuile_en_plus;
@@ -407,7 +407,7 @@ void testrecup_tresor(){
 
     DistributionCartes(pt_nb,pions);
 
-    generation_plateau_debut(Labyrinthe,pt_tuile_add);
+    generation_plateau_debut(Labyrinthe,pt_tuile_add,fichierlog);
     printf("\n");
     for(i=0;i<7;i++){
         for(j=0;j<7;j++){
@@ -422,12 +422,12 @@ void testrecup_tresor(){
 
 }
 
-void test_affichage(){
+void test_affichage(FILE *fichierlog){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
     t_pion pions[4];
 
-    generation_plateau_debut(plateauTest, &caseEnTropTest);
+    generation_plateau_debut(plateauTest, &caseEnTropTest,fichierlog);
     pions[0].coord_depart_arrivee.ligne=0;
     pions[0].coord_depart_arrivee.colonne=0;
     pions[0].position_pion = &plateauTest[0][0];

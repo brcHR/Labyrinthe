@@ -4,6 +4,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "plateau.h"
 #include "pion.h"
 
@@ -136,10 +137,12 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
 
 
 // Procédure qui permet de déplacer le pion
-void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee,FILE *fichierlog){
     // On vérifie si le mouvement est valide avec la fonction "deplacement_valide".
     if (deplacement_valide(labyrinthe, pion, colonne_arrivee, ligne_arrivee) == true){
         // Met à jour les coordonnées du pion
+        fprintf(fichierlog, "Le pion de %s etait sur %d et est deplace sur la case %d\n",pion->nom, pion->position_pion, &labyrinthe[ligne_arrivee][colonne_arrivee] );
+        fflush(fichierlog);
         pion->position_pion = &labyrinthe[ligne_arrivee][colonne_arrivee];
         pion->lig = ligne_arrivee;
         pion->col = colonne_arrivee;
@@ -149,7 +152,7 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
  * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
 
-int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc à changer
+int recuperer_tresor(t_pion *pion, t_case *tuile){
 // Si la tuile contient un trésor
     if(tuile->tresor.un_tresor == 1) {
 

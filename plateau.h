@@ -7,6 +7,8 @@
 
 #ifndef LABYRINTHE_PLATEAU_H
 #define LABYRINTHE_PLATEAU_H
+#include <stdio.h>
+#include <stdlib.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -137,7 +139,7 @@ void tourner(t_case* tuile, float orientation);
  * @param tuile_add pointeur sur la tuile en trop du labyrinthe.
  * @return toutes les cases du labyrinthe ont leurs métadonnées remplies correctement.
  */
-void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add);
+void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add, FILE * fichierlog);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -10,6 +10,8 @@
 #ifndef LABYRINTHE_PIONS_H
 #define LABYRINTHE_PIONS_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "plateau.h"
 
 /**
@@ -71,7 +73,7 @@ int deplacement_valide(t_case labyrinthe [7][7], t_pion *pion, int colonne_arriv
  * @return La nouvelle position du pion sur le plateau.
  */
 
-void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee);
+void deplacer_pion(t_case labyrinthe [7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee, FILE *fichierlog);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
