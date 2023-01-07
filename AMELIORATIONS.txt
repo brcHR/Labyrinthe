@@ -5,7 +5,8 @@ BUGS A CORRIGER:
 
 -----------------------
 AMELIORATIONS POSSIBLES
-
+-S'assurer que les messages d'erreurs sont toujours visibles. Avoir une gestion spécifique et un affichage spécifique?
+-Rentre le fichier de logs parametrable via une option au lancement
 -Afficher le nom du joueur de sa couleur
 -Mettre la case de départ de la couleur du joueur
 -Dans le nom joueurs, il ne veut pas d'espace
