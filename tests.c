@@ -5,6 +5,7 @@
 #include <math.h>
 #include <time.h>
 #include <string.h>
+#include <windows.h>
 #include "plateau.h"
 #include "pion.h"
 #include "cartestresors.h"
@@ -392,16 +393,16 @@ void testrecup_tresor(){
     int* pt_nb = &nb;
 
     pions[0].coord_depart_arrivee.ligne=0;
-    pions[0].lig=0;
     pions[0].coord_depart_arrivee.colonne=0;
-    pions[0].col=0;
     pions[0].position_pion = &Labyrinthe[0][0];
+    pions[0].lig = pions[0].position_pion->ligne;
+    pions[0].col = pions[0].position_pion->colonne;
 
     pions[1].coord_depart_arrivee.ligne=0;
-    pions[1].lig=0;
     pions[1].coord_depart_arrivee.colonne=6;
-    pions[1].col=6;
     pions[1].position_pion = &Labyrinthe[0][6];
+    pions[1].lig = pions[1].position_pion->ligne;
+    pions[1].col = pions[1].position_pion->colonne;
 
     DistributionCartes(pt_nb,pions);
 
@@ -423,6 +424,29 @@ void testrecup_tresor(){
 void test_affichage(){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
+    t_pion pions[4];
+
     generation_plateau_debut(plateauTest, &caseEnTropTest);
-    afficheLabyrinthe(plateauTest);
+    pions[0].coord_depart_arrivee.ligne=0;
+    pions[0].coord_depart_arrivee.colonne=0;
+    pions[0].position_pion = &plateauTest[0][0];
+    pions[0].lig = 0; //pions[0].position_pion->ligne;
+    pions[0].col = 0 ;//pions[0].position_pion->colonne;
+
+    pions[1].coord_depart_arrivee.ligne=0;
+    pions[1].coord_depart_arrivee.colonne=6;
+    pions[1].position_pion = &plateauTest[0][6];
+    pions[1].lig = 0; //pions[1].position_pion->ligne;
+    pions[1].col = 6;//pions[1].position_pion->colonne;
+
+    pions[2].position_pion = &plateauTest[6][0];
+    pions[2].lig = 6;//pions[2].position_pion->ligne;
+    pions[2].col = 0;//pions[2].position_pion->colonne;
+
+    pions[3].position_pion = &plateauTest[6][6];
+    pions[3].lig = 6;//pions[3].position_pion->ligne;
+    pions[3].col = 6;//pions[3].position_pion->colonne;
+
+    system("cls");
+    affichageComplet(plateauTest,caseEnTropTest,&pions[4],4);
 }
