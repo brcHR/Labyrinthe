@@ -15,4 +15,5 @@ void testDistrib();
 void testDeroulement();
 void testMenu();
 void test_affichage();
+void testrecup_tresor();
 #endif //LABYRINTHE_TESTS_H

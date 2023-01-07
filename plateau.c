@@ -321,9 +321,9 @@ void tourner(t_case* tuile, float orientation){
 
 void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     int i,j, alea;
-    int tresors_tuile_fixe = 12; // 12 tresors sur tuiles fixes vont de 1 a 12
-    int tresors_tuile_T = 18; // 6 tresors sur tuiles mobiles vont de 13 à 18
-    int tresors_tuile_L = 24; // 6 tresors sur tuiles mobiles vont de 19 à 24
+    int tresors_tuile_fixe = 11; // 12 tresors sur tuiles fixes vont de 0 a 11
+    int tresors_tuile_T = 17; // 6 tresors sur tuiles mobiles vont de 12 à 17
+    int tresors_tuile_L = 23; // 6 tresors sur tuiles mobiles vont de 18 à 23
     char all_types[51]; //liste de tous les types.
     t_case *pt_tuile;
     // pour random sur les tresors a positionner sur les cases L
@@ -483,7 +483,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                     pt_tuile->tresor.num_tresor = 25;
                 }
                 else if(pt_tuile->forme == 'T'){ //Chemin en forme de T.
-                    if(tresors_tuile_T > 12) {
+                    if(tresors_tuile_T > 11) {
                         pt_tuile->tresor.un_tresor = 1;
                         pt_tuile->tresor.num_tresor = tresors_tuile_T;
                         tresors_tuile_T -= 1;
@@ -495,7 +495,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
                 }
                 else{ //Chemin en forme de L.
                     num_L += 1;
-                    if(tresors_tuile_L > 18 && L_avec_tresors[num_L] == 1) {
+                    if(tresors_tuile_L > 17 && L_avec_tresors[num_L] == 1) {
                         pt_tuile->tresor.un_tresor = 1;
                         pt_tuile->tresor.num_tresor = tresors_tuile_L;
                         tresors_tuile_L -= 1;
@@ -537,7 +537,7 @@ void generation_plateau_debut(t_case labyrinthe[7][7], t_case* tuile_add){
     //Modification du tableau de la case.
     creation_type_case(tuile_add);
     tuile_add->fixe = 0;
-    if(tuile_add->forme == 'L' && tresors_tuile_L > 18){
+    if(tuile_add->forme == 'L' && tresors_tuile_L > 17){
         tuile_add->tresor.un_tresor = 1;
         tuile_add->tresor.num_tresor = tresors_tuile_L;
         tresors_tuile_L -= 1;

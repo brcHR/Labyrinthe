@@ -209,6 +209,7 @@ void testd(){
     }
     printf("%d %d",tuile_en_plus.ligne,tuile_en_plus.colonne);
     printf("\n");
+
 }
 
 void testDistrib(){
@@ -221,6 +222,7 @@ void testDistrib(){
     } while (nbjoueurs<2 || nbjoueurs>4);
 
     t_pion pion1, pion2, pion3, pion4;
+    t_pion pions[4];
 
     for (int i = 0; i < 12; ++i) {
         pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
@@ -230,7 +232,7 @@ void testDistrib(){
     }
 
 
-    DistributionCartes(&nbjoueurs,&pion1,&pion2,&pion3,&pion4);
+    DistributionCartes(&nbjoueurs,&pions[4]);
     for (int i = 0; i < 12; ++i) {
         printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
     }
@@ -250,6 +252,8 @@ void testDeroulement(){
     } while (nbjoueurs<2 || nbjoueurs>4);
 
     t_pion pion1, pion2, pion3, pion4;
+    t_pion pions[4];
+
 
     for (int i = 0; i < 12; ++i) {
         pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
@@ -257,7 +261,7 @@ void testDeroulement(){
     for (int i = 0; i < 12; ++i) {
         pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
     }
-    deroulementTour(&nbjoueurs, &pion1,&pion2,&pion3,&pion4,labyrinthe,&tuile_en_plus);
+    deroulementTour(&nbjoueurs,labyrinthe,&tuile_en_plus,&pions[4]);
 
 }
 
@@ -378,6 +382,41 @@ void deplacement_valide_test(){
 }
 
 void testrecup_tresor(){
+    int i,j;
+    t_case Labyrinthe[7][7], tuile_en_plus;
+    t_case *pt_tuile_add = &tuile_en_plus;
+    t_coord coord;
+    t_pion pions[4];
+    t_coord *pt_coord = &coord;
+    int nb = 2;
+    int* pt_nb = &nb;
+
+    pions[0].coord_depart_arrivee.ligne=0;
+    pions[0].lig=0;
+    pions[0].coord_depart_arrivee.colonne=0;
+    pions[0].col=0;
+    pions[0].position_pion = &Labyrinthe[0][0];
+
+    pions[1].coord_depart_arrivee.ligne=0;
+    pions[1].lig=0;
+    pions[1].coord_depart_arrivee.colonne=6;
+    pions[1].col=6;
+    pions[1].position_pion = &Labyrinthe[0][6];
+
+    DistributionCartes(pt_nb,pions);
+
+    generation_plateau_debut(Labyrinthe,pt_tuile_add);
+    printf("\n");
+    for(i=0;i<7;i++){
+        for(j=0;j<7;j++){
+            printf("%d %c\t",Labyrinthe[i][j].tresor.num_tresor,Labyrinthe[i][j].tresor.num_tresor+65);
+        }
+        printf("\n");
+    }
+    printf("%d %c",tuile_en_plus.tresor.num_tresor,tuile_en_plus.tresor.num_tresor+65);
+    printf("\n");
+
+
 
 }
 

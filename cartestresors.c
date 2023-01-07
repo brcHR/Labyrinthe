@@ -63,11 +63,9 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 }
 
 void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les tresors de struct pion
-    char tresors[25] = "XBCDEFGHIJKLMNOPQRSTUVWA";
+    char tresors[25] = "ABCDEFGHIJKLMNOPQRSTUVWX";
     int alea, i, cartes, j;
     srand(time(NULL));
-
-    printf("%s",tresors);
 
     if (*nbjoueurs == 2) {
         cartes = 12;
@@ -150,7 +148,7 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les
 */
 int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte){
     int tresorConverti;
-    tresorConverti=(int) tresorCarte->signe-65;
+    tresorConverti=(int) tresorCarte->signe-64;
     return tresorConverti;
 }
 

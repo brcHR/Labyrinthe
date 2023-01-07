@@ -14,6 +14,7 @@ int main(int argc, char **argv)
     //testDeroulement();
     //testMenu();
     //Menu();
+    //testrecup_tresor();
     //testDistrib();
     //test_affichage();
     //deplacement_valide_test();
