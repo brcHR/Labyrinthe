@@ -2,10 +2,6 @@
 // Created by baptiste on 23/12/2022.
 //
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
 #include <stdbool.h>
 #include "plateau.h"
 #include "pion.h"

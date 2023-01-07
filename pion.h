@@ -34,7 +34,6 @@ typedef struct pion{
     int num_pion; // Numéro du pion
     char nom[15]; // Nom du pion
     t_coord coord_depart_arrivee;
-    int arrivee; // Variable booléenne indiquant si le pion a atteint sa destination
     t_tresor_sur_carte tresors[12];// tableau stockant tous les tresors du joueur, les cases en trop sont des '0' et on en met 12 car on a au max 12 tresors par joueur
     int num_tresor_recherche; // numero du trésor recherché dans le référentiel global, unique pour tout le plateau
     int indice_tresor_recherche; // indice du trésor dans le référentiel du joueur

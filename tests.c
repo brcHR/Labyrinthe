@@ -10,7 +10,6 @@
 #include "cartestresors.h"
 #include "Deroulement.h"
 #include "affichage.h"
-#include <windows.h>
 
 void tests(){
     printf("TESTS\n");
@@ -213,8 +212,7 @@ void testd(){
 }
 
 void testDistrib(){
-    int nbjoueurs,i,j;
-    t_pion pions[4];
+    int nbjoueurs;
 
     do {
         printf("saisissez le nombre de joueurs (entre 2 et 4)\n");
@@ -222,27 +220,25 @@ void testDistrib(){
         scanf("%d",&nbjoueurs);
     } while (nbjoueurs<2 || nbjoueurs>4);
 
+    t_pion pion1, pion2, pion3, pion4;
 
-    for(i=0;i<nbjoueurs;i++){
-        for(j=0;j<12;j++){
-            pions[i].tresors[j].signe = '0';
-            pions[i].tresors[j].decouvert = 0;
-        }
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].signe='0',pion2.tresors[i].signe='0',pion3.tresors[i].signe='0', pion4.tresors[i].signe='0';
+    }
+    for (int i = 0; i < 12; ++i) {
+        pion1.tresors[i].decouvert=0,pion2.tresors[i].decouvert=0,pion3.tresors[i].decouvert=0,pion4.tresors[i].decouvert=0;
     }
 
 
-    DistributionCartes(&nbjoueurs,pions);
-    for(i=0;i<nbjoueurs;i++){
-        for(j=0;j<12;j++){
-            printf("%c\t",pions[i].tresors[j].signe );
-        }
-        printf("\n");
+    DistributionCartes(&nbjoueurs,&pion1,&pion2,&pion3,&pion4);
+    for (int i = 0; i < 12; ++i) {
+        printf("%c , %c, %c\n",pion1.tresors[i].signe,pion2.tresors[i].signe,pion3.tresors[i].signe);
     }
 
-    AffichageTresor(&pions[0]);
+    AffichageTresor(&pion1);
 
 }
-/*
+
 void testDeroulement(){
     int nbjoueurs;
     t_case labyrinthe[7][7], tuile_en_plus;
@@ -267,7 +263,7 @@ void testDeroulement(){
 
 void testMenu(){
     Menu();
-}*/
+}
 
 
 void deplacement_valide_test(){
@@ -388,13 +384,6 @@ void testrecup_tresor(){
 void test_affichage(){
     t_case plateauTest[7][7];
     t_case caseEnTropTest;
-    int nbjoueurs = 3;
-    t_pion pions[4];
-    testPions(pions);
     generation_plateau_debut(plateauTest, &caseEnTropTest);
-    system("cls");
     afficheLabyrinthe(plateauTest);
-    afficheCaseEnPlus(caseEnTropTest);
-    affichePions(pions,nbjoueurs);
-    cooCurseur(30, 0);
 }
