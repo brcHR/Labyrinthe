@@ -40,6 +40,7 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
     }
     else {//si le pion a tous les trésors afficher retour à case départ pour gagner
         printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
+        printf("le joueur %s a %d tresors, il lui en reste %d à trouver\n", Pion->nom, Pion->nb_tresor_pion,cartesatrouver);
     }
 
 
@@ -62,7 +63,7 @@ int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *pio
 }
 
 void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les tresors de struct pion
-    char tresors[25] = "ABCDEFGHIJKLMNOPQRSTUVWX";
+    char tresors[25] = "XBCDEFGHIJKLMNOPQRSTUVWA";
     int alea, i, cartes, j;
     srand(time(NULL));
 
@@ -82,7 +83,6 @@ void DistributionCartes(const int *nbjoueurs, t_pion pions[4]) { //distribue les
             alea = rand() % (strlen(tresors));
             pions[i].tresors[j].signe = tresors[alea];
             del_1_occ(tresors,pions[i].tresors[j].signe);
-            printf("%c\n",pions[i].tresors[j].signe);
         }
     }
 }
