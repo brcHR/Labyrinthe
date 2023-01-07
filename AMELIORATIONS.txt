@@ -1,7 +1,6 @@
 BUGS A CORRIGER:
 - renvoi début de ligne fonctionne pas
 - on on bouge une rangée sur laquelle il y a un pion, le pion ne bouge pas.
--Deroulement_tour : ya pas un pb à faire generation plateau dedans????
 
 
 -----------------------
