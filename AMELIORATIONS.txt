@@ -1,0 +1,11 @@
+BUGS A CORRIGER:
+- renvoi début de ligne fonctionne pas
+- on on bouge une rangée sur laquelle il y a un pion, le pion ne bouge pas.
+
+
+-----------------------
+AMELIORATIONS POSSIBLES
+
+-Afficher le nom du joueur de sa couleur
+-Mettre la case de départ de la couleur du joueur
+-Dans le nom joueurs, il ne veut pas d'espace
