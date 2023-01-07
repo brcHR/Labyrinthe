@@ -108,6 +108,17 @@ void creation_type_case(t_case* tuile);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * @brief Procédure copiant une structure case dans une autre.
+ *
+ * @param source pointeur sur une case source.
+ * @param destination pointeur sur une case destination.
+ * @return toutes les données de sources sont dans destination --> destination == source.
+ */
+void copy_case(t_case *source, t_case *destination);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/**
  * @brief Procédure modifie l'orientation d'une pièce. Cette fontion prend en paramètres le pointeur de la tuile à faire tourner et la nouvelle rotation qu'on souhaite lui appliquer.
  *
  * @param tuile pointeur sur la tuile du labyrinthe à faire tourner.

@@ -13,7 +13,7 @@
  * une colonne.
  */
 
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord_case_pousse){
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord_case_pousse, t_pion pions[4]){
     int i, j, test;
     t_case tuile_a_sortir;
     t_case *pt_sortir = &tuile_a_sortir;
@@ -211,30 +211,6 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
     }
 }
 
-
-/*
- * Procédure permettant de copier une structure case dans une autre.
- */
-
-void copy_case(t_case *source, t_case *destination){
-    int i,j;
-    destination->ligne = source->ligne;
-    destination->colonne = source->colonne;
-    destination->forme = source->forme;
-    destination->fixe = source->fixe;
-    destination->rotation = source->rotation;
-    destination->mini_case = source->mini_case;
-    destination->tresor.num_tresor = source->tresor.num_tresor;
-    destination->tresor.un_tresor = source->tresor.un_tresor;
-    destination->start_finish = source->start_finish;
-    destination->sortie_du_plateau.ligne = source->sortie_du_plateau.ligne;
-    destination->sortie_du_plateau.colonne = source->sortie_du_plateau.colonne;
-    for(i=0;i<3;i++){
-        for(j=0;j<3;j++){
-            destination->tableau[i][j] = source->tableau[i][j];
-        }
-    }
-}
 
 void conversion_num_rangee_coordonnees(const int *num_rangee,
                                        t_coord *coord_pousser) {//converti le numéro de rangée en des coordonnées pour pouvoir l'exploiter

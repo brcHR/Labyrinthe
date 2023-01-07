@@ -125,6 +125,31 @@ void creation_type_case(t_case* tuile){
 
 
 /*
+ * Procédure permettant de copier une structure case dans une autre.
+ */
+
+void copy_case(t_case *source, t_case *destination){
+    int i,j;
+    destination->ligne = source->ligne;
+    destination->colonne = source->colonne;
+    destination->forme = source->forme;
+    destination->fixe = source->fixe;
+    destination->rotation = source->rotation;
+    destination->mini_case = source->mini_case;
+    destination->tresor.num_tresor = source->tresor.num_tresor;
+    destination->tresor.un_tresor = source->tresor.un_tresor;
+    destination->start_finish = source->start_finish;
+    destination->sortie_du_plateau.ligne = source->sortie_du_plateau.ligne;
+    destination->sortie_du_plateau.colonne = source->sortie_du_plateau.colonne;
+    for(i=0;i<3;i++){
+        for(j=0;j<3;j++){
+            destination->tableau[i][j] = source->tableau[i][j];
+        }
+    }
+}
+
+
+/*
  * Procédure modifiant l'orientation des cases.
  */
 

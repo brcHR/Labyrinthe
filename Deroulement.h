@@ -20,18 +20,7 @@
  * @param coord pointeur sur les coordonnées de la tuile en bout de ligne ou de colonne qui va se faire "pousser".
  * @return la colonne ou la ligne a bien coulissé. Nous avons donc la tuile en plus qui a changé.
  */
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord);
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/**
- * @brief Procédure copiant une structure case dans une autre.
- *
- * @param source pointeur sur une case source.
- * @param destination pointeur sur une case destination.
- * @return toutes les données de sources sont dans destination --> destination == source.
- */
-void copy_case(t_case *source, t_case *destination);
+void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4]);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
