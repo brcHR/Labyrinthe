@@ -35,8 +35,9 @@ void AffichageTresor(t_pion *Pion){ // affichage d'informations
             if (Pion->tresors[i].signe!='0'&&Pion->tresors[i].decouvert==1){
                 printf("%c, ",Pion->tresors[i].signe);
             }
-            printf("\n");
         }
+        printf("\n\n\n");// sert à séparer l'affichage des informations et la saisie du joueur
+
     }
     else {//si le pion a tous les trésors afficher retour à case départ pour gagner
         printf("Vous avez tous les tresors, retournez a votre case depart pour gagner\n");
