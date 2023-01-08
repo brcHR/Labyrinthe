@@ -23,7 +23,7 @@
  * @param fichierlog fichier ouvert dans main() pour l'enregistrment des logs
  * @return la colonne ou la ligne a bien coulissé. Nous avons donc la tuile en plus qui a changé.
  */
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs, FILE *fichierlog);
+int deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs, FILE *fichierlog);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

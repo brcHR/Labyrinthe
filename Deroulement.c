@@ -14,7 +14,7 @@
  * une colonne.
  */
 
-void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs,
+int deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs,
                      FILE *fichierlog) {
     int i, j, test, pion_la;
     t_case tuile_a_sortir;
@@ -68,7 +68,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
             )
 
             ) {
-        printf("Vous ne pouvez pas remettre la tuile à l'endroit où elle est sortie.\n");
+        return 1;
         fprintf(fichierlog, "la tuile a ete remise a l'endroit de sa sortie\n");
         fflush(fichierlog);
     }
@@ -382,6 +382,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
             }
         }
     }
+    //La rangée a bien coulissé.
+    return 0;
 }
 
 
@@ -455,8 +457,8 @@ int test_tresor(t_pion *Pion) {
 
 int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4],
                     FILE *fichierlog) {
-    char fin_tour;
-    int i, j;
+    char fin_tour,stop;
+    int i, j, deplacement_fait;
     int gagne; //Variable pour détecter une victoire.
 
 
@@ -474,38 +476,54 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
         AffichageTresor(&pions[joueur_en_cours]);
 
         //Rotation de la tuile en plus
-        do {
-            printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",
+        do{
+            do {
+                printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",
+                       pions[joueur_en_cours].nom);
+                fflush(stdin);
+                scanf("%d", &rotation);
+                printf("\n");
+                if (rotation == 20) return 5;//retour au menu à n'importe quel moment.
+            } while (rotation != 0 && rotation != 90 && rotation != 180 && rotation != 270);
+
+            tourner(tuile_en_plus, rotation);// tourner la tuile
+
+            //On demande si le joueur veut tourner de nouveau la pièce.
+            printf("%s Voulez-vous re-tourner la tuile ? ('o' pour oui et 'n' pour non : ",
                    pions[joueur_en_cours].nom);
             fflush(stdin);
-            scanf("%d", &rotation);
+            scanf("%c", &stop);
             printf("\n");
             if (rotation == 20) return 5;//retour au menu à n'importe quel moment.
-        } while (rotation != 0 && rotation != 90 && rotation != 180 && rotation != 270);
-        tourner(tuile_en_plus, rotation);// tourner la tuile
-
-
+        }while(stop == 'o');
 
         /*
          * ----DEPLACEMENT DE LA RANGEE----
          */
-        affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
-        AffichageTresor(&pions[joueur_en_cours]);
         do {
-            printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ",
-                   pions[joueur_en_cours].nom);
-            fflush(stdin);
-            scanf("%d", &num_rangee);
-            printf("\n");
+            affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
+            AffichageTresor(&pions[joueur_en_cours]);
 
-            if (num_rangee == 20) { //retour au menu à n'importe quel moment.
-                return 5;
+            if(deplacement_fait==1){
+                printf("Vous ne pouvez pas réinsérer la tuile à l'endroit où elle est sortie\n");
             }
-        } while (num_rangee < 1 || num_rangee > 12); //Vérification que la rangée existe.
+            do {
+                printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ",
+                       pions[joueur_en_cours].nom);
+                fflush(stdin);
+                scanf("%d", &num_rangee);
+                printf("\n");
 
-        conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
-        //On déplace les tuiles.
-        deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser, pions, *nbjoueurs, fichierlog);
+                if (num_rangee == 20) { //retour au menu à n'importe quel moment.
+                    return 5;
+                }
+            } while (num_rangee < 1 || num_rangee > 12); //Vérification que la rangée existe.
+
+            conversion_num_rangee_coordonnees(&num_rangee, &coord_pousser);
+            //On déplace les tuiles.
+            deplacement_fait = deplacer_tuiles(labyrinthe, tuile_en_plus, &coord_pousser, pions, *nbjoueurs, fichierlog);
+
+        }while(deplacement_fait==1);
 
         affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
         AffichageTresor(&pions[joueur_en_cours]);
@@ -566,9 +584,11 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
              * ----DEPLACEMENT DU PION----
              */
             deplacer_pion(labyrinthe, &pions[joueur_en_cours], colonne_arrivee, ligne_arrivee, fichierlog);
+
             fprintf(fichierlog, "Apres deplacement %s est sur position_pion->sortie_du_plateau %d,%d\n", pions[joueur_en_cours].nom,
                     pions[joueur_en_cours].position_pion->sortie_du_plateau.ligne, pions[joueur_en_cours].position_pion->sortie_du_plateau.colonne);
             fflush(fichierlog);
+
             affichageComplet(labyrinthe, *tuile_en_plus, pions, *nbjoueurs);
             //Récupération d'un tresor
             recuperer_tresor(&pions[joueur_en_cours],
@@ -612,9 +632,26 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
 void attribution_caracteristiques_joueurs(const int *nbjoueurs, t_pion pions[4],
                                           t_case labyrinthe[7][7]) { //initialise le nom et la position ini des pions
     int numJoueur, saisie, i;
+    char rouge[10] = "ROUGE";
+    char jaune[10] = "JAUNE";
+    char vert[10] = "VERT";
+    char bleu[10] = "BLEUE";
+    char couleur[10];
     for (i = 0; i < *nbjoueurs; ++i) {
         numJoueur = i + 1; //attribution du nom
-        printf("Joueur %d, saisissez votre nom : ", numJoueur);
+        if(i==0){
+            strcpy(couleur,rouge);
+        }
+        if(i==1){
+            strcpy(couleur,jaune);
+        }
+        if(i==2){
+            strcpy(couleur,vert);
+        }
+        if(i==3){
+            strcpy(couleur,bleu);
+        }
+        printf("Joueur %d, vous serez de couleur %s, saisissez votre nom : ", numJoueur,couleur);
         fflush(stdin);
         scanf("%s", pions[i].nom);
         printf("\n");
