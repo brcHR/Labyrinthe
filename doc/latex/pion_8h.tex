@@ -16,7 +16,8 @@ Graphe des dépendances par inclusion de pion.\+h\+:
 \includegraphics[width=214pt]{pion_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,7 +40,7 @@ void \mbox{\hyperlink{pion_8h_a95407a4d7ced50ff0c8db0499ed053da}{deplacer\+\_\+p
 \begin{DoxyCompactList}\small\item\em Cette procédure permet de déplacer le pion. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pion_8h_a0433fd6f903483b041781bb8ed14b9c8}{recuperer\+\_\+tresor}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$pion, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile)
 \begin{DoxyCompactList}\small\item\em Cette fonction permet de récupérer le trésor présent sur la tuile s\textquotesingle{}il y en a un, donc son numéro. Elle renvoie le nombre de trésors possédé par le pion. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{pion_8h_a265c9ce11649c36d5ea855662c8a125b}{renvoyer\+\_\+pion\+\_\+debut\+\_\+ligne}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$pion)
+void \mbox{\hyperlink{pion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0}{renvoyer\+\_\+pion\+\_\+debut\+\_\+ligne}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile\+\_\+en\+\_\+plus, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$pion, FILE $\ast$fichierlog)
 \begin{DoxyCompactList}\small\item\em Cette procédure permet de renvoyer le pion au début de la ligne s\textquotesingle{}il est sur une tuile qui sort du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -155,11 +156,11 @@ Voici le graphe des appelants de cette fonction \+:
 \includegraphics[width=350pt]{pion_8h_a0433fd6f903483b041781bb8ed14b9c8_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{pion_8h_a265c9ce11649c36d5ea855662c8a125b}\label{pion_8h_a265c9ce11649c36d5ea855662c8a125b}} 
+\mbox{\Hypertarget{pion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0}\label{pion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0}} 
 \index{pion.h@{pion.h}!renvoyer\_pion\_debut\_ligne@{renvoyer\_pion\_debut\_ligne}}
 \index{renvoyer\_pion\_debut\_ligne@{renvoyer\_pion\_debut\_ligne}!pion.h@{pion.h}}
 \doxysubsubsection{\texorpdfstring{renvoyer\_pion\_debut\_ligne()}{renvoyer\_pion\_debut\_ligne()}}
-{\footnotesize\ttfamily void renvoyer\+\_\+pion\+\_\+debut\+\_\+ligne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{pion }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void renvoyer\+\_\+pion\+\_\+debut\+\_\+ligne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile\+\_\+en\+\_\+plus,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{pion,  }\item[{FILE $\ast$}]{fichierlog }\end{DoxyParamCaption})}
 
 
 
@@ -169,7 +170,11 @@ Cette procédure permet de renvoyer le pion au début de la ligne s\textquotesin
 \begin{DoxyParams}{Paramètres}
 {\em labyrinthe} & tableau 7x7 composé de structures \mbox{\hyperlink{structt__case}{t\+\_\+case}}. \\
 \hline
-{\em pion} & pointeur sur un pion du jeu que l\textquotesingle{}on renvoie au début d\textquotesingle{}une ligne s\textquotesingle{}il est expulsé en dehors du plateau.\\
+{\em tuile\+\_\+en\+\_\+plus} & pointeur sur la tuile en plus du plateau. \\
+\hline
+{\em pion} & pointeur sur un pion du jeu que l\textquotesingle{}on renvoie au début d\textquotesingle{}une ligne s\textquotesingle{}il est expulsé en dehors du plateau. \\
+\hline
+{\em fichierlog} & fichier permettant de faire du debug\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -180,6 +185,6 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{pion_8h_a265c9ce11649c36d5ea855662c8a125b_icgraph}
+\includegraphics[width=350pt]{pion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0_icgraph}
 \end{center}
 \end{figure}

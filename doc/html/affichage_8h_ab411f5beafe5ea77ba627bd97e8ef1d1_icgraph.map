@@ -1,8 +1,0 @@
-<map id="couleurCurseur" name="couleurCurseur">
-<area shape="rect" id="node1" title="cette procedure pour changer la couleur du texte sur l&#39;invite de commande" alt="" coords="660,31,780,57"/>
-<area shape="rect" id="node2" href="$affichage_8h.html#aa42902bb8269981c53481e69a49df7c2" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="477,5,612,32"/>
-<area shape="rect" id="node6" href="$affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af" title="cette procedure permet d&#39;afficher les pions sur le plateau" alt="" coords="494,56,595,83"/>
-<area shape="rect" id="node3" href="$affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="292,31,429,57"/>
-<area shape="rect" id="node4" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,31,244,57"/>
-<area shape="rect" id="node5" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,31,64,57"/>
-</map>

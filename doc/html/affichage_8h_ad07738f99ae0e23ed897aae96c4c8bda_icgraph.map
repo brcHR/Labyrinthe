@@ -1,10 +1,7 @@
 <map id="cooCurseur" name="cooCurseur">
-<area shape="rect" id="node1" title="cette procedure permet de placer le curseur a des coordonnées données" alt="" coords="824,52,919,78"/>
-<area shape="rect" id="node2" href="$affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="292,52,429,78"/>
-<area shape="rect" id="node5" href="$affichage_8h.html#a3fa57f23095cda176975ece00eddbc1e" title="cette procedure affiche la case en plus" alt="" coords="477,26,619,53"/>
-<area shape="rect" id="node6" href="$affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6" title="cette procedure permet d&#39;afficher les fleche autour du plateau" alt="" coords="667,77,776,104"/>
-<area shape="rect" id="node8" href="$affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af" title="cette procedure permet d&#39;afficher les pions sur le plateau" alt="" coords="671,128,772,154"/>
-<area shape="rect" id="node3" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,52,244,78"/>
-<area shape="rect" id="node4" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,52,64,78"/>
-<area shape="rect" id="node7" href="$affichage_8h.html#aa42902bb8269981c53481e69a49df7c2" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="481,77,615,104"/>
+<area shape="rect" id="node1" title="cette procedure permet de placer le curseur a des coordonnées données" alt="" coords="477,56,572,83"/>
+<area shape="rect" id="node2" href="$affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="292,5,429,32"/>
+<area shape="rect" id="node4" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,56,64,83"/>
+<area shape="rect" id="node5" href="$affichage_8h.html#a5f68e707319b38f9a78d8cc5f1b73214" title="cette procedure affiche un logo &quot;labyrinthe&quot; en couleur" alt="" coords="129,107,227,133"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
 </map>

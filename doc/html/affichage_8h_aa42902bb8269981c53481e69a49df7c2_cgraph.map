@@ -1,6 +1,0 @@
-<map id="afficheLabyrinthe" name="afficheLabyrinthe">
-<area shape="rect" id="node1" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="5,31,140,57"/>
-<area shape="rect" id="node2" href="$affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6" title="cette procedure permet d&#39;afficher les fleche autour du plateau" alt="" coords="193,5,303,32"/>
-<area shape="rect" id="node4" href="$affichage_8h.html#ab411f5beafe5ea77ba627bd97e8ef1d1" title="cette procedure pour changer la couleur du texte sur l&#39;invite de commande" alt="" coords="188,56,308,83"/>
-<area shape="rect" id="node3" href="$affichage_8h.html#ad07738f99ae0e23ed897aae96c4c8bda" title="cette procedure permet de placer le curseur a des coordonnées données" alt="" coords="356,5,451,32"/>
-</map>

@@ -120,9 +120,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a0433fd6f903483b041781bb8ed14b9c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8">recuperer_tresor</a> (<a class="el" href="structt__pion.html">t_pion</a> *pion, <a class="el" href="structt__case.html">t_case</a> *tuile)</td></tr>
 <tr class="memdesc:a0433fd6f903483b041781bb8ed14b9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction permet de récupérer le trésor présent sur la tuile s'il y en a un, donc son numéro. Elle renvoie le nombre de trésors possédé par le pion.  <a href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0433fd6f903483b041781bb8ed14b9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a265c9ce11649c36d5ea855662c8a125b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b">renvoyer_pion_debut_ligne</a> (<a class="el" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="el" href="structt__pion.html">t_pion</a> *pion)</td></tr>
-<tr class="memdesc:a265c9ce11649c36d5ea855662c8a125b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette procédure permet de renvoyer le pion au début de la ligne s'il est sur une tuile qui sort du jeu.  <a href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a265c9ce11649c36d5ea855662c8a125b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ac8f76f5ed5659b26b7d2d9578dda0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pion_8h.html#ac9ac8f76f5ed5659b26b7d2d9578dda0">renvoyer_pion_debut_ligne</a> (<a class="el" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="el" href="structt__case.html">t_case</a> *tuile_en_plus, <a class="el" href="structt__pion.html">t_pion</a> *pion, FILE *fichierlog)</td></tr>
+<tr class="memdesc:ac9ac8f76f5ed5659b26b7d2d9578dda0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette procédure permet de renvoyer le pion au début de la ligne s'il est sur une tuile qui sort du jeu.  <a href="pion_8h.html#ac9ac8f76f5ed5659b26b7d2d9578dda0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac9ac8f76f5ed5659b26b7d2d9578dda0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion du déplacement des pions et la récupération des trésors. </p>
@@ -317,8 +317,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a265c9ce11649c36d5ea855662c8a125b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a265c9ce11649c36d5ea855662c8a125b">&#9670;&nbsp;</a></span>renvoyer_pion_debut_ligne()</h2>
+<a id="ac9ac8f76f5ed5659b26b7d2d9578dda0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ac8f76f5ed5659b26b7d2d9578dda0">&#9670;&nbsp;</a></span>renvoyer_pion_debut_ligne()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,8 +332,20 @@ Voici le graphe des appelants de cette fonction :</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a> *&#160;</td>
+          <td class="paramname"><em>tuile_en_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="structt__pion.html">t_pion</a> *&#160;</td>
-          <td class="paramname"><em>pion</em>&#160;</td>
+          <td class="paramname"><em>pion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichierlog</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -347,7 +359,9 @@ Voici le graphe des appelants de cette fonction :</div>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">labyrinthe</td><td>tableau 7x7 composé de structures <a class="el" href="structt__case.html" title="structure contenant toutes les informations sur une case.">t_case</a>. </td></tr>
-    <tr><td class="paramname">pion</td><td>pointeur sur un pion du jeu que l'on renvoie au début d'une ligne s'il est expulsé en dehors du plateau.</td></tr>
+    <tr><td class="paramname">tuile_en_plus</td><td>pointeur sur la tuile en plus du plateau. </td></tr>
+    <tr><td class="paramname">pion</td><td>pointeur sur un pion du jeu que l'on renvoie au début d'une ligne s'il est expulsé en dehors du plateau. </td></tr>
+    <tr><td class="paramname">fichierlog</td><td>fichier permettant de faire du debug</td></tr>
   </table>
   </dd>
 </dl>
@@ -355,10 +369,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="pion_8h_a265c9ce11649c36d5ea855662c8a125b_icgraph.png" border="0" usemap="#apion_8h_a265c9ce11649c36d5ea855662c8a125b_icgraph" alt=""/></div>
-<map name="apion_8h_a265c9ce11649c36d5ea855662c8a125b_icgraph" id="apion_8h_a265c9ce11649c36d5ea855662c8a125b_icgraph">
+<div class="center"><img src="pion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0_icgraph.png" border="0" usemap="#apion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0_icgraph" alt=""/></div>
+<map name="apion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0_icgraph" id="apion_8h_ac9ac8f76f5ed5659b26b7d2d9578dda0_icgraph">
 <area shape="rect" title="Cette procédure permet de renvoyer le pion au début de la ligne s&#39;il est sur une tuile qui sort du je..." alt="" coords="461,5,620,47"/>
-<area shape="rect" href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="292,13,413,39"/>
+<area shape="rect" href="Deroulement_8h.html#a74d49e579d04613c127928ac13ccbe1d" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="292,13,413,39"/>
 <area shape="rect" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,13,244,39"/>
 <area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,13,64,39"/>
 </map>

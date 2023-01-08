@@ -1,7 +1,7 @@
 <map id="rad_deg" name="rad_deg">
 <area shape="rect" id="node1" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les radia..." alt="" coords="595,56,669,83"/>
 <area shape="rect" id="node2" href="$plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec" title="Procédure modifie l&#39;orientation d&#39;une pièce. Cette fontion prend en paramètres le pointeur de la tuil..." alt="" coords="477,56,547,83"/>
-<area shape="rect" id="node3" href="$Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="308,5,429,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#a74d49e579d04613c127928ac13ccbe1d" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="308,5,429,32"/>
 <area shape="rect" id="node4" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="120,48,252,75"/>
 <area shape="rect" id="node6" href="$plateau_8h.html#a4c459c604affdba3a10d9e442a057a5c" title="Procédure crée le plateau de jeu avec la tuile additionnelle." alt="" coords="112,99,260,141"/>
 <area shape="rect" id="node5" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,77,64,104"/>
