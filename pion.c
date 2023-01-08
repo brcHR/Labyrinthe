@@ -175,7 +175,7 @@ void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion, FILE *fichi
 
     int ligne = pion->position_pion->sortie_du_plateau.ligne;
     int colonne = pion->position_pion->sortie_du_plateau.colonne;
-    fprintf(fichierlog, "le pion de %s est en position %d,%d\n", pion->nom, ligne, colonne);
+    fprintf(fichierlog, "renvoyer_pion_debut_ligne: le pion de %s a position_ion->sortie_du_plateau en %d,%d\n", pion->nom, ligne, colonne);
     fflush(fichierlog);
 
     // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
