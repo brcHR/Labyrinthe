@@ -9,7 +9,8 @@
 
 
 //procedure pour placer le curseur a des coord données
-void cooCurseur(int lig, int col){
+void cooCurseur(int lig, int col)
+{
     COORD mycoord;
     mycoord.X = col;
     mycoord.Y = lig;

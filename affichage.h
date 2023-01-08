@@ -31,7 +31,7 @@ void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], 
  * @param col coordonne du logo
  * @return un logo
  */
-void afficheLogo(int lig, int col)
+void afficheLogo(int lig, int col);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

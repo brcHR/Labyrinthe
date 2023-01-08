@@ -14,8 +14,7 @@
  * une colonne.
  */
 
-int deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs,
-                     FILE *fichierlog) {
+int deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs,FILE *fichierlog) {
     int i, j, test, pion_la;
     t_case tuile_a_sortir;
     t_case *pt_sortir = &tuile_a_sortir;
