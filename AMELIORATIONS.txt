@@ -1,6 +1,7 @@
 BUGS A CORRIGER:
 - renvoi début de ligne fonctionne pas
 - on on bouge une rangée sur laquelle il y a un pion, le pion ne bouge pas.
+-Dire impossible de mettre tuile la ou elle est sortie ( il y a un clear qui l'efface )
 
 
 -----------------------
@@ -11,3 +12,4 @@ AMELIORATIONS POSSIBLES
 -Mettre la case de départ de la couleur du joueur
 -Dans le nom joueurs, il ne veut pas d'espace
 -Touner tuile autant qu'on le veut
+-Retirer paramètre -jeu pour un lancement direct. Rajouter un paramètre help

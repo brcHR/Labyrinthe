@@ -69,6 +69,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
 
             ) {
         printf("Vous ne pouvez pas remettre la tuile à l'endroit où elle est sortie.\n");
+        fprintf(fichierlog, "la tuile a ete remise a l'endroit de sa sortie\n");
+        fflush(fichierlog);
     }
 
 
@@ -81,18 +83,24 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
          * DEPLACEMENT VERTICAL
          */
         if (coord->ligne == 0) {
-
+            fprintf(fichierlog, "Insertion en ligne 0\n");
+            fflush(fichierlog);
             //On vérifie que la colonne à faire bouger n'est pas une colonne fixe.
             if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                 /*
                  * VERS LE BAS
                  */
-
+                fprintf(fichierlog, "Deplacement vers le bas\n");
+                fflush(fichierlog);
                 //La colonne se déplace vers le BAS. Pour plus de facilité, on commence par sortir la tuile du bas et on tire
                 //la colonne.
                 // on sort la tuile du bas
                 copy_case(&labyrinthe[6][coord->colonne], pt_sortir);
+
+//TODO revoyer ligne
+                pt_sortir->sortie_du_plateau.ligne = 7; //On met une ligne impossible...
+                pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
                 //On regarde si un pion est éjecté. Si il l'est, alors on le replace.
                 for (i = 0; i < nbjoueurs; i++) {
@@ -103,12 +111,11 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                             (pions[i].col == coord->colonne &&
                              (pions[i].lig == (coord->ligne - 6) || pions[i].lig == (coord->ligne + 6)))
                             ) {
-                        renvoyer_pion_debut_ligne(labyrinthe, &pions[i]);
+                        fprintf(fichierlog, "le joueur %s est ejecte\n", pions[i].nom);
+                        fflush(fichierlog);
+                        renvoyer_pion_debut_ligne(labyrinthe, &pions[i], fichierlog);
                     }
                 }
-//TODO revoyer ligne
-                pt_sortir->sortie_du_plateau.ligne = 7; //On met une ligne impossible...
-                pt_sortir->sortie_du_plateau.colonne = coord->colonne;//...mais on garde la colonne d'où elle sort.
 
                 //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers le bas).
                 for (i = 5; i >= 0; i--) {
@@ -135,16 +142,18 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                 copy_case(pt_sortir, tuile_en_plus);
             } else {
                 printf("La colonne est fixe\n");
+                fprintf(fichierlog, "Insertion sur une colonne fixe!\n");
+                fflush(fichierlog);
             }
         } else if (coord->ligne == 6) {
-
+            fprintf(fichierlog, "Insertion en ligne 6, decalage vers le haut\n");
+            fflush(fichierlog);
             //On vérifie que la colonne à faire bouger n'est pas une colonne fixe.
             if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
 
                 /*
                  * VERS LE HAUT
                  */
-
                 //La colonne se déplace vers le HAUT. Pour plus de facilité, on commence par sortir la tuile du haut et on tire
                 //la colonne.
                 // on sort la tuile du haut.
@@ -175,6 +184,9 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                 copy_case(pt_sortir, tuile_en_plus);
             } else {
                 printf("La colonne est fixe\n");
+                fprintf(fichierlog, "la colonne est fixe !!\n");
+                fflush(fichierlog);
+
             }
         }
 
@@ -184,6 +196,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
 
         else {
             if (coord->colonne == 0) {
+                fprintf(fichierlog, "Insertion en colonne 0\n");
+                fflush(fichierlog);
 
                 //On vérifie que la ligne à faire bouger n'est pas une colonne fixe.
                 if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
@@ -191,6 +205,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     /*
                      * VERS LA DROITE
                      */
+                    fprintf(fichierlog, "decalage vers la droite\n");
+                    fflush(fichierlog);
 
                     //La ligne se déplace vers la droite. Pour plus de facilité, on commence par sortir la tuile tout à droite
                     // et on tire la ligne.
@@ -222,11 +238,17 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     copy_case(pt_sortir, tuile_en_plus);
                 } else {
                     printf("La ligne est fixe\n");
+                    fprintf(fichierlog, "la ligne est fixe !\n");
+                    fflush(fichierlog);
+
                 }
             } else if (coord->colonne == 6) {
-
+                fprintf(fichierlog, "Insertion en colonne 6\n");
+                fflush(fichierlog);
                 //On vérifie que la ligne à faire bouger n'est pas une colonne fixe.
                 if (labyrinthe[coord->ligne][coord->colonne].fixe != 1) {
+                    fprintf(fichierlog, "la colonne n'est pas fixe\n");
+                    fflush(fichierlog);
 
                     /*
                      * VERS LA GAUCHE
@@ -239,7 +261,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     pt_sortir->sortie_du_plateau.ligne = coord->ligne; //On garde la colonne d'où elle sort...
                     pt_sortir->sortie_du_plateau.colonne = -1;//...mais on met une ligne impossible.
 
-                    //on itère sur les lignes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
+                    //on itère sur les colonnes pour décaler dans les cases déjà déplacées (on tire vers la gauche).
                     for (j = 0; j <= 5; j++) {
                         copy_case(&labyrinthe[coord->ligne][j + 1],
                                   &labyrinthe[coord->ligne][j]);
@@ -263,6 +285,8 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     copy_case(pt_sortir, tuile_en_plus);
                 } else {
                     printf("La ligne est fixe\n");
+                    fprintf(fichierlog, "la ligne demandee est fixe, pas de deplacement\n");
+                    fflush(fichierlog);
                 }
             }
         }

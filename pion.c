@@ -170,23 +170,42 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
 }
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
-void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion){
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion, FILE *fichierlog){
     // On récupère les coordonnées du pion
 
     int ligne = pion->position_pion->sortie_du_plateau.ligne;
     int colonne = pion->position_pion->sortie_du_plateau.colonne;
+    fprintf(fichierlog, "le pion de %s est en position %d,%d\n", pion->nom, ligne, colonne);
+    fflush(fichierlog);
 
     // On vérifie si la tuile sur laquelle se trouve le pion a été déplacée hors du jeu
     if(ligne > 6) {
+        fprintf(fichierlog, "deplacement du pion en ligne 0\n");
+        fflush(fichierlog);
         pion->position_pion = &labyrinthe[0][colonne];
+        pion->lig = 0;
+        pion->col = colonne;
     }
     else if(ligne<0){
+        fprintf(fichierlog, "deplacement du pion en ligne 6\n");
+        fflush(fichierlog);
         pion->position_pion = &labyrinthe[6][colonne];
+        pion->lig = 6;
+        pion->col = colonne;
     }
     else if(colonne<0){
+        fprintf(fichierlog, "deplacement du pion en colonne 6\n");
+        fflush(fichierlog);
+
         pion->position_pion = &labyrinthe[ligne][6];
+        pion->lig = ligne;
+        pion->col = 6;
     }
     else if(colonne>6){
+        fprintf(fichierlog, "deplacement du pion en colonne 0\n");
+        fflush(fichierlog);
         pion->position_pion = &labyrinthe[ligne][0];
+        pion->lig = ligne;
+        pion->col = 0;
     }
 }

@@ -100,6 +100,6 @@ int recuperer_tresor(t_pion *pion, t_case *tuile);
  * @return La nouvelle position du pion en début de ligne.
  */
 
-void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion);
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion, FILE *fichierlog);
 
 #endif //LABYRINTHE_PIONS_H
