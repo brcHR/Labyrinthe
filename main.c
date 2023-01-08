@@ -20,7 +20,7 @@ int main(int argc, char **argv)
      */
     //testDeroulement();
     //testMenu();
-    //Menu();
+    Menu(fichierlog);
     //testrecup_tresor(fichierlog);
     //testDistrib();
     //test_affichage();
