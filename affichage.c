@@ -277,11 +277,6 @@ void afficheCaseEnPlus(t_case caseEnPlus){
     }
 }
 
-//couleur j1 = rouge   j2 = jaune  j3 = vert   j4 = bleu
-//affichage des pions
-// ascii 3, 4, 5, 6         3 : ♥    4 : ♦    5 : ♣    6 : ♠    rouge jaune vert bleu
-// 2:vert   9:bleu  12:rouge    14:jaune    15 blanc    0:noir
-
 // affiche les pions
 void affichePions(t_pion pion[4], int nbJoueur){
     int lig, col;
