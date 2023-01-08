@@ -323,7 +323,7 @@ void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *co
                     ) {
                 fprintf(fichierlog, "le joueur %s est ejecte\n", pions[i].nom);
                 fflush(fichierlog);
-                renvoyer_pion_debut_ligne(labyrinthe, &pions[i], fichierlog);
+                renvoyer_pion_debut_ligne(labyrinthe, tuile_en_plus, &pions[i], fichierlog);
             }
         }
     }

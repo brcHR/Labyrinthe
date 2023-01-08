@@ -95,11 +95,13 @@ int recuperer_tresor(t_pion *pion, t_case *tuile);
  * @brief Cette procédure permet de renvoyer le pion au début de la ligne s'il est sur une tuile qui sort du jeu.
  *
  * @param labyrinthe tableau 7x7 composé de structures t_case.
+ * @param tuile_en_plus pointeur sur la tuile en plus du plateau.
  * @param pion pointeur sur un pion du jeu que l'on renvoie au début d'une ligne s'il est expulsé en dehors du plateau.
+ * @param fichierlog fichier permettant de faire du debug
  *
  * @return La nouvelle position du pion en début de ligne.
  */
 
-void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion, FILE *fichierlog);
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_case *tuile_en_plus,t_pion *pion, FILE *fichierlog);
 
 #endif //LABYRINTHE_PIONS_H

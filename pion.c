@@ -170,11 +170,11 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
 }
 
 // Procédure qui renvoie le pion au début de la ligne s'il est sur une tuile qui sort du jeu
-void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_pion *pion, FILE *fichierlog){
+void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7],t_case *tuile_en_plus,t_pion *pion, FILE *fichierlog){
     // On récupère les coordonnées du pion
 
-    int ligne = pion->position_pion->sortie_du_plateau.ligne;
-    int colonne = pion->position_pion->sortie_du_plateau.colonne;
+    int ligne = tuile_en_plus->sortie_du_plateau.ligne;
+    int colonne = tuile_en_plus->sortie_du_plateau.colonne;
     fprintf(fichierlog, "renvoyer_pion_debut_ligne: le pion de %s a position_ion->sortie_du_plateau en %d,%d\n", pion->nom, ligne, colonne);
     fflush(fichierlog);
 
