@@ -135,7 +135,7 @@ int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrive
 
 
 // Procédure qui permet de déplacer le pion
-void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee){
+void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee,FILE *fichierlog){
     // On vérifie si le mouvement est valide avec la fonction "deplacement_valide".
     if (deplacement_valide(labyrinthe, pion, colonne_arrivee, ligne_arrivee) == true){
         // Met à jour les coordonnées du pion
