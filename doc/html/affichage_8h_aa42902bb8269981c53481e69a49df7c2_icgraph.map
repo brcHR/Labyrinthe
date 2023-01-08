@@ -1,0 +1,6 @@
+<map id="afficheLabyrinthe" name="afficheLabyrinthe">
+<area shape="rect" id="node1" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="477,5,612,32"/>
+<area shape="rect" id="node2" href="$affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="292,5,429,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" id="node4" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>

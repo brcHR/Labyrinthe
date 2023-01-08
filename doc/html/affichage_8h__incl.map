@@ -1,0 +1,7 @@
+<map id="affichage.h" name="affichage.h">
+<area shape="rect" id="node1" title="Affichage du jeu." alt="" coords="65,5,160,32"/>
+<area shape="rect" id="node2" href="$plateau_8h.html" title="Gestion du plateau du labyrinthe." alt="" coords="111,155,194,181"/>
+<area shape="rect" id="node5" href="$pion_8h.html" title="Gestion du déplacement des pions et la récupération des trésors." alt="" coords="47,80,109,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="110,229,177,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,229,76,256"/>
+</map>

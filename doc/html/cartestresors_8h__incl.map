@@ -1,0 +1,7 @@
+<map id="cartestresors.h" name="cartestresors.h">
+<area shape="rect" id="node1" title="Tout ce qui est relatif aux trésors." alt="" coords="26,5,145,32"/>
+<area shape="rect" id="node2" href="$pion_8h.html" title="Gestion du déplacement des pions et la récupération des trésors." alt="" coords="91,80,154,107"/>
+<area shape="rect" id="node5" href="$plateau_8h.html" title="Gestion du plateau du labyrinthe." alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="31,229,97,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="131,229,202,256"/>
+</map>

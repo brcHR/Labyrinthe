@@ -1,0 +1,7 @@
+<map id="plateau.h" name="plateau.h">
+<area shape="rect" id="node1" title="Gestion du plateau du labyrinthe." alt="" coords="142,5,225,32"/>
+<area shape="rect" id="node2" href="$affichage_8h.html" title="Affichage du jeu." alt="" coords="5,155,100,181"/>
+<area shape="rect" id="node3" href="$cartestresors_8h.html" title="Tout ce qui est relatif aux trésors." alt="" coords="267,155,385,181"/>
+<area shape="rect" id="node4" href="$pion_8h.html" title="Gestion du déplacement des pions et la récupération des trésors." alt="" coords="152,80,215,107"/>
+<area shape="rect" id="node5" href="$Deroulement_8h.html" title="Tout ce qui est relatif au deroulement d&#39;une partie." alt="" coords="124,155,243,181"/>
+</map>

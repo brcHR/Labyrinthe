@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe:  Fichier source de affichage.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">affichage.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="affichage_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LABYRINTHE_AFFICHAGE_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LABYRINTHE_AFFICHAGE_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plateau_8h.html">plateau.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pion_8h.html">pion.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86">affichageComplet</a>(<a class="code" href="structt__case.html">t_case</a> plateau[7][7], <a class="code" href="structt__case.html">t_case</a> caseEnPlus, <a class="code" href="structt__pion.html">t_pion</a> pions[4], <span class="keywordtype">int</span> nbJoueur);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#aa42902bb8269981c53481e69a49df7c2">afficheLabyrinthe</a>(<a class="code" href="structt__case.html">t_case</a> plateau[7][7]);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#ad07738f99ae0e23ed897aae96c4c8bda">cooCurseur</a>(<span class="keywordtype">int</span> lig, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6">afficheFleche</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af">affichePions</a>(<a class="code" href="structt__pion.html">t_pion</a> pion[4], <span class="keywordtype">int</span> nbJoueur);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#ab411f5beafe5ea77ba627bd97e8ef1d1">couleurCurseur</a>(<span class="keywordtype">int</span> texte,<span class="keywordtype">int</span> fond);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#a3fa57f23095cda176975ece00eddbc1e">afficheCaseEnPlus</a>(<a class="code" href="structt__case.html">t_case</a> caseEnPlus);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> <a class="code" href="affichage_8h.html#a4f4a3471f9fadea69892d9897efe4aea">testPions</a>(<a class="code" href="structt__pion.html">t_pion</a> pions[4]);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LABYRINTHE_AFFICHAGE_H</span></div>
+<div class="ttc" id="aaffichage_8h_html_a3fa57f23095cda176975ece00eddbc1e"><div class="ttname"><a href="affichage_8h.html#a3fa57f23095cda176975ece00eddbc1e">afficheCaseEnPlus</a></div><div class="ttdeci">void afficheCaseEnPlus(t_case caseEnPlus)</div><div class="ttdoc">cette procedure affiche la case en plus</div><div class="ttdef"><b>Definition:</b> affichage.c:254</div></div>
+<div class="ttc" id="aaffichage_8h_html_a4f4a3471f9fadea69892d9897efe4aea"><div class="ttname"><a href="affichage_8h.html#a4f4a3471f9fadea69892d9897efe4aea">testPions</a></div><div class="ttdeci">void testPions(t_pion pions[4])</div><div class="ttdoc">cette procedure teste</div><div class="ttdef"><b>Definition:</b> affichage.c:316</div></div>
+<div class="ttc" id="aaffichage_8h_html_a5d7226bb554a00cc8ab3d59f6b77d6af"><div class="ttname"><a href="affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af">affichePions</a></div><div class="ttdeci">void affichePions(t_pion pion[4], int nbJoueur)</div><div class="ttdoc">cette procedure permet d'afficher les pions sur le plateau</div><div class="ttdef"><b>Definition:</b> affichage.c:274</div></div>
+<div class="ttc" id="aaffichage_8h_html_a75c3c7ab4812671481e00128dfc7db86"><div class="ttname"><a href="affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86">affichageComplet</a></div><div class="ttdeci">void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], int nbJoueur)</div><div class="ttdoc">cette procedure affiche le labyrinthe, les fleches et les pions</div><div class="ttdef"><b>Definition:</b> affichage.c:343</div></div>
+<div class="ttc" id="aaffichage_8h_html_aa42902bb8269981c53481e69a49df7c2"><div class="ttname"><a href="affichage_8h.html#aa42902bb8269981c53481e69a49df7c2">afficheLabyrinthe</a></div><div class="ttdeci">void afficheLabyrinthe(t_case plateau[7][7])</div><div class="ttdoc">cette procedure permet d'afficher les cases du labyrinthe</div><div class="ttdef"><b>Definition:</b> affichage.c:232</div></div>
+<div class="ttc" id="aaffichage_8h_html_ab411f5beafe5ea77ba627bd97e8ef1d1"><div class="ttname"><a href="affichage_8h.html#ab411f5beafe5ea77ba627bd97e8ef1d1">couleurCurseur</a></div><div class="ttdeci">void couleurCurseur(int texte, int fond)</div><div class="ttdoc">cette procedure pour changer la couleur du texte sur l'invite de commande</div><div class="ttdef"><b>Definition:</b> affichage.c:20</div></div>
+<div class="ttc" id="aaffichage_8h_html_acd674086f6e78fa1dcc0d42bc7e458d6"><div class="ttname"><a href="affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6">afficheFleche</a></div><div class="ttdeci">void afficheFleche()</div><div class="ttdoc">cette procedure permet d'afficher les fleche autour du plateau</div><div class="ttdef"><b>Definition:</b> affichage.c:188</div></div>
+<div class="ttc" id="aaffichage_8h_html_ad07738f99ae0e23ed897aae96c4c8bda"><div class="ttname"><a href="affichage_8h.html#ad07738f99ae0e23ed897aae96c4c8bda">cooCurseur</a></div><div class="ttdeci">void cooCurseur(int lig, int col)</div><div class="ttdoc">cette procedure permet de placer le curseur a des coordonnées données</div><div class="ttdef"><b>Definition:</b> affichage.c:12</div></div>
+<div class="ttc" id="apion_8h_html"><div class="ttname"><a href="pion_8h.html">pion.h</a></div><div class="ttdoc">Gestion du déplacement des pions et la récupération des trésors.</div></div>
+<div class="ttc" id="aplateau_8h_html"><div class="ttname"><a href="plateau_8h.html">plateau.h</a></div><div class="ttdoc">Gestion du plateau du labyrinthe.</div></div>
+<div class="ttc" id="astructt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdoc">structure contenant toutes les informations sur une case.</div><div class="ttdef"><b>Definition:</b> plateau.h:54</div></div>
+<div class="ttc" id="astructt__pion_html"><div class="ttname"><a href="structt__pion.html">t_pion</a></div><div class="ttdoc">Structure contenant les informations sur un pion.</div><div class="ttdef"><b>Definition:</b> pion.h:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe:  Fichier source de cartestresors.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">cartestresors.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="cartestresors_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by Maxime Vennin on 27/12/2022.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span><span class="preprocessor">#ifndef LABYRINTHE_CARTESTRESORS_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define LABYRINTHE_CARTESTRESORS_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pion_8h.html">pion.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plateau_8h.html">plateau.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="cartestresors_8h.html#a1ce700d5105d0e2e1990f62be785ef02">AffichageTresor</a>(<a class="code" href="structt__pion.html">t_pion</a> *Pion);<span class="comment">//clairement pas sûr</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">int</span> <a class="code" href="cartestresors_8h.html#a8f146b5371c18b2f3f88b9cdbe547d98">verifunique</a>(<a class="code" href="structt__pion.html">t_pion</a> *pionVerif, <a class="code" href="structt__pion.html">t_pion</a> *pionun, <a class="code" href="structt__pion.html">t_pion</a> *piondeux, <a class="code" href="structt__pion.html">t_pion</a> *piontrois, <span class="keyword">const</span> <span class="keywordtype">int</span> *iteration);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="cartestresors_8h.html#ac280896c6f97981e5581d6e632ba23b2">DistributionCartes</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *nbjoueurs, <a class="code" href="structt__pion.html">t_pion</a> pions[4]);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">int</span> <a class="code" href="cartestresors_8h.html#a8eb52d11f0fcd613d333ad644e2b5dbf">convertisseur_tresor_CaracVersNb</a>(<a class="code" href="structt__tresor__sur__carte.html">t_tresor_sur_carte</a> *tresorCarte);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">char</span> <a class="code" href="cartestresors_8h.html#a2a1f4afcc68bdfa9aaf8510329979fe2">convertisseur_tresor_NbVersCarac</a>(<a class="code" href="structt__tresor.html">t_tresor</a> *tresorenNB);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LABYRINTHE_CARTESTRESORS_H</span></div>
+<div class="ttc" id="acartestresors_8h_html_a1ce700d5105d0e2e1990f62be785ef02"><div class="ttname"><a href="cartestresors_8h.html#a1ce700d5105d0e2e1990f62be785ef02">AffichageTresor</a></div><div class="ttdeci">void AffichageTresor(t_pion *Pion)</div><div class="ttdoc">Cette fonction est un affichage des infos sur : -trésor à chercher -le nombre de trésors à chercher -...</div><div class="ttdef"><b>Definition:</b> cartestresors.c:15</div></div>
+<div class="ttc" id="acartestresors_8h_html_a2a1f4afcc68bdfa9aaf8510329979fe2"><div class="ttname"><a href="cartestresors_8h.html#a2a1f4afcc68bdfa9aaf8510329979fe2">convertisseur_tresor_NbVersCarac</a></div><div class="ttdeci">char convertisseur_tresor_NbVersCarac(t_tresor *tresorenNB)</div><div class="ttdoc">Cette fonction sert à convertir le nb d'une struct t_tresor en carac pour pouvoir l'afficher dans le ...</div><div class="ttdef"><b>Definition:</b> cartestresors.c:155</div></div>
+<div class="ttc" id="acartestresors_8h_html_a8eb52d11f0fcd613d333ad644e2b5dbf"><div class="ttname"><a href="cartestresors_8h.html#a8eb52d11f0fcd613d333ad644e2b5dbf">convertisseur_tresor_CaracVersNb</a></div><div class="ttdeci">int convertisseur_tresor_CaracVersNb(t_tresor_sur_carte *tresorCarte)</div><div class="ttdoc">Cette fonction sert à convertir le caractère d'une struct t_tresor_sur_carte en nb pour pouvoir le co...</div><div class="ttdef"><b>Definition:</b> cartestresors.c:149</div></div>
+<div class="ttc" id="acartestresors_8h_html_a8f146b5371c18b2f3f88b9cdbe547d98"><div class="ttname"><a href="cartestresors_8h.html#a8f146b5371c18b2f3f88b9cdbe547d98">verifunique</a></div><div class="ttdeci">int verifunique(t_pion *pionVerif, t_pion *pionun, t_pion *piondeux, t_pion *piontrois, const int *iteration)</div><div class="ttdoc">Cette fonction sert à savoir si on a déjà utilisé un signe(caractère qui représente un trésor) dans u...</div><div class="ttdef"><b>Definition:</b> cartestresors.c:49</div></div>
+<div class="ttc" id="acartestresors_8h_html_ac280896c6f97981e5581d6e632ba23b2"><div class="ttname"><a href="cartestresors_8h.html#ac280896c6f97981e5581d6e632ba23b2">DistributionCartes</a></div><div class="ttdeci">void DistributionCartes(const int *nbjoueurs, t_pion pions[4])</div><div class="ttdoc">Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu'il n...</div><div class="ttdef"><b>Definition:</b> cartestresors.c:65</div></div>
+<div class="ttc" id="apion_8h_html"><div class="ttname"><a href="pion_8h.html">pion.h</a></div><div class="ttdoc">Gestion du déplacement des pions et la récupération des trésors.</div></div>
+<div class="ttc" id="aplateau_8h_html"><div class="ttname"><a href="plateau_8h.html">plateau.h</a></div><div class="ttdoc">Gestion du plateau du labyrinthe.</div></div>
+<div class="ttc" id="astructt__pion_html"><div class="ttname"><a href="structt__pion.html">t_pion</a></div><div class="ttdoc">Structure contenant les informations sur un pion.</div><div class="ttdef"><b>Definition:</b> pion.h:34</div></div>
+<div class="ttc" id="astructt__tresor__sur__carte_html"><div class="ttname"><a href="structt__tresor__sur__carte.html">t_tresor_sur_carte</a></div><div class="ttdoc">Structure contenant les informations d'un trésor. S'il est trouvé, son caractère affiché.</div><div class="ttdef"><b>Definition:</b> pion.h:22</div></div>
+<div class="ttc" id="astructt__tresor_html"><div class="ttname"><a href="structt__tresor.html">t_tresor</a></div><div class="ttdoc">Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ain...</div><div class="ttdef"><b>Definition:</b> plateau.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

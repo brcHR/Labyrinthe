@@ -1,0 +1,6 @@
+<map id="pion.h" name="pion.h">
+<area shape="rect" id="node1" title="Gestion du déplacement des pions et la récupération des trésors." alt="" coords="54,5,117,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,155,72,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="113,155,183,181"/>
+<area shape="rect" id="node4" href="$plateau_8h.html" title="Gestion du plateau du labyrinthe." alt="" coords="44,80,127,107"/>
+</map>

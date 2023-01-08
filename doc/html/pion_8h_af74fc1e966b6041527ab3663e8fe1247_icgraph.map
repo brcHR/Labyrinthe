@@ -1,0 +1,6 @@
+<map id="deplacement_valide" name="deplacement_valide">
+<area shape="rect" id="node1" title="Cette fonction sert permet de savoir si le déplacement du pion est possible ou non." alt="" coords="453,31,608,57"/>
+<area shape="rect" id="node2" href="$pion_8h.html#a95407a4d7ced50ff0c8db0499ed053da" title="Cette procédure permet de déplacer le pion." alt="" coords="292,5,405,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,31,244,57"/>
+<area shape="rect" id="node4" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,31,64,57"/>
+</map>

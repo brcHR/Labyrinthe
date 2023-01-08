@@ -1,0 +1,5 @@
+<map id="AffichageTresor" name="AffichageTresor">
+<area shape="rect" id="node1" title="Cette fonction est un affichage des infos sur : &#45;trésor à chercher &#45;le nombre de trésors à chercher &#45;..." alt="" coords="292,5,415,32"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>

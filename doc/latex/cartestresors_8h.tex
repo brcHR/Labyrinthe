@@ -1,0 +1,174 @@
+\hypertarget{cartestresors_8h}{}\doxysection{Référence du fichier cartestresors.\+h}
+\label{cartestresors_8h}\index{cartestresors.h@{cartestresors.h}}
+
+
+Tout ce qui est relatif aux trésors.  
+
+
+{\ttfamily \#include \char`\"{}pion.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plateau.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de cartestresors.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{cartestresors_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cartestresors_8h_a1ce700d5105d0e2e1990f62be785ef02}{Affichage\+Tresor}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$Pion)
+\begin{DoxyCompactList}\small\item\em Cette fonction est un affichage des infos sur \+: -\/trésor à chercher -\/le nombre de trésors à chercher -\/les cartes trouvées Elle enregistre également l\textquotesingle{}int du symbole des trésors dans la structure pion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cartestresors_8h_a8f146b5371c18b2f3f88b9cdbe547d98}{verifunique}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$pion\+Verif, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$pionun, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$piondeux, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$piontrois, const int $\ast$iteration)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à savoir si on a déjà utilisé un signe(caractère qui représente un trésor) dans un autre pion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cartestresors_8h_ac280896c6f97981e5581d6e632ba23b2}{Distribution\+Cartes}} (const int $\ast$nbjoueurs, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu\textquotesingle{}il n\textquotesingle{}y ait que 24 cartes uniques de distribuées elle initialise les trésors à trouver dans les struct pions. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{cartestresors_8h_a8eb52d11f0fcd613d333ad644e2b5dbf}{convertisseur\+\_\+tresor\+\_\+\+Carac\+Vers\+Nb}} (\mbox{\hyperlink{structt__tresor__sur__carte}{t\+\_\+tresor\+\_\+sur\+\_\+carte}} $\ast$tresor\+Carte)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à convertir le caractère d\textquotesingle{}une struct \mbox{\hyperlink{structt__tresor__sur__carte}{t\+\_\+tresor\+\_\+sur\+\_\+carte}} en nb pour pouvoir le comparer. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{cartestresors_8h_a2a1f4afcc68bdfa9aaf8510329979fe2}{convertisseur\+\_\+tresor\+\_\+\+Nb\+Vers\+Carac}} (\mbox{\hyperlink{structt__tresor}{t\+\_\+tresor}} $\ast$tresoren\+NB)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à convertir le nb d\textquotesingle{}une struct \mbox{\hyperlink{structt__tresor}{t\+\_\+tresor}} en carac pour pouvoir l\textquotesingle{}afficher dans le Labyrinthe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Tout ce qui est relatif aux trésors. 
+
+\begin{DoxyDate}{Date}
+27 decembre 2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+Maxime 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{cartestresors_8h_a1ce700d5105d0e2e1990f62be785ef02}\label{cartestresors_8h_a1ce700d5105d0e2e1990f62be785ef02}} 
+\index{cartestresors.h@{cartestresors.h}!AffichageTresor@{AffichageTresor}}
+\index{AffichageTresor@{AffichageTresor}!cartestresors.h@{cartestresors.h}}
+\doxysubsubsection{\texorpdfstring{AffichageTresor()}{AffichageTresor()}}
+{\footnotesize\ttfamily void Affichage\+Tresor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{Pion }\end{DoxyParamCaption})}
+
+
+
+Cette fonction est un affichage des infos sur \+: -\/trésor à chercher -\/le nombre de trésors à chercher -\/les cartes trouvées Elle enregistre également l\textquotesingle{}int du symbole des trésors dans la structure pion. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Pion} & pointeur sur un pion \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{cartestresors_8h_a1ce700d5105d0e2e1990f62be785ef02_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cartestresors_8h_a1ce700d5105d0e2e1990f62be785ef02_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cartestresors_8h_a8eb52d11f0fcd613d333ad644e2b5dbf}\label{cartestresors_8h_a8eb52d11f0fcd613d333ad644e2b5dbf}} 
+\index{cartestresors.h@{cartestresors.h}!convertisseur\_tresor\_CaracVersNb@{convertisseur\_tresor\_CaracVersNb}}
+\index{convertisseur\_tresor\_CaracVersNb@{convertisseur\_tresor\_CaracVersNb}!cartestresors.h@{cartestresors.h}}
+\doxysubsubsection{\texorpdfstring{convertisseur\_tresor\_CaracVersNb()}{convertisseur\_tresor\_CaracVersNb()}}
+{\footnotesize\ttfamily int convertisseur\+\_\+tresor\+\_\+\+Carac\+Vers\+Nb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__tresor__sur__carte}{t\+\_\+tresor\+\_\+sur\+\_\+carte}} $\ast$}]{tresor\+Carte }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à convertir le caractère d\textquotesingle{}une struct \mbox{\hyperlink{structt__tresor__sur__carte}{t\+\_\+tresor\+\_\+sur\+\_\+carte}} en nb pour pouvoir le comparer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tresor\+Carte} & un trésor carte qu\textquotesingle{}on veut convertir\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur du trésor pour pouvoir le comparer 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cartestresors_8h_a8eb52d11f0fcd613d333ad644e2b5dbf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cartestresors_8h_a2a1f4afcc68bdfa9aaf8510329979fe2}\label{cartestresors_8h_a2a1f4afcc68bdfa9aaf8510329979fe2}} 
+\index{cartestresors.h@{cartestresors.h}!convertisseur\_tresor\_NbVersCarac@{convertisseur\_tresor\_NbVersCarac}}
+\index{convertisseur\_tresor\_NbVersCarac@{convertisseur\_tresor\_NbVersCarac}!cartestresors.h@{cartestresors.h}}
+\doxysubsubsection{\texorpdfstring{convertisseur\_tresor\_NbVersCarac()}{convertisseur\_tresor\_NbVersCarac()}}
+{\footnotesize\ttfamily char convertisseur\+\_\+tresor\+\_\+\+Nb\+Vers\+Carac (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__tresor}{t\+\_\+tresor}} $\ast$}]{tresoren\+NB }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à convertir le nb d\textquotesingle{}une struct \mbox{\hyperlink{structt__tresor}{t\+\_\+tresor}} en carac pour pouvoir l\textquotesingle{}afficher dans le Labyrinthe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tresoren\+NB} & un trésor qu\textquotesingle{}on veut convertir en caractère\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le caractère du trésor pour pouvoir l\textquotesingle{}afficher 
+\end{DoxyReturn}
+\mbox{\Hypertarget{cartestresors_8h_ac280896c6f97981e5581d6e632ba23b2}\label{cartestresors_8h_ac280896c6f97981e5581d6e632ba23b2}} 
+\index{cartestresors.h@{cartestresors.h}!DistributionCartes@{DistributionCartes}}
+\index{DistributionCartes@{DistributionCartes}!cartestresors.h@{cartestresors.h}}
+\doxysubsubsection{\texorpdfstring{DistributionCartes()}{DistributionCartes()}}
+{\footnotesize\ttfamily void Distribution\+Cartes (\begin{DoxyParamCaption}\item[{const int $\ast$}]{nbjoueurs,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu\textquotesingle{}il n\textquotesingle{}y ait que 24 cartes uniques de distribuées elle initialise les trésors à trouver dans les struct pions. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nbjoueurs} & le nombre de joueurs \\
+\hline
+{\em pions} & les 4pions \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{cartestresors_8h_ac280896c6f97981e5581d6e632ba23b2_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{cartestresors_8h_ac280896c6f97981e5581d6e632ba23b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cartestresors_8h_a8f146b5371c18b2f3f88b9cdbe547d98}\label{cartestresors_8h_a8f146b5371c18b2f3f88b9cdbe547d98}} 
+\index{cartestresors.h@{cartestresors.h}!verifunique@{verifunique}}
+\index{verifunique@{verifunique}!cartestresors.h@{cartestresors.h}}
+\doxysubsubsection{\texorpdfstring{verifunique()}{verifunique()}}
+{\footnotesize\ttfamily int verifunique (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{pion\+Verif,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{pionun,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{piondeux,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{piontrois,  }\item[{const int $\ast$}]{iteration }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à savoir si on a déjà utilisé un signe(caractère qui représente un trésor) dans un autre pion. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pion\+Verif} & le pion dont on vérifie le signe \\
+\hline
+{\em pionun} & un des 4 pions (on inclue simplement les 4 pions sans importance d\textquotesingle{}ordre) \\
+\hline
+{\em piondeux} & un des 4 pions \\
+\hline
+{\em piontrois} & un des 4 pions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Une valeur entière, si elle est supérieure à 0 c\textquotesingle{}est qu\textquotesingle{}il y a une répétition de signe. 
+\end{DoxyReturn}

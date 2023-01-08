@@ -1,0 +1,4 @@
+<map id="deroulementTour" name="deroulementTour">
+<area shape="rect" id="node1" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#afdf1ca9e7afc3e7ec41b47fea4b3d80d" title="Cette fonction execute le menu et initialise le plateau de jeu." alt="" coords="5,5,64,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="del_1_occ" name="del_1_occ">
+<area shape="rect" id="node1" title="Procédure permettant de supprimer la première occurrence d&#39;un caractère dans une chaîne de caractères..." alt="" coords="308,35,395,61"/>
+<area shape="rect" id="node2" href="$cartestresors_8h.html#ac280896c6f97981e5581d6e632ba23b2" title="Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu&#39;il n..." alt="" coords="116,5,256,32"/>
+<area shape="rect" id="node4" href="$plateau_8h.html#a4c459c604affdba3a10d9e442a057a5c" title="Procédure crée le plateau de jeu avec la tuile additionnelle." alt="" coords="112,57,260,98"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,35,64,61"/>
+</map>

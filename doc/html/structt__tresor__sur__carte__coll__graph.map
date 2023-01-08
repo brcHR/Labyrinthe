@@ -1,0 +1,4 @@
+<map id="t_tresor_sur_carte" name="t_tresor_sur_carte">
+<area shape="rect" id="node1" title="Structure contenant les informations d&#39;un trésor. S&#39;il est trouvé, son caractère affiché." alt="" coords="5,95,144,121"/>
+<area shape="rect" id="node2" href="$structt__tresor.html" title="Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ain..." alt="" coords="39,5,111,32"/>
+</map>

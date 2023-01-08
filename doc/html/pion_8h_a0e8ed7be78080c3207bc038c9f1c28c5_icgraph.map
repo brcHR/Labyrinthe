@@ -1,0 +1,5 @@
+<map id="deplacer_pion" name="deplacer_pion">
+<area shape="rect" id="node1" title="Cette procédure permet de déplacer le pion." alt="" coords="292,5,405,32"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#a0270c6dab76a0c1e8356e2fe6967b09f" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#afdf1ca9e7afc3e7ec41b47fea4b3d80d" title="Cette fonction execute le menu et initialise le plateau de jeu." alt="" coords="5,5,64,32"/>
+</map>

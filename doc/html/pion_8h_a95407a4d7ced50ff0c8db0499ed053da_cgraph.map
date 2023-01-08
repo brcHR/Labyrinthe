@@ -1,0 +1,4 @@
+<map id="deplacer_pion" name="deplacer_pion">
+<area shape="rect" id="node1" title="Cette procédure permet de déplacer le pion." alt="" coords="5,5,119,32"/>
+<area shape="rect" id="node2" href="$pion_8h.html#af74fc1e966b6041527ab3663e8fe1247" title="Cette fonction sert permet de savoir si le déplacement du pion est possible ou non." alt="" coords="167,5,321,32"/>
+</map>

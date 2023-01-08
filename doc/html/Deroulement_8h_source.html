@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe:  Fichier source de Deroulement.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Deroulement.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Deroulement_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LABYRINTHE_DEROULEMENT_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LABYRINTHE_DEROULEMENT_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pion_8h.html">pion.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8">deplacer_tuiles</a>(<a class="code" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="code" href="structt__case.html">t_case</a> *tuile_en_plus, <a class="code" href="structt__coord.html">t_coord</a> *coord, <a class="code" href="structt__pion.html">t_pion</a> pions[4], <span class="keywordtype">int</span> nbjoueurs, FILE *fichierlog);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1">conversion_num_rangee_coordonnees</a> (<span class="keyword">const</span> <span class="keywordtype">int</span> *num_rangee, <a class="code" href="structt__coord.html">t_coord</a> *coord_pousser);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40">deroulementTour</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *nbjoueurs,<a class="code" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="code" href="structt__case.html">t_case</a> *tuile_en_plus, <a class="code" href="structt__pion.html">t_pion</a> pions[4], FILE *fichierlog);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">int</span> <a class="code" href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63">test_tresor</a>(<a class="code" href="structt__pion.html">t_pion</a> *Pion);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d">Menu</a>(FILE *fichierlog);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> <a class="code" href="Deroulement_8h.html#ad7c811e66a1b2a541e95bc82adfe075d">attribution_caracteristiques_joueurs</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> *nbjoueurs,<a class="code" href="structt__pion.html">t_pion</a> pions[4], <a class="code" href="structt__case.html">t_case</a> labyrinthe[7][7]);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LABYRINTHE_DEROULEMENT_H</span></div>
+<div class="ttc" id="aDeroulement_8h_html_a50fa3ff03feafb2ce91efe6f6cb9c28d"><div class="ttname"><a href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d">Menu</a></div><div class="ttdeci">void Menu(FILE *fichierlog)</div><div class="ttdoc">Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle...</div><div class="ttdef"><b>Definition:</b> Deroulement.c:531</div></div>
+<div class="ttc" id="aDeroulement_8h_html_a62652998a438702265913e72b1b67bb1"><div class="ttname"><a href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1">conversion_num_rangee_coordonnees</a></div><div class="ttdeci">void conversion_num_rangee_coordonnees(const int *num_rangee, t_coord *coord_pousser)</div><div class="ttdoc">Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvo...</div><div class="ttdef"><b>Definition:</b> Deroulement.c:273</div></div>
+<div class="ttc" id="aDeroulement_8h_html_a69d76b4c21ed0d364bff1cb205e3ee63"><div class="ttname"><a href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63">test_tresor</a></div><div class="ttdeci">int test_tresor(t_pion *Pion)</div><div class="ttdoc">Cette fonction vérifie si tous les trésors ont été trouvés.</div><div class="ttdef"><b>Definition:</b> Deroulement.c:327</div></div>
+<div class="ttc" id="aDeroulement_8h_html_acd7089351dbe08d5f8f485e3adc8fe40"><div class="ttname"><a href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40">deroulementTour</a></div><div class="ttdeci">int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile_en_plus, t_pion pions[4], FILE *fichierlog)</div><div class="ttdoc">Cette fonction execute le déroulement d'un seul tour.</div><div class="ttdef"><b>Definition:</b> Deroulement.c:341</div></div>
+<div class="ttc" id="aDeroulement_8h_html_ad7c811e66a1b2a541e95bc82adfe075d"><div class="ttname"><a href="Deroulement_8h.html#ad7c811e66a1b2a541e95bc82adfe075d">attribution_caracteristiques_joueurs</a></div><div class="ttdeci">void attribution_caracteristiques_joueurs(const int *nbjoueurs, t_pion pions[4], t_case labyrinthe[7][7])</div><div class="ttdoc">Cette fonction initialise le nom et la position initiale des joueurs.</div><div class="ttdef"><b>Definition:</b> Deroulement.c:487</div></div>
+<div class="ttc" id="aDeroulement_8h_html_ae5b3a57bf54f13ccda9ad8b0c00402d8"><div class="ttname"><a href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8">deplacer_tuiles</a></div><div class="ttdeci">void deplacer_tuiles(t_case labyrinthe[7][7], t_case *tuile_en_plus, t_coord *coord, t_pion pions[4], int nbjoueurs, FILE *fichierlog)</div><div class="ttdoc">Procédure permettant de déplacer une colonne ou une ligne.</div><div class="ttdef"><b>Definition:</b> Deroulement.c:17</div></div>
+<div class="ttc" id="apion_8h_html"><div class="ttname"><a href="pion_8h.html">pion.h</a></div><div class="ttdoc">Gestion du déplacement des pions et la récupération des trésors.</div></div>
+<div class="ttc" id="astructt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdoc">structure contenant toutes les informations sur une case.</div><div class="ttdef"><b>Definition:</b> plateau.h:54</div></div>
+<div class="ttc" id="astructt__coord_html"><div class="ttname"><a href="structt__coord.html">t_coord</a></div><div class="ttdoc">Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d...</div><div class="ttdef"><b>Definition:</b> plateau.h:44</div></div>
+<div class="ttc" id="astructt__pion_html"><div class="ttname"><a href="structt__pion.html">t_pion</a></div><div class="ttdoc">Structure contenant les informations sur un pion.</div><div class="ttdef"><b>Definition:</b> pion.h:34</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

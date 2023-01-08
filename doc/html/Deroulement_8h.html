@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe: Référence du fichier Deroulement.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier Deroulement.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Tout ce qui est relatif au deroulement d'une partie.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="pion_8h_source.html">pion.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de Deroulement.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h__incl.png" border="0" usemap="#aDeroulement_8h" alt=""/></div>
+<map name="aDeroulement_8h" id="aDeroulement_8h">
+<area shape="rect" title="Tout ce qui est relatif au deroulement d&#39;une partie." alt="" coords="26,5,145,32"/>
+<area shape="rect" href="pion_8h.html" title="Gestion du déplacement des pions et la récupération des trésors." alt="" coords="54,80,117,107"/>
+<area shape="rect" title=" " alt="" coords="5,229,72,256"/>
+<area shape="rect" title=" " alt="" coords="113,229,183,256"/>
+<area shape="rect" href="plateau_8h.html" title="Gestion du plateau du labyrinthe." alt="" coords="44,155,127,181"/>
+</map>
+</div>
+</div>
+<p><a href="Deroulement_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae5b3a57bf54f13ccda9ad8b0c00402d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8">deplacer_tuiles</a> (<a class="el" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="el" href="structt__case.html">t_case</a> *tuile_en_plus, <a class="el" href="structt__coord.html">t_coord</a> *coord, <a class="el" href="structt__pion.html">t_pion</a> pions[4], int nbjoueurs, FILE *fichierlog)</td></tr>
+<tr class="memdesc:ae5b3a57bf54f13ccda9ad8b0c00402d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procédure permettant de déplacer une colonne ou une ligne.  <a href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae5b3a57bf54f13ccda9ad8b0c00402d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62652998a438702265913e72b1b67bb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1">conversion_num_rangee_coordonnees</a> (const int *num_rangee, <a class="el" href="structt__coord.html">t_coord</a> *coord_pousser)</td></tr>
+<tr class="memdesc:a62652998a438702265913e72b1b67bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvoir effectuer le déplacement d'une rangée.  <a href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a62652998a438702265913e72b1b67bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd7089351dbe08d5f8f485e3adc8fe40"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40">deroulementTour</a> (const int *nbjoueurs, <a class="el" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="el" href="structt__case.html">t_case</a> *tuile_en_plus, <a class="el" href="structt__pion.html">t_pion</a> pions[4], FILE *fichierlog)</td></tr>
+<tr class="memdesc:acd7089351dbe08d5f8f485e3adc8fe40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction execute le déroulement d'un seul tour.  <a href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acd7089351dbe08d5f8f485e3adc8fe40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d76b4c21ed0d364bff1cb205e3ee63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63">test_tresor</a> (<a class="el" href="structt__pion.html">t_pion</a> *Pion)</td></tr>
+<tr class="memdesc:a69d76b4c21ed0d364bff1cb205e3ee63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction vérifie si tous les trésors ont été trouvés.  <a href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a69d76b4c21ed0d364bff1cb205e3ee63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50fa3ff03feafb2ce91efe6f6cb9c28d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d">Menu</a> (FILE *fichierlog)</td></tr>
+<tr class="memdesc:a50fa3ff03feafb2ce91efe6f6cb9c28d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle partie, d'affichr les règles du jeu, les crédits et de sortir du programme.  <a href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a50fa3ff03feafb2ce91efe6f6cb9c28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c811e66a1b2a541e95bc82adfe075d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Deroulement_8h.html#ad7c811e66a1b2a541e95bc82adfe075d">attribution_caracteristiques_joueurs</a> (const int *nbjoueurs, <a class="el" href="structt__pion.html">t_pion</a> pions[4], <a class="el" href="structt__case.html">t_case</a> labyrinthe[7][7])</td></tr>
+<tr class="memdesc:ad7c811e66a1b2a541e95bc82adfe075d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction initialise le nom et la position initiale des joueurs.  <a href="Deroulement_8h.html#ad7c811e66a1b2a541e95bc82adfe075d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad7c811e66a1b2a541e95bc82adfe075d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Tout ce qui est relatif au deroulement d'une partie. </p>
+<dl class="section date"><dt>Date</dt><dd>30 decembre 2022 </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Maxime </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ad7c811e66a1b2a541e95bc82adfe075d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c811e66a1b2a541e95bc82adfe075d">&#9670;&nbsp;</a></span>attribution_caracteristiques_joueurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void attribution_caracteristiques_joueurs </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>nbjoueurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__pion.html">t_pion</a>&#160;</td>
+          <td class="paramname"><em>pions</em>[4], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a>&#160;</td>
+          <td class="paramname"><em>labyrinthe</em>[7][7]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cette fonction initialise le nom et la position initiale des joueurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nbjoueurs</td><td>nombre de joueurs </td></tr>
+    <tr><td class="paramname">pions</td><td>tableau des pions </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d_icgraph.png" border="0" usemap="#aDeroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d_icgraph" alt=""/></div>
+<map name="aDeroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d_icgraph" id="aDeroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d_icgraph">
+<area shape="rect" title="Cette fonction initialise le nom et la position initiale des joueurs." alt="" coords="112,5,313,47"/>
+<area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,13,64,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a62652998a438702265913e72b1b67bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62652998a438702265913e72b1b67bb1">&#9670;&nbsp;</a></span>conversion_num_rangee_coordonnees()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void conversion_num_rangee_coordonnees </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>num_rangee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__coord.html">t_coord</a> *&#160;</td>
+          <td class="paramname"><em>coord_pousser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvoir effectuer le déplacement d'une rangée. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_rangee</td><td>numéro de rangée saisi (voir page 13 du sujet) </td></tr>
+    <tr><td class="paramname">coord_pousser</td><td>coordonnées de la première case de la table de jeu qui va être poussée </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_a62652998a438702265913e72b1b67bb1_icgraph.png" border="0" usemap="#aDeroulement_8h_a62652998a438702265913e72b1b67bb1_icgraph" alt=""/></div>
+<map name="aDeroulement_8h_a62652998a438702265913e72b1b67bb1_icgraph" id="aDeroulement_8h_a62652998a438702265913e72b1b67bb1_icgraph">
+<area shape="rect" title="Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvo..." alt="" coords="292,5,473,47"/>
+<area shape="rect" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,13,244,39"/>
+<area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,13,64,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae5b3a57bf54f13ccda9ad8b0c00402d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b3a57bf54f13ccda9ad8b0c00402d8">&#9670;&nbsp;</a></span>deplacer_tuiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deplacer_tuiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a>&#160;</td>
+          <td class="paramname"><em>labyrinthe</em>[7][7], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a> *&#160;</td>
+          <td class="paramname"><em>tuile_en_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__coord.html">t_coord</a> *&#160;</td>
+          <td class="paramname"><em>coord</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__pion.html">t_pion</a>&#160;</td>
+          <td class="paramname"><em>pions</em>[4], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nbjoueurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichierlog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procédure permettant de déplacer une colonne ou une ligne. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">labyrinthe</td><td>tableau 7x7 composé de structures <a class="el" href="structt__case.html" title="structure contenant toutes les informations sur une case.">t_case</a>. </td></tr>
+    <tr><td class="paramname">tuile_en_plus</td><td>pointeur sur la tuile en trop du labyrinthe. </td></tr>
+    <tr><td class="paramname">coord</td><td>pointeur sur les coordonnées de la tuile en bout de ligne ou de colonne qui va se faire "pousser". </td></tr>
+    <tr><td class="paramname">pions</td><td>tableau des joueurs. </td></tr>
+    <tr><td class="paramname">nbjoueurs</td><td>nombre je joueurs dans la partie. </td></tr>
+    <tr><td class="paramname">fichierlog</td><td>fichier ouvert dans main() pour l'enregistrment des logs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la colonne ou la ligne a bien coulissé. Nous avons donc la tuile en plus qui a changé. </dd></dl>
+<p>ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.</p>
+<p>ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.</p>
+<p>ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.</p>
+<p>ATTENTION, pt_sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_cgraph.png" border="0" usemap="#aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_cgraph" alt=""/></div>
+<map name="aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_cgraph" id="aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_cgraph">
+<area shape="rect" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="5,85,127,112"/>
+<area shape="rect" href="plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0" title="Procédure copiant une structure case dans une autre." alt="" coords="209,5,299,32"/>
+<area shape="rect" href="plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467" title="Procédure créant les tuiles avec leur chemin." alt="" coords="381,77,529,104"/>
+<area shape="rect" href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b" title="Cette procédure permet de renvoyer le pion au début de la ligne s&#39;il est sur une tuile qui sort du je..." alt="" coords="175,107,333,149"/>
+<area shape="rect" href="plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec" title="Procédure modifie l&#39;orientation d&#39;une pièce. Cette fontion prend en paramètres le pointeur de la tuil..." alt="" coords="219,173,289,200"/>
+<area shape="rect" href="plateau_8h.html#a705535e284760a18de2f8c03a30ac07a" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les degré..." alt="" coords="418,148,493,175"/>
+<area shape="rect" href="plateau_8h.html#a6cf97b607e4333e62965950a94a05c84" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les radia..." alt="" coords="418,199,493,225"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_icgraph.png" border="0" usemap="#aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_icgraph" alt=""/></div>
+<map name="aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_icgraph" id="aDeroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_icgraph">
+<area shape="rect" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="292,5,413,32"/>
+<area shape="rect" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acd7089351dbe08d5f8f485e3adc8fe40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7089351dbe08d5f8f485e3adc8fe40">&#9670;&nbsp;</a></span>deroulementTour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deroulementTour </td>
+          <td>(</td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>nbjoueurs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a>&#160;</td>
+          <td class="paramname"><em>labyrinthe</em>[7][7], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__case.html">t_case</a> *&#160;</td>
+          <td class="paramname"><em>tuile_en_plus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__pion.html">t_pion</a>&#160;</td>
+          <td class="paramname"><em>pions</em>[4], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichierlog</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cette fonction execute le déroulement d'un seul tour. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nbjoueurs</td><td>le nombre de joueurs </td></tr>
+    <tr><td class="paramname">pions</td><td>chacun des 4 pions </td></tr>
+    <tr><td class="paramname">labyrinthe</td><td>plateau du labyrinthe </td></tr>
+    <tr><td class="paramname">tuile_en_plus</td><td>tuile supplémentaire en dehors du plateau </td></tr>
+    <tr><td class="paramname">fichierlog</td><td>fichier ouvert dans main() pour enregister les logs</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si un joueur a gagné, 2 si un joueur veut retourner au menu ou 0 sinon. </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_cgraph.png" border="0" usemap="#aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_cgraph" alt=""/></div>
+<map name="aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_cgraph" id="aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_cgraph">
+<area shape="rect" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="5,355,137,381"/>
+<area shape="rect" href="affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="207,107,345,133"/>
+<area shape="rect" href="cartestresors_8h.html#a1ce700d5105d0e2e1990f62be785ef02" title="Cette fonction est un affichage des infos sur : &#45;trésor à chercher &#45;le nombre de trésors à chercher &#45;..." alt="" coords="215,187,337,213"/>
+<area shape="rect" href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1" title="Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvo..." alt="" coords="185,238,367,279"/>
+<area shape="rect" href="pion_8h.html#af74fc1e966b6041527ab3663e8fe1247" title="Cette fonction sert permet de savoir si le déplacement du pion est possible ou non." alt="" coords="417,304,571,331"/>
+<area shape="rect" href="pion_8h.html#a95407a4d7ced50ff0c8db0499ed053da" title="Cette procédure permet de déplacer le pion." alt="" coords="219,355,333,381"/>
+<area shape="rect" href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="215,405,337,432"/>
+<area shape="rect" href="plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec" title="Procédure modifie l&#39;orientation d&#39;une pièce. Cette fontion prend en paramètres le pointeur de la tuil..." alt="" coords="459,523,529,549"/>
+<area shape="rect" href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8" title="Cette fonction permet de récupérer le trésor présent sur la tuile s&#39;il y en a un, donc son numéro...." alt="" coords="211,507,341,533"/>
+<area shape="rect" href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63" title="Cette fonction vérifie si tous les trésors ont été trouvés." alt="" coords="230,557,322,584"/>
+<area shape="rect" href="affichage_8h.html#a3fa57f23095cda176975ece00eddbc1e" title="cette procedure affiche la case en plus" alt="" coords="625,5,766,32"/>
+<area shape="rect" href="affichage_8h.html#ad07738f99ae0e23ed897aae96c4c8bda" title="cette procedure permet de placer le curseur a des coordonnées données" alt="" coords="817,81,912,108"/>
+<area shape="rect" href="affichage_8h.html#aa42902bb8269981c53481e69a49df7c2" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="427,107,561,133"/>
+<area shape="rect" href="affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af" title="cette procedure permet d&#39;afficher les pions sur le plateau" alt="" coords="443,157,545,184"/>
+<area shape="rect" href="affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6" title="cette procedure permet d&#39;afficher les fleche autour du plateau" alt="" coords="641,107,750,133"/>
+<area shape="rect" href="affichage_8h.html#ab411f5beafe5ea77ba627bd97e8ef1d1" title="cette procedure pour changer la couleur du texte sur l&#39;invite de commande" alt="" coords="635,157,755,184"/>
+<area shape="rect" href="cartestresors_8h.html#a8eb52d11f0fcd613d333ad644e2b5dbf" title="Cette fonction sert à convertir le caractère d&#39;une struct t_tresor_sur_carte en nb pour pouvoir le co..." alt="" coords="417,209,571,250"/>
+<area shape="rect" href="plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0" title="Procédure copiant une structure case dans une autre." alt="" coords="449,355,539,381"/>
+<area shape="rect" href="plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467" title="Procédure créant les tuiles avec leur chemin." alt="" coords="621,425,769,452"/>
+<area shape="rect" href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b" title="Cette procédure permet de renvoyer le pion au début de la ligne s&#39;il est sur une tuile qui sort du je..." alt="" coords="415,457,573,498"/>
+<area shape="rect" href="plateau_8h.html#a705535e284760a18de2f8c03a30ac07a" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les degré..." alt="" coords="658,497,733,524"/>
+<area shape="rect" href="plateau_8h.html#a6cf97b607e4333e62965950a94a05c84" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les radia..." alt="" coords="658,548,733,575"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_icgraph.png" border="0" usemap="#aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_icgraph" alt=""/></div>
+<map name="aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_icgraph" id="aDeroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_icgraph">
+<area shape="rect" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a50fa3ff03feafb2ce91efe6f6cb9c28d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fa3ff03feafb2ce91efe6f6cb9c28d">&#9670;&nbsp;</a></span>Menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Menu </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fichierlog</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle partie, d'affichr les règles du jeu, les crédits et de sortir du programme. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fichierlog</td><td>fichier ouvert dans main() pour enregistrer les logs </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d_cgraph.png" border="0" usemap="#aDeroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d_cgraph" alt=""/></div>
+<map name="aDeroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d_cgraph" id="aDeroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d_cgraph">
+<area shape="rect" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,513,64,540"/>
+<area shape="rect" href="Deroulement_8h.html#ad7c811e66a1b2a541e95bc82adfe075d" title="Cette fonction initialise le nom et la position initiale des joueurs." alt="" coords="112,331,313,373"/>
+<area shape="rect" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="147,397,279,424"/>
+<area shape="rect" href="cartestresors_8h.html#ac280896c6f97981e5581d6e632ba23b2" title="Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu&#39;il n..." alt="" coords="143,724,283,751"/>
+<area shape="rect" href="plateau_8h.html#a4c459c604affdba3a10d9e442a057a5c" title="Procédure crée le plateau de jeu avec la tuile additionnelle." alt="" coords="139,586,287,627"/>
+<area shape="rect" href="affichage_8h.html#a75c3c7ab4812671481e00128dfc7db86" title="cette procedure affiche le labyrinthe, les fleches et les pions" alt="" coords="383,136,521,163"/>
+<area shape="rect" href="cartestresors_8h.html#a1ce700d5105d0e2e1990f62be785ef02" title="Cette fonction est un affichage des infos sur : &#45;trésor à chercher &#45;le nombre de trésors à chercher &#45;..." alt="" coords="391,288,513,315"/>
+<area shape="rect" href="Deroulement_8h.html#a62652998a438702265913e72b1b67bb1" title="Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvo..." alt="" coords="361,390,543,431"/>
+<area shape="rect" href="pion_8h.html#af74fc1e966b6041527ab3663e8fe1247" title="Cette fonction sert permet de savoir si le déplacement du pion est possible ou non." alt="" coords="593,393,747,420"/>
+<area shape="rect" href="pion_8h.html#a95407a4d7ced50ff0c8db0499ed053da" title="Cette procédure permet de déplacer le pion." alt="" coords="395,456,509,483"/>
+<area shape="rect" href="Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="391,608,513,635"/>
+<area shape="rect" href="plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec" title="Procédure modifie l&#39;orientation d&#39;une pièce. Cette fontion prend en paramètres le pointeur de la tuil..." alt="" coords="635,491,705,517"/>
+<area shape="rect" href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8" title="Cette fonction permet de récupérer le trésor présent sur la tuile s&#39;il y en a un, donc son numéro...." alt="" coords="387,187,517,213"/>
+<area shape="rect" href="Deroulement_8h.html#a69d76b4c21ed0d364bff1cb205e3ee63" title="Cette fonction vérifie si tous les trésors ont été trouvés." alt="" coords="406,237,498,264"/>
+<area shape="rect" href="affichage_8h.html#a3fa57f23095cda176975ece00eddbc1e" title="cette procedure affiche la case en plus" alt="" coords="801,5,942,32"/>
+<area shape="rect" href="affichage_8h.html#ad07738f99ae0e23ed897aae96c4c8bda" title="cette procedure permet de placer le curseur a des coordonnées données" alt="" coords="993,107,1088,133"/>
+<area shape="rect" href="affichage_8h.html#aa42902bb8269981c53481e69a49df7c2" title="cette procedure permet d&#39;afficher les cases du labyrinthe" alt="" coords="603,96,737,123"/>
+<area shape="rect" href="affichage_8h.html#a5d7226bb554a00cc8ab3d59f6b77d6af" title="cette procedure permet d&#39;afficher les pions sur le plateau" alt="" coords="619,147,721,173"/>
+<area shape="rect" href="affichage_8h.html#acd674086f6e78fa1dcc0d42bc7e458d6" title="cette procedure permet d&#39;afficher les fleche autour du plateau" alt="" coords="817,56,926,83"/>
+<area shape="rect" href="affichage_8h.html#ab411f5beafe5ea77ba627bd97e8ef1d1" title="cette procedure pour changer la couleur du texte sur l&#39;invite de commande" alt="" coords="811,107,931,133"/>
+<area shape="rect" href="cartestresors_8h.html#a8eb52d11f0fcd613d333ad644e2b5dbf" title="Cette fonction sert à convertir le caractère d&#39;une struct t_tresor_sur_carte en nb pour pouvoir le co..." alt="" coords="593,281,747,322"/>
+<area shape="rect" href="plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0" title="Procédure copiant une structure case dans une autre." alt="" coords="625,659,715,685"/>
+<area shape="rect" href="plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467" title="Procédure créant les tuiles avec leur chemin." alt="" coords="797,608,945,635"/>
+<area shape="rect" href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b" title="Cette procédure permet de renvoyer le pion au début de la ligne s&#39;il est sur une tuile qui sort du je..." alt="" coords="591,542,749,583"/>
+<area shape="rect" href="plateau_8h.html#a705535e284760a18de2f8c03a30ac07a" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les degré..." alt="" coords="834,465,909,492"/>
+<area shape="rect" href="plateau_8h.html#a6cf97b607e4333e62965950a94a05c84" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les radia..." alt="" coords="834,516,909,543"/>
+<area shape="rect" href="plateau_8h.html#ad5e3ad4b743463408a3cfcb015301821" title="Procédure permettant de supprimer la première occurrence d&#39;un caractère dans une chaîne de caractères..." alt="" coords="409,760,495,787"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a69d76b4c21ed0d364bff1cb205e3ee63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d76b4c21ed0d364bff1cb205e3ee63">&#9670;&nbsp;</a></span>test_tresor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int test_tresor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structt__pion.html">t_pion</a> *&#160;</td>
+          <td class="paramname"><em>Pion</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cette fonction vérifie si tous les trésors ont été trouvés. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pions</td><td>chacun des 4 pions</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le joueur a trouvé un trésor </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="Deroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63_icgraph.png" border="0" usemap="#aDeroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63_icgraph" alt=""/></div>
+<map name="aDeroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63_icgraph" id="aDeroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63_icgraph">
+<area shape="rect" title="Cette fonction vérifie si tous les trésors ont été trouvés." alt="" coords="292,5,384,32"/>
+<area shape="rect" href="Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" href="Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

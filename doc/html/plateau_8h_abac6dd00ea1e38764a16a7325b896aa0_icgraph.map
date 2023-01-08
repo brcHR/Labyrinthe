@@ -1,0 +1,6 @@
+<map id="copy_case" name="copy_case">
+<area shape="rect" id="node1" title="Procédure copiant une structure case dans une autre." alt="" coords="461,5,552,32"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#ae5b3a57bf54f13ccda9ad8b0c00402d8" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="292,5,413,32"/>
+<area shape="rect" id="node3" href="$Deroulement_8h.html#acd7089351dbe08d5f8f485e3adc8fe40" title="Cette fonction execute le déroulement d&#39;un seul tour." alt="" coords="112,5,244,32"/>
+<area shape="rect" id="node4" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>

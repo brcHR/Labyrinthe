@@ -1,0 +1,245 @@
+\hypertarget{affichage_8h}{}\doxysection{Référence du fichier affichage.\+h}
+\label{affichage_8h}\index{affichage.h@{affichage.h}}
+
+
+Affichage du jeu.  
+
+
+{\ttfamily \#include \char`\"{}plateau.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pion.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de affichage.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{affichage_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{affichage_8h_a75c3c7ab4812671481e00128dfc7db86}{affichage\+Complet}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} plateau\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} case\+En\+Plus, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]}, int nb\+Joueur)
+\begin{DoxyCompactList}\small\item\em cette procedure affiche le labyrinthe, les fleches et les pions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_aa42902bb8269981c53481e69a49df7c2}{affiche\+Labyrinthe}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} plateau\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\begin{DoxyCompactList}\small\item\em cette procedure permet d\textquotesingle{}afficher les cases du labyrinthe \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_ad07738f99ae0e23ed897aae96c4c8bda}{coo\+Curseur}} (int lig, int col)
+\begin{DoxyCompactList}\small\item\em cette procedure permet de placer le curseur a des coordonnées données \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{affichage_8h_acd674086f6e78fa1dcc0d42bc7e458d6}\label{affichage_8h_acd674086f6e78fa1dcc0d42bc7e458d6}} 
+void \mbox{\hyperlink{affichage_8h_acd674086f6e78fa1dcc0d42bc7e458d6}{affiche\+Fleche}} ()
+\begin{DoxyCompactList}\small\item\em cette procedure permet d\textquotesingle{}afficher les fleche autour du plateau \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a5d7226bb554a00cc8ab3d59f6b77d6af}{affiche\+Pions}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pion\mbox{[}4\mbox{]}, int nb\+Joueur)
+\begin{DoxyCompactList}\small\item\em cette procedure permet d\textquotesingle{}afficher les pions sur le plateau \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_ab411f5beafe5ea77ba627bd97e8ef1d1}{couleur\+Curseur}} (int texte, int fond)
+\begin{DoxyCompactList}\small\item\em cette procedure pour changer la couleur du texte sur l\textquotesingle{}invite de commande \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a3fa57f23095cda176975ece00eddbc1e}{affiche\+Case\+En\+Plus}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} case\+En\+Plus)
+\begin{DoxyCompactList}\small\item\em cette procedure affiche la case en plus \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a4f4a3471f9fadea69892d9897efe4aea}{test\+Pions}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em cette procedure teste \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Affichage du jeu. 
+
+\begin{DoxyDate}{Date}
+04 janvier 2023 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+Aurélien 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{affichage_8h_a75c3c7ab4812671481e00128dfc7db86}\label{affichage_8h_a75c3c7ab4812671481e00128dfc7db86}} 
+\index{affichage.h@{affichage.h}!affichageComplet@{affichageComplet}}
+\index{affichageComplet@{affichageComplet}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{affichageComplet()}{affichageComplet()}}
+{\footnotesize\ttfamily void affichage\+Complet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{plateau\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{case\+En\+Plus,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]},  }\item[{int}]{nb\+Joueur }\end{DoxyParamCaption})}
+
+
+
+cette procedure affiche le labyrinthe, les fleches et les pions 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em plateau} & plateau de jeu \\
+\hline
+{\em case\+En\+Plus} & tuile en plus \\
+\hline
+{\em pions} & tableau contenant tous les joueurs \\
+\hline
+{\em nb\+Joueur} & nombre de joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un affichage du futur. 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_a75c3c7ab4812671481e00128dfc7db86_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_a75c3c7ab4812671481e00128dfc7db86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_a3fa57f23095cda176975ece00eddbc1e}\label{affichage_8h_a3fa57f23095cda176975ece00eddbc1e}} 
+\index{affichage.h@{affichage.h}!afficheCaseEnPlus@{afficheCaseEnPlus}}
+\index{afficheCaseEnPlus@{afficheCaseEnPlus}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{afficheCaseEnPlus()}{afficheCaseEnPlus()}}
+{\footnotesize\ttfamily void affiche\+Case\+En\+Plus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{case\+En\+Plus }\end{DoxyParamCaption})}
+
+
+
+cette procedure affiche la case en plus 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em case\+En\+Plus} & case en plus du plateau \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{affichage_8h_a3fa57f23095cda176975ece00eddbc1e_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_a3fa57f23095cda176975ece00eddbc1e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_aa42902bb8269981c53481e69a49df7c2}\label{affichage_8h_aa42902bb8269981c53481e69a49df7c2}} 
+\index{affichage.h@{affichage.h}!afficheLabyrinthe@{afficheLabyrinthe}}
+\index{afficheLabyrinthe@{afficheLabyrinthe}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{afficheLabyrinthe()}{afficheLabyrinthe()}}
+{\footnotesize\ttfamily void affiche\+Labyrinthe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{plateau\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+cette procedure permet d\textquotesingle{}afficher les cases du labyrinthe 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em plateau} & plateau de jeu \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_aa42902bb8269981c53481e69a49df7c2_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_aa42902bb8269981c53481e69a49df7c2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_a5d7226bb554a00cc8ab3d59f6b77d6af}\label{affichage_8h_a5d7226bb554a00cc8ab3d59f6b77d6af}} 
+\index{affichage.h@{affichage.h}!affichePions@{affichePions}}
+\index{affichePions@{affichePions}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{affichePions()}{affichePions()}}
+{\footnotesize\ttfamily void affiche\+Pions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pion\mbox{[}4\mbox{]},  }\item[{int}]{nb\+Joueur }\end{DoxyParamCaption})}
+
+
+
+cette procedure permet d\textquotesingle{}afficher les pions sur le plateau 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pion} & tableau contenant tous les joueurs ( \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} ) \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{affichage_8h_a5d7226bb554a00cc8ab3d59f6b77d6af_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_a5d7226bb554a00cc8ab3d59f6b77d6af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_ad07738f99ae0e23ed897aae96c4c8bda}\label{affichage_8h_ad07738f99ae0e23ed897aae96c4c8bda}} 
+\index{affichage.h@{affichage.h}!cooCurseur@{cooCurseur}}
+\index{cooCurseur@{cooCurseur}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{cooCurseur()}{cooCurseur()}}
+{\footnotesize\ttfamily void coo\+Curseur (\begin{DoxyParamCaption}\item[{int}]{lig,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+cette procedure permet de placer le curseur a des coordonnées données 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lig} & ligne \\
+\hline
+{\em col} & col \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_ad07738f99ae0e23ed897aae96c4c8bda_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_ab411f5beafe5ea77ba627bd97e8ef1d1}\label{affichage_8h_ab411f5beafe5ea77ba627bd97e8ef1d1}} 
+\index{affichage.h@{affichage.h}!couleurCurseur@{couleurCurseur}}
+\index{couleurCurseur@{couleurCurseur}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{couleurCurseur()}{couleurCurseur()}}
+{\footnotesize\ttfamily void couleur\+Curseur (\begin{DoxyParamCaption}\item[{int}]{texte,  }\item[{int}]{fond }\end{DoxyParamCaption})}
+
+
+
+cette procedure pour changer la couleur du texte sur l\textquotesingle{}invite de commande 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em texte} & \\
+\hline
+{\em fond} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{affichage_8h_ab411f5beafe5ea77ba627bd97e8ef1d1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{affichage_8h_a4f4a3471f9fadea69892d9897efe4aea}\label{affichage_8h_a4f4a3471f9fadea69892d9897efe4aea}} 
+\index{affichage.h@{affichage.h}!testPions@{testPions}}
+\index{testPions@{testPions}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{testPions()}{testPions()}}
+{\footnotesize\ttfamily void test\+Pions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+cette procedure teste 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pions} & tableau contenant tous les joueurs. \\
+\hline
+\end{DoxyParams}

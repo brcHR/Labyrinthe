@@ -1,0 +1,4 @@
+<map id="AffichageTresor" name="AffichageTresor">
+<area shape="rect" id="node1" title="Cette fonction est un affichage des infos sur : &#45;trésor à chercher &#45;le nombre de trésors à chercher &#45;..." alt="" coords="5,13,128,39"/>
+<area shape="rect" id="node2" href="$cartestresors_8h.html#a8eb52d11f0fcd613d333ad644e2b5dbf" title="Cette fonction sert à convertir le caractère d&#39;une struct t_tresor_sur_carte en nb pour pouvoir le co..." alt="" coords="176,5,331,47"/>
+</map>

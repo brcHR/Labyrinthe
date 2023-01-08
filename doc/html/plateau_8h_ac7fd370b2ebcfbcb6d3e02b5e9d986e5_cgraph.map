@@ -1,0 +1,8 @@
+<map id="deplacer_tuiles" name="deplacer_tuiles">
+<area shape="rect" id="node1" title="Procédure permettant de déplacer une colonne ou une ligne." alt="" coords="5,56,127,83"/>
+<area shape="rect" id="node2" href="$plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0" title="Procédure copiant une structure case dans une autre." alt="" coords="175,5,265,32"/>
+<area shape="rect" id="node3" href="$plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467" title="Procédure créant les tuiles avec leur chemin." alt="" coords="313,56,461,83"/>
+<area shape="rect" id="node4" href="$plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec" title="Procédure modifie l&#39;orientation d&#39;une pièce. Cette fontion prend en paramètres le pointeur de la tuil..." alt="" coords="185,107,255,133"/>
+<area shape="rect" id="node5" href="$plateau_8h.html#a705535e284760a18de2f8c03a30ac07a" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les degré..." alt="" coords="350,107,425,133"/>
+<area shape="rect" id="node6" href="$plateau_8h.html#a6cf97b607e4333e62965950a94a05c84" title="Cette fonction sert au changement de l&#39;orientation des pièces du labyrinthe. Elle convertit les radia..." alt="" coords="350,157,425,184"/>
+</map>

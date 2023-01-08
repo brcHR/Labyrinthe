@@ -1,0 +1,4 @@
+<map id="generation_plateau_debut" name="generation_plateau_debut">
+<area shape="rect" id="node1" title="Procédure crée le plateau de jeu avec la tuile additionnelle." alt="" coords="112,5,260,47"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,13,64,39"/>
+</map>

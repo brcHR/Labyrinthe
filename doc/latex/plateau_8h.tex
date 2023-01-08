@@ -1,0 +1,279 @@
+\hypertarget{plateau_8h}{}\doxysection{Référence du fichier plateau.\+h}
+\label{plateau_8h}\index{plateau.h@{plateau.h}}
+
+
+Gestion du plateau du labyrinthe.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Graphe des dépendances par inclusion de plateau.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{plateau_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsave__coord__mini__case}{save\+\_\+coord\+\_\+mini\+\_\+case}}
+\begin{DoxyCompactList}\small\item\em cette structure permet de modifier le tableau d\textquotesingle{}une case en sauvegardant l\textquotesingle{}emplacement de la case à faire tourner avant qu\textquotesingle{}elle ne bouge. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__tresor}{t\+\_\+tresor}}
+\begin{DoxyCompactList}\small\item\em Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ainsi que que leur présence sur une tuile. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__coord}{t\+\_\+coord}}
+\begin{DoxyCompactList}\small\item\em Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d\textquotesingle{}appels contenant des coordonnées. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structt__case}{t\+\_\+case}}
+\begin{DoxyCompactList}\small\item\em structure contenant toutes les informations sur une case. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{plateau_8h_a705535e284760a18de2f8c03a30ac07a}{deg\+\_\+rad}} (float deg)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert au changement de l\textquotesingle{}orientation des pièces du labyrinthe. Elle convertit les degrés en radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{plateau_8h_a6cf97b607e4333e62965950a94a05c84}{rad\+\_\+deg}} (float rad)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert au changement de l\textquotesingle{}orientation des pièces du labyrinthe. Elle convertit les radians en degrés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_ad5e3ad4b743463408a3cfcb015301821}{del\+\_\+1\+\_\+occ}} (char $\ast$chaine, char lettre)
+\begin{DoxyCompactList}\small\item\em Procédure permettant de supprimer la première occurrence d\textquotesingle{}un caractère dans une chaîne de caractères. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_a2325a5a478541bb50739fb26f7f3a467}{creation\+\_\+type\+\_\+case}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile)
+\begin{DoxyCompactList}\small\item\em Procédure créant les tuiles avec leur chemin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_abac6dd00ea1e38764a16a7325b896aa0}{copy\+\_\+case}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$source, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$destination)
+\begin{DoxyCompactList}\small\item\em Procédure copiant une structure case dans une autre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_a0bb7778a9ebbe7e8edaf5966119870ec}{tourner}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile, float orientation)
+\begin{DoxyCompactList}\small\item\em Procédure modifie l\textquotesingle{}orientation d\textquotesingle{}une pièce. Cette fontion prend en paramètres le pointeur de la tuile à faire tourner et la nouvelle rotation qu\textquotesingle{}on souhaite lui appliquer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{plateau_8h_a4c459c604affdba3a10d9e442a057a5c}{generation\+\_\+plateau\+\_\+debut}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile\+\_\+add, FILE $\ast$fichierlog)
+\begin{DoxyCompactList}\small\item\em Procédure crée le plateau de jeu avec la tuile additionnelle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion du plateau du labyrinthe. 
+
+\begin{DoxyDate}{Date}
+19 décembre 2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+Briac 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{plateau_8h_abac6dd00ea1e38764a16a7325b896aa0}\label{plateau_8h_abac6dd00ea1e38764a16a7325b896aa0}} 
+\index{plateau.h@{plateau.h}!copy\_case@{copy\_case}}
+\index{copy\_case@{copy\_case}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{copy\_case()}{copy\_case()}}
+{\footnotesize\ttfamily void copy\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{destination }\end{DoxyParamCaption})}
+
+
+
+Procédure copiant une structure case dans une autre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em source} & pointeur sur une case source. \\
+\hline
+{\em destination} & pointeur sur une case destination. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+toutes les données de sources sont dans destination -\/-\/$>$ destination == source. 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_abac6dd00ea1e38764a16a7325b896aa0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_a2325a5a478541bb50739fb26f7f3a467}\label{plateau_8h_a2325a5a478541bb50739fb26f7f3a467}} 
+\index{plateau.h@{plateau.h}!creation\_type\_case@{creation\_type\_case}}
+\index{creation\_type\_case@{creation\_type\_case}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{creation\_type\_case()}{creation\_type\_case()}}
+{\footnotesize\ttfamily void creation\+\_\+type\+\_\+case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile }\end{DoxyParamCaption})}
+
+
+
+Procédure créant les tuiles avec leur chemin. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tuile} & pointeur sur une tuile du labyrinthe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la case a maintenant un type (T, L ou I) et un tableau 3x3 représentant son chemin avec l\textquotesingle{}orientation. 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_a2325a5a478541bb50739fb26f7f3a467_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_a705535e284760a18de2f8c03a30ac07a}\label{plateau_8h_a705535e284760a18de2f8c03a30ac07a}} 
+\index{plateau.h@{plateau.h}!deg\_rad@{deg\_rad}}
+\index{deg\_rad@{deg\_rad}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{deg\_rad()}{deg\_rad()}}
+{\footnotesize\ttfamily float deg\+\_\+rad (\begin{DoxyParamCaption}\item[{float}]{deg }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert au changement de l\textquotesingle{}orientation des pièces du labyrinthe. Elle convertit les degrés en radians. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em deg} & nombre flottant correspondant à l\textquotesingle{}angle en degrés \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+angle convertit en radians. 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_a705535e284760a18de2f8c03a30ac07a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_ad5e3ad4b743463408a3cfcb015301821}\label{plateau_8h_ad5e3ad4b743463408a3cfcb015301821}} 
+\index{plateau.h@{plateau.h}!del\_1\_occ@{del\_1\_occ}}
+\index{del\_1\_occ@{del\_1\_occ}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{del\_1\_occ()}{del\_1\_occ()}}
+{\footnotesize\ttfamily void del\+\_\+1\+\_\+occ (\begin{DoxyParamCaption}\item[{char $\ast$}]{chaine,  }\item[{char}]{lettre }\end{DoxyParamCaption})}
+
+
+
+Procédure permettant de supprimer la première occurrence d\textquotesingle{}un caractère dans une chaîne de caractères. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em chaine} & pointeur sur une chaîne de caractères. \\
+\hline
+{\em lettre} & le caractère à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+chaîne avec une occurence en moins de lettre. 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_ad5e3ad4b743463408a3cfcb015301821_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_a4c459c604affdba3a10d9e442a057a5c}\label{plateau_8h_a4c459c604affdba3a10d9e442a057a5c}} 
+\index{plateau.h@{plateau.h}!generation\_plateau\_debut@{generation\_plateau\_debut}}
+\index{generation\_plateau\_debut@{generation\_plateau\_debut}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{generation\_plateau\_debut()}{generation\_plateau\_debut()}}
+{\footnotesize\ttfamily void generation\+\_\+plateau\+\_\+debut (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile\+\_\+add,  }\item[{FILE $\ast$}]{fichierlog }\end{DoxyParamCaption})}
+
+
+
+Procédure crée le plateau de jeu avec la tuile additionnelle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em labyrinthe} & tableau 7x7 composé de structures \mbox{\hyperlink{structt__case}{t\+\_\+case}}. \\
+\hline
+{\em tuile\+\_\+add} & pointeur sur la tuile en trop du labyrinthe. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+toutes les cases du labyrinthe ont leurs métadonnées remplies correctement. 
+\end{DoxyReturn}
+Plaçons les tuiles de départ et d\textquotesingle{}arrivée, a chaque angle du plateau
+
+Ici, on s\textquotesingle{}occupe de toutes les autres tuiles FIXES -\/ toutes les deux lignes et deux colonnes
+
+Maintenant, nous allons créer toutes les autres tuiles qui sont mobiles.
+
+Maintenant que tout le plateau a des tuiles, nous pouvons maintenant créer la tuile en plus.Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_a4c459c604affdba3a10d9e442a057a5c_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{plateau_8h_a4c459c604affdba3a10d9e442a057a5c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_a6cf97b607e4333e62965950a94a05c84}\label{plateau_8h_a6cf97b607e4333e62965950a94a05c84}} 
+\index{plateau.h@{plateau.h}!rad\_deg@{rad\_deg}}
+\index{rad\_deg@{rad\_deg}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{rad\_deg()}{rad\_deg()}}
+{\footnotesize\ttfamily float rad\+\_\+deg (\begin{DoxyParamCaption}\item[{float}]{rad }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert au changement de l\textquotesingle{}orientation des pièces du labyrinthe. Elle convertit les radians en degrés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rad} & nombre flottant, correspondant à l\textquotesingle{}angle en radians à convertir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un float correspondant à l\textquotesingle{}angle en degrés. 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_a6cf97b607e4333e62965950a94a05c84_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{plateau_8h_a0bb7778a9ebbe7e8edaf5966119870ec}\label{plateau_8h_a0bb7778a9ebbe7e8edaf5966119870ec}} 
+\index{plateau.h@{plateau.h}!tourner@{tourner}}
+\index{tourner@{tourner}!plateau.h@{plateau.h}}
+\doxysubsubsection{\texorpdfstring{tourner()}{tourner()}}
+{\footnotesize\ttfamily void tourner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile,  }\item[{float}]{orientation }\end{DoxyParamCaption})}
+
+
+
+Procédure modifie l\textquotesingle{}orientation d\textquotesingle{}une pièce. Cette fontion prend en paramètres le pointeur de la tuile à faire tourner et la nouvelle rotation qu\textquotesingle{}on souhaite lui appliquer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tuile} & pointeur sur la tuile du labyrinthe à faire tourner. \\
+\hline
+{\em orientation} & flottant correspondant nouvelle rotation qu\textquotesingle{}on veut lui appliquer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la case a maintenant une nouvelle orientation 
+
+un nouveau tableau 3x3. 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{plateau_8h_a0bb7778a9ebbe7e8edaf5966119870ec_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{plateau_8h_a0bb7778a9ebbe7e8edaf5966119870ec_icgraph}
+\end{center}
+\end{figure}

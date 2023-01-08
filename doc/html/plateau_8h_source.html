@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe:  Fichier source de plateau.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">plateau.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="plateau_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef LABYRINTHE_PLATEAU_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define LABYRINTHE_PLATEAU_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structsave__coord__mini__case.html">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>sauvegarde_coordonees_mini_case_a_deplacer{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> ligne1;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> colonne1;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> ligne2; <span class="comment">//dans le L et I deux cases doivent bouger</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> colonne2;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<a class="code" href="structsave__coord__mini__case.html">save_coord_mini_case</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structt__tresor.html">   33</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>tresor{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> num_tresor; <span class="comment">// numéro trésor allant de 0 à 23</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> un_tresor; <span class="comment">// Valeur booléenne indiquant s&#39;il y a un tresor sur la tuile</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<a class="code" href="structt__tresor.html">t_tresor</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structt__coord.html">   44</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>coordonnees_pour_faciliter_les_appels{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> ligne;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> colonne;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}<a class="code" href="structt__coord.html">t_coord</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structt__case.html">   54</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>Case{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> ligne;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> colonne;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">char</span> forme;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> fixe;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">float</span> rotation;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">char</span> tableau[3][3];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="structsave__coord__mini__case.html">save_coord_mini_case</a> mini_case;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="structt__tresor.html">t_tresor</a> tresor;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="structt__coord.html">t_coord</a> sortie_du_plateau;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> start_finish;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}<a class="code" href="structt__case.html">t_case</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">float</span> <a class="code" href="plateau_8h.html#a705535e284760a18de2f8c03a30ac07a">deg_rad</a>(<span class="keywordtype">float</span> deg);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">float</span> <a class="code" href="plateau_8h.html#a6cf97b607e4333e62965950a94a05c84">rad_deg</a>(<span class="keywordtype">float</span> rad);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> <a class="code" href="plateau_8h.html#ad5e3ad4b743463408a3cfcb015301821">del_1_occ</a>(<span class="keywordtype">char</span> *chaine, <span class="keywordtype">char</span> lettre);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">void</span> <a class="code" href="plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467">creation_type_case</a>(<a class="code" href="structt__case.html">t_case</a>* tuile);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> <a class="code" href="plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0">copy_case</a>(<a class="code" href="structt__case.html">t_case</a> *source, <a class="code" href="structt__case.html">t_case</a> *destination);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec">tourner</a>(<a class="code" href="structt__case.html">t_case</a>* tuile, <span class="keywordtype">float</span> orientation);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="plateau_8h.html#a4c459c604affdba3a10d9e442a057a5c">generation_plateau_debut</a>(<a class="code" href="structt__case.html">t_case</a> labyrinthe[7][7], <a class="code" href="structt__case.html">t_case</a>* tuile_add, FILE * fichierlog);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LABYRINTHE_PLATEAU_H</span></div>
+<div class="ttc" id="aplateau_8h_html_a0bb7778a9ebbe7e8edaf5966119870ec"><div class="ttname"><a href="plateau_8h.html#a0bb7778a9ebbe7e8edaf5966119870ec">tourner</a></div><div class="ttdeci">void tourner(t_case *tuile, float orientation)</div><div class="ttdoc">Procédure modifie l'orientation d'une pièce. Cette fontion prend en paramètres le pointeur de la tuil...</div><div class="ttdef"><b>Definition:</b> plateau.c:156</div></div>
+<div class="ttc" id="aplateau_8h_html_a2325a5a478541bb50739fb26f7f3a467"><div class="ttname"><a href="plateau_8h.html#a2325a5a478541bb50739fb26f7f3a467">creation_type_case</a></div><div class="ttdeci">void creation_type_case(t_case *tuile)</div><div class="ttdoc">Procédure créant les tuiles avec leur chemin.</div><div class="ttdef"><b>Definition:</b> plateau.c:87</div></div>
+<div class="ttc" id="aplateau_8h_html_a4c459c604affdba3a10d9e442a057a5c"><div class="ttname"><a href="plateau_8h.html#a4c459c604affdba3a10d9e442a057a5c">generation_plateau_debut</a></div><div class="ttdeci">void generation_plateau_debut(t_case labyrinthe[7][7], t_case *tuile_add, FILE *fichierlog)</div><div class="ttdoc">Procédure crée le plateau de jeu avec la tuile additionnelle.</div><div class="ttdef"><b>Definition:</b> plateau.c:322</div></div>
+<div class="ttc" id="aplateau_8h_html_a6cf97b607e4333e62965950a94a05c84"><div class="ttname"><a href="plateau_8h.html#a6cf97b607e4333e62965950a94a05c84">rad_deg</a></div><div class="ttdeci">float rad_deg(float rad)</div><div class="ttdoc">Cette fonction sert au changement de l'orientation des pièces du labyrinthe. Elle convertit les radia...</div><div class="ttdef"><b>Definition:</b> plateau.c:41</div></div>
+<div class="ttc" id="aplateau_8h_html_a705535e284760a18de2f8c03a30ac07a"><div class="ttname"><a href="plateau_8h.html#a705535e284760a18de2f8c03a30ac07a">deg_rad</a></div><div class="ttdeci">float deg_rad(float deg)</div><div class="ttdoc">Cette fonction sert au changement de l'orientation des pièces du labyrinthe. Elle convertit les degré...</div><div class="ttdef"><b>Definition:</b> plateau.c:16</div></div>
+<div class="ttc" id="aplateau_8h_html_abac6dd00ea1e38764a16a7325b896aa0"><div class="ttname"><a href="plateau_8h.html#abac6dd00ea1e38764a16a7325b896aa0">copy_case</a></div><div class="ttdeci">void copy_case(t_case *source, t_case *destination)</div><div class="ttdoc">Procédure copiant une structure case dans une autre.</div><div class="ttdef"><b>Definition:</b> plateau.c:131</div></div>
+<div class="ttc" id="aplateau_8h_html_ad5e3ad4b743463408a3cfcb015301821"><div class="ttname"><a href="plateau_8h.html#ad5e3ad4b743463408a3cfcb015301821">del_1_occ</a></div><div class="ttdeci">void del_1_occ(char *chaine, char lettre)</div><div class="ttdoc">Procédure permettant de supprimer la première occurrence d'un caractère dans une chaîne de caractères...</div><div class="ttdef"><b>Definition:</b> plateau.c:68</div></div>
+<div class="ttc" id="astructsave__coord__mini__case_html"><div class="ttname"><a href="structsave__coord__mini__case.html">save_coord_mini_case</a></div><div class="ttdoc">cette structure permet de modifier le tableau d'une case en sauvegardant l'emplacement de la case à f...</div><div class="ttdef"><b>Definition:</b> plateau.h:19</div></div>
+<div class="ttc" id="astructt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdoc">structure contenant toutes les informations sur une case.</div><div class="ttdef"><b>Definition:</b> plateau.h:54</div></div>
+<div class="ttc" id="astructt__coord_html"><div class="ttname"><a href="structt__coord.html">t_coord</a></div><div class="ttdoc">Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d...</div><div class="ttdef"><b>Definition:</b> plateau.h:44</div></div>
+<div class="ttc" id="astructt__tresor_html"><div class="ttname"><a href="structt__tresor.html">t_tresor</a></div><div class="ttdoc">Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ain...</div><div class="ttdef"><b>Definition:</b> plateau.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,236 @@
+\hypertarget{Deroulement_8h}{}\doxysection{Référence du fichier Deroulement.\+h}
+\label{Deroulement_8h}\index{Deroulement.h@{Deroulement.h}}
+
+
+Tout ce qui est relatif au deroulement d\textquotesingle{}une partie.  
+
+
+{\ttfamily \#include \char`\"{}pion.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de Deroulement.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{Deroulement_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8}{deplacer\+\_\+tuiles}} (\mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile\+\_\+en\+\_\+plus, \mbox{\hyperlink{structt__coord}{t\+\_\+coord}} $\ast$coord, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]}, int nbjoueurs, FILE $\ast$fichierlog)
+\begin{DoxyCompactList}\small\item\em Procédure permettant de déplacer une colonne ou une ligne. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Deroulement_8h_a62652998a438702265913e72b1b67bb1}{conversion\+\_\+num\+\_\+rangee\+\_\+coordonnees}} (const int $\ast$num\+\_\+rangee, \mbox{\hyperlink{structt__coord}{t\+\_\+coord}} $\ast$coord\+\_\+pousser)
+\begin{DoxyCompactList}\small\item\em Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvoir effectuer le déplacement d\textquotesingle{}une rangée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40}{deroulement\+Tour}} (const int $\ast$nbjoueurs, \mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$tuile\+\_\+en\+\_\+plus, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]}, FILE $\ast$fichierlog)
+\begin{DoxyCompactList}\small\item\em Cette fonction execute le déroulement d\textquotesingle{}un seul tour. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Deroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63}{test\+\_\+tresor}} (\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$Pion)
+\begin{DoxyCompactList}\small\item\em Cette fonction vérifie si tous les trésors ont été trouvés. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Deroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d}{Menu}} (FILE $\ast$fichierlog)
+\begin{DoxyCompactList}\small\item\em Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle partie, d\textquotesingle{}affichr les règles du jeu, les crédits et de sortir du programme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Deroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d}{attribution\+\_\+caracteristiques\+\_\+joueurs}} (const int $\ast$nbjoueurs, \mbox{\hyperlink{structt__pion}{t\+\_\+pion}} pions\mbox{[}4\mbox{]}, \mbox{\hyperlink{structt__case}{t\+\_\+case}} labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cette fonction initialise le nom et la position initiale des joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Tout ce qui est relatif au deroulement d\textquotesingle{}une partie. 
+
+\begin{DoxyDate}{Date}
+30 decembre 2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Auteur}
+Maxime 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{Deroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d}\label{Deroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d}} 
+\index{Deroulement.h@{Deroulement.h}!attribution\_caracteristiques\_joueurs@{attribution\_caracteristiques\_joueurs}}
+\index{attribution\_caracteristiques\_joueurs@{attribution\_caracteristiques\_joueurs}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{attribution\_caracteristiques\_joueurs()}{attribution\_caracteristiques\_joueurs()}}
+{\footnotesize\ttfamily void attribution\+\_\+caracteristiques\+\_\+joueurs (\begin{DoxyParamCaption}\item[{const int $\ast$}]{nbjoueurs,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Cette fonction initialise le nom et la position initiale des joueurs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nbjoueurs} & nombre de joueurs \\
+\hline
+{\em pions} & tableau des pions \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{Deroulement_8h_ad7c811e66a1b2a541e95bc82adfe075d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Deroulement_8h_a62652998a438702265913e72b1b67bb1}\label{Deroulement_8h_a62652998a438702265913e72b1b67bb1}} 
+\index{Deroulement.h@{Deroulement.h}!conversion\_num\_rangee\_coordonnees@{conversion\_num\_rangee\_coordonnees}}
+\index{conversion\_num\_rangee\_coordonnees@{conversion\_num\_rangee\_coordonnees}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{conversion\_num\_rangee\_coordonnees()}{conversion\_num\_rangee\_coordonnees()}}
+{\footnotesize\ttfamily void conversion\+\_\+num\+\_\+rangee\+\_\+coordonnees (\begin{DoxyParamCaption}\item[{const int $\ast$}]{num\+\_\+rangee,  }\item[{\mbox{\hyperlink{structt__coord}{t\+\_\+coord}} $\ast$}]{coord\+\_\+pousser }\end{DoxyParamCaption})}
+
+
+
+Cette fonction sert à convertir le numéro de rangée saisi par le joueur en des coordonnées pour pouvoir effectuer le déplacement d\textquotesingle{}une rangée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em num\+\_\+rangee} & numéro de rangée saisi (voir page 13 du sujet) \\
+\hline
+{\em coord\+\_\+pousser} & coordonnées de la première case de la table de jeu qui va être poussée \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_a62652998a438702265913e72b1b67bb1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8}\label{Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8}} 
+\index{Deroulement.h@{Deroulement.h}!deplacer\_tuiles@{deplacer\_tuiles}}
+\index{deplacer\_tuiles@{deplacer\_tuiles}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{deplacer\_tuiles()}{deplacer\_tuiles()}}
+{\footnotesize\ttfamily void deplacer\+\_\+tuiles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile\+\_\+en\+\_\+plus,  }\item[{\mbox{\hyperlink{structt__coord}{t\+\_\+coord}} $\ast$}]{coord,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]},  }\item[{int}]{nbjoueurs,  }\item[{FILE $\ast$}]{fichierlog }\end{DoxyParamCaption})}
+
+
+
+Procédure permettant de déplacer une colonne ou une ligne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em labyrinthe} & tableau 7x7 composé de structures \mbox{\hyperlink{structt__case}{t\+\_\+case}}. \\
+\hline
+{\em tuile\+\_\+en\+\_\+plus} & pointeur sur la tuile en trop du labyrinthe. \\
+\hline
+{\em coord} & pointeur sur les coordonnées de la tuile en bout de ligne ou de colonne qui va se faire \char`\"{}pousser\char`\"{}. \\
+\hline
+{\em pions} & tableau des joueurs. \\
+\hline
+{\em nbjoueurs} & nombre je joueurs dans la partie. \\
+\hline
+{\em fichierlog} & fichier ouvert dans main() pour l\textquotesingle{}enregistrment des logs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la colonne ou la ligne a bien coulissé. Nous avons donc la tuile en plus qui a changé. 
+\end{DoxyReturn}
+ATTENTION, pt\+\_\+sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+
+ATTENTION, pt\+\_\+sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+
+ATTENTION, pt\+\_\+sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.
+
+ATTENTION, pt\+\_\+sortir devient dorénavant la tuile en plus. Donc on modifie le pointage.Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_ae5b3a57bf54f13ccda9ad8b0c00402d8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40}\label{Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40}} 
+\index{Deroulement.h@{Deroulement.h}!deroulementTour@{deroulementTour}}
+\index{deroulementTour@{deroulementTour}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{deroulementTour()}{deroulementTour()}}
+{\footnotesize\ttfamily int deroulement\+Tour (\begin{DoxyParamCaption}\item[{const int $\ast$}]{nbjoueurs,  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}}}]{labyrinthe\mbox{[}7\mbox{]}\mbox{[}7\mbox{]},  }\item[{\mbox{\hyperlink{structt__case}{t\+\_\+case}} $\ast$}]{tuile\+\_\+en\+\_\+plus,  }\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}}}]{pions\mbox{[}4\mbox{]},  }\item[{FILE $\ast$}]{fichierlog }\end{DoxyParamCaption})}
+
+
+
+Cette fonction execute le déroulement d\textquotesingle{}un seul tour. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nbjoueurs} & le nombre de joueurs \\
+\hline
+{\em pions} & chacun des 4 pions \\
+\hline
+{\em labyrinthe} & plateau du labyrinthe \\
+\hline
+{\em tuile\+\_\+en\+\_\+plus} & tuile supplémentaire en dehors du plateau \\
+\hline
+{\em fichierlog} & fichier ouvert dans main() pour enregister les logs\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si un joueur a gagné, 2 si un joueur veut retourner au menu ou 0 sinon. 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{Deroulement_8h_acd7089351dbe08d5f8f485e3adc8fe40_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Deroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d}\label{Deroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d}} 
+\index{Deroulement.h@{Deroulement.h}!Menu@{Menu}}
+\index{Menu@{Menu}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily void Menu (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fichierlog }\end{DoxyParamCaption})}
+
+
+
+Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle partie, d\textquotesingle{}affichr les règles du jeu, les crédits et de sortir du programme. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fichierlog} & fichier ouvert dans main() pour enregistrer les logs \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_a50fa3ff03feafb2ce91efe6f6cb9c28d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{Deroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63}\label{Deroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63}} 
+\index{Deroulement.h@{Deroulement.h}!test\_tresor@{test\_tresor}}
+\index{test\_tresor@{test\_tresor}!Deroulement.h@{Deroulement.h}}
+\doxysubsubsection{\texorpdfstring{test\_tresor()}{test\_tresor()}}
+{\footnotesize\ttfamily int test\+\_\+tresor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__pion}{t\+\_\+pion}} $\ast$}]{Pion }\end{DoxyParamCaption})}
+
+
+
+Cette fonction vérifie si tous les trésors ont été trouvés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pions} & chacun des 4 pions\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le joueur a trouvé un trésor 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Deroulement_8h_a69d76b4c21ed0d364bff1cb205e3ee63_icgraph}
+\end{center}
+\end{figure}

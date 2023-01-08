@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Labyrinthe:  Fichier source de pion.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Labyrinthe
+   </div>
+   <div id="projectbrief">Jeu de société Labyrinthe</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">pion.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pion_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by baptiste on 23/12/2022.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span><span class="preprocessor">#ifndef LABYRINTHE_PIONS_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define LABYRINTHE_PIONS_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="plateau_8h.html">plateau.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structt__tresor__sur__carte.html">   22</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//structure temporaire pour test</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">char</span> signe;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> decouvert; <span class="comment">// 1 s&#39;il a été découvert,0 sinon</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="structt__tresor.html">t_tresor</a> tresor;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}<a class="code" href="structt__tresor__sur__carte.html">t_tresor_sur_carte</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structt__pion.html">   34</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>pion{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structt__case.html">t_case</a> *position_pion; <span class="comment">// Pointeur vers la case où le pion se trouve</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> num_pion; <span class="comment">// Numéro du pion</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">char</span> nom[15]; <span class="comment">// Nom du pion</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="structt__coord.html">t_coord</a> coord_depart_arrivee;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="structt__tresor__sur__carte.html">t_tresor_sur_carte</a> tresors[12];<span class="comment">// tableau stockant tous les tresors du joueur, les cases en trop sont des &#39;0&#39; et on en met 12 car on a au max 12 tresors par joueur</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> num_tresor_recherche; <span class="comment">// numero du trésor recherché dans le référentiel global, unique pour tout le plateau</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> indice_tresor_recherche; <span class="comment">// indice du trésor dans le référentiel du joueur</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> nb_tresor_pion; <span class="comment">// Nombre de trésors du pion</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> lig;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> col;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}<a class="code" href="structt__pion.html">t_pion</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">int</span> <a class="code" href="pion_8h.html#af74fc1e966b6041527ab3663e8fe1247">deplacement_valide</a>(<a class="code" href="structt__case.html">t_case</a> labyrinthe [7][7], <a class="code" href="structt__pion.html">t_pion</a> *pion, <span class="keywordtype">int</span> colonne_arrivee, <span class="keywordtype">int</span> ligne_arrivee);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pion_8h.html#a95407a4d7ced50ff0c8db0499ed053da">deplacer_pion</a>(<a class="code" href="structt__case.html">t_case</a> labyrinthe [7][7], <a class="code" href="structt__pion.html">t_pion</a> *pion, <span class="keywordtype">int</span> colonne_arrivee, <span class="keywordtype">int</span> ligne_arrivee, FILE *fichierlog);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">int</span> <a class="code" href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8">recuperer_tresor</a>(<a class="code" href="structt__pion.html">t_pion</a> *pion, <a class="code" href="structt__case.html">t_case</a> *tuile);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keywordtype">void</span> <a class="code" href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b">renvoyer_pion_debut_ligne</a>(<a class="code" href="structt__case.html">t_case</a> labyrinthe[7][7],<a class="code" href="structt__pion.html">t_pion</a> *pion);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//LABYRINTHE_PIONS_H</span></div>
+<div class="ttc" id="apion_8h_html_a0433fd6f903483b041781bb8ed14b9c8"><div class="ttname"><a href="pion_8h.html#a0433fd6f903483b041781bb8ed14b9c8">recuperer_tresor</a></div><div class="ttdeci">int recuperer_tresor(t_pion *pion, t_case *tuile)</div><div class="ttdoc">Cette fonction permet de récupérer le trésor présent sur la tuile s'il y en a un, donc son numéro....</div><div class="ttdef"><b>Definition:</b> pion.c:155</div></div>
+<div class="ttc" id="apion_8h_html_a265c9ce11649c36d5ea855662c8a125b"><div class="ttname"><a href="pion_8h.html#a265c9ce11649c36d5ea855662c8a125b">renvoyer_pion_debut_ligne</a></div><div class="ttdeci">void renvoyer_pion_debut_ligne(t_case labyrinthe[7][7], t_pion *pion)</div><div class="ttdoc">Cette procédure permet de renvoyer le pion au début de la ligne s'il est sur une tuile qui sort du je...</div><div class="ttdef"><b>Definition:</b> pion.c:175</div></div>
+<div class="ttc" id="apion_8h_html_a95407a4d7ced50ff0c8db0499ed053da"><div class="ttname"><a href="pion_8h.html#a95407a4d7ced50ff0c8db0499ed053da">deplacer_pion</a></div><div class="ttdeci">void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee, FILE *fichierlog)</div><div class="ttdoc">Cette procédure permet de déplacer le pion.</div><div class="ttdef"><b>Definition:</b> pion.c:140</div></div>
+<div class="ttc" id="apion_8h_html_af74fc1e966b6041527ab3663e8fe1247"><div class="ttname"><a href="pion_8h.html#af74fc1e966b6041527ab3663e8fe1247">deplacement_valide</a></div><div class="ttdeci">int deplacement_valide(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, int ligne_arrivee)</div><div class="ttdoc">Cette fonction sert permet de savoir si le déplacement du pion est possible ou non.</div><div class="ttdef"><b>Definition:</b> pion.c:13</div></div>
+<div class="ttc" id="aplateau_8h_html"><div class="ttname"><a href="plateau_8h.html">plateau.h</a></div><div class="ttdoc">Gestion du plateau du labyrinthe.</div></div>
+<div class="ttc" id="astructt__case_html"><div class="ttname"><a href="structt__case.html">t_case</a></div><div class="ttdoc">structure contenant toutes les informations sur une case.</div><div class="ttdef"><b>Definition:</b> plateau.h:54</div></div>
+<div class="ttc" id="astructt__coord_html"><div class="ttname"><a href="structt__coord.html">t_coord</a></div><div class="ttdoc">Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d...</div><div class="ttdef"><b>Definition:</b> plateau.h:44</div></div>
+<div class="ttc" id="astructt__pion_html"><div class="ttname"><a href="structt__pion.html">t_pion</a></div><div class="ttdoc">Structure contenant les informations sur un pion.</div><div class="ttdef"><b>Definition:</b> pion.h:34</div></div>
+<div class="ttc" id="astructt__tresor__sur__carte_html"><div class="ttname"><a href="structt__tresor__sur__carte.html">t_tresor_sur_carte</a></div><div class="ttdoc">Structure contenant les informations d'un trésor. S'il est trouvé, son caractère affiché.</div><div class="ttdef"><b>Definition:</b> pion.h:22</div></div>
+<div class="ttc" id="astructt__tresor_html"><div class="ttname"><a href="structt__tresor.html">t_tresor</a></div><div class="ttdoc">Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ain...</div><div class="ttdef"><b>Definition:</b> plateau.h:33</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

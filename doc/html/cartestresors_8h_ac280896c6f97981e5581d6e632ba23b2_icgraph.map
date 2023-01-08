@@ -1,0 +1,4 @@
+<map id="DistributionCartes" name="DistributionCartes">
+<area shape="rect" id="node1" title="Cette fonction sert à distribuer les cartes en fonction du nombre de joueurs et de façon à ce qu&#39;il n..." alt="" coords="112,5,252,32"/>
+<area shape="rect" id="node2" href="$Deroulement_8h.html#a50fa3ff03feafb2ce91efe6f6cb9c28d" title="Cette fonction execute le menu et initialise le plateau de jeu. Le menu permet de lancer une nouvelle..." alt="" coords="5,5,64,32"/>
+</map>

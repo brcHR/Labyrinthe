@@ -1,0 +1,6 @@
+<map id="t_case" name="t_case">
+<area shape="rect" id="node1" title="structure contenant toutes les informations sur une case." alt="" coords="161,95,225,121"/>
+<area shape="rect" id="node2" href="$structt__coord.html" title="Structure contenant simplement des coordonnées dans un tableau. Cela permet plus de lisibilité lors d..." alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node3" href="$structt__tresor.html" title="Structure contenant les informations sur les trésors présent sur le plateau (leur numéro attribué ain..." alt="" coords="157,5,229,32"/>
+<area shape="rect" id="node4" href="$structsave__coord__mini__case.html" title="cette structure permet de modifier le tableau d&#39;une case en sauvegardant l&#39;emplacement de la case à f..." alt="" coords="253,5,423,32"/>
+</map>
