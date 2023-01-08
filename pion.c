@@ -151,7 +151,7 @@ void deplacer_pion(t_case labyrinthe[7][7], t_pion *pion, int colonne_arrivee, i
 /* Fonction permettant de récupérer le trésor présent sur la tuile s'il y en a un
  * et donc son numéro, et qui renvoie le nombre de trésors possédé par le pion.*/
 
-int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc à changer
+int recuperer_tresor(t_pion *pion, t_case *tuile){
 // Si la tuile contient un trésor
     if(tuile->tresor.un_tresor == 1) {
 
