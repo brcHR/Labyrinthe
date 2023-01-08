@@ -505,7 +505,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
             AffichageTresor(&pions[joueur_en_cours]);
 
             if(deplacement_fait==1){
-                printf("Vous ne pouvez pas réinsérer la tuile à l'endroit où elle est sortie\n");
+                printf("Vous ne pouvez pas reinserer la tuile a l'endroit ou elle est sortie\n");
             }
             do {
                 printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ",
@@ -782,7 +782,7 @@ void Menu(FILE *fichierlog) {
                     printf("Credits :\n"
                            "Projet ECE Labyrinthe Ing 1 2022-2023\n"
                            "Realise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
-                           "Merci a Irib pour son temps et sa pédagogie\n"
+                           "Merci a Irib pour son temps et sa pedagogie\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
                     fflush(stdin);
