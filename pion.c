@@ -161,7 +161,6 @@ int recuperer_tresor(t_pion *pion, t_case *tuile){ // Je vais rompich mais truc 
             pion->nb_tresor_pion += 1;
             tuile->tresor.un_tresor = 0;
             tuile->tresor.num_tresor = 25;
-            printf("On a trouvé %d\n", pion->num_tresor_recherche);
             pion->tresors[pion->indice_tresor_recherche].decouvert=1;// on enregistre qu'il est découvert
             pion->indice_tresor_recherche++;
         }
