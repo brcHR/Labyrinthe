@@ -235,6 +235,18 @@ void afficheLabyrinthe(t_case plateau[7][7]){
             if ((i == 0 || i == 2 || i == 4 || i == 6) && (j == 0 || j == 2 || j == 4 || j == 6)){
                 couleurCurseur(8, 0);
             }
+            if (i == 0 && j == 0){
+                couleurCurseur(12, 0);
+            }
+            if (i == 0 && j == 6){
+                couleurCurseur(14, 0);
+            }
+            if (i == 6 && j == 6){
+                couleurCurseur(2, 0);
+            }
+            if (i == 6 && j == 0){
+                couleurCurseur(9, 0);
+            }
             if (plateau[i][j].forme == 'I'){
                 afficheCaseI(i, j, plateau[i][j].rotation, plateau[i][j].tresor.num_tresor , plateau[i][j].tresor.un_tresor);
             }
