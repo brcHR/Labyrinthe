@@ -362,6 +362,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
         do {
             printf("%s saisissez 0, 90, 180, ou 270 pour faire pivoter la tuile a inserer vers la droite: ",
                    pions[joueur_en_cours].nom);
+            fflush(stdin);
             scanf("%d", &rotation);
             printf("\n");
             if (rotation == 20) return 5;//retour au menu à n'importe quel moment.
@@ -378,6 +379,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
         do {
             printf("%s, saisissez le numero de la fleche sur laquelle vous voulez inserer la tuile en plus : ",
                    pions[joueur_en_cours].nom);
+            fflush(stdin);
             scanf("%d", &num_rangee);
             printf("\n");
 
@@ -411,6 +413,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
                     fflush(fichierlog);
                     printf("%s, saisissez la ligne sur laquelle vous voulez vous deplacer (de 0 a 6) : ",
                            pions[joueur_en_cours].nom);
+                    fflush(stdin);
                     scanf("%d", &ligne_arrivee);
                     printf("\n");
 
@@ -424,6 +427,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
                 do {
                     printf("%s, saisissez la colonne sur laquelle vous voulez vous deplacer (de 0 a 6) : ",
                            pions[joueur_en_cours].nom);
+                    fflush(stdin);
                     scanf("%d", &colonne_arrivee);
                     printf("\n");
 
@@ -454,6 +458,7 @@ int deroulementTour(const int *nbjoueurs, t_case labyrinthe[7][7], t_case *tuile
             do {
                 fflush(stdin);
                 printf("Avez fini votre tour ? 'o' pour oui et 'n' pour non: ");
+                fflush(stdin);
                 scanf("%c", &fin_tour);
 
                 if (fin_tour == 20) {
@@ -546,6 +551,7 @@ void Menu(FILE *fichierlog) {
                    "3) Afficher les credits\n"
                    "4) Quitter\n"
                    "Saisissez un chiffre pour naviguer dans le menu : ");
+            fflush(stdin);
             scanf("%d", &choix);
             printf("\n");
         } while (choix < 1 || choix > 4);
@@ -608,6 +614,7 @@ void Menu(FILE *fichierlog) {
                            "Source : Ravensburger.fr\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
+                    fflush(stdin);
                     scanf("%d", &choix2);
                     printf("\n");
                 } while (choix2 != 1);
@@ -620,6 +627,7 @@ void Menu(FILE *fichierlog) {
                            "Realise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
+                    fflush(stdin);
                     scanf("%d", &choix2);
                     printf("\n");
                 } while (choix2 != 1);
