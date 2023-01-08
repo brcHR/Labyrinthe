@@ -702,6 +702,7 @@ void Menu(FILE *fichierlog) {
     system("cls");      //efface la console
     do {
         do {
+            afficheLogo(3, 24);
             printf("Menu : \n"
                    "1) Nouvelle partie\n"
                    "2) Afficher les regles\n"

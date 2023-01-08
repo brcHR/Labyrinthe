@@ -359,3 +359,140 @@ void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], 
     affichePions(pions, nbJoueur);
     cooCurseur(30, 0);
 }
+
+//affichage du logo
+void afficheLogo(int lig, int col) {
+    system("cls");
+    // L
+    couleurCurseur(12, 0);
+
+    cooCurseur(lig, col + 1);
+    printf("%c%c%c%c", 201, 205, 205, 187);
+    cooCurseur(lig + 1, col + 1);
+    printf("%c  %c", 186, 186);
+    cooCurseur(lig + 2, col + 1);
+    printf("%c  %c", 186, 186);
+    cooCurseur(lig + 3, col + 1);
+    printf("%c  %c%c%c%c", 186, 200, 205, 205, 187);
+    cooCurseur(lig + 4, col + 1);
+    printf("%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 188);
+    // A
+    couleurCurseur(14, 0);
+
+    cooCurseur(lig, col + 8);
+    printf("%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 187);
+    cooCurseur(lig + 1, col + 8);
+    printf("%c %c%c%c%c %c", 186, 201, 205, 205, 187, 186);
+    cooCurseur(lig + 2, col + 8);
+    printf("%c %c%c%c%c %c", 186, 200, 205, 205, 188, 186);
+    cooCurseur(lig + 3, col + 8);
+    printf("%c %c%c%c%c %c", 186, 201, 205, 205, 187, 186);
+    cooCurseur(lig + 4, col + 8);
+    printf("%c%c%c  %c%c%c", 200, 205, 188, 200, 205, 188);
+    // B
+    couleurCurseur(2, 0);
+
+    cooCurseur(lig, col + 16);
+    printf("%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 187);
+    cooCurseur(lig + 1, col + 16);
+    printf("%c     %c", 186, 186);
+    cooCurseur(lig + 2, col + 16);
+    printf("%c   %c%c%c%c", 186, 205, 205, 202, 187);
+    cooCurseur(lig + 3, col + 16);
+    printf("%c      %c", 186, 186);
+    cooCurseur(lig + 4, col + 16);
+    printf("%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 188);
+    // Y
+    couleurCurseur(9, 0);
+
+    cooCurseur(lig, col + 24);
+    printf("%c%c%c  %c%c%c", 201, 205, 187, 201, 205, 187);
+    cooCurseur(lig + 1, col + 24);
+    printf("%c %c%c%c%c %c", 186, 200, 205, 205, 188, 186);
+    cooCurseur(lig + 2, col + 24);
+    printf("%c%c%c  %c%c%c", 200, 205, 187, 201, 205, 188);
+    cooCurseur(lig + 3, col + 24);
+    printf("  %c  %c", 186, 186);
+    cooCurseur(lig + 4, col + 24);
+    printf("  %c%c%c%c", 200, 205, 205, 188);
+    // R
+    couleurCurseur(12, 0);
+
+    cooCurseur(lig, col + 32);
+    printf("%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 187);
+    cooCurseur(lig + 1, col + 32);
+    printf("%c      %c", 186, 186);
+    cooCurseur(lig + 2, col + 32);
+    printf("%c   %c%c%c%c", 186, 205, 205, 203, 188);
+    cooCurseur(lig + 3, col + 32);
+    printf("%c %c%c%c %c", 186, 201, 205, 187, 186);
+    cooCurseur(lig + 4, col + 32);
+    printf("%c%c%c %c%c%c", 200, 205, 188, 200, 205, 188);
+    // I
+    couleurCurseur(14, 0);
+
+    cooCurseur(lig, col + 40);
+    printf("%c%c%c%c", 201, 205, 205, 187);
+    cooCurseur(lig + 1, col + 40);
+    printf("%c  %c", 186, 186);
+    cooCurseur(lig + 2, col + 40);
+    printf("%c  %c", 186, 186);
+    cooCurseur(lig + 3, col + 40);
+    printf("%c  %c", 186, 186);
+    cooCurseur(lig + 4, col + 40);
+    printf("%c%c%c%c", 200, 205, 205, 188);
+    // N
+    couleurCurseur(2, 0);
+
+    cooCurseur(lig, col + 44);
+    printf("%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 187, 201, 205, 187);
+    cooCurseur(lig + 1, col + 44);
+    printf("%c   %c%c %c", 186, 186, 186, 186);
+    cooCurseur(lig + 2, col + 44);
+    printf("%c %c%c%c%c %c", 186, 201, 187, 200, 188, 186);
+    cooCurseur(lig + 3, col + 44);
+    printf("%c %c%c   %c", 186, 186, 186, 186);
+    cooCurseur(lig + 4, col + 44);
+    printf("%c%c%c%c%c%c%c%c", 200, 205, 188, 200, 205, 205, 205, 188);
+    // T
+    couleurCurseur(9, 0);
+
+    cooCurseur(lig, col + 52);
+    printf("%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 187);
+    cooCurseur(lig + 1, col + 52);
+    printf("%c%c%c  %c%c%c", 200, 205, 187, 201, 205, 188);
+    cooCurseur(lig + 2, col + 52);
+    printf("  %c  %c", 186, 186);
+    cooCurseur(lig + 3, col + 52);
+    printf("  %c  %c", 186, 186);
+    cooCurseur(lig + 4, col + 52);
+    printf("  %c%c%c%c", 200, 205, 205, 188);
+    // H
+    couleurCurseur(12, 0);
+
+    cooCurseur(lig, col + 60);
+    printf("%c%c%c  %c%c%c", 201, 205, 187, 201, 205, 187);
+    cooCurseur(lig + 1, col + 60);
+    printf("%c %c%c%c%c %c", 186, 200, 205, 205, 188, 186);
+    cooCurseur(lig + 2, col + 60);
+    printf("%c %c%c%c%c %c", 186, 201, 205, 205, 187, 186);
+    cooCurseur(lig + 3, col + 60);
+    printf("%c %c  %c %c", 186, 186, 186, 186);
+    cooCurseur(lig + 4, col + 60);
+    printf("%c%c%c  %c%c%c", 200, 205, 188, 200, 205, 188);
+    // E
+    couleurCurseur(14, 0);
+
+    cooCurseur(lig, col + 68);
+    printf("%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 187);
+    cooCurseur(lig + 1, col + 68);
+    printf("%c  %c%c%c%c%c", 186, 201, 205, 205, 205, 188);
+    cooCurseur(lig + 2, col + 68);
+    printf("%c  %c%c%c", 186, 204, 205, 205);
+    cooCurseur(lig + 3, col + 68);
+    printf("%c  %c%c%c%c%c", 186, 200, 205, 205, 205, 187);
+    cooCurseur(lig + 4, col + 68);
+    printf("%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 188);
+
+    cooCurseur(lig+6, col+1);
+}

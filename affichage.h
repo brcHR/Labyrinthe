@@ -26,6 +26,18 @@ void affichageComplet(t_case plateau[7][7], t_case caseEnPlus, t_pion pions[4], 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * @brief cette procedure affiche un logo "labyrinthe" en couleur
+ * @param lig coordonne du logo
+ * @param col coordonne du logo
+ * @return un logo
+ */
+void afficheLogo(int lig, int col)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/**
  * @brief cette procedure permet d'afficher les cases du labyrinthe
  * @param plateau plateau de jeu
  */
