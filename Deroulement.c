@@ -782,7 +782,6 @@ void Menu(FILE *fichierlog) {
                     printf("Credits :\n"
                            "Projet ECE Labyrinthe Ing 1 2022-2023\n"
                            "Realise par Hirou Briac, Francisco Baptiste, Craplet Aurelien et Vennin Maxime\n"
-                           "Merci a Irib pour son temps et sa pedagogie\n"
                            "\n"
                            "Pour revenir au menu, saisissez 1 : ");
                     fflush(stdin);
