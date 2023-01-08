@@ -490,5 +490,6 @@ void afficheLogo(int lig, int col) {
     cooCurseur(lig + 4, col + 68);
     printf("%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 188);
 
-    cooCurseur(lig+6, col+1);
+    cooCurseur(lig+6, col+5);
+    couleurCurseur(15, 0);
 }

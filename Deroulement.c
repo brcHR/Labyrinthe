@@ -702,12 +702,17 @@ void Menu(FILE *fichierlog) {
     do {
         do {
             afficheLogo(3, 24);
-            printf("Menu : \n"
-                   "1) Nouvelle partie\n"
-                   "2) Afficher les regles\n"
-                   "3) Afficher les credits\n"
-                   "4) Quitter\n"
-                   "Saisissez un chiffre pour naviguer dans le menu : ");
+            printf("Menu : ");
+            cooCurseur(10,29);
+            printf("1) Nouvelle partie");
+            cooCurseur(11, 29);
+            printf("2) Afficher les regles");
+            cooCurseur(12, 29);
+            printf("3) Afficher les credits");
+            cooCurseur(13, 29);
+            printf("4) Quitter");
+            cooCurseur(14, 29);
+            printf("Saisissez un chiffre pour naviguer dans le menu : ");
             fflush(stdin);
             scanf("%d", &choix);
             printf("\n");
